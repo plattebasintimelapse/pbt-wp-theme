@@ -1,0 +1,77 @@
+@import 'nav';
+
+.intro {
+  	color: white;
+  	background-position: center center;
+  	background-size: cover;
+  	background-repeat: no-repeat;
+  	text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+  	height: 700px;
+}
+
+.intro-wrapper {
+	padding: 100px 0;
+}
+
+/***************
+ * Sections
+ * Main building block of page
+ ***************/
+
+ .main-container { margin-top: 100px; }
+
+section .row {
+	padding: 0 100px;
+	margin: 0 auto;
+	max-width: 1200px;
+	@include breakpoint(baby-bear) { padding: 0; }
+}
+
+section.bordered {
+	border-top: 1px solid lightgray;
+	border-bottom: 1px solid lightgray;
+	width: 80%;
+	margin: 100px auto;
+	@include breakpoint(baby-bear) { width: 100%; margin: 50px auto; }
+}
+
+section.full .row {
+	max-width: 100%;
+	width: 100%;
+	padding:0;
+	.col { padding: 0; }
+}
+
+/***************
+ * Rows
+ * Main building block of each section
+ ***************/
+
+.row.split {
+	-webkit-column-count: 2;
+	-moz-column-count: 2;
+	column-count: 2;
+	-webkit-column-gap: 30px;
+	-moz-column-gap: 30px;
+	column-gap: 30px;
+	@include breakpoint(baby-bear) {
+		-webkit-column-count: 1;
+		-moz-column-count: 1;
+		column-count: 1;
+	}
+}
+
+.row.section-meta {
+	padding-bottom: 10px;
+}
+
+.row.section-meta > .col > span {
+	float: right;
+	vertical-align: bottom;
+}
+
+
+#intro {
+	background-image: url(../images/TernFeeding.jpg);
+}
+

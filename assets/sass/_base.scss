@@ -1,0 +1,44 @@
+html { font-size: $base-font-size; }
+
+body {
+  	font-family: $base-font-family;
+  	font-size: 1rem;
+  	color: $base-font-color;
+  	background-color: white;
+}
+
+section {
+	padding-top: 100px;
+	@include breakpoint(baby-bear) { padding-top: 50px;}
+}
+section.last { padding-bottom: 100px; }
+
+h1, h2, h3, h4, h5, h6 {
+	font-family: $header-font-family;
+	line-height: 1;
+	text-transform: uppercase;
+	font-weight: 100;
+	margin-top: 0;
+}
+
+h1 { font-size: 4.8rem; margin-bottom: 2rem; padding-bottom: 2rem; border-bottom: $borders-over-image; }
+
+h2 { font-size: 3.8rem; }
+
+h3 { font-size: 3rem; margin-bottom: 20px; }
+
+h4 { font-size: 2.2rem; }
+
+h5 { font-size: 2rem; margin-top: 60px; }
+
+h6 { font-size: 1.6rem; }
+
+p { font-size: 1.2rem; }
+
+a { color: $base-font-color; &:hover { color: $blue; text-decoration: none; } }
+
+img { width: 100%; height: auto; }
+
+
+.full .caption { padding-left: 25px; }
+.caption { padding-top: 4px; font-size: .9rem; }

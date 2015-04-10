@@ -1,0 +1,139 @@
+/***************
+ * Ghost Badge Group
+ * Wrap spans in class to display in button like badges
+ ***************/
+.ghost-badge-group span {
+	background-color: transparent;
+	padding: 6px 10px;
+	border: $borders-over-image;
+	border-radius: 4px;
+	font-size: .8em;
+	margin: 2px;
+}
+
+
+/***************
+ * Ribbon Title
+ * Used above or below section titles to further separate content
+ ***************/
+.ribbon {
+	text-align: center;
+	margin-top: 20px;
+	margin-bottom: 30px;
+	overflow:hidden;
+	h3 { display: inline; }
+}
+.ribbon:before {
+	right: 20px;
+	margin-left: -50%;
+}
+.ribbon:after {
+	left: 20px;
+ 	margin-right: -50%;
+}
+.ribbon:before, .ribbon:after {
+	display: inline-block;
+	position: relative;
+	margin-top: -14px;
+	vertical-align: middle;
+	height: 1px;
+	width: 50%;
+	background-color: #bbb;
+	content: "";
+}
+
+/***************
+ * Profile of Subject
+ * Used to demonstrate
+ ***************/
+
+
+ /***************
+ * Comment Buttons
+ * Using collapse feature to show or hide comments
+ ***************/
+ .comments-btn {
+ 	float: right;
+ }
+
+
+/***************
+ * Carousel
+ * Overrides Bootstrap theming
+ ***************/
+
+.carousel-caption {
+	position: relative;
+	left: 0;
+	right: 0;
+	margin-top: 30px;
+	color: $base-font-color;
+	text-shadow: none;
+	min-height: 150px;
+}
+
+.carousel-control.right, .carousel-control.left {
+	background-image: none;
+}
+
+.carousel-control .glyphicon-chevron-left, .carousel-control .glyphicon-chevron-right, .carousel-control .icon-prev, .carousel-control .icon-next {
+	font-size: 5em;
+}
+
+.carousel-indicators li {
+	border: 1px solid $base-font-color;
+}
+
+/***************
+ * Primary Buttons
+ * Button used throughout the site, modified from Bootstrap
+ ***************/
+ .btn {
+	display: inline-block;
+	margin-bottom: 0;
+	font-weight: normal;
+	text-align: center;
+	vertical-align: middle;
+	cursor: pointer;
+	background-image: none;
+	border: 1px solid transparent;
+	white-space: nowrap;
+	padding: 4px 6px;
+	font-size: 12px;
+	line-height: 1.42857;
+	border-radius: 4px;
+}
+
+.btn-primary {
+  	color: white;
+  	background-color: $base-font-color;
+}
+
+.btn-icon {
+  	color: $base-font-color;
+  	background-color: transparent;
+}
+
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open > .btn-primary.dropdown-toggle {
+  	color: #fff;
+  	background-color: $blue;
+  	border-color: $blue;
+}
+
+.btn-icon:hover, .btn-icon:focus, .btn-icon:active, .btn-icon.active, .open > .btn-icon.dropdown-toggle {
+  	color: #fff;
+  	background-color: $blue;
+  	border-color: $blue;
+}
+
+.btn-primary[data-toggle="collapse"] {
+	&.collapsed {
+		color: $base-font-color;
+  		background-color: transparent;
+	}
+	&.btn-primary:hover, &.btn-primary:focus, &.btn-primary:active, &.btn-primary.active, &.open > .btn-primary.dropdown-toggle {
+	  	color: #fff;
+	  	background-color: $blue;
+	  	border-color: $blue;
+	}
+}
