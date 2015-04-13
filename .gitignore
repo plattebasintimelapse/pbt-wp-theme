@@ -1,4 +1,9 @@
 .sass-cache
 .tmp
+**/.*
+
+test
+tests
 
 node_modules
+bower_components
