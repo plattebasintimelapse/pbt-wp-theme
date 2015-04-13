@@ -71,7 +71,11 @@ section.full .row {
 }
 
 
-#intro {
-	background-image: url(../images/TernFeeding.jpg);
+.hero-image {
+	padding: 0;
+	color: white;
+	text-shadow: $text-shadow-over-image;
+	position: relative;
 }
+
 

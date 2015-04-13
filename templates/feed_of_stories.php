@@ -1,13 +1,13 @@
 <?php
 /**
  * Template Name: Story Feed
- *
- * This is the template that displays all stories curently published.
+ * Description: This is the template that displays all stories curently published.
+ * It excludes the post featured on the story page.
  */
 
 get_header(); ?>
 
-<div class="container-fluid">
+<div class="container-fluid hero-image">
 
 	<?php
 		$story_page_featured_query_args = array(
@@ -24,8 +24,12 @@ get_header(); ?>
 
 	?>
 
-		<div id="post-<?php the_ID(); ?>" <?php post_class('col-sm-6'); ?>>
-			<a href="<?php the_permalink() ?>"><?php the_title(); ?></a>
+		<div id="post-<?php the_ID(); ?>" <?php post_class('cl-xs-12'); ?>>
+			
+			<a href="<?php the_permalink() ?>">
+				<?php the_post_thumbnail(); ?>
+				<?php the_title(); ?> <h2>Read More</h2>
+			</a>
 		</div><!-- #post-## -->
 
 	<?php
@@ -51,7 +55,7 @@ get_header(); ?>
 
 		<div id="post-<?php the_ID(); ?>" <?php post_class('col-sm-6'); ?>>
 
-			<a href="<?php the_permalink() ?>"><?php the_title(); ?></a>
+			<a href="<?php the_permalink() ?>"><?php the_post_thumbnail(); ?><?php the_title(); ?></a>
 
 		</div><!-- #post-## -->
 

@@ -19,15 +19,15 @@
 
 <body <?php body_class(); ?> >
 
-	<nav class="navbar navbar-default">
+	<nav class="navbar navbar-defalt navbar-fixed-top">
   		<div class="container-fluid">
     		<div class="navbar-header">
-      			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+    			
+      			<button type="button" class="pull-right">
 			        <span class="sr-only">Toggle navigation</span>
-			        <span class="icon-bar"></span>
-			        <span class="icon-bar"></span>
-			        <span class="icon-bar"></span>
+			        <i class="fa fa-bars fa-2x"></i>
       			</button>
+
 				<a class="navbar-brand" href="<?php echo home_url(); ?>"><img src="<?php bloginfo( 'stylesheet_directory' ); ?>/assets/img/logo.png" alt=""></a>
     		</div>
 

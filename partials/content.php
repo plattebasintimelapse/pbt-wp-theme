@@ -14,7 +14,7 @@
 	<aside class="social-media"></aside>
 
 	<section class="container">
-		<?php the_author(); ?>
+		<h4>By <?php the_author(); ?></h4>		
 		<?php the_content(); ?>
 	</section>
 

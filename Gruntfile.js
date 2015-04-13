@@ -43,9 +43,9 @@ module.exports = function(grunt) {
                 },
                 files: {
                     'assets/js/main.min.js': [
-                        '<%= config.assets %>/js/main.js',
                         '<%= config.assets %>/js/lib/jquery-2.1.3.min.js',
-                        '<%= config.assets %>/js/lib/bootstrap.js'
+                        '<%= config.assets %>/js/lib/bootstrap.js',
+                        '<%= config.assets %>/js/main.js'
                     ]
                 }
             }

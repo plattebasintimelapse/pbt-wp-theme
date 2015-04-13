@@ -6,9 +6,9 @@
 get_header(); ?>
 
 	<div class="container-fluid hero-image">
-		<img style="width:100%;" src="<?php bloginfo( 'stylesheet_directory' ); ?>/assets/img/home-page-feature.jpg" alt="">
-		<h1 style="position: absolute; right: 50px; top: 50%;"><?php bloginfo( 'name' ); ?></h1>
-		<h2 style="position: absolute; right: 50px; top: 60%;"><?php bloginfo( 'description' ); ?></h2>
+		<img src="<?php header_image(); ?>" alt="" />
+		<h1 style="position: absolute; right: 50px; top: 20%;"><?php bloginfo( 'name' ); ?></h1>
+		<h2 style="position: absolute; right: 50px; top: 30%;"><?php bloginfo( 'description' ); ?></h2>
 	</div>
 
 	<div class="container">
