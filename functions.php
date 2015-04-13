@@ -48,7 +48,7 @@ add_action( 'after_setup_theme', 'pbt_setup' );
  * The main.min.js file is generated in the local Gruntfile.js after uglification and concatenation.
  */
 function pbt_scripts() {
-	wp_enqueue_script( 'main-scripts', get_template_directory_uri() . '/assets/js/main.min.js', array(), '1.0.0', true);
+	wp_enqueue_script( 'main-scripts', get_template_directory_uri() . '/assets/scripts/main.min.js', array(), '1.0.0', true);
 }
 
 add_action( 'wp_enqueue_scripts', 'pbt_scripts' );

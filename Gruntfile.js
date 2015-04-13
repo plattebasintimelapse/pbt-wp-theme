@@ -23,12 +23,12 @@ module.exports = function(grunt) {
         sass: {
             options: {
                 sourcemap: 'none',
-                style: 'compressed'
+                style: 'compact'
             },
             dist: {
                 files: [{
                     expand: true,
-                    cwd: '<%= config.assets %>/sass',
+                    cwd: '<%= config.assets %>/stylesheets',
                     src: ['*.scss'],
                     dest: '',
                     ext: '.css'
@@ -42,10 +42,10 @@ module.exports = function(grunt) {
                         '<%= grunt.template.today("yyyy-mm-dd") %> */'
                 },
                 files: {
-                    'assets/js/main.min.js': [
-                        '<%= config.assets %>/js/lib/jquery-2.1.3.min.js',
-                        '<%= config.assets %>/js/lib/bootstrap.js',
-                        '<%= config.assets %>/js/main.js'
+                    'assets/scripts/main.min.js': [
+                        'bower_components/jquery/dist/jquery.js',
+                        'bower_components/bootstrap-sass-official/assets/javascripts/bootstrap.js',
+                        '<%= config.assets %>/scripts/main.js'
                     ]
                 }
             }
