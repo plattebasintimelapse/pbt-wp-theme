@@ -51,7 +51,7 @@ get_header(); ?>
 
 									<div class="story-info-box">
 										<h5 class="post-category"><?php the_category( ' - ' ) ?></h5>
-										<h3 class="post-title"><?php the_title(); ?></h3>
+										<a href="<?php the_permalink() ?>"><h3 class="post-title"><?php the_title(); ?></h3></a>
 									</div>
 
 								</a>

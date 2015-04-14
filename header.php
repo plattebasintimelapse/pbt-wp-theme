@@ -10,7 +10,7 @@
 	<meta charset="<?php bloginfo( 'charset' ); ?>" />
 	<meta name="viewport" content="width=device-width" />
 
-	<title> <?php bloginfo( 'name' ); ?> </title>
+	<title> <?php wp_title( '| PBT', true, 'right' ); ?> </title>
 
 	<link rel="stylesheet" href="<?php bloginfo( 'stylesheet_url' ); ?>">
 
