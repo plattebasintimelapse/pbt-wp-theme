@@ -23,28 +23,31 @@
 
 <body <?php body_class(); ?> >
 
-	<nav class="navbar navbar-defalt navbar-fixed-top">
-  		<div class="container-fluid">
-    		<div class="navbar-header">
+	<nav class="collapse" role="navigation" id="navbarCollapse">
+		<div class="container-fluid">
+				<?php wp_nav_menu( array(
+					'theme_location' => 'primary',
+					'depth'             => 2,
+		            'container'         => 'div',
+		            'menu_class'        => 'nav navbar-nav navbar-left'
+				) ); ?>
 
-      			<!-- <button type="button" class="pull-right">
-			        <span class="sr-only">Toggle navigation</span>
-			        <i class="fa fa-bars fa-2x"></i>
-      			</button> -->
+				<div class="nav navbar-nav navbar-right">
+					<ul>
+						<li>
+							<a target="_blank" href="http://www.facebook.com/plattebasin">
+								<i class="fa fa-facebook fa-lg"></i>
+							</a>
+						</li>
+						<li>
+							<a target="_blank" href="http://www.instagram.com/plattebasin">
+								<i class="fa fa-instagram fa-lg"></i>
+							</a>
+						</li>
 
-				<a class="navbar-brand" href="<?php echo home_url(); ?>"><img src="<?php bloginfo( 'stylesheet_directory' ); ?>/assets/img/logo.png" alt=""></a>
-    		</div>
-
-  			<?php wp_nav_menu( array(
-				'theme_location' => 'primary',
-				'depth'             => 2,
-	            'container'         => 'div',
-	            'container_class'   => 'collapse navbar-collapse',
-	    		'container_id'      => 'bs-example-navbar-collapse-1',
-	            'menu_class'        => 'nav navbar-nav navbar-right'
-			) ); ?>
-
-			<?php /** wp_nav_menu( array( 'theme_location' => 'secondary') ); */ ?>
-
-  		</div><!-- /.container-fluid -->
+					</ul>
+				</div>
+		</div>
 	</nav>
+
+	

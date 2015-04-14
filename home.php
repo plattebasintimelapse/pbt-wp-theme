@@ -7,6 +7,21 @@ get_header(); ?>
 
 	<section class="featured hero-image">
 		<div class="container-fluid">
+
+			<header class="navbar">
+		  		<div class="container-fluid">
+		    		<div class="navbar-header">
+						<a class="navbar-brand" href="<?php echo home_url(); ?>"><img src="<?php bloginfo( 'stylesheet_directory' ); ?>/assets/img/logo.png" alt=""></a>
+		    		</div>
+
+		  			<a class="btn btn-prim pull-right" data-toggle="collapse" href="#navbarCollapse" aria-expanded="false" aria-controls="navbarCollapse">
+						<span class="sr-only">Toggle navigation</span>
+				    	<i class="fa fa-bars fa-2x"></i>
+					</a>
+
+		  		</div>
+			</header>
+
 			<img src="<?php header_image(); ?>" alt="" />
 
 			<div class="featured-story-info-box">
@@ -21,8 +36,10 @@ get_header(); ?>
 		<div class="container">
 			<div class="row">
 				<div class="col-xs-12">
+
 					<h4>The Platte River is a major watershed in the heart of the Great Plains. The Platte waters crops and cattle, hosts resident and migrant wildlife, delights fisherman and boaters, fuels power generators and supplies thirsty cities.</h4>
 					<h3>These are stories of our most precious resource: water</h3>
+
 				</div>
 			</div>
 		</div>
