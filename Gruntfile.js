@@ -49,11 +49,26 @@ module.exports = function(grunt) {
                     ]
                 }
             }
+        },
+        copy: {
+            dist: {
+                files: [{
+                    expand: true,
+                    dot: true,
+                    flatten: true,
+                    cwd: '.',
+                    dest: '<%= config.assets %>/fonts',
+                    src: [
+                        'bower_components/font-awesome/fonts/{,*/}*.*'
+                    ]
+                }]
+            }
         }
     });
 
     grunt.loadNpmTasks('grunt-contrib-sass');
     grunt.loadNpmTasks('grunt-contrib-uglify');
+    grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-contrib-watch');
 
     grunt.registerTask('default', [

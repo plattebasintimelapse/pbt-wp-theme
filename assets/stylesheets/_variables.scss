@@ -1,17 +1,144 @@
+//
+// The PBT theme depends heavily upon Twitter's Bootstrap.
+// This variable styelsheet is meant to provides a place to override much
+// of the functionality in the Bootstrap _variables.scss sheet.
+//
+// You must run the SASS precompile with 'grunt build' in order
+// to generate the theme's stylesheet.
 
-// Fonts
-$base-font-family: 'Proxima Nova', sans-serif;
-$header-font-family: 'Proxima Nova', sans-serif;
-// $header-font-family: "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
 
-$base-font-size: 14px;
 
-$base-font-color: #494949;
+//
+// Variables
+// --------------------------------------------------
 
-$black: rgba(28,16,6,.9);
-$blue: #6aaac3;
-$blue-dark: #5199AF;
+
+
+//== Colors
+//
+//## Gray and brand colors for use across Bootstrap.
+
+$gray-base:              #000;
+$gray-darker:            lighten($gray-base, 13%);
+$gray-dark:              lighten($gray-base, 20%);
+$gray:                   lighten($gray-base, 33%);
+$gray-light:             lighten($gray-base, 46%);
+$gray-lighter:           lighten($gray-base, 98%);
+
+
+
+$brand-primary:         #6aaac3;
+$blue:					#6aaac3;
+$brand-success:         #5cb85c;
+$brand-info:            #5bc0de;
+$brand-warning:         #f0ad4e;
+$brand-danger:          #d9534f;
+
+
+
+//== Scaffolding
+//
+//## Settings for some of the most global styles.
+
+//** Background color for `<body>`.
+$body-bg:               #fff;
+//** Global text color on `<body>`.
+$text-color:            $gray-dark;
+
+//** Global textual link color.
+$link-color:            $brand-primary;
+//** Link hover color set via `darken()` function.
+$link-hover-color:      darken($link-color, 15%);
+//** Link hover decoration.
+$link-hover-decoration: none;
+
+
+
+
+
+//== Typography
+//
+//## Font, line-height, and color for body text, headings, and more.
+
+$font-family-sans-serif:  "Proxima Nova", "Helvetica Neue", Helvetica, Arial, sans-serif;
+$font-family-serif:       Georgia, "Times New Roman", Times, serif;
+$font-family-base:        $font-family-sans-serif;
+
+//** Font Awesome file directory
+$fa-font-path:        	  "assets/fonts";
+
+$font-size-base:          22px;
+$font-size-large:         ceil(($font-size-base * 1.25));
+$font-size-small:         ceil(($font-size-base * 0.85));
+
+$font-size-h1:            floor(($font-size-base * 4.6));
+$font-size-h2:            floor(($font-size-base * 3.15));
+$font-size-h3:            ceil(($font-size-base * 2));
+$font-size-h4:            ceil(($font-size-base * 1.4));
+$font-size-h5:            $font-size-base;
+$font-size-h6:            ceil(($font-size-base * 0.85));
+
+//** Unit-less `line-height` for use in components like buttons.
+$line-height-base:        1.428571429; // 20/14
+//** Computed "line-height" (`font-size` * `line-height`) for use with `margin`, `padding`, etc.
+$line-height-computed:    floor(($font-size-base * $line-height-base)); // ~20px
+
+
+
+
+
+//== Container sizes
+//
+//## Define the maximum width of `.container` for different screen sizes.
+$grid-gutter-width:         30px;
+// Small screen / tablet
+$container-tablet:             (580px + $grid-gutter-width);
+//** For `$screen-sm-min` and up.
+$container-sm:                 $container-tablet;
+
+// Medium screen / desktop
+$container-desktop:            (860px + $grid-gutter-width);
+//** For `$screen-md-min` and up.
+$container-md:                 $container-desktop;
+
+// Large screen / wide desktop
+$container-large-desktop:      (1070px + $grid-gutter-width);
+//** For `$screen-lg-min` and up.
+$container-lg:                 $container-large-desktop;
+
+
+//== Buttons
+//
+//## For each of Bootstrap's buttons, define text, background and border color.
+
+$btn-font-weight:                normal;
+
+$btn-default-color:              #333;
+$btn-default-bg:                 #fff;
+$btn-default-border:             #ccc;
+
+$btn-primary-color:              #fff;
+$btn-primary-bg:                 $brand-primary;
+$btn-primary-border:             darken($btn-primary-bg, 1%);
+
+// $btn-success-color:              #fff;
+// $btn-success-bg:                 $brand-success;
+// $btn-success-border:             darken($btn-success-bg, 5%);
+
+// $btn-info-color:                 #fff;
+// $btn-info-bg:                    $brand-info;
+// $btn-info-border:                darken($btn-info-bg, 5%);
+
+// $btn-warning-color:              #fff;
+// $btn-warning-bg:                 $brand-warning;
+// $btn-warning-border:             darken($btn-warning-bg, 5%);
+
+// $btn-danger-color:               #fff;
+// $btn-danger-bg:                  $brand-danger;
+// $btn-danger-border:              darken($btn-danger-bg, 5%);
+
+// $btn-link-disabled-color:        $gray-light;
 
 $borders-over-image: 1px solid white;
 
-$text-shadow-over-image: 2px 2px 2px black;
+$text-shadow-over-image: 1px 1px 7px rgb(0, 0, 0);

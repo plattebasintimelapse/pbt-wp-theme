@@ -4,18 +4,13 @@
  */
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+	<article id="post-<?php the_ID(); ?>" <?php post_class('main'); ?> role="main">
 
-	<section class="hero-image container-fluid">
-		<?php the_post_thumbnail(); ?>
-		<?php the_title(); ?>
-	</section>
+		<section class="container">
+			<h5 class="story-byline">By <?php the_author_posts_link(); ?></h5>
+			<?php the_content(); ?>
+		</section>
 
-	<aside class="social-media"></aside>
+		<aside class="social-media"></aside>
 
-	<section class="container">
-		<h4>By <?php the_author(); ?></h4>		
-		<?php the_content(); ?>
-	</section>
-
-</article>
+	</article>

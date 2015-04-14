@@ -9,9 +9,8 @@ nav.navbar {
 	ul { list-style-type: none; padding: 0; margin: 0; }
 	li { display: inline; padding: 10px; }
 	a {
-		color: rgba(255,255,255,.8);
-		font-size: 1.2em;
-		text-shadow: none !important;
+		color: rgba(255,255,255,1);
+		text-shadow: $text-shadow-over-image;
 		&:hover { color: $blue; }
 	}
 }

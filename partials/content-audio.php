@@ -4,22 +4,17 @@
  */
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+	<article id="post-<?php the_ID(); ?>" <?php post_class('main'); ?> role="main">
 
-	<section class="hero-image container-fluid">
-		<?php the_post_thumbnail(); ?>
-		<?php the_title(); ?>
-	</section>
+		<section class="container">
+			<h4>By <?php the_author(); ?></h4>
+			<?php the_content(); ?>
+		</section>
 
-	<aside class="social-media"></aside>
+		<aside class="social-media"></aside>
 
-	<section class="container">
-		<?php the_author(); ?>
-		<?php the_content(); ?>
-	</section>
+		<section class="audio-container">
+			<h1>Audio Player</h1>
+		</section>
 
-	<section class="audio-container">
-		<h1>Audio Player</h1>
-	</section>
-
-</article>
+	</article>

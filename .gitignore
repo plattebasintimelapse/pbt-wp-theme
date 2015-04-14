@@ -2,8 +2,10 @@
 .tmp
 **/.*
 
-test
-tests
+test/
+tests/
 
-node_modules
-bower_components
+node_modules/
+bower_components/
+
+assets/fonts/

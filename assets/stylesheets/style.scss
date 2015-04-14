@@ -7,12 +7,14 @@ Description: The Theme for the Platte Basin Timelapse project.
 Version: 0.0.1
 */
 
+@import 'variables';
+@import 'mixins';
 
 @import "../../bower_components/bootstrap-sass-official/assets/stylesheets/_bootstrap.scss";
 @import "../../bower_components/font-awesome/scss/font-awesome.scss";
 
 @import 'media-queries';
-@import 'variables';
+
 
 @import 'base';
 @import 'layout';

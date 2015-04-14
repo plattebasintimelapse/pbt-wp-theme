@@ -21,6 +21,16 @@ function pbt_setup() {
 	add_theme_support( 'post-thumbnails' );
 
 	/**
+	 * Add image sizes to be used in theme
+	 */
+	update_option( 'thumbnail_size_w', 400, true );
+	update_option( 'thumbnail_size_h', 200, true );
+	update_option( 'large_size_w', 1200, true );
+	update_option( 'large_size_h', 500, true );
+
+	add_image_size( 'pano-header', 1200, 400, true );
+
+	/**
 	 * Enable support for Custom Headers
 	 */
 	add_theme_support( 'custom-header' );
