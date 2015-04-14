@@ -54,7 +54,8 @@
 	left: 100px;
 	@include text-over-image();
 
-	h2 { border-bottom: 2px solid $gray-lighter; }
+	h2 { display: inline-block; }
+	p { border-top: 2px solid $gray-lighter; padding-top: 8px; }
 }
 
 .featured-image-caption {
