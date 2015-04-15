@@ -83,6 +83,18 @@
 	a { color: $text-color; &:hover { color: $brand-primary; } }
 }
 
+.user {
+	text-align: center;
+}
+
+.author-link {
+  display: inline-block;
+  padding-right: 0px;
+  padding-bottom: 0px;
+  margin-top: 10px;
+}
+
+
 footer {
 	background-color: #393939;
 }
