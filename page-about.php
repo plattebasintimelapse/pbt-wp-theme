@@ -6,6 +6,8 @@
 
 get_header(); ?>
 
+	<?php while ( have_posts() ) : the_post(); ?>
+
 	<section class="featured hero-image">
 		<div class="container-fluid">
 
@@ -18,7 +20,10 @@ get_header(); ?>
 	<section class="main" role="main">
 		<div class="container">
 
-			<div class="feed-team"><h1>Meet the PBT Team</h1>
+			<?php the_content(); ?>
+
+			<div class="feed-team">
+				<h2>Meet the PBT Team</h2>
 				<?php
 					$author_args = array(
 						// 'role' => 'Administrator',
@@ -33,16 +38,17 @@ get_header(); ?>
 
 						foreach ( $user_query->results as $user ) { ?>
 
-							<?php if($i) { ?> <div class="row"> <!--.row --> <?php }
-							$i = !$i; ?>
+							<?php if($i) { ?> <div class="row"> <!--.row --> <?php } $i = !$i; ?>
 
 							<div class="col-sm-6 user user-<?php echo $user->ID ?>">
 								<h4><?php echo $user->display_name ?><small> <?php echo $user->user_pbt_role ?></small></h4>
 
-								<?php
-									$userID = $user->ID;
-									echo get_avatar( $userID );
-								?>
+								<div style="padding: 100px; border-radius: 400px;">
+									<?php
+										$userID = $user->ID;
+										echo get_avatar( $userID );
+									?>
+								</div>
 
 								<div class="author-links">
 
@@ -67,7 +73,7 @@ get_header(); ?>
 									<?php } ?>
 
 									<?php if( $user->user_email !== '' ) { ?>
-										<div class="author-link"><a href="mailto:<?php echo $user->user_email ?>"><i class="fa fa-envelope-o"></i> <span><?php echo $user->user_email ?></span></a></div>
+										<div class="author-link"><a href="mailto:<?php echo $user->user_email ?>"><i class="fa fa-envelope-o"></i> <small><?php echo $user->user_email ?></small></a></div>
 									<?php } ?>
 
 								</div>
@@ -91,7 +97,7 @@ get_header(); ?>
 				?>
 			</div>
 
-			<h1>Partners</h1>
+			<h2>Partners</h2>
 			<?php
 				$project_credits_query_args = array(
 					'post_type' 	=> 'project_credit',
@@ -105,9 +111,9 @@ get_header(); ?>
 				if ( $the_query->have_posts() ) : while ( $the_query->have_posts() ) : $the_query->the_post();
 			?>
 
-			<div id="post-<?php the_ID(); ?>" <?php post_class('col-xs-6 col-sm-3'); ?>>
+			<div id="post-<?php the_ID(); ?>" <?php post_class('col-xs-2 col-sm-2'); ?>>
 
-				<div class="">
+				<div class="panl">
 					<a target="_blank" href="<?php the_field( 'credit_url' ) ?>">
 						<?php the_post_thumbnail( ); ?>
 					</a>
@@ -119,5 +125,7 @@ get_header(); ?>
 
 		</div>
 	</section>
+
+	<?php endwhile; ?>
 
 <?php get_footer(); ?>

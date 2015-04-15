@@ -21,6 +21,13 @@
 	}
 }
 
+.main h2 {
+	margin-bottom: 30px;
+	text-align: center;
+	margin-top: 100px;
+}
+
+
 .story-thumbnail {
 	position: relative;
 
@@ -47,6 +54,9 @@
 	@include text-over-image();
 }
 
+.home .featured-story-info-box {
+	top: 30%;
+}
 .featured-story-info-box {
 	position: absolute;
 	width: 80%;
@@ -85,6 +95,7 @@
 
 .user {
 	text-align: center;
+	margin-bottom: 30px;
 }
 
 .author-link {
