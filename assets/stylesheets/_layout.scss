@@ -86,6 +86,15 @@
 	padding-top: 30px;
 }
 
+.main-widgeted-text {
+	text-align: center;
+	margin-bottom: 100px;
+}
+
+.underlined { padding-bottom: 20px; border-bottom: 1px solid; }
+
+.underlined-dark { border-color: $gray-darker; }
+
 .story-byline {
 	font-weight: 700;
 	text-align: center;
