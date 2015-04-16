@@ -29,14 +29,15 @@ get_header(); ?>
 		<div class="container">
 			<div class="row">
 					<?php
-						$story_page_query_args = array(
+						$home_page_featured_query_args = array(
 							'post_type' => 'post',
-							'orderby' => 'title',
-							'order'   => 'ASC',
+							'orderby' => 'date',
+							'meta_key'=> 'featured_post_home_page',
+							'meta_value' => true,
 							'posts_per_page' => 1,
 						);
 
-						$the_query = new WP_Query( $story_page_query_args );
+						$the_query = new WP_Query( $home_page_featured_query_args );
 						if ( $the_query->have_posts() ) : while ( $the_query->have_posts() ) : $the_query->the_post();
 
 					?>
@@ -69,14 +70,15 @@ get_header(); ?>
 			<div class="row row-padding">
 
 				<?php
-					$story_page_query_args = array(
+					$home_page_feed_query_args = array(
 						'post_type' => 'post',
-						'orderby' => 'title',
-						'order'   => 'ASC',
+						'orderby' => 'date',
+						'meta_key'=> 'home_page_feed',
+						'meta_value' => true,
 						'posts_per_page' => 2,
 					);
 
-					$the_query = new WP_Query( $story_page_query_args );
+					$the_query = new WP_Query( $home_page_feed_query_args );
 					if ( $the_query->have_posts() ) : while ( $the_query->have_posts() ) : $the_query->the_post();
 
 				?>

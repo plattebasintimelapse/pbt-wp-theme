@@ -60,8 +60,8 @@ function pbt_setup() {
 		'class'         => '',
 		'before_widget' => '<div class="main-widgeted-text">',
 		'after_widget' 	=> '</div>',
-		'before_title' 	=> '<h4 class="underlined underlined-dark">',
-		'after_title' 	=> '</h4>'
+		'before_title' 	=> '<p class="underlined underlined-dark font-size-large">',
+		'after_title' 	=> '</p>'
 	) );
 }
 endif;

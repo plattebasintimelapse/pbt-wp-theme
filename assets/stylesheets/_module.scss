@@ -1,3 +1,7 @@
+// These modules override the default Bootstrap modules.
+// You may need to bring in additional styles from the Bootstrap
+// stylesheets to continue modifying.
+
 .well {
 	border: none;
 	background-color: transparent;
@@ -6,6 +10,8 @@
 }
 
 .small { color: $gray-darker !important; }
+
+
 
 .ribbon-wrapper-featured {
 	width: 85px;
