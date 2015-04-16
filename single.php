@@ -19,7 +19,17 @@ get_header(); ?>
 			</div>
 		</section>
 
-		<?php get_template_part( 'partials/content', get_post_format() ); ?>
+		<article id="post-<?php the_ID(); ?>" <?php post_class('main'); ?> role="main">
+
+			<div class="container">
+
+				<?php get_template_part( 'partials/content', get_post_format() ); ?>
+
+				<?php edit_post_link('edit', '<p class="edit-post-link">', '</p>'); ?>
+
+			</div>
+
+		</article>
 
 	<?php endwhile; // end of the loop. ?>
 

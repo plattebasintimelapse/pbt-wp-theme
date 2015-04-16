@@ -33,7 +33,7 @@
 
 	&:hover {
 		opacity: .9;
-		a h3 { color: $gray-lighter; }
+		a .post-title, a .post-description { color: $gray-lighter; }
 	}
 }
 
@@ -52,6 +52,16 @@
 	}
 
 	@include text-over-image();
+}
+
+.featured-story .story-info-box {
+	width: 70%;
+	margin-left: -35%;
+	top: 15%;
+}
+
+.post-description {
+	text-transform: none;
 }
 
 .home .featured-story-info-box {
@@ -112,6 +122,12 @@
   padding-right: 0px;
   padding-bottom: 0px;
   margin-top: 10px;
+}
+
+.edit-post-link {
+	text-align: center;
+	font-size: .7em;
+	margin-top: 100px;
 }
 
 

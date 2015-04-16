@@ -4,13 +4,9 @@
  */
 ?>
 
-	<article id="post-<?php the_ID(); ?>" <?php post_class('main'); ?> role="main">
 
-		<section class="container">
-			<h5 class="story-byline">By <?php the_author_posts_link(); ?></h5>
-			<?php the_content(); ?>
-		</section>
+	<h5 class="story-byline">By <?php the_author_posts_link(); ?></h5>
 
-		<aside class="social-media"></aside>
+	<?php the_content(); ?>
 
-	</article>
+	<aside class="social-media"></aside>

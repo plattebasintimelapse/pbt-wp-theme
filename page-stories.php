@@ -35,7 +35,7 @@ get_header(); ?>
 
 					<h5>Featured Story</h5>
 					<a href="<?php the_permalink() ?>"><h2><?php the_title(); ?></h2></a>
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure molestias commodi delectus, sequi natus autem odit a libero expedita, eius iusto accusamus? Dolorum repellendus earum rem autem quo nulla at!</p>
+					<?php the_excerpt(); ?>
 					<a href="<?php the_permalink() ?>"><h6>Read More</h6></a>
 
 				</div>

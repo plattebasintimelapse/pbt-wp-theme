@@ -42,7 +42,7 @@ get_header(); ?>
 
 					?>
 
-						<div id="post-<?php the_ID(); ?>" <?php post_class('col-xs-12 col-sm-12'); ?>>
+						<div id="post-<?php the_ID(); ?>" <?php post_class('col-xs-12 col-sm-12 featured-story'); ?>>
 
 							<div class="story-thumbnail">
 								<a href="<?php the_permalink() ?>">
@@ -50,7 +50,9 @@ get_header(); ?>
 
 									<div class="story-info-box">
 										<h5 class="post-category"><?php the_category( ' - ' ) ?></h5>
-										<a href="<?php the_permalink() ?>"><h3 class="post-title"><?php the_title(); ?></h3></a>
+										<a href="<?php the_permalink() ?>">
+											<h3 class="post-title"><?php the_title(); ?></h3>
+										</a>
 									</div>
 
 									<div class="ribbon-wrapper-featured">
