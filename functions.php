@@ -49,6 +49,20 @@ function pbt_setup() {
 	 * Enable support for Post Formats
 	 */
 	add_theme_support( 'post-formats', array( 'audio' ) );
+
+	/**
+	 * Register widgets
+	 */
+	register_sidebar( array(
+		'name' 			=> 'PBT Homepage Sidebar',
+		'description' 	=> 'A widget area on the homepage',
+		'id' 			=> 'pbt-home-main',
+		'class'         => '',
+		'before_widget' => '<div class="main-widgeted-text">',
+		'after_widget' 	=> '</div>',
+		'before_title' 	=> '<h4 class="underlined underlined-dark">',
+		'after_title' 	=> '</h4>'
+	) );
 }
 endif;
 add_action( 'after_setup_theme', 'pbt_setup' );
@@ -66,6 +80,20 @@ function pbt_scripts() {
 
 add_action( 'wp_enqueue_scripts', 'pbt_scripts' );
 
+/**
+ * Load typekit stylesheet stuff
+ */
+function pbt_typekit() { ?>
+	<script type="text/javascript" src="//use.typekit.net/dlv3qjg.js"></script>
+	<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+<?php
+}
+add_action( 'wp_head', 'pbt_typekit' );
+
+
+/**
+ * Hack the title tag to show Home when at site.
+ */
 add_filter( 'wp_title', 'baw_hack_wp_title_for_home' );
 function baw_hack_wp_title_for_home( $title )
 {
@@ -95,8 +123,7 @@ add_filter('user_contactmethods', 'pbt_modify_contact_methods');
 add_action( 'show_user_profile', 'add_extra_social_links' );
 add_action( 'edit_user_profile', 'add_extra_social_links' );
 
-function add_extra_social_links( $user )
-{
+function add_extra_social_links( $user ) {
     ?>
         <h3>User Role</h3>
 
@@ -112,8 +139,7 @@ function add_extra_social_links( $user )
 add_action( 'personal_options_update', 'save_extra_social_links' );
 add_action( 'edit_user_profile_update', 'save_extra_social_links' );
 
-function save_extra_social_links( $user_id )
-{
+function save_extra_social_links( $user_id ) {
     update_user_meta( $user_id,'user_pbt_role', sanitize_text_field( $_POST['user_pbt_role'] ) );
 }
 
@@ -121,7 +147,7 @@ function save_extra_social_links( $user_id )
 /**
  * Change default WP Post to be called Stories, rather than making a Custom Post Type
  */
-function revcon_change_post_label() {
+function pbt_change_post_label() {
     global $menu;
     global $submenu;
     $menu[5][0] = 'Stories';
@@ -130,7 +156,7 @@ function revcon_change_post_label() {
     $submenu['edit.php'][16][0] = 'Story Tags';
     echo '';
 }
-function revcon_change_post_object() {
+function pbt_change_post_object() {
     global $wp_post_types;
     $labels = &$wp_post_types['post']->labels;
     $labels->name = 'Stories';
@@ -148,8 +174,9 @@ function revcon_change_post_object() {
     $labels->name_admin_bar = 'Story';
 }
 
-add_action( 'admin_menu', 'revcon_change_post_label' );
-add_action( 'init', 'revcon_change_post_object' );
+add_action( 'admin_menu', 'pbt_change_post_label' );
+add_action( 'init', 'pbt_change_post_object' );
+
 
 
 /**
