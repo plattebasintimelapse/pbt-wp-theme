@@ -69,7 +69,6 @@ add_action( 'after_setup_theme', 'pbt_setup' );
 
 
 
-
 /**
  * Adding script from assets directory in theme root.
  * The main.min.js file is generated in the local Gruntfile.js after uglification and concatenation.
@@ -177,8 +176,31 @@ function pbt_change_post_object() {
 add_action( 'admin_menu', 'pbt_change_post_label' );
 add_action( 'init', 'pbt_change_post_object' );
 
+/**
+ * Blog Post Custom Post Type
+ */
+function pbt_blog_post_type() {
+    register_post_type('blog_posts', array(   
+       'label' 					=> 'Blog Posts',
+       'description' 			=> 'Blog posts from the PBT Team members',
+       'public' 				=> true,
+       'show_ui' 				=> true,
+       'show_in_menu' 			=> true,
+       'menu_position' 			=> 5,
+       'capability_type' 		=> 'post',
+       'hierarchical' 			=> false,
+       'publicly_queryable' 	=> true,
+       'rewrite' 				=> array('slug' => 'notebook','feeds' => false),
+       'query_var' 				=> true,
+       'has_archive' 			=> true,
+       'supports' 				=> array('title','editor','excerpt','revisions','thumbnail','author'),
+       'taxonomies' 			=> array('category','post_tag'),
+    ));
+}
 
-add_filter( 'post_link', 'pbt_external_permalink', 10, 2 );
+add_action('init', 'pbt_blog_post_type');
+
+
 
 /**
  * Parse post link and replace it with meta value.
@@ -194,6 +216,9 @@ function pbt_external_permalink( $link, $post ) {
 
     return $url ? $url : $link;
 }
+add_filter( 'post_link', 'pbt_external_permalink', 10, 2 );
+
+
 
 /**
  * Add styles to login page.
