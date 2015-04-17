@@ -4,9 +4,9 @@
  * Description: This is the template that displays the about page.
  */
 
-get_header(); 
+get_header();
 
-	$user_per_row = 4; ?>
+	$user_per_row = 3; ?>
 
 	<?php while ( have_posts() ) : the_post(); ?>
 
@@ -48,7 +48,7 @@ get_header();
 
 							foreach ( $user_query->results as $user ) { ?>
 
-								<?php if($i == 4) { echo '<div class="row"> <!--.row -->'; } $i++; ?>
+								<?php if($i == $user_per_row) { echo '<div class="row"> <!--.row -->'; } $i++; ?>
 
 								<div class="col-sm-<?php echo $column_width; ?> user user-<?php echo $user->ID; ?>">
 									<h4><?php echo $user->display_name ?><small> <?php echo $user->user_pbt_role ?></small></h4>
@@ -100,7 +100,7 @@ get_header();
 									</div>
 								</div> <!-- .user -->
 
-								<?php if($i == 4) { echo '</div> <!--.row -->'; } 
+								<?php if($i == $user_per_row) { echo '</div> <!--.row -->'; } 
 
 							} // END FOR EACH LOOP ?>
 				</div>
