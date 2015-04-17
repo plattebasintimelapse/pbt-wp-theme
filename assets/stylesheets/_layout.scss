@@ -74,7 +74,7 @@
 	left: 100px;
 	@include text-over-image();
 
-	h2 { display: inline-block; }
+	h2,h6 { display: inline-block; }
 	p { border-top: 2px solid $gray-lighter; padding-top: 8px; }
 }
 
