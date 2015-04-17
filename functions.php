@@ -48,7 +48,7 @@ function pbt_setup() {
 	/**
 	 * Enable support for Post Formats
 	 */
-	add_theme_support( 'post-formats', array( 'audio' ) );
+	add_theme_support( 'post-formats', array( 'audio', 'link' ) );
 
 	/**
 	 * Register widgets
@@ -178,6 +178,22 @@ add_action( 'admin_menu', 'pbt_change_post_label' );
 add_action( 'init', 'pbt_change_post_object' );
 
 
+add_filter( 'post_link', 'pbt_external_permalink', 10, 2 );
+
+/**
+ * Parse post link and replace it with meta value.
+ *
+ * @wp-hook post_link
+ * @param   string $link
+ * @param   object $post
+ * @return  string
+ */
+function pbt_external_permalink( $link, $post ) {
+    $meta = get_post_meta( $post->ID, 'external_url', TRUE );
+    $url  = esc_url( filter_var( $meta, FILTER_VALIDATE_URL ) );
+
+    return $url ? $url : $link;
+}
 
 /**
  * Add styles to login page.
