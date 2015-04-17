@@ -19,7 +19,7 @@ get_header();
 		</div>
 	</section>
 
-	<article class="main" role="main">
+	<article id="post-<?php the_ID(); ?>" <?php post_class('main about'); ?> role="main">
 		<div class="container">
 			<div class="col-xs-12">
 				<?php the_content(); ?>
@@ -53,7 +53,7 @@ get_header();
 								<div class="col-sm-<?php echo $column_width; ?> user user-<?php echo $user->ID; ?>">
 									<h4><?php echo $user->display_name ?><small> <?php echo $user->user_pbt_role ?></small></h4>
 
-									<div style="padding: 10px;">
+									<div>
 										<?php
 											$userID = $user->ID;
 											echo get_avatar( $userID );

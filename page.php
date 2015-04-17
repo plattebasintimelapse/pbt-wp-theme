@@ -10,7 +10,17 @@
 
 get_header(); ?>
 
-	<?php while ( have_posts() ) : the_post(); ?>
+<?php while ( have_posts() ) : the_post(); ?>
+
+	<section class="featured hero-image">
+		<div class="container-fluid">
+			<?php the_post_thumbnail( 'pano-header' ); ?>
+
+			<h1 class="post-title"><?php the_title(); ?></h1>
+		</div>
+	</section>
+
+	
 
 		<article id="post-<?php the_ID(); ?>" <?php post_class('main'); ?> role="main">
 
