@@ -111,7 +111,7 @@ function pbt_search_form( $form ) {
 	$form = '<form role="search" method="get" id="searchform" class="searchform" action="' . home_url( '/' ) . '" >
 	<div><label class="screen-reader-text" for="s">' . __( 'Search:' ) . '</label>
 	<input type="text" value="' . get_search_query() . '" name="s" id="s" />
-	<input type="submit" id="searchsubmit" value="'. esc_attr__( 'Search' ) .'" />
+	<input class="btn btn-info" type="submit" id="searchsubmit" value="'. esc_attr__( 'Search' ) .'" />
 	</div>
 	</form>';
 

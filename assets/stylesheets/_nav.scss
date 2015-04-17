@@ -22,6 +22,10 @@
 	margin-bottom: 0;
 }
 
+.nav .searchform {
+	padding: 20px 50px;
+}
+
 header.navbar {
 	position: absolute;
 	top: 0;
@@ -29,6 +33,7 @@ header.navbar {
 }
 
 .collapse-bar {
+	color: $gray-lighter;
 	background-color: $blue;
 	a { color: $gray-lighter; }
 }
