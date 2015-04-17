@@ -104,6 +104,21 @@ function revcon_change_post_object() {
 add_action( 'admin_menu', 'revcon_change_post_label' );
 add_action( 'init', 'revcon_change_post_object' );
 
+/**
+ * Search Form function, hooked to get_search_form function
+ */
+function pbt_search_form( $form ) {
+	$form = '<form role="search" method="get" id="searchform" class="searchform" action="' . home_url( '/' ) . '" >
+	<div><label class="screen-reader-text" for="s">' . __( 'Search:' ) . '</label>
+	<input type="text" value="' . get_search_query() . '" name="s" id="s" />
+	<input type="submit" id="searchsubmit" value="'. esc_attr__( 'Search' ) .'" />
+	</div>
+	</form>';
+
+	return $form;
+}
+
+add_filter( 'get_search_form', 'pbt_search_form' );
 
 /**
  * Add styles to login page.
