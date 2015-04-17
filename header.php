@@ -24,7 +24,7 @@
 
 <body <?php body_class(); ?> >
 
-	<nav class="navbar navbar-defalt navbar-fixed-top">
+	<nav class="navbar">
   		<div class="container-fluid">
     		<div class="navbar-header">
 				<a class="navbar-brand" href="<?php echo home_url(); ?>"><img src="<?php bloginfo( 'stylesheet_directory' ); ?>/assets/img/logo.png" alt=""></a>
