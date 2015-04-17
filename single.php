@@ -5,11 +5,15 @@
 
 get_header(); ?>
 
+	<section class="featured hero-image">
+		<div class="container-fluid">
+
+			<?php get_template_part( 'templates/top_nav_bar' ); ?>
+
 	<?php while ( have_posts() ) : the_post(); ?>
 
-		<section class="featured hero-image">
-			<div class="container-fluid">
 				<?php the_post_thumbnail( 'pano-header' ); ?>
+
 				<h2 class="post-title"><?php the_title(); ?></h2>
 
 				<?php if( get_field( 'featured_image_caption' ) ): ?>

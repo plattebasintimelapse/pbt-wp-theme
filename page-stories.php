@@ -10,6 +10,8 @@ get_header(); ?>
 <section class="featured hero-image">
 	<div class="container-fluid">
 
+		<?php get_template_part( 'templates/top_nav_bar' ); ?>
+
 
 		<!-- THE STORY PAGE FEATURED POST -->
 		<?php

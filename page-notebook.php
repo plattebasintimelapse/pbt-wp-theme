@@ -9,6 +9,7 @@ get_header(); ?>
 
 <section class="featured hero-image">
 	<div class="container-fluid">
+		<?php get_template_part( 'templates/top_nav_bar' ); ?>
 		<h1>Notebook</h1>
 	</div>
 </section>

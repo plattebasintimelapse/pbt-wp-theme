@@ -8,24 +8,7 @@ get_header(); ?>
 	<section class="featured hero-image">
 		<div class="container-fluid">
 
-			<header class="navbar">
-		  		<div class="container-fluid">
-		    		<div class="navbar-header">
-						<a class="navbar-brand" href="<?php echo home_url(); ?>"><img src="<?php bloginfo( 'stylesheet_directory' ); ?>/assets/img/logo.png" alt=""></a>
-		    		</div>
-
-		  			<a class="btn btn-prim pull-right" data-toggle="collapse" href="#navbarCollapse" aria-expanded="false" aria-controls="navbarCollapse">
-						<span class="sr-only">Toggle navigation</span>
-				    	<i class="fa fa-bars fa-lg"></i>
-					</a>
-
-					<a class="btn btn-prim pull-right" data-toggle="collapse" href="#searchbarCollapse" aria-expanded="false" aria-controls="searchbarCollapse">
-						<span class="sr-only">Search</span>
-				    	<i class="fa fa-search fa-lg"></i>
-					</a>
-
-		  		</div>
-			</header>
+			<?php get_template_part( 'templates/top_nav_bar' ); ?>
 
 			<img src="<?php header_image(); ?>" alt="" />
 
