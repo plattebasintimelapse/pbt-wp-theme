@@ -12,6 +12,7 @@
 		padding: 30px;
 		color: $gray-lighter;
 		text-transform: uppercase;
+		font-weight: 700;
 		&:hover { color: $blue; background-color: $gray-lighter; }
 	}
 }
@@ -27,7 +28,7 @@ header.navbar {
 	width: 100%;
 }
 
-nav {
+.collapse-bar {
 	background-color: $blue;
 	a { color: $gray-lighter; }
 }

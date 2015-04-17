@@ -23,7 +23,7 @@
 
 <body <?php body_class(); ?> >
 
-	<nav class="collapse" role="navigation" id="navbarCollapse">
+	<nav class="collapse collapse-bar" role="navigation" id="navbarCollapse">
 		<div class="container-fluid">
 				<?php wp_nav_menu( array(
 					'theme_location' => 'primary',
@@ -49,5 +49,14 @@
 				</div>
 		</div>
 	</nav>
+
+	<div class="collapse collapse-bar" role="search" id="searchbarCollapse">
+		<div class="container-fluid">
+
+				<div class="nav navbar-nav navbar-right">
+					<?php get_search_form( ); ?>
+				</div>
+		</div>
+	</div>
 
 	

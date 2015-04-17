@@ -16,7 +16,12 @@ get_header(); ?>
 
 		  			<a class="btn btn-prim pull-right" data-toggle="collapse" href="#navbarCollapse" aria-expanded="false" aria-controls="navbarCollapse">
 						<span class="sr-only">Toggle navigation</span>
-				    	<i class="fa fa-bars fa-2x"></i>
+				    	<i class="fa fa-bars fa-lg"></i>
+					</a>
+
+					<a class="btn btn-prim pull-right" data-toggle="collapse" href="#searchbarCollapse" aria-expanded="false" aria-controls="searchbarCollapse">
+						<span class="sr-only">Search</span>
+				    	<i class="fa fa-search fa-lg"></i>
 					</a>
 
 		  		</div>
