@@ -14,7 +14,7 @@ get_header(); ?>
 	</div>
 </section>
 
-<section class="main story-feed" role="main">
+<article id="post-<?php the_ID(); ?>" <?php post_class('main story-feed'); ?> role="main">
 	<div class="container">
 
 		<p class="text-center"><?php echo category_description(); ?></p>

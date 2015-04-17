@@ -10,7 +10,6 @@ get_header(); ?>
 <section class="featured hero-image">
 	<div class="container-fluid">
 
-
 		<!-- THE STORY PAGE FEATURED POST -->
 		<?php
 			$story_page_featured_query_args = array(
@@ -49,7 +48,7 @@ get_header(); ?>
 	</div>
 </section>
 
-<section class="main story-feed" role="main">
+<article id="post-<?php the_ID(); ?>" <?php post_class('main story-feed'); ?> role="main">
 	<div class="container">
 
 		<!-- THE STORY PAGE FEED OF POSTS -->
@@ -87,7 +86,7 @@ get_header(); ?>
 		?>
 
 	</div>
-</section>
+</article>
 
 
 

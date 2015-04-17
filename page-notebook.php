@@ -14,7 +14,7 @@ get_header(); ?>
 	</div>
 </section>
 
-<section class="main story-feed" role="main">
+<article id="post-<?php the_ID(); ?>" <?php post_class('main notebook-feed'); ?> role="main">
 	<div class="container">
 
 		<!-- THE STORY PAGE FEED OF POSTS -->
@@ -51,7 +51,7 @@ get_header(); ?>
 		?>
 
 	</div>
-</section>
+</article>
 
 
 
