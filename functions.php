@@ -10,10 +10,6 @@ if ( ! function_exists( 'pbt_setup' ) ) :
  *
  */
 function pbt_setup() {
-	/**
-	 * Add default posts and comments RSS feed links to head
-	 */
-	// add_theme_support( 'automatic-feed-links' );
 
 	/**
 	 * Enable support for Post Thumbnails
@@ -66,7 +62,6 @@ function pbt_setup() {
 }
 endif;
 add_action( 'after_setup_theme', 'pbt_setup' );
-
 
 
 
@@ -177,8 +172,100 @@ function pbt_change_post_object() {
 add_action( 'admin_menu', 'pbt_change_post_label' );
 add_action( 'init', 'pbt_change_post_object' );
 
+/**
+ * Blog Post Custom Post Type
+ */
+function pbt_blog_post_type() {
+    register_post_type('blog_post', array(   
+       'label' 					=> 'Blog Posts',
+       'description' 			=> 'Blog posts from the PBT Team members',
+       'public' 				=> true,
+       'show_ui' 				=> true,
+       'show_in_menu' 			=> true,
+       'menu_position' 			=> 5,
+       'capability_type' 		=> 'post',
+       'hierarchical' 			=> false,
+       'publicly_queryable' 	=> true,
+       'rewrite' 				=> false,
+       'query_var' 				=> true,
+       'has_archive' 			=> true,
+       'supports' 				=> array('title','editor','excerpt','revisions','thumbnail','author'),
+       'taxonomies' 			=> array('category','post_tag'),
+    ));
 
-add_filter( 'post_link', 'pbt_external_permalink', 10, 2 );
+    global $wp_rewrite;
+	$blog_post_structure = '/notebook/%year%/%blog_post%';
+	$wp_rewrite->add_rewrite_tag("%blog_post%", '([^/]+)', "blog_post=");
+	$wp_rewrite->add_permastruct('blog_post', $blog_post_structure, false);
+}
+
+add_action('init', 'pbt_blog_post_type');
+
+// Add filter to plugin init function
+add_filter('post_type_link', 'pbt_blog_post_permalink', 10, 3);
+function pbt_blog_post_permalink($permalink, $post_id, $leavename) {
+    $post = get_post($post_id);
+    $rewritecode = array(
+        '%year%',
+        '%monthnum%',
+        '%day%',
+        '%hour%',
+        '%minute%',
+        '%second%',
+        $leavename? '' : '%postname%',
+        '%post_id%',
+        '%category%',
+        '%author%',
+        $leavename? '' : '%pagename%',
+    );
+ 
+    if ( '' != $permalink && !in_array($post->post_status, array('draft', 'pending', 'auto-draft')) ) {
+        $unixtime = strtotime($post->post_date);
+     
+        $category = '';
+        if ( strpos($permalink, '%category%') !== false ) {
+            $cats = get_the_category($post->ID);
+            if ( $cats ) {
+                usort($cats, '_usort_terms_by_ID'); // order by ID
+                $category = $cats[0]->slug;
+                if ( $parent = $cats[0]->parent )
+                    $category = get_category_parents($parent, false, '/', true) . $category;
+            }
+            // show default category in permalinks, without
+            // having to assign it explicitly
+            if ( empty($category) ) {
+                $default_category = get_category( get_option( 'default_category' ) );
+                $category = is_wp_error( $default_category ) ? '' : $default_category->slug;
+            }
+        }
+     
+        $author = '';
+        if ( strpos($permalink, '%author%') !== false ) {
+            $authordata = get_userdata($post->post_author);
+            $author = $authordata->user_nicename;
+        }
+     
+        $date = explode(" ",date('Y m d H i s', $unixtime));
+        $rewritereplace =
+        array(
+            $date[0],
+            $date[1],
+            $date[2],
+            $date[3],
+            $date[4],
+            $date[5],
+            $post->post_name,
+            $post->ID,
+            $category,
+            $author,
+            $post->post_name,
+        );
+        $permalink = str_replace($rewritecode, $rewritereplace, $permalink);
+    } else { // if they're not using the fancy permalink option
+    }
+    return $permalink;
+}
+
 
 /**
  * Parse post link and replace it with meta value.
@@ -194,6 +281,9 @@ function pbt_external_permalink( $link, $post ) {
 
     return $url ? $url : $link;
 }
+add_filter( 'post_link', 'pbt_external_permalink', 10, 2 );
+
+
 
 /**
  * Add styles to login page.

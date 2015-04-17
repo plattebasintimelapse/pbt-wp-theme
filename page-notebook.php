@@ -7,6 +7,8 @@
 
 get_header(); ?>
 
+<?php while ( have_posts() ) : the_post(); ?>
+
 <section class="featured hero-image">
 	<div class="container-fluid">
 		<?php the_post_thumbnail( 'pano-header' ); ?>
@@ -17,7 +19,7 @@ get_header(); ?>
 <article id="post-<?php the_ID(); ?>" <?php post_class('main notebook-feed'); ?> role="main">
 	<div class="container">
 
-		<!-- THE STORY PAGE FEED OF POSTS -->
+		<!-- THE NOTEBOOK PAGE FEED OF POSTS -->
 		<?php
 			$notebook_page_query_args = array(
 				'post_type' => 'blog_post',
@@ -52,6 +54,8 @@ get_header(); ?>
 
 	</div>
 </article>
+
+<?php endwhile; ?>
 
 
 
