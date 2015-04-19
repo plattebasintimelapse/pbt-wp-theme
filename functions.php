@@ -47,7 +47,7 @@ function pbt_setup() {
 	add_theme_support( 'post-formats', array( 'audio', 'link' ) );
 
 	/**
-	 * Register widgets
+	 * Register sidebars
 	 */
 	register_sidebar( array(
 		'name' 			=> 'PBT Homepage Sidebar',
@@ -59,6 +59,37 @@ function pbt_setup() {
 		'before_title' 	=> '<p class="underlined underlined-dark font-size-large">',
 		'after_title' 	=> '</p>'
 	) );
+
+    register_sidebar( array(
+        'name'          => 'PBT Footer Main',
+        'description'   => 'A sidebar area on the footer of every page.',
+        'id'            => 'pbt-footer-main',
+        'class'         => '',
+        'before_widget' => '<div class="footer-widgeted-text">',
+        'after_widget'  => '</div>',
+        'before_title'  => '<h5>',
+        'after_title'   => '</h5>'
+    ) );
+    register_sidebar( array(
+        'name'          => 'PBT Footer Secondary - Right',
+        'description'   => 'A secondary sidebar area on the footer of every page.',
+        'id'            => 'pbt-footer-secondary-right',
+        'class'         => '',
+        'before_widget' => '<div class="footer-widgeted-text">',
+        'after_widget'  => '</div>',
+        'before_title'  => '<h5>',
+        'after_title'   => '</h5>'
+    ) );
+    register_sidebar( array(
+        'name'          => 'PBT Footer Secondary - Left',
+        'description'   => 'A secondary sidebar area on the footer of every page.',
+        'id'            => 'pbt-footer-secondary-left',
+        'class'         => '',
+        'before_widget' => '<div class="footer-widgeted-text">',
+        'after_widget'  => '</div>',
+        'before_title'  => '<h5>',
+        'after_title'   => '</h5>'
+    ) );
 }
 endif;
 add_action( 'after_setup_theme', 'pbt_setup' );

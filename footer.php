@@ -6,21 +6,28 @@
 
 <footer>
 	<div class="container-fluid">
-		<div class="col-sm-4">
-			<?php wp_nav_menu( array(
-				'theme_location' => 'primary',
-				'depth'             => 2,
-	            'container'         => 'div',
-	            'container_class'   => 'collapse navbar-collapse',
-	    		'container_id'      => 'bs-example-navbar-collapse-1',
-	            'menu_class'        => 'nav navbr-nav navbar-right'
-			) ); ?>
+		<div class="row">
+			<div class="col-xs-12">
+				<?php wp_nav_menu( array(
+					'theme_location' => 'primary',
+					'depth'             => -1,
+		            'container'         => 'nav',
+		            'menu_class'        => 'nav navbar-nav navbar-footer',
+		            'menu_id'        	=> 'menu-footer'
+				) ); ?>
+			</div>
 		</div>
-		<div class="col-sm-4">
-			<h2>A Signup form can go here</h2>
-		</div>
-		<div class="col-sm-4">
-			<h3>Some other helpful things maybe</h3>
+
+		<div class="row row-padding">
+			<div class="col-sm-4">
+				<?php dynamic_sidebar( 'pbt-footer-secondary-left' ); ?>
+			</div>
+			<div class="col-sm-4">
+				<?php dynamic_sidebar( 'pbt-footer-main' ); ?>
+			</div>
+			<div class="col-sm-4">
+				<?php dynamic_sidebar( 'pbt-footer-secondary-right' ); ?>
+			</div>
 		</div>
 	</div>
 </footer>

@@ -132,7 +132,12 @@
 
 
 footer {
-	background-color: #393939;
+	background-color: $gray-dark;
+	color: $gray-lighter;
+	padding: 0 15px 50px 15px;
+	text-align: center;
 }
+
+
 
 

@@ -1,3 +1,8 @@
+.navbar-footer {
+	width: 100%;
+	border-bottom: 1px solid $gray-lighter;
+}
+
 nav.navbar {
 	background-color: rgba(0,0,0,0);
 	position: absolute;
@@ -9,8 +14,9 @@ nav.navbar {
 .nav {
 	margin-top: 5px;
 	ul { list-style-type: none; padding: 0; margin: 0; }
-	li { display: inline; padding: 10px; }
+	li { display: inline-block; padding: 10px; }
 }
+
 
 .nav > li > a, .nav > li > a {
 	color: rgba(255,255,255,1);
