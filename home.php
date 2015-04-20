@@ -46,7 +46,7 @@ get_header(); ?>
 
 							<div class="story-thumbnail">
 								<a href="<?php the_permalink() ?>">
-									<?php the_post_thumbnail( 'pano-header' ); ?>
+									<?php the_post_thumbnail( 'pbt-pano-header' ); ?>
 
 									<div class="story-info-box">
 										<h5 class="post-category"><?php the_category( ' - ' ) ?></h5>

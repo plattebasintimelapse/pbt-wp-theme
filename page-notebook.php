@@ -11,7 +11,7 @@ get_header(); ?>
 
 <section class="featured hero-image">
 	<div class="container-fluid">
-		<?php the_post_thumbnail( 'pano-header' ); ?>
+		<?php the_post_thumbnail( 'pbt-pano-header' ); ?>
 		<h2 class="post-title">Notebook</h2>
 	</div>
 </section>

@@ -19,12 +19,13 @@ function pbt_setup() {
 	/**
 	 * Add image sizes to be used in theme
 	 */
-	update_option( 'thumbnail_size_w', 400, true );
-	update_option( 'thumbnail_size_h', 200, true );
+	update_option( 'thumbnail_size_w', 300, true );
+	update_option( 'thumbnail_size_h', 300, true );
 	update_option( 'large_size_w', 1000, true );
 	// update_option( 'large_size_h', 500, true );
 
-	add_image_size( 'pano-header', 1200, 400, true );
+    add_image_size( 'pbt-post-thumbnail', 400, 200, true );
+	add_image_size( 'pbt-pano-header', 1200, 400, true );
 
     add_image_size( 'story-featured', 1600, 800, false );
 

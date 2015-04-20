@@ -10,7 +10,7 @@
 <div id="post-<?php the_ID(); ?>" <?php post_class('col-xs-12 col-sm-6'); ?>>
 
 	<div class="story-thumbnail">
-			<?php the_post_thumbnail( 'thumbnail' ); ?>
+			<?php the_post_thumbnail( 'pbt-post-thumbnail' ); ?>
 
 			<div class="story-info-box">
 				<h5 class="post-category"><?php the_category( ' - ' ) ?></h5>

@@ -28,7 +28,7 @@ get_header(); ?>
 
 			<div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
-				<?php the_post_thumbnail( 'pano-header' ); ?>
+				<?php the_post_thumbnail( 'pbt-pano-header' ); ?>
 
 				<div class="featured-story-info-box">
 

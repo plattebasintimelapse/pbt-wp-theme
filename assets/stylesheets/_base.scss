@@ -11,6 +11,10 @@ img { width: 100%; height: auto; }
 
 .main { margin: 50px 0; }
 
+.container-padding-top {
+	padding-top: 160px;
+}
+
 .row-padding { padding: 50px 0; }
 .row-little-padding { padding: 5px 0; }
 
@@ -22,6 +26,10 @@ img { width: 100%; height: auto; }
 .col-little-padding {
 	padding-left: 5px;
 	padding-right: 5px;
+}
+.col-no-padding {
+	padding-left: 0;
+	padding-right: 0;
 }
 
 .post .container {
@@ -39,7 +47,6 @@ input {
 	border-radius: 0;
 }
 
-input:focus { color:transparent !important; }
 input:focus::-webkit-input-placeholder { color:transparent !important; }
 input:focus:-moz-placeholder { color:transparent !important; } /* FF 4-18 */
 input:focus::-moz-placeholder { color:transparent !important; } /* FF 19+ */

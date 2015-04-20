@@ -13,7 +13,7 @@ get_header();
 	<section class="featured hero-image">
 		<div class="container-fluid">
 
-			<?php the_post_thumbnail( 'pano-header' ); ?>
+			<?php the_post_thumbnail( 'pbt-pano-header' ); ?>
 			<h2 class="post-title"><?php the_title(); ?></h2>
 
 		</div>
@@ -26,7 +26,7 @@ get_header();
 			</div>
 		</div>
 
-		<div class="container-fluid">
+		<div class="container container-padding-top">
 
 			<div class="feed-team">
 
@@ -34,40 +34,39 @@ get_header();
 					<?php
 						$author_args = array(
 							// 'role' => 'Administrator',
-							'exclude' => array( 1 )
+							'exclude' => array( 1 ),
+							'orderby' => 'display_name',
 						);
 
 						$user_query = new WP_User_Query( $author_args );
 						$i = 2;
 						$column_width = 12 / $user_per_row;
 
-						echo '<div class="col-sm-' . $column_width * 2 . '"><p>We are photographers, videographers, writers, designers, developers. We are storytellers.</p></div>';
+						echo '<div class="col-md-' . $column_width * 2 . '">';
+							the_field('about_the_team');
+						echo '</div>';
 
 						// User Loop
 						// if ( ! empty( $user_query->results ) ) {
 
 							foreach ( $user_query->results as $user ) { ?>
 
-								<?php if($i == $user_per_row) { echo '<div class="row"> <!--.row -->'; } $i++; ?>
+								<?php if( ( $i % $user_per_row ) == 0) { echo '<div class="row"> <!--.row -->'; } $i++; ?>
 
-								<div class="col-sm-<?php echo $column_width; ?> user user-<?php echo $user->ID; ?>">
-									<h4><?php echo $user->display_name ?><small> <?php echo $user->user_pbt_role ?></small></h4>
+								<a name="<?php echo $user->user_nicename; ?>"></a>
+								<div class="col-little-padding col-sm-6 col-md-<?php echo $column_width; ?> user user-<?php echo $user->ID; ?>">
 
-									<div>
+									<h4><?php echo $user->display_name ?></h4>
+									<h6> <?php echo $user->user_pbt_role ?> <i class="btn fa fa-plus-circle" data-toggle="collapse" data-target="#userCollapse<?php echo $user->ID ?>" aria-expanded="false" aria-controls="collapseExample"></i></h6>
+
 										<?php
 											$userID = $user->ID;
-											echo get_avatar( $userID );
+											echo get_avatar( $userID, 30 );
 										?>
-									</div>
-
-									<button class="btn btn-primary btn-xs" type="button" data-toggle="collapse" data-target="#userCollapse<?php echo $user->ID ?>" aria-expanded="false" aria-controls="collapseExample">
-									  Read More
-									</button>
 
 									<div class="collapse" id="userCollapse<?php echo $user->ID ?>">
 									  	<div class="well">
-									    	<p><?php echo $user->description ?></p>
-									    	<div class="author-links">
+									  		<div class="author-links">
 
 												<?php if( $user->instagram !== '' ) { ?>
 													<div class="author-link"><a target="_blank" href="http://www.instagram.com/<?php echo $user->instagram ?>"><i class="fa fa-instagram"></i></a></div>
@@ -94,41 +93,42 @@ get_header();
 												<?php } ?>
 
 											</div>
+
+											<p><?php echo $user->description ?></p>
 									  	</div>
 									</div>
 								</div> <!-- .user -->
 
-								<?php if($i == $user_per_row) { echo '</div> <!--.row -->'; } 
+								<?php if( ( $i % $user_per_row ) == 0) { echo '</div> <!--.row -->'; }
 
 							} // END FOR EACH LOOP ?>
 				</div>
 			</div>
+		</div>
 
-		<div class="container">
+		<div class="container container-padding-top">
 			<?php
 				$project_credits_query_args = array(
 					'post_type' 	=> 'project_credit',
-					'meta_key'		=> 'support_level',
-					'meta_value'	=> 'partner',
-					'orderby' 		=> 'title',
-					'order'   		=> 'ASC',
+				    'orderby' => 'rand',
 				);
 
 				$the_query = new WP_Query( $project_credits_query_args );
 				if ( $the_query->have_posts() ) : while ( $the_query->have_posts() ) : $the_query->the_post();
 			?>
 
-			<div id="post-<?php the_ID(); ?>" <?php post_class('col-xs-2 col-sm-2'); ?>>
+			<div class="col-little-padding col-sm-2 credit">
 
-				<div class="panl">
+				<!-- <div class="panel"> -->
 					<a target="_blank" href="<?php the_field( 'credit_url' ) ?>">
 						<?php the_post_thumbnail( ); ?>
 					</a>
-				</div>
-			</div><!-- #post-## -->
+				<!-- </div> -->
+			</div>
 
 			<?php endwhile; endif; wp_reset_postdata(); ?>
 		</div>
+
 		<div class="container">
 			<?php the_field('project_history'); ?>
 		</div>

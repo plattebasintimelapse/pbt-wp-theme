@@ -89,10 +89,11 @@ img.size-medium {
 
 .home .featured-story-info-box {
 	top: 30%;
+	width: 80%;
 }
 .featured-story-info-box {
 	position: absolute;
-	width: 80%;
+	width: 60%;
 	top: 15%;
 	left: 100px;
 	@include text-over-image();
@@ -138,13 +139,26 @@ img.size-medium {
 .user {
 	text-align: center;
 	margin-bottom: 30px;
+	h4 { margin-bottom: 0; }
+	h6 { margin-top: 0; color: $gray-light; }
+	.btn {
+		padding: 0;
+		color: $blue;
+		&:hover { color: $gray-dark; }
+	}
+	img { padding: 6px; border-radius: 30px; }
 }
 
 .author-link {
   display: inline-block;
   padding-right: 0px;
   padding-bottom: 0px;
-  margin-top: 10px;
+  margin-top: 0;
+}
+
+.credit {
+	margin-bottom: 0;
+	padding: 40px;
 }
 
 .edit-post-link {
