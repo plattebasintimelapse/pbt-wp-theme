@@ -23,14 +23,13 @@
 </head>
 
 <body <?php body_class(); ?> >
+	<a name="top"></a>
 
 	<nav class="navbar">
   		<div class="container-fluid">
     		<div class="navbar-header">
 				<a class="navbar-brand" href="<?php echo home_url(); ?>"><img src="<?php bloginfo( 'stylesheet_directory' ); ?>/assets/img/logo.png" alt=""></a>
     		</div>
-
-  			
 
 			<?php  wp_nav_menu( array(
 				'theme_location' => 'secondary',

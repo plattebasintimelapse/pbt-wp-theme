@@ -12,6 +12,10 @@
 .small { color: $gray-darker !important; }
 
 
+.btn-lg, .btn-group-lg > .btn, .btn {
+  border-radius: 0;
+}
+
 
 .ribbon-wrapper-featured {
 	width: 85px;

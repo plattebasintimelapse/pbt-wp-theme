@@ -9,7 +9,7 @@
 		<div class="row">
 			<div class="col-xs-12">
 				<?php wp_nav_menu( array(
-					'theme_location' => 'primary',
+					'theme_location' 	=> 'footer',
 					'depth'             => -1,
 		            'container'         => 'nav',
 		            'menu_class'        => 'nav navbar-nav navbar-footer',

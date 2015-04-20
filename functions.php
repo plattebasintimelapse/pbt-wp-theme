@@ -38,8 +38,9 @@ function pbt_setup() {
 	 */
 	register_nav_menus(
 		array(
-			'primary' => 'Primary Menu',
-			'secondary' => 'Secondary Menu'
+			'primary'    => 'Primary Menu',
+			'secondary'  => 'Secondary Menu',
+            'footer'     => 'Footer Menu',
 		)
 	);
 
