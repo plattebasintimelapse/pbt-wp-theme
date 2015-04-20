@@ -182,14 +182,22 @@ function pbt_video_embed_shortcode( $atts ) {
             'size'              => 'featured',
             'vimeo_id'          => '',
             'aspect_ratio'      => 'video',
+            'caption'           => '',
         ), $atts )
     );
 
     if ( $vimeo_id !== '' ) { $src = 'https://player.vimeo.com/video/' . $vimeo_id . '?title=0&byline=0&portrait=0'; }
 
-    $val = '<div class="' . $size . '-video"><div class="' . $aspect_ratio . '-wrapper"><iframe src="' . $src . '" frameborder="0" allowfullscreen="allowfullscreen"></iframe></div></div>';
+    $embed = '<div class="' . $size . '-video">
+                <div class="' . $aspect_ratio . '-wrapper">
+                    <iframe src="' . $src . '" frameborder="0" allowfullscreen="allowfullscreen"></iframe>
+                </div>';
 
-    return $val;
+    if ( $caption !== '' ) { $embed = $embed . '<p class="caption-text">' . $caption . '</p></div>'; } else {
+        $embed = $embed . '</div>';
+    }
+
+    return $embed;
 
 }
 add_shortcode( 'video', 'pbt_video_embed_shortcode' );
