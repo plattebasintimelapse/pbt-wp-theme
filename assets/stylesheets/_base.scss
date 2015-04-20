@@ -32,11 +32,22 @@ img { width: 100%; height: auto; }
 
 .row-padding { padding: 50px 0; }
 
+.col-extra-padding {
+	padding-left: 40px;
+	padding-right: 40px;
+}
+
 .post .container {
 	max-width: 860px;
 }
 
-.font-size-large {
-	font-size: $font-size-large;
+.font-size-ex-small { font-size: $font-size-ex-small; }
+.font-size-small { font-size: $font-size-small; }
+.font-size-large { font-size: $font-size-large; }
+
+input[type="text"], input[type="email"], input[type="search"] {
+	color: $gray-dark;
+	padding: 6px;
+	font-size: .8em;
 }
 

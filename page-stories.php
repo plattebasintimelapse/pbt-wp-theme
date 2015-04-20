@@ -35,7 +35,7 @@ get_header(); ?>
 					<h5>Featured Story</h5>
 					<a href="<?php the_permalink() ?>"><h2><?php the_title(); ?></h2></a>
 					<?php the_excerpt(); ?>
-					<a href="<?php the_permalink() ?>"><h6>Read More</h6></a>
+					<a class="btn btn-default" role="button" href="<?php the_permalink() ?>"><h6>Read More</h6></a>
 
 				</div>
 			</div><!-- #post-## -->
@@ -67,15 +67,13 @@ get_header(); ?>
 			<div id="post-<?php the_ID(); ?>" <?php post_class('col-xs-12 col-sm-6'); ?>>
 
 				<div class="story-thumbnail">
-					<a href="<?php the_permalink() ?>">
 						<?php the_post_thumbnail( 'thumbnail' ); ?>
 
 						<div class="story-info-box">
 							<h5 class="post-category"><?php the_category( ' - ' ) ?></h5>
-							<a href="<?php the_permalink() ?>"><h3 class="post-title"><?php the_title(); ?></h3></a>
+							<h3 class="post-title"><?php the_title(); ?></h3>
+							<a class="btn btn-default read-more-btn" role="button" href="<?php the_permalink() ?>"><h6>Read More</h6></a>
 						</div>
-
-					</a>
 				</div>
 
 			</div><!-- #post-## -->

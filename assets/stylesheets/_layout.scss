@@ -11,7 +11,7 @@
 .hero-image {
 	@include text-over-image();
 
-	a { color: $gray-lighter;}
+	a { color: $gray-lighter; }
 
 	.post-title {
 		position: absolute;
@@ -30,19 +30,14 @@
 
 .story-thumbnail {
 	position: relative;
-
-	&:hover {
-		opacity: .9;
-		a .post-title, a .post-description { color: $gray-lighter; }
-	}
 }
 
 .story-info-box {
 	position: absolute;
 	top: 10%;
 	left: 50%;
-	width: 300px;
-	margin-left: -(150px);
+	width: 80%;
+	margin-left: -(40%);
 	text-align: center;
 	text-transform: uppercase;
 
@@ -132,10 +127,19 @@
 
 
 footer {
-	background-color: $gray-dark;
+	background-color: $gray;
 	color: $gray-lighter;
-	padding: 0 15px 50px 15px;
+	padding: 0 15px 10px 15px;
 	text-align: center;
+	font-size: .8em;
+	h6 { text-transform: uppercase; font-weight: 700; }
+}
+
+footer .col-sm-4 {
+	border-right: 1px solid $gray-light;
+	min-height: 180px;
+	@include breakpoint(mama-bear) { border-right: none; }
+	&:last-child{ border-right: none; }
 }
 
 

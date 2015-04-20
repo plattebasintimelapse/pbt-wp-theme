@@ -69,7 +69,8 @@ $fa-font-path:        	  "assets/fonts";
 
 $font-size-base:          22px;
 $font-size-large:         ceil(($font-size-base * 1.25));
-$font-size-small:         ceil(($font-size-base * 0.85));
+$font-size-small:         ceil(($font-size-base * 0.75));
+$font-size-ex-small:      ceil(($font-size-base * 0.45));
 
 $font-size-h1:            floor(($font-size-base * 4.6));
 $font-size-h2:            floor(($font-size-base * 3.15));
@@ -113,9 +114,9 @@ $container-lg:                 $container-large-desktop;
 
 $btn-font-weight:                normal;
 
-$btn-default-color:              #333;
-$btn-default-bg:                 #fff;
-$btn-default-border:             #ccc;
+$btn-default-color:              $gray-lighter;
+$btn-default-bg:                 transparent;
+$btn-default-border:             $gray-lighter;
 
 $btn-primary-color:              #fff;
 $btn-primary-bg:                 $brand-primary;
@@ -141,4 +142,4 @@ $btn-primary-border:             darken($btn-primary-bg, 1%);
 
 $borders-over-image: 1px solid white;
 
-$text-shadow-over-image: 1px 1px 7px rgb(0, 0, 0);
+$text-shadow-over-image: 1px 1px 5px rgb(0, 0, 0);

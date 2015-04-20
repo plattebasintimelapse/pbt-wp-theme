@@ -67,8 +67,8 @@ function pbt_setup() {
         'class'         => '',
         'before_widget' => '<div class="footer-widgeted-text">',
         'after_widget'  => '</div>',
-        'before_title'  => '<h5>',
-        'after_title'   => '</h5>'
+        'before_title'  => '<h6>',
+        'after_title'   => '</h6>'
     ) );
     register_sidebar( array(
         'name'          => 'PBT Footer Secondary - Right',
@@ -77,8 +77,8 @@ function pbt_setup() {
         'class'         => '',
         'before_widget' => '<div class="footer-widgeted-text">',
         'after_widget'  => '</div>',
-        'before_title'  => '<h5>',
-        'after_title'   => '</h5>'
+        'before_title'  => '<h6>',
+        'after_title'   => '</h6>'
     ) );
     register_sidebar( array(
         'name'          => 'PBT Footer Secondary - Left',
@@ -87,8 +87,8 @@ function pbt_setup() {
         'class'         => '',
         'before_widget' => '<div class="footer-widgeted-text">',
         'after_widget'  => '</div>',
-        'before_title'  => '<h5>',
-        'after_title'   => '</h5>'
+        'before_title'  => '<h6>',
+        'after_title'   => '</h6>'
     ) );
 }
 endif;
@@ -124,7 +124,7 @@ add_filter( 'wp_title', 'baw_hack_wp_title_for_home' );
 function baw_hack_wp_title_for_home( $title )
 {
   if( empty( $title ) && ( is_home() || is_front_page() ) ) {
-    return __( 'Home', 'theme_domain' ) . ' | ' . get_bloginfo( 'description' );
+    return 'Home' . ' | ' . get_bloginfo( 'description' );
   }
   return $title;
 }

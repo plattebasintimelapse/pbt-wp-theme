@@ -1,6 +1,6 @@
 .navbar-footer {
 	width: 100%;
-	border-bottom: 1px solid $gray-lighter;
+	border-bottom: 1px solid $gray-light;
 }
 
 nav.navbar {
@@ -18,9 +18,13 @@ nav.navbar {
 }
 
 
-.nav > li > a, .nav > li > a {
+.nav > li > a {
 	color: rgba(255,255,255,1);
-		text-shadow: $text-shadow-over-image;
+	text-shadow: $text-shadow-over-image;
+}
+
+.navbar-footer.nav > li > a {
+	text-shadow: none;
 }
 
 .nav > li > a:hover, .nav > li > a:focus {
@@ -30,10 +34,6 @@ nav.navbar {
 
 .logged-in .navbar-fixed-top {
   top: 32px;
-}
-
-nav.is-stuck {
-	background-color: rgba(0,0,0,.4);
 }
 
 .logo { padding-top: 10px;}
