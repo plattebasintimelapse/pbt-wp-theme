@@ -21,8 +21,10 @@ function pbt_setup() {
 	 */
 	update_option( 'thumbnail_size_w', 300, true );
 	update_option( 'thumbnail_size_h', 300, true );
+    update_option( 'medium_size_w', 600, true );
+    update_option( 'medium_size_h', 400, true );
 	update_option( 'large_size_w', 1000, true );
-	// update_option( 'large_size_h', 500, true );
+	update_option( 'large_size_h', 500, true );
 
     add_image_size( 'pbt-post-thumbnail', 400, 200, true );
 	add_image_size( 'pbt-pano-header', 1200, 400, true );
@@ -144,6 +146,9 @@ function pbt_custom_image_sizes( $sizes ) {
 }
 add_filter( 'image_size_names_choose', 'pbt_custom_image_sizes' );
 
+
+
+
 /**
  * Improves the caption shortcode with HTML5 figure & figcaption; microdata & wai-aria attributes
  *
@@ -155,6 +160,7 @@ add_filter( 'image_size_names_choose', 'pbt_custom_image_sizes' );
 function pbt_img_caption_shortcode_filter($val, $attr, $content = null) {
     extract(shortcode_atts(array(
         'id'      => '',
+        'class'   => '',
         'align'   => 'aligncenter',
         'width'   => '',
         'caption' => ''
@@ -170,11 +176,19 @@ function pbt_img_caption_shortcode_filter($val, $attr, $content = null) {
     // Add itemprop="contentURL" to image - Ugly hack
     $content = str_replace('<img', '<img itemprop="contentURL"', $content);
 
-    return '<figure id="' . $id . '" aria-describedby="figcaption_' . $id . '" class="img-caption ' . esc_attr($align) .'" itemscope itemtype="http://schema.org/ImageObject">' . do_shortcode( $content ) . '<figcaption id="figcaption_'. $id . '" class="caption-text" itemprop="description">' . $caption . '</figcaption></figure>';
+    return '<figure class="' . $class . '" id="' . $id . '" aria-describedby="figcaption_' . $id . '" class="img-caption ' . esc_attr($align) .'" itemscope itemtype="http://schema.org/ImageObject">' . do_shortcode( $content ) . '<figcaption id="figcaption_'. $id . '" class="caption-text" itemprop="description">' . $caption . '</figcaption></figure>';
 }
 add_filter( 'img_caption_shortcode', 'pbt_img_caption_shortcode_filter', 10, 3 );
 
-
+/**
+ * Adds a shortcode for displaying responsive iFrames in a content post.
+ * Option of passing in a video ID or an entire src. May set 16x9 or 3x2 with video/timelapse.
+ * May also set a caption.
+ *
+ * @param  string $val     Empty
+ * @param  array  $attr    Shortcode attributes
+ * @return string          Shortcode output
+ */
 function pbt_video_embed_shortcode( $atts ) {
     extract( shortcode_atts(
         array(
@@ -186,21 +200,22 @@ function pbt_video_embed_shortcode( $atts ) {
         ), $atts )
     );
 
-    if ( $vimeo_id !== '' ) { $src = 'https://player.vimeo.com/video/' . $vimeo_id . '?title=0&byline=0&portrait=0'; }
+    if ( !empty($vimeo_id) ) { $src = 'https://player.vimeo.com/video/' . $vimeo_id . '?title=0&byline=0&portrait=0'; }
 
     $embed = '<div class="' . $size . '-video">
-                <div class="' . $aspect_ratio . '-wrapper">
+                <figure class="' . $aspect_ratio . '-wrapper">
                     <iframe src="' . $src . '" frameborder="0" allowfullscreen="allowfullscreen"></iframe>
-                </div>';
+                </figure>';
 
-    if ( $caption !== '' ) { $embed = $embed . '<p class="caption-text">' . $caption . '</p></div>'; } else {
+    // If there is a caption
+    if ( !empty($caption) ) { $embed = $embed . '<figcaption class="caption-text">' . $caption . '</figcaption></div>'; } else {
         $embed = $embed . '</div>';
     }
 
     return $embed;
 
 }
-add_shortcode( 'video', 'pbt_video_embed_shortcode' );
+add_shortcode( 'embed_video', 'pbt_video_embed_shortcode' );
 
 
 /**

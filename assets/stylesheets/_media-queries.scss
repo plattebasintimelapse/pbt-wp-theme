@@ -1,11 +1,11 @@
 @mixin breakpoint($point) {
   @if $point == papa-bear {
-    @media (max-width: 960px) { @content; }
+    @media (max-width: $container-lg) { @content; }
   }
   @else if $point == mama-bear {
-    @media (max-width: 780px) { @content; }
+    @media (max-width: $container-md) { @content; }
   }
   @else if $point == baby-bear {
-    @media (max-width: 768px)  { @content; }
+    @media (max-width: $container-sm)  { @content; }
   }
 }
