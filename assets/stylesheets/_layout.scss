@@ -21,6 +21,25 @@
 	}
 }
 
+figure.img-caption {
+	margin-bottom: 60px;
+}
+
+img.size-story-featured {
+	width: 120%;
+	margin-left: -10%;
+	margin-top: 60px;
+	margin-bottom: 4px;
+}
+
+.caption-text {
+	font-size: $font-size-small;
+	color: $gray-light;
+	text-align: right;
+	font-style: italic;
+}
+
+
 .main h2 {
 	margin-bottom: 30px;
 	text-align: center;

@@ -21,10 +21,12 @@ function pbt_setup() {
 	 */
 	update_option( 'thumbnail_size_w', 400, true );
 	update_option( 'thumbnail_size_h', 200, true );
-	update_option( 'large_size_w', 1200, true );
-	update_option( 'large_size_h', 500, true );
+	update_option( 'large_size_w', 1000, true );
+	// update_option( 'large_size_h', 500, true );
 
 	add_image_size( 'pano-header', 1200, 400, true );
+
+    add_image_size( 'story-featured', 1600, 800, false );
 
 	/**
 	 * Enable support for Custom Headers
@@ -129,6 +131,46 @@ function baw_hack_wp_title_for_home( $title )
   return $title;
 }
 
+
+/**
+ * Add custom image sizes to Admin Media select box
+ */
+function pbt_custom_image_sizes( $sizes ) {
+    return array_merge( $sizes, array(
+        'story-featured' => __( 'Featured Image' ),
+    ) );
+}
+add_filter( 'image_size_names_choose', 'pbt_custom_image_sizes' );
+
+/**
+ * Improves the caption shortcode with HTML5 figure & figcaption; microdata & wai-aria attributes
+ *
+ * @param  string $val     Empty
+ * @param  array  $attr    Shortcode attributes
+ * @param  string $content Shortcode content
+ * @return string          Shortcode output
+ */
+function pbt_img_caption_shortcode_filter($val, $attr, $content = null) {
+    extract(shortcode_atts(array(
+        'id'      => '',
+        'align'   => 'aligncenter',
+        'width'   => '',
+        'caption' => ''
+    ), $attr));
+
+    // No caption, no dice... But why width?
+    if ( 1 > (int) $width || empty($caption) )
+        return $val;
+
+    if ( $id )
+        $id = esc_attr( $id );
+
+    // Add itemprop="contentURL" to image - Ugly hack
+    $content = str_replace('<img', '<img itemprop="contentURL"', $content);
+
+    return '<figure id="' . $id . '" aria-describedby="figcaption_' . $id . '" class="img-caption ' . esc_attr($align) .'" itemscope itemtype="http://schema.org/ImageObject">' . do_shortcode( $content ) . '<figcaption id="figcaption_'. $id . '" class="caption-text" itemprop="description">' . $caption . '</figcaption></figure>';
+}
+add_filter( 'img_caption_shortcode', 'pbt_img_caption_shortcode_filter', 10, 3 );
 
 /**
  * Adds additional fields to the User Page.
