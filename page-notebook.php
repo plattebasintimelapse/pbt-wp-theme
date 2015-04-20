@@ -30,26 +30,10 @@ get_header(); ?>
 			$the_query = new WP_Query( $notebook_page_query_args );
 			if ( $the_query->have_posts() ) : while ( $the_query->have_posts() ) : $the_query->the_post();
 
-		?>
+			get_template_part( 'partials/story-thumbnail' );
 
-			<div id="post-<?php the_ID(); ?>" <?php post_class('col-xs-12 col-sm-6'); ?>>
-
-				<div class="story-thumbnail">
-					<a href="<?php echo get_post_permalink(); ?>">
-						<?php the_post_thumbnail( 'thumbnail' ); ?>
-
-						<div class="story-info-box">
-							<a href="<?php echo get_post_permalink(); ?>"><h3 class="post-title"><?php the_title(); ?></h3></a>
-						</div>
-
-					</a>
-				</div>
-
-			</div><!-- #post-## -->
-
-		<?php
 			endwhile; endif;
-			wp_reset_postdata();
+			wp_reset_postdata();wp_reset_postdata();
 		?>
 
 	</div>

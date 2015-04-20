@@ -62,23 +62,8 @@ get_header(); ?>
 			$the_query = new WP_Query( $story_page_query_args );
 			if ( $the_query->have_posts() ) : while ( $the_query->have_posts() ) : $the_query->the_post();
 
-		?>
+			get_template_part( 'partials/story-thumbnail' );
 
-			<div id="post-<?php the_ID(); ?>" <?php post_class('col-xs-12 col-sm-6'); ?>>
-
-				<div class="story-thumbnail">
-						<?php the_post_thumbnail( 'thumbnail' ); ?>
-
-						<div class="story-info-box">
-							<h5 class="post-category"><?php the_category( ' - ' ) ?></h5>
-							<h3 class="post-title"><?php the_title(); ?></h3>
-							<a class="btn btn-default read-more-btn" role="button" href="<?php the_permalink() ?>"><h6>Read More</h6></a>
-						</div>
-				</div>
-
-			</div><!-- #post-## -->
-
-		<?php
 			endwhile; endif;
 			wp_reset_postdata();
 		?>

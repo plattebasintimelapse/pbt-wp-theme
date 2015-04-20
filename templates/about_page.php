@@ -1,12 +1,12 @@
 <?php
 /**
- * The template for the about page.
+ * Template Name: About Page
  * Description: This is the template that displays the about page.
  */
 
 get_header();
 
-	$user_per_row = 3; ?>
+	$user_per_row = 4; ?>
 
 	<?php while ( have_posts() ) : the_post(); ?>
 
@@ -26,7 +26,7 @@ get_header();
 			</div>
 		</div>
 
-		<div class="container">
+		<div class="container-fluid">
 
 			<div class="feed-team">
 
@@ -59,8 +59,6 @@ get_header();
 											echo get_avatar( $userID );
 										?>
 									</div>
-
-									
 
 									<button class="btn btn-primary btn-xs" type="button" data-toggle="collapse" data-target="#userCollapse<?php echo $user->ID ?>" aria-expanded="false" aria-controls="collapseExample">
 									  Read More
@@ -107,7 +105,6 @@ get_header();
 			</div>
 
 		<div class="container">
-			<h2>Partners</h2>
 			<?php
 				$project_credits_query_args = array(
 					'post_type' 	=> 'project_credit',
@@ -116,22 +113,24 @@ get_header();
 					'orderby' 		=> 'title',
 					'order'   		=> 'ASC',
 				);
-			
+
 				$the_query = new WP_Query( $project_credits_query_args );
 				if ( $the_query->have_posts() ) : while ( $the_query->have_posts() ) : $the_query->the_post();
 			?>
-			
+
 			<div id="post-<?php the_ID(); ?>" <?php post_class('col-xs-2 col-sm-2'); ?>>
-			
+
 				<div class="panl">
 					<a target="_blank" href="<?php the_field( 'credit_url' ) ?>">
 						<?php the_post_thumbnail( ); ?>
 					</a>
 				</div>
-			
 			</div><!-- #post-## -->
-			
+
 			<?php endwhile; endif; wp_reset_postdata(); ?>
+		</div>
+		<div class="container">
+			<?php the_field('project_history'); ?>
 		</div>
 	</article>
 
