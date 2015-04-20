@@ -174,6 +174,27 @@ function pbt_img_caption_shortcode_filter($val, $attr, $content = null) {
 }
 add_filter( 'img_caption_shortcode', 'pbt_img_caption_shortcode_filter', 10, 3 );
 
+
+function pbt_video_embed_shortcode( $atts ) {
+    extract( shortcode_atts(
+        array(
+            'src'               => '',
+            'size'              => 'featured',
+            'vimeo_id'          => '',
+            'aspect_ratio'      => 'video',
+        ), $atts )
+    );
+
+    if ( $vimeo_id !== '' ) { $src = 'https://player.vimeo.com/video/' . $vimeo_id . '?title=0&byline=0&portrait=0'; }
+
+    $val = '<div class="' . $size . '-video"><div class="' . $aspect_ratio . '-wrapper"><iframe src="' . $src . '" frameborder="0" allowfullscreen="allowfullscreen"></iframe></div></div>';
+
+    return $val;
+
+}
+add_shortcode( 'video', 'pbt_video_embed_shortcode' );
+
+
 /**
  * Adds additional fields to the User Page.
  * These fields are used on the when displaying author information.
