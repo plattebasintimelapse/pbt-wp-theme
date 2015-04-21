@@ -16,13 +16,6 @@
 	@include text-over-image();
 
 	a { color: $gray-lighter; }
-
-	.post-title {
-		position: absolute;
-		width: 100%;
-		bottom: 10px;
-		text-align: center;
-	}
 }
 
 .main {
@@ -126,6 +119,15 @@
  *	POST PAGE
  *  Styles for the a single post on that page.
  */
+
+.hero-image .post-title {
+	position: absolute;
+	width: 80%;
+	bottom: 20px;
+	text-align: center;
+	left: 50%;
+	margin-left: -40%;
+}
 
 .hero-image-caption {
 	position: absolute;
