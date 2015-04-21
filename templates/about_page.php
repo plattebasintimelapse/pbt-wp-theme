@@ -27,14 +27,14 @@ get_header();
 		</div>
 
 		<div class="container container-padding-top">
-
+			<a name="platte"></a>
 			<div class="feed-team">
 
 				<div class="row">
 					<?php
 						$author_args = array(
 							// 'role' => 'Administrator',
-							'exclude' => array( 1 ),
+							'exclude' => array( 1, 14 ), // Exclude Platte Admin and full-team user
 							'orderby' => 'display_name',
 						);
 

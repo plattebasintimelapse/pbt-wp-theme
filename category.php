@@ -33,7 +33,7 @@ get_header(); ?>
 			$the_query = new WP_Query( $archive_page_query_args );
 			if ( $the_query->have_posts() ) : while ( $the_query->have_posts() ) : $the_query->the_post();
 
-			get_template_part( 'partials/story-thumbnail' );
+			get_template_part( 'partials/post-feed-thumbnail' );
 
 			endwhile; endif;
 			wp_reset_postdata();

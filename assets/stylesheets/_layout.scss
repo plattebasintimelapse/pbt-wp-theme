@@ -1,3 +1,8 @@
+/**
+ *	BASIC FORMATTING
+ *  Includes overrides of Bootstrap's container and columns classes.
+ *  Plus post specific styles for site structure and formatting.
+ */
 
 .featured, .story-thumbnail {
 	position: relative;
@@ -20,17 +25,55 @@
 	}
 }
 
+.main {
+	margin: 50px 0;
 
+	h2 {
+		margin-bottom: 30px;
+		text-align: center;
+		margin-top: 100px;
+	}
 
-
-.main h2 {
-	margin-bottom: 30px;
-	text-align: center;
-	margin-top: 100px;
+	.container:first-child h2 {
+		margin-top: 0px;
+	}
 }
 
-.main .container:first-child h2 {
-	margin-top: 0px;
+.container-padding-top {
+	padding-top: 160px;
+}
+
+.row-padding { padding: 50px 0; }
+.row-little-padding { padding: 5px 0; }
+
+.col-extra-padding {
+	padding-left: 40px;
+	padding-right: 40px;
+}
+
+.col-little-padding {
+	padding-left: 5px;
+	padding-right: 5px;
+}
+.col-no-padding {
+	padding-left: 0;
+	padding-right: 0;
+}
+
+.post .container, .blog_post .container {
+	max-width: 860px;
+}
+
+
+
+/**
+ *	POST FEED
+ *  Styles for the generic post feed, displays in a grided format.
+ *  Utilized in the .stort-thumbnail container in the post-feed-thumbnail.php partial file
+ */
+
+.story-feed .post, .notebook-feed .blog_post  {
+	padding-top: 30px;
 }
 
 .story-info-box, .featured-story-info-box {
@@ -46,7 +89,7 @@
 	text-align: center;
 	text-transform: uppercase;
 
-	.post-category {
+	.post-category, .blog-post-author {
 		padding-bottom: 6px;
 		border-bottom: 2px solid $gray-lighter;
 	}
@@ -58,14 +101,7 @@
 	top: 15%;
 }
 
-.post-description {
-	text-transform: none;
-}
 
-.home .featured-story-info-box {
-	top: 30%;
-	width: 80%;
-}
 .featured-story-info-box {
 	width: 60%;
 	top: 15%;
@@ -75,7 +111,23 @@
 	p { border-top: 2px solid $gray-lighter; padding-top: 8px; }
 }
 
-.featured-image-caption {
+.home .featured-story-info-box {
+	top: 30%;
+	width: 80%;
+}
+
+.post-description {
+	text-transform: none;
+}
+
+
+
+/**
+ *	POST PAGE
+ *  Styles for the a single post on that page.
+ */
+
+.hero-image-caption {
 	position: absolute;
 	left: 10px;
 	bottom: 10px;
@@ -87,19 +139,6 @@
 		text-shadow: none;
 	}
 }
-
-.story-feed .post {
-	padding-top: 30px;
-}
-
-.main-widgeted-text {
-	text-align: center;
-	margin-bottom: 100px;
-}
-
-.underlined { padding-bottom: 20px; border-bottom: 1px solid; }
-
-.underlined-dark { border-color: $gray-darker; }
 
 .bylines {
 	margin-bottom: 20px;
@@ -113,13 +152,31 @@
 	a { color: $text-color; &:hover { color: $brand-primary; } }
 }
 
-.byline:after {
-  content: " |";
+.byline:after { content: " |"; }
+
+.byline:last-child:after { content: ""; }
+
+.edit-post-link {
+	text-align: center;
+	font-size: .7em;
+	margin-top: 100px;
 }
 
-.byline:last-child:after {
-	content: "";
+
+
+
+.main-widgeted-text {
+	text-align: center;
+	margin-bottom: 100px;
 }
+
+
+
+
+/**
+ *	ABOUT PAGE
+ *  Styles for the a single post on that page.
+ */
 
 .user {
 	text-align: center;
@@ -146,12 +203,11 @@
 	padding: 40px;
 }
 
-.edit-post-link {
-	text-align: center;
-	font-size: .7em;
-	margin-top: 100px;
-}
 
+/**
+ *	FOOTER - SIDE WIDE
+ *  Styles for the a the site-wide footer
+ */
 
 footer {
 	background-color: $gray;

@@ -12,6 +12,7 @@ get_header(); ?>
 <section class="featured hero-image">
 	<div class="container-fluid">
 		<?php the_post_thumbnail( 'pbt-pano-header' ); ?>
+		<div class="hero-image-caption"><?php the_content(); ?></div>
 		<h2 class="post-title">Notebook</h2>
 	</div>
 </section>
@@ -30,7 +31,7 @@ get_header(); ?>
 			$the_query = new WP_Query( $notebook_page_query_args );
 			if ( $the_query->have_posts() ) : while ( $the_query->have_posts() ) : $the_query->the_post();
 
-			get_template_part( 'partials/story-thumbnail' );
+			get_template_part( 'partials/post-feed-thumbnail' );
 
 			endwhile; endif;
 			wp_reset_postdata();wp_reset_postdata();

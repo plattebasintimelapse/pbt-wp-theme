@@ -9,33 +9,6 @@ h1, h2 { font-weight: 700 }
 
 img { width: 100%; height: auto; }
 
-.main { margin: 50px 0; }
-
-.container-padding-top {
-	padding-top: 160px;
-}
-
-.row-padding { padding: 50px 0; }
-.row-little-padding { padding: 5px 0; }
-
-.col-extra-padding {
-	padding-left: 40px;
-	padding-right: 40px;
-}
-
-.col-little-padding {
-	padding-left: 5px;
-	padding-right: 5px;
-}
-.col-no-padding {
-	padding-left: 0;
-	padding-right: 0;
-}
-
-.post .container, .blog_post .container {
-	max-width: 860px;
-}
-
 .font-size-ex-small { font-size: $font-size-ex-small; }
 .font-size-small { font-size: $font-size-small; }
 .font-size-large { font-size: $font-size-large; }
@@ -56,3 +29,7 @@ input:focus:-ms-input-placeholder { color:transparent !important; } /* IE 10+ */
 	width: 70%;
 	margin: 0 auto;
 }
+
+.underlined { padding-bottom: 20px; border-bottom: 1px solid; }
+
+.underlined-dark { border-color: $gray-darker; }

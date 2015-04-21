@@ -13,7 +13,7 @@ get_header(); ?>
 				<h2 class="post-title"><?php the_title(); ?></h2>
 
 				<?php if( get_field( 'featured_image_caption' ) ): ?>
-    				<h6 class="featured-image-caption"><?php the_field( 'featured_image_caption' ); ?></h6>
+    				<h6 class="hero-image-caption"><?php the_field( 'featured_image_caption' ); ?></h6>
 				<?php endif; ?>
 
 			</div>
