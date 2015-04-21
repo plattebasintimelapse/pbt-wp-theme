@@ -1,6 +1,5 @@
-@import 'nav';
 
-.featured {
+.featured, .story-thumbnail {
 	position: relative;
 }
 
@@ -30,13 +29,16 @@
 	margin-top: 100px;
 }
 
+.main .container:first-child h2 {
+	margin-top: 0px;
+}
 
-.story-thumbnail {
-	position: relative;
+.story-info-box, .featured-story-info-box {
+	position: absolute;
+	@include text-over-image();
 }
 
 .story-info-box {
-	position: absolute;
 	top: 10%;
 	left: 50%;
 	width: 80%;
@@ -48,8 +50,6 @@
 		padding-bottom: 6px;
 		border-bottom: 2px solid $gray-lighter;
 	}
-
-	@include text-over-image();
 }
 
 .featured-story .story-info-box {
@@ -67,11 +67,9 @@
 	width: 80%;
 }
 .featured-story-info-box {
-	position: absolute;
 	width: 60%;
 	top: 15%;
 	left: 100px;
-	@include text-over-image();
 
 	h2,h6 { display: inline-block; }
 	p { border-top: 2px solid $gray-lighter; padding-top: 8px; }
@@ -90,7 +88,6 @@
 	}
 }
 
-
 .story-feed .post {
 	padding-top: 30px;
 }
@@ -105,14 +102,14 @@
 .underlined-dark { border-color: $gray-darker; }
 
 .bylines {
-	margin-bottom: 60px;
+	margin-bottom: 20px;
 	text-align: center;
 }
 
 .byline {
 	display: inline-block;
 	font-weight: 700;
-	padding: 0 4px;
+	padding: 0 5px;
 	a { color: $text-color; &:hover { color: $brand-primary; } }
 }
 

@@ -1,5 +1,8 @@
 <?php
 
+require_once('inc/shortcodes.php');
+require_once('inc/custom_post_types.php');
+
 if ( ! function_exists( 'pbt_setup' ) ) :
 /**
  * Sets up theme defaults and registers support for various WordPress features.
@@ -50,7 +53,7 @@ function pbt_setup() {
 	/**
 	 * Enable support for Post Formats
 	 */
-	add_theme_support( 'post-formats', array( 'audio', 'link' ) );
+	add_theme_support( 'post-formats', array( 'link' ) );
 
 	/**
 	 * Register sidebars
@@ -149,73 +152,7 @@ add_filter( 'image_size_names_choose', 'pbt_custom_image_sizes' );
 
 
 
-/**
- * Improves the caption shortcode with HTML5 figure & figcaption; microdata & wai-aria attributes
- *
- * @param  string $val     Empty
- * @param  array  $attr    Shortcode attributes
- * @param  string $content Shortcode content
- * @return string          Shortcode output
- */
-function pbt_img_caption_shortcode_filter($val, $attr, $content = null) {
-    extract(shortcode_atts(array(
-        'id'      => '',
-        'class'   => '',
-        'align'   => 'aligncenter',
-        'width'   => '',
-        'caption' => ''
-    ), $attr));
 
-    // No caption, no dice... But why width?
-    if ( 1 > (int) $width || empty($caption) )
-        return $val;
-
-    if ( $id )
-        $id = esc_attr( $id );
-
-    // Add itemprop="contentURL" to image - Ugly hack
-    $content = str_replace('<img', '<img itemprop="contentURL"', $content);
-
-    return '<figure class="' . $class . '" id="' . $id . '" aria-describedby="figcaption_' . $id . '" class="img-caption ' . esc_attr($align) .'" itemscope itemtype="http://schema.org/ImageObject">' . do_shortcode( $content ) . '<figcaption id="figcaption_'. $id . '" class="caption-text" itemprop="description">' . $caption . '</figcaption></figure>';
-}
-add_filter( 'img_caption_shortcode', 'pbt_img_caption_shortcode_filter', 10, 3 );
-
-/**
- * Adds a shortcode for displaying responsive iFrames in a content post.
- * Option of passing in a video ID or an entire src. May set 16x9 or 3x2 with video/timelapse.
- * May also set a caption.
- *
- * @param  string $val     Empty
- * @param  array  $attr    Shortcode attributes
- * @return string          Shortcode output
- */
-function pbt_video_embed_shortcode( $atts ) {
-    extract( shortcode_atts(
-        array(
-            'src'               => '',
-            'size'              => 'featured',
-            'vimeo_id'          => '',
-            'aspect_ratio'      => 'video',
-            'caption'           => '',
-        ), $atts )
-    );
-
-    if ( !empty($vimeo_id) ) { $src = 'https://player.vimeo.com/video/' . $vimeo_id . '?title=0&byline=0&portrait=0'; }
-
-    $embed = '<div class="' . $size . '-video">
-                <figure class="' . $aspect_ratio . '-wrapper">
-                    <iframe src="' . $src . '" frameborder="0" allowfullscreen="allowfullscreen"></iframe>
-                </figure>';
-
-    // If there is a caption
-    if ( !empty($caption) ) { $embed = $embed . '<figcaption class="caption-text">' . $caption . '</figcaption></div>'; } else {
-        $embed = $embed . '</div>';
-    }
-
-    return $embed;
-
-}
-add_shortcode( 'embed_video', 'pbt_video_embed_shortcode' );
 
 
 /**
@@ -258,132 +195,6 @@ function save_extra_social_links( $user_id ) {
 }
 
 
-/**
- * Change default WP Post to be called Stories, rather than making a Custom Post Type
- */
-function pbt_change_post_label() {
-    global $menu;
-    global $submenu;
-    $menu[5][0] = 'Stories';
-    $submenu['edit.php'][5][0] = 'Stories';
-    $submenu['edit.php'][10][0] = 'Add Story';
-    $submenu['edit.php'][16][0] = 'Story Tags';
-    echo '';
-}
-function pbt_change_post_object() {
-    global $wp_post_types;
-    $labels = &$wp_post_types['post']->labels;
-    $labels->name = 'Stories';
-    $labels->singular_name = 'Story';
-    $labels->add_new = 'Add Story';
-    $labels->add_new_item = 'Add Story';
-    $labels->edit_item = 'Edit Story';
-    $labels->new_item = 'Story';
-    $labels->view_item = 'View Story';
-    $labels->search_items = 'Search Story';
-    $labels->not_found = 'No Stories found';
-    $labels->not_found_in_trash = 'No Stories found in Trash';
-    $labels->all_items = 'All Stories';
-    $labels->menu_name = 'Story';
-    $labels->name_admin_bar = 'Story';
-}
-
-add_action( 'admin_menu', 'pbt_change_post_label' );
-add_action( 'init', 'pbt_change_post_object' );
-
-/**
- * Blog Post Custom Post Type
- */
-function pbt_blog_post_type() {
-    register_post_type('blog_post', array(   
-       'label' 					=> 'Blog Posts',
-       'description' 			=> 'Blog posts from the PBT Team members',
-       'public' 				=> true,
-       'show_ui' 				=> true,
-       'show_in_menu' 			=> true,
-       'menu_position' 			=> 5,
-       'capability_type' 		=> 'post',
-       'hierarchical' 			=> false,
-       'publicly_queryable' 	=> true,
-       'rewrite' 				=> false,
-       'query_var' 				=> true,
-       'has_archive' 			=> true,
-       'supports' 				=> array('title','editor','excerpt','revisions','thumbnail','author'),
-       'taxonomies' 			=> array('category','post_tag'),
-    ));
-
-    global $wp_rewrite;
-	$blog_post_structure = '/notebook/%year%/%blog_post%';
-	$wp_rewrite->add_rewrite_tag("%blog_post%", '([^/]+)', "blog_post=");
-	$wp_rewrite->add_permastruct('blog_post', $blog_post_structure, false);
-}
-
-add_action('init', 'pbt_blog_post_type');
-
-// Add filter to plugin init function
-add_filter('post_type_link', 'pbt_blog_post_permalink', 10, 3);
-function pbt_blog_post_permalink($permalink, $post_id, $leavename) {
-    $post = get_post($post_id);
-    $rewritecode = array(
-        '%year%',
-        '%monthnum%',
-        '%day%',
-        '%hour%',
-        '%minute%',
-        '%second%',
-        $leavename? '' : '%postname%',
-        '%post_id%',
-        '%category%',
-        '%author%',
-        $leavename? '' : '%pagename%',
-    );
- 
-    if ( '' != $permalink && !in_array($post->post_status, array('draft', 'pending', 'auto-draft')) ) {
-        $unixtime = strtotime($post->post_date);
-     
-        $category = '';
-        if ( strpos($permalink, '%category%') !== false ) {
-            $cats = get_the_category($post->ID);
-            if ( $cats ) {
-                usort($cats, '_usort_terms_by_ID'); // order by ID
-                $category = $cats[0]->slug;
-                if ( $parent = $cats[0]->parent )
-                    $category = get_category_parents($parent, false, '/', true) . $category;
-            }
-            // show default category in permalinks, without
-            // having to assign it explicitly
-            if ( empty($category) ) {
-                $default_category = get_category( get_option( 'default_category' ) );
-                $category = is_wp_error( $default_category ) ? '' : $default_category->slug;
-            }
-        }
-     
-        $author = '';
-        if ( strpos($permalink, '%author%') !== false ) {
-            $authordata = get_userdata($post->post_author);
-            $author = $authordata->user_nicename;
-        }
-     
-        $date = explode(" ",date('Y m d H i s', $unixtime));
-        $rewritereplace =
-        array(
-            $date[0],
-            $date[1],
-            $date[2],
-            $date[3],
-            $date[4],
-            $date[5],
-            $post->post_name,
-            $post->ID,
-            $category,
-            $author,
-            $post->post_name,
-        );
-        $permalink = str_replace($rewritecode, $rewritereplace, $permalink);
-    } else { // if they're not using the fancy permalink option
-    }
-    return $permalink;
-}
 
 
 /**
@@ -444,5 +255,4 @@ function login_page_styles() { ?>
 <?php }
 add_action( 'login_enqueue_scripts', 'login_page_styles' );
 
-?>
 

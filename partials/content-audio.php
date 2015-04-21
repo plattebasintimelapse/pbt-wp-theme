@@ -11,5 +11,5 @@
 		<aside class="social-media"></aside>
 
 		<section class="audio-container">
-			<h1>Audio Player</h1>
+
 		</section>
