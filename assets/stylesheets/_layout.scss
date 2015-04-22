@@ -40,6 +40,10 @@
 	padding-top: 160px;
 }
 
+.container-little-padding-top {
+	padding-top: 40px;
+}
+
 .row-padding { padding: 50px 0; }
 .row-little-padding { padding: 5px 0; }
 
@@ -258,7 +262,7 @@ footer {
 	h6 { text-transform: uppercase; font-weight: 700; }
 }
 
-footer .col-sm-4 {
+footer .col {
 	border-right: 1px solid $gray-light;
 	min-height: 180px;
 	@include breakpoint(mama-bear) { border-right: none; }

@@ -19,10 +19,10 @@
 		</div>
 
 		<div class="row row-padding">
-			<div class="col-sm-4 col-sm-offset-2 col-extra-padding">
+			<div class="col col-md-4 col-md-offset-2 col-extra-padding">
 				<?php dynamic_sidebar( 'pbt-footer-secondary-left' ); ?>
 			</div>
-			<div class="col-sm-4 col-extra-padding">
+			<div class="col col-md-4 col-extra-padding">
 				<?php dynamic_sidebar( 'pbt-footer-main' ); ?>
 			</div>
 		</div>

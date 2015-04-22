@@ -12,6 +12,10 @@
 
 .small { color: $gray-darker !important; }
 
+.logged-in .nivo-lightbox-close {
+	top: 40px !important;
+}
+
 
 .btn-lg, .btn-group-lg > .btn, .btn {
   border-radius: 0;
