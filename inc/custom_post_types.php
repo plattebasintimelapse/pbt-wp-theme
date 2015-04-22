@@ -37,7 +37,7 @@ add_action( 'init', 'pbt_change_post_object' );
  * Blog Post Custom Post Type
  */
 function pbt_blog_post_type() {
-    register_post_type('blog_post', array(   
+    register_post_type('blog_post', array(
        'label' 					=> 'Blog Posts',
        'description' 			=> 'Blog posts from the PBT Team members',
        'public' 				=> true,
@@ -62,7 +62,9 @@ function pbt_blog_post_type() {
 
 add_action('init', 'pbt_blog_post_type');
 
-// Add filter to plugin init function
+/**
+ * Custom Permalink Structures
+ */
 add_filter('post_type_link', 'pbt_blog_post_permalink', 10, 3);
 function pbt_blog_post_permalink($permalink, $post_id, $leavename) {
     $post = get_post($post_id);
@@ -79,10 +81,10 @@ function pbt_blog_post_permalink($permalink, $post_id, $leavename) {
         '%author%',
         $leavename? '' : '%pagename%',
     );
- 
+
     if ( '' != $permalink && !in_array($post->post_status, array('draft', 'pending', 'auto-draft')) ) {
         $unixtime = strtotime($post->post_date);
-     
+
         $category = '';
         if ( strpos($permalink, '%category%') !== false ) {
             $cats = get_the_category($post->ID);
@@ -99,13 +101,13 @@ function pbt_blog_post_permalink($permalink, $post_id, $leavename) {
                 $category = is_wp_error( $default_category ) ? '' : $default_category->slug;
             }
         }
-     
+
         $author = '';
         if ( strpos($permalink, '%author%') !== false ) {
             $authordata = get_userdata($post->post_author);
             $author = $authordata->user_nicename;
         }
-     
+
         $date = explode(" ",date('Y m d H i s', $unixtime));
         $rewritereplace =
         array(
