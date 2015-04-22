@@ -42,16 +42,16 @@ get_header();
 						$i = 2;
 						$column_width = 12 / $user_per_row;
 
-						echo '<div class="col-md-' . $column_width * 2 . '">';
+						echo '<div class="col-md-' . $column_width * 2 . '"><div class="col-md-lead-in">';
 							the_field('about_the_team');
-						echo '</div>';
+						echo '</div></div>';
 
 						foreach ( $user_query->results as $user ) { ?>
 
 							<?php if( ( $i % $user_per_row ) == 0) { echo '<div class="row">'; } $i++; ?>
 
 							<a name="<?php echo $user->user_nicename; ?>"></a>
-							<div class="col-sm-6 col-md-<?php echo $column_width; ?> user user-<?php echo $user->ID; ?>">
+							<div class="col-sm-6 col-extra-padding col-md-<?php echo $column_width; ?> user user-<?php echo $user->ID; ?>">
 
 								<h4><?php echo $user->display_name ?></h4>
 								<h6> <?php echo $user->user_pbt_role ?> <i class="btn fa fa-plus-circle" data-toggle="collapse" data-target="#userCollapse<?php echo $user->ID ?>" aria-expanded="false" aria-controls="collapseExample"></i></h6>
@@ -107,9 +107,9 @@ get_header();
 
 			<?php
 
-				echo '<div class="col-xs-6">';
+				echo '<div class="col-xs-6"><div class="col-sm-lead-in">';
 					the_field('project_partners');
-				echo '</div>';
+				echo '</div></div>';
 
 				$project_credits_query_args = array(
 					'post_type' 		=> 'project_credit',
@@ -136,7 +136,6 @@ get_header();
 
 		<div class="container">
 			<div class="cooperator-feed">
-
 
 					<?php
 
