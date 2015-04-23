@@ -81,11 +81,13 @@ header .site-title {
 
 .navbar-header { float: left; }
 
+.navbar-brand { padding: 8px 4px; }
+
 .navbar-brand img {
 	width: 70px;
 	padding-left: 0;
+	@include breakpoint(mama-bear) { width: 70px; }
 	@include breakpoint(mama-bear) { width: 80px; }
-	@include breakpoint(mama-bear) { width: 90px; }
 	@include breakpoint(papa-bear) { width: 100px; }
 }
 
@@ -105,7 +107,7 @@ header .site-title {
 }
 
 #searchbarCollapse input {
-	background-color: lighten($blue, 10%);
+	background-color: $brand-info;
 	color: white;
 	width: 70%;
 	max-width: 400px;

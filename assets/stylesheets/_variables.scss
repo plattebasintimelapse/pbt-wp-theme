@@ -30,7 +30,7 @@ $gray-lighter:           lighten($gray-base, 98%);
 $brand-primary:         #6aaac3;
 $blue:					#6aaac3;
 $brand-success:         #5cb85c;
-$brand-info:            #DECBC9;
+$brand-info:            lighten($brand-primary, 10%);
 $brand-warning:         #f0ad4e;
 $brand-danger:          #d9534f;
 
@@ -70,7 +70,7 @@ $font-family-base:        $font-family-sans-serif;
 $fa-font-path:        	  "assets/fonts";
 
 $font-size-base:          16px;
-$font-size-large:         ceil(($font-size-base * 1.45));
+$font-size-large:         ceil(($font-size-base * 1.9));
 $font-size-small:         ceil(($font-size-base * 0.90));
 $font-size-ex-small:      ceil(($font-size-base * 0.65));
 
