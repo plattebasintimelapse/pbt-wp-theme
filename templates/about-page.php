@@ -6,12 +6,16 @@
 
 get_header();
 
-$user_per_row = 4; ?>
+$user_per_row = 4;
 
-		<?php while ( have_posts() ) : the_post(); ?>
+while ( have_posts() ) : the_post();
 
+	$post_thumbnail_id = get_post_thumbnail_id();
+	$post_thumbnail_url = wp_get_attachment_url( $post_thumbnail_id ); ?>
 
-		<?php the_post_thumbnail( 'pbt-pano-header' ); ?>
+	<section class="featured hero-image hero-image-behind" style="background-image: url(<?php echo $post_thumbnail_url ?>)">
+		<div class="container-fluid">
+
 		<h2 class="post-title"><?php the_title(); ?></h2>
 
 	</div>

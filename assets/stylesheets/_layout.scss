@@ -15,7 +15,18 @@
 .hero-image {
 	@include text-over-image();
 
+
+
 	a { color: $gray-lighter; }
+}
+
+.hero-image-behind {
+	height: 600px;
+	background-color: white;
+	background-position: center right;
+	background-size: cover;
+	background-attachment: fixed;
+	background-repeat: no-repeat;
 }
 
 .main {

@@ -3,14 +3,15 @@
  * The template for displaying a single story.
  */
 
-get_header(); ?>
+get_header();
 
-	<section class="featured hero-image" style="background-image: url(<?php echo wp_get_attachment_url( 12 ); ?>)">
+	while ( have_posts() ) : the_post();
+
+	$post_thumbnail_id = get_post_thumbnail_id();
+	$post_thumbnail_url = wp_get_attachment_url( $post_thumbnail_id ); ?>
+
+	<section class="featured hero-image hero-image-behind" style="background-image: url(<?php echo $post_thumbnail_url ?>)">
 		<div class="container-fluid">
-
-	<?php while ( have_posts() ) : the_post(); ?>
-
-			
 
 				<h2 class="post-title"><?php the_title(); ?></h2>
 
