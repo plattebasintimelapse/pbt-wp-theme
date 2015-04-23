@@ -32,6 +32,28 @@ $(function() {
 	  // 		$(this).find('.read-more-btn').fadeOut();
   	// 	}
   	// );
+
+    $(document).ready(function () {
+
+        setTimeout(function() {
+            $('.home .featured-story-info-box h1').animate({
+                'margin-top': '0px',
+                'opacity': '1'
+            },1000);
+        }, 1000);
+        setTimeout(function() {
+            $('.home .featured-story-info-box h2').animate({
+                'margin-top': '0px',
+                'opacity': '1'
+            },1000);
+        }, 2000);
+        setTimeout(function() {
+            $('.main-widgeted-text').find('span').animate({
+                'opacity': '1'
+            },1000);
+        }, 4000);
+    });
+
     $(function() {
         $('a[href*=#]:not([href=#])').click(function() {
             if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
