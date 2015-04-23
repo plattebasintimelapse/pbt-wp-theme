@@ -7,7 +7,7 @@ get_header(); ?>
 
 	<?php while ( have_posts() ) : the_post(); ?>
 
-			<?php the_post_thumbnail( 'pano-header' ); ?>
+			<?php the_post_thumbnail( 'pbt-pano-header' ); ?>
 
 				<h2 class="post-title"><?php the_title(); ?></h2>
 

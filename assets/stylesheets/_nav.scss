@@ -54,10 +54,6 @@ header {
 	margin: 0;
 }
 
-.nav .searchform {
-	padding: 20px 40px;
-}
-
 .collapse-bar {
 	color: $gray-lighter;
 	background-color: $blue;
@@ -74,4 +70,30 @@ header {
 	@include breakpoint(mama-bear) { width: 100px; }
 	@include breakpoint(mama-bear) { width: 110px; }
 	@include breakpoint(papa-bear) { width: 120px; }
+}
+
+#searchbarCollapse .navbar-nav {
+	@include breakpoint(mama-bear) { width: 100%; }
+}
+
+#searchbarCollapse {
+	font-size: 1.6rem;
+	@include breakpoint(baby-bear) { font-size: 1.2rem; }
+}
+
+#searchbarCollapse form {
+	margin: 0 auto;
+	padding: 40px 20px;
+	@include breakpoint(baby-bear) { padding: 60px 20px; }
+}
+
+#searchbarCollapse input {
+	background-color: lighten($blue, 10%);
+	color: white;
+	width: 70%;
+	max-width: 400px;
+	&::-webkit-input-placeholder { color: $gray-lighter; }
+	&:-moz-placeholder { /* Firefox 18- */ color: $gray-lighter; }
+	&::-moz-placeholder {  /* Firefox 19+ */ color:$gray-lighter; }
+	&:-ms-input-placeholder { color: $gray-lighter; }
 }

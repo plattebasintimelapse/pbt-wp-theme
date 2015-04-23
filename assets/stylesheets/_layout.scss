@@ -48,7 +48,8 @@
 }
 
 .row-padding { padding: 50px 0; }
-.row-little-padding { padding: 5px 0; }
+.row-some-padding { padding: 20px 0; }
+.row-little-padding { padding: 10px 0; }
 
 .col-extra-padding {
 	padding-left: 30px;
@@ -76,7 +77,7 @@
  *  Utilized in the .stort-thumbnail container in the post-feed-thumbnail.php partial file
  */
 
-.story-feed .post, .notebook-feed .blog_post  {
+.main .post, .main .blog_post, .main .page  {
 	padding-top: 30px;
 }
 
@@ -278,6 +279,37 @@
   	display: inline-block;
   	height: 30px;
 }
+
+
+/**
+ *	SEARCH PAGE
+ *  Styles for the search page.
+ *  Both a successful search and a no-results search.
+ */
+
+.search-no-results {
+	.read-more-btn {
+		// display: block;
+	}
+}
+
+/**
+ *	SEARCH BAR
+ *  Styles for the search bar as it appears on the main sections of the site.
+ *  The hidden top search bar is styled in nav.scss
+ */
+
+ .main form.searchform {
+ 	margin: 50px auto;
+ 	text-align: center;
+ 	input {
+ 		width: 100%;
+ 		max-width: 300px;
+ 		@include breakpoint(baby-bear) {
+ 			width: 50%;
+ 		}
+ 	}
+ }
 
 
 /**

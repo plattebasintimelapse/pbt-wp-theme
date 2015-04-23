@@ -47,7 +47,7 @@
 
 	<div class="collapse collapse-bar" role="search" id="searchbarCollapse">
 		<div class="container-fluid">
-				<div class="nav navbar-nav navbar-right">
+				<div class="nav navbar-nav">
 					<?php get_search_form( ); ?>
 				</div>
 		</div>

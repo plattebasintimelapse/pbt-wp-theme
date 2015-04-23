@@ -80,11 +80,13 @@ get_header(); ?>
 					);
 
 					$the_query = new WP_Query( $home_page_feed_query_args );
-					if ( $the_query->have_posts() ) : while ( $the_query->have_posts() ) : $the_query->the_post();
+					if ( $the_query->have_posts() ) : while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
 
-					get_template_part( 'partials/post-feed-thumbnail' );
+					<div id="post-<?php the_ID(); ?>" <?php post_class('col-sm-12 col-md-6'); ?>>
+						<?php get_template_part( 'partials/post-feed-thumbnail' ); ?>
+					</div>
 
-					endwhile; endif;
+				<?php endwhile; endif;
 					wp_reset_postdata();
 				?>
 			</div>

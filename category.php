@@ -8,8 +8,8 @@ get_header(); ?>
 		<?php the_post_thumbnail( 'pbt-pano-header' ); ?>
 
 		<h1 class="post-title"><?php single_cat_title( '', true ); ?></h1>
-	</div>
-</section>
+	</div> <!-- .container-fluid -->
+</section> <!-- .featured -->
 
 <article class="main category story-feed" role="main">
 	<div class="container">
@@ -28,11 +28,13 @@ get_header(); ?>
 			);
 
 			$the_query = new WP_Query( $archive_page_query_args );
-			if ( $the_query->have_posts() ) : while ( $the_query->have_posts() ) : $the_query->the_post();
+			if ( $the_query->have_posts() ) : while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
 
-			get_template_part( 'partials/post-feed-thumbnail' );
+			<div id="post-<?php the_ID(); ?>" <?php post_class('col-sm-12 col-md-6'); ?>>
+				<?php get_template_part( 'partials/post-feed-thumbnail' ); ?>
+			</div>
 
-			endwhile; endif;
+		<?php endwhile; endif;
 			wp_reset_postdata();
 		?>
 

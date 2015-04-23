@@ -5,6 +5,43 @@
 
 get_header(); ?>
 
-<h1>The Search Result Page</h1>
-	
+				<?php echo get_the_post_thumbnail( 1, 'pbt-pano-header' ); ?>
+
+				<h2 class="post-title">Searching for '<?php the_search_query(); ?>'...</h2>
+			</div> <!-- .container-fluid -->
+		</section> <!-- .featured -->
+
+<article class="main" role="main">
+	<div class="container">
+
+		<?php
+
+			if ( have_posts() ) :
+
+				while ( have_posts() ) : the_post(); ?>
+
+					<div class="row row-some-padding">
+						<div class="col-sm-6">
+							<?php get_template_part( 'partials/searched-post-feed-thumbnail' ); ?>
+						</div>
+						<div class="col-sm-6">
+							<div class="font-size-sall">
+								<?php the_excerpt(); ?>
+								<a class="btn btn-primary btn-sm" role="button" href="<?php the_permalink() ?>"><h6>Read On</h6></a>
+							</div>
+						</div>
+					</div>
+
+				<?php endwhile;
+
+			else :
+
+				get_template_part( 'partials/no-results', 'search' );
+
+			endif;
+		?>
+
+	</div>
+</article>
+
 <?php get_footer(); ?>

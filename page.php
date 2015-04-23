@@ -8,24 +8,23 @@
  * different template.
  */
 
-get_header(); ?>
+get_header();
 
-<?php while ( have_posts() ) : the_post(); ?>
+	while ( have_posts() ) : the_post(); ?>
 
-			<?php the_post_thumbnail( 'pbt-pano-header' ); ?>
+				<?php the_post_thumbnail( 'pbt-pano-header' ); ?>
 
-			<h1 class="post-title"><?php the_title(); ?></h1>
-		</div>
-	</section>
+				<h1 class="post-title"><?php the_title(); ?></h1>
+			</div> <!-- .container-fluid -->
+		</section> <!-- .featured -->
 
-	
 
-		<article id="post-<?php the_ID(); ?>" <?php post_class('main container'); ?> role="main">
+		<article id="post-<?php the_ID(); ?>" <?php post_class('main'); ?> role="main">
+			<div class="container">
+				<?php the_title(); ?>
 
-			<?php the_title(); ?>
-
-			<?php the_content(); ?>
-
+				<?php the_content(); ?>
+			</div>
 		</article><!-- #post-## -->
 
 	<?php endwhile; ?>

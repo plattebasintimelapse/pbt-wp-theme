@@ -10,4 +10,5 @@
 	    transition: all 500ms ease-out;
 		&:hover { opacity: .5; }
 	}
+	small { color: $gray-lighter; }
 }

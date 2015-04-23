@@ -4,6 +4,7 @@ $(function() {
     $body = $('body');
     $navbarCollapse = $('a[data-target="#navbarCollapse"]');
     $searchbarCollapse = $('a[data-target="#searchbarCollapse"]');
+    $searchbarInput = $('#searchbarCollapse input#s');
 
     $navbarCollapse.click(function(){
         $body.toggleClass('nav-is-open');
@@ -17,6 +18,9 @@ $(function() {
 
     $searchbarCollapse.click(function(){
         $body.toggleClass('search-is-open');
+        if (!$body.hasClass('search-is-open') ) {
+            $searchbarInput.focus();
+        }
     });
 
   	// $('.story-thumbnail').hover(
