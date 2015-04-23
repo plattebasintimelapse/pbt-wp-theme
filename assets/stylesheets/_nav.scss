@@ -15,6 +15,9 @@ header {
 	color: $gray-lighter;
 	text-transform: uppercase;
 	font-weight: 700;
+	font-size: 1.6rem;
+	@include breakpoint(baby-bear) { font-size: 1.2rem; }
+	@include breakpoint(mama-bear) { font-size: 1rem; }
 	&:hover, &:focus { color: $blue; background-color: $gray-lighter; }
 }
 
@@ -28,6 +31,7 @@ header {
 
 .nav#footer-menu > li  {
 	@include breakpoint(baby-bear) { display: inline-block; float: left; }
+	&:last-child { float: none; @include breakpoint(baby-bear) { float: right; }}
 }
 
 .nav#footer-menu > li > a {
@@ -35,6 +39,9 @@ header {
 	text-transform: lowercase;
 	font-weight: 400;
 	text-shadow: none;
+	font-size: 1.1rem;
+	@include breakpoint(baby-bear) { font-size: .9rem; }
+	@include breakpoint(mama-bear) { font-size: .7rem; }
 	&:hover, &:focus { background-color: $gray-dark; color: $gray-lighter; }
 }
 

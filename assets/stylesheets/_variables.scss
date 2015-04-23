@@ -76,10 +76,10 @@ $font-size-ex-small:      ceil(($font-size-base * 0.65));
 
 $font-size-h1:            3.2rem;
 $font-size-h2:            2.4rem;
-$font-size-h3:            1.6rem;
+$font-size-h3:            1.5rem;
 $font-size-h4:            1rem;
-$font-size-h5:            .9rem;
-$font-size-h6:            .8rem;
+$font-size-h5:            .8rem;
+$font-size-h6:            .7rem;
 
 
 //** Unit-less `line-height` for use in components like buttons.
@@ -104,7 +104,7 @@ $container-desktop:            (960px + $grid-gutter-width);
 $container-md:                 $container-desktop;
 
 // Large screen / wide desktop
-$container-large-desktop:      (1200px + $grid-gutter-width);
+$container-large-desktop:      (1100px + $grid-gutter-width);
 $container-lg:                 $container-large-desktop;
 
 

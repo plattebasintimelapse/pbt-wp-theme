@@ -86,16 +86,37 @@
 }
 
 .story-info-box {
-	top: 10%;
+	top: 16%;
 	left: 50%;
 	width: 80%;
 	margin-left: -(40%);
 	text-align: center;
 	text-transform: uppercase;
 
+	@include breakpoint(baby-bear) {
+		width: 60%;
+		margin-left: -30%;
+	}
+
+	@include breakpoint(mama-bear) {
+		top: 5%;
+		width: 90%;
+		margin-left: -45%;
+	}
+
+	@include breakpoint(mama-bear) {
+		top: 5%;
+		width: 80%;
+		margin-left: -40%;
+	}
+
 	.post-category, .blog-post-author {
 		padding-bottom: 6px;
 		border-bottom: 2px solid $gray-lighter;
+		display: none;
+		@include breakpoint(baby-bear) {
+			display: block;
+		}
 	}
 }
 

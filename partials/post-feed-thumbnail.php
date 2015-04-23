@@ -7,7 +7,7 @@
  */
 ?>
 
-<div id="post-<?php the_ID(); ?>" <?php post_class('col-xs-12 col-sm-6'); ?>>
+<div id="post-<?php the_ID(); ?>" <?php post_class('col-sm-12 col-md-6'); ?>>
 
 	<div class="story-thumbnail">
 		<?php the_post_thumbnail( 'pbt-post-thumbnail' ); ?>

@@ -17,6 +17,8 @@ h1, h2, h3, h4, h5 {
 
 h1, h2 { font-weight: 700 }
 
+h6 { margin: 4px 0; }
+
 img { width: 100%; height: auto; }
 
 a.link-color-dark { color: $gray-dark; &:hover { color: $blue; }}
