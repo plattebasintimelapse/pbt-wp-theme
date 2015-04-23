@@ -1,5 +1,5 @@
 $(function() {
-  	console.log('Scripts all work, eh?');
+  	console.log('Scripts all work, eh??');
 
   	// $('.story-thumbnail').hover(
   	// 	function() {
