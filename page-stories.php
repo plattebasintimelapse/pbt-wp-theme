@@ -45,25 +45,37 @@ get_header(); ?>
 	</div><!-- .container-fluid -->
 </section> <!-- .featured -->
 
-<article id="post-<?php the_ID(); ?>" <?php post_class('main story-feed'); ?> role="main">
+<article <?php post_class('main story-feed'); ?> role="main">
 	<div class="container">
 
 		<!-- THE STORY PAGE FEED OF POSTS -->
 		<?php
+			$paged = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
 			$story_page_query_args = array(
 				'post_type' => 'post',
-				'orderby' => 'title',
-				'order'   => 'ASC',
+				'orderby' => 'date',
+				'order'   => 'DESC',
+				'showposts' => 2,
+				'paged'		=> $paged,
 			);
 
 			$the_query = new WP_Query( $story_page_query_args );
-			if ( $the_query->have_posts() ) : while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
+			if ( $the_query->have_posts() ) :
+				while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
 
-			<div id="post-<?php the_ID(); ?>" <?php post_class('col-sm-12 col-md-6'); ?>>
-				<?php get_template_part( 'partials/post-feed-thumbnail' ); ?>
-			</div>
+					<div id="post-<?php the_ID(); ?>" <?php post_class('col-sm-12 col-md-6'); ?>>
+						<?php get_template_part( 'partials/post-feed-thumbnail' ); ?>
+					</div>
 
-		<?php endwhile; endif;
+				<?php endwhile; ?>
+
+				<div class="pagenav">
+					<div class="alignleft"><?php previous_posts_link('<strong>%link</strong>') ?></div>
+					<div class="alignright"><?php next_posts_link('<strong>%link</strong>') ?></div>
+				</div>
+
+		<?php
+			endif;
 			wp_reset_postdata();
 		?>
 
