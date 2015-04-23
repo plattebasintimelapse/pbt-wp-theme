@@ -54,6 +54,3 @@
 	</div>
 
 	<?php get_template_part( 'templates/main-header' ); ?>
-
-	<section class="featured hero-image">
-		<div class="container-fluid">

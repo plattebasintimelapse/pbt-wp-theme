@@ -5,9 +5,12 @@
 
 get_header(); ?>
 
+	<section class="featured hero-image" style="background-image: url(<?php echo wp_get_attachment_url( 12 ); ?>)">
+		<div class="container-fluid">
+
 	<?php while ( have_posts() ) : the_post(); ?>
 
-			<?php the_post_thumbnail( 'pbt-pano-header' ); ?>
+			
 
 				<h2 class="post-title"><?php the_title(); ?></h2>
 

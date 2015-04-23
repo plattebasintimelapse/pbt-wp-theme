@@ -7,6 +7,9 @@
 
 get_header(); ?>
 
+<section class="featured hero-image">
+	<div class="container-fluid">
+
 		<?php while ( have_posts() ) : the_post(); ?>
 
 		<?php the_post_thumbnail( 'pbt-pano-header' ); ?>

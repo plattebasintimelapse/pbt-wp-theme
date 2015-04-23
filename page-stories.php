@@ -7,6 +7,9 @@
 
 get_header(); ?>
 
+<section class="featured hero-image">
+	<div class="container-fluid">
+
 		<!-- THE STORY PAGE FEATURED POST -->
 		<?php
 			$story_page_featured_query_args = array(
@@ -55,7 +58,7 @@ get_header(); ?>
 				'post_type' => 'post',
 				'orderby' => 'date',
 				'order'   => 'DESC',
-				'showposts' => 2,
+				'showposts' => -1,
 				'paged'		=> $paged,
 			);
 

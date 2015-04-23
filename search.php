@@ -5,6 +5,9 @@
 
 get_header(); ?>
 
+		<section class="featured hero-image">
+			<div class="container-fluid">
+
 				<?php echo get_the_post_thumbnail( 1, 'pbt-pano-header' ); ?>
 
 				<h2 class="post-title">Searching for '<?php the_search_query(); ?>'...</h2>

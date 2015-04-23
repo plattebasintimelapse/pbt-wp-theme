@@ -5,6 +5,9 @@
 
 get_header(); ?>
 
+<section class="featured hero-image">
+	<div class="container-fluid">
+
 		<?php the_post_thumbnail( 'pbt-pano-header' ); ?>
 
 		<h1 class="post-title"><?php single_cat_title( '', true ); ?></h1>
