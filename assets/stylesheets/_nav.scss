@@ -4,12 +4,20 @@ header {
 	width: 100%;
 }
 
-.nav.navbar-footer > li > a, .nav > li > a {
-	padding: 20px 30px;
+.nav > li > a {
+	display: block;
+	padding: 30px 40px;
 	color: $gray-lighter;
+	text-transform: uppercase;
+	font-weight: 700;
+	&:hover, &:focus { color: $blue; background-color: $gray-lighter; }
+}
+
+.nav.navbar-footer > li > a {
+	padding: 20px 30px;
 	text-transform: lowercase;
 	font-weight: 400;
-	&:hover, &:focus { background-color: $gray-dark; }
+	&:hover, &:focus { background-color: $gray-dark; color: $gray-lighter; }
 }
 
 .navbar-footer {
@@ -19,22 +27,15 @@ header {
 
 nav {
 	ul { list-style-type: none; padding: 0; margin: 0; }
-	li { display: inline-block;}
+	li {
+		display: inline-block;
+		@include breakpoint(mama-bear) { display: block }
+	}
 }
 
 .navbar-footer.nav > li > a {
 	text-shadow: none;
 }
-
-.nav > li > a {
-	display: block;
-	padding: 30px 40px;
-	color: $blue;
-	text-transform: uppercase;
-	font-weight: 700;
-	&:hover, &:focus { color: $gray-lighter; background-color: $blue; }
-}
-
 
 
 .navbar { 
@@ -43,10 +44,8 @@ nav {
 }
 
 .nav .searchform {
-	padding: 20px 50px;
+	padding: 20px 40px;
 }
-
-
 
 .collapse-bar {
 	color: $gray-lighter;
