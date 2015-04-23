@@ -11,7 +11,7 @@ get_header(); ?>
 			</div> <!-- .container-fluid -->
 		</section> <!-- .featured -->
 
-<article class="main" role="main">
+<article class="main search-result" role="main">
 	<div class="container">
 
 		<?php
@@ -21,13 +21,13 @@ get_header(); ?>
 				while ( have_posts() ) : the_post(); ?>
 
 					<div class="row row-some-padding">
-						<div class="col-sm-6">
+						<div class="col-md-6">
 							<?php get_template_part( 'partials/searched-post-feed-thumbnail' ); ?>
 						</div>
-						<div class="col-sm-6">
-							<div class="font-size-sall">
+						<div class="col-md-6">
+							<div class="excerpt">
 								<?php the_excerpt(); ?>
-								<a class="btn btn-primary btn-sm" role="button" href="<?php the_permalink() ?>"><h6>Read On</h6></a>
+								<a class="btn btn-primary btn-sm btn-block" role="button" href="<?php the_permalink() ?>"><h6>Read On</h6></a>
 							</div>
 						</div>
 					</div>
