@@ -53,6 +53,8 @@
 		</div>
 	</div>
 
+	<?php get_template_part( 'templates/main_header' ); ?>
+
 	<section class="featured hero-image">
 		<div class="container-fluid">
-			<?php get_template_part( 'templates/main_header' ); ?>
+			

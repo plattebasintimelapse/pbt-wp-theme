@@ -68,7 +68,7 @@ get_header(); ?>
 						wp_reset_postdata();
 					?>
 			</div>
-			<div class="row row-padding">
+			<div class="row row-little-padding">
 
 				<?php
 					$home_page_feed_query_args = array(
