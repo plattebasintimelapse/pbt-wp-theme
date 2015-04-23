@@ -1,12 +1,15 @@
-body {
-	@include breakpoint(mama-bear) { font-size: 1.4em; }
-	@include breakpoint(baby-bear) { font-size: 1.2em; }
+html {
+	@include breakpoint(baby-bear) { font-size: .6em; }
+	@include breakpoint(mama-bear) { font-size: 1em; }
+	@include breakpoint(papa-bear) { font-size: 2em; }
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1, h2, h3, h4, h5 {
 	margin-top: 10px;
 	margin-bottom: 6px;
 }
+
+h6 { margin: 4px 0; }
 
 h1, h2 { font-weight: 700 }
 
