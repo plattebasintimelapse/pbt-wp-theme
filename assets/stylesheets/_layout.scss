@@ -37,7 +37,10 @@
 }
 
 .container-padding-top {
-	padding-top: 160px;
+	padding-top: 40px;
+	@include breakpoint(baby-bear) { padding-top: 60px; }
+	@include breakpoint(mama-bear) { padding-top: 100px; }
+	@include breakpoint(papa-bear) {padding-top: 140px; }
 }
 
 .container-little-padding-top {
@@ -113,8 +116,12 @@
 }
 
 .home .featured-story-info-box {
-	top: 30%;
-	width: 80%;
+	display: none;
+	@include breakpoint(mama-bear) {
+		display: block;
+		top: 30%;
+		width: 80%;
+	}
 }
 
 .post-description {
@@ -139,14 +146,18 @@
 
 .hero-image-caption {
 	position: absolute;
-	left: 10px;
-	bottom: 10px;
+	top: 100%;
+	color: $text-color;
+	text-shadow: none;
 	font-size: .6em;
-	max-width: 200px;
+	max-width: 60%;
+	margin-top: 5px;
+	margin-left: 15px;
 	@include breakpoint(mama-bear) {
-		bottom: -25px;
-		color: $text-color;
-		text-shadow: none;
+		color: inherit;
+		top: auto;
+		bottom: 10px;
+		max-width: 200px;
 	}
 }
 
@@ -209,35 +220,35 @@
 }
 
 .col-md-lead-in {
-	text-align: right;
+	text-align: center;
+	margin-bottom: 30px;
 	@include breakpoint(mama-bear) {
-		text-align: center;
-		margin-bottom: 30px;
+		text-align: right;
 	}
 }
 
 .col-sm-lead-in {
-	text-align: right;
+	text-align: center;
+	margin-bottom: 30px;
 	@include breakpoint(baby-bear) {
-		text-align: center;
-		margin-bottom: 30px;
+		text-align: right;
 	}
 }
 
 
 
 .credit-wrapper {
-	// border: 1px solid #EFEFEF;
-	padding: 35px;
+	padding: 15px;
 	width: auto;
+	@include breakpoint(papa-bear) { padding: 25px 0; }
 
 	img {
-		height: 56px;
+		height: 36px;
 		width: auto;
 		display: block;
   		margin: 0 auto;
-  		@include breakpoint(mama-bear) { height: 38px; }
-  		@include breakpoint(baby-bear) { height: 40px; }
+  		@include breakpoint(mama-bear) { height: 40px; }
+  		@include breakpoint(papa-bear) { height: 52px; }
 	}
 }
 
@@ -263,10 +274,12 @@ footer {
 }
 
 footer .col {
-	border-right: 1px solid $gray-light;
 	min-height: 180px;
-	@include breakpoint(mama-bear) { border-right: none; }
-	&:last-child{ border-right: none; }
+	padding-bottom: 20px;
+	margin-bottom: 20px;
+	border-bottom: 1px solid $gray-light;
+	@include breakpoint(mama-bear) { border-right: 1px solid $gray-light; border-bottom: none; }
+	&:last-child{ border-right: none; border-bottom: none; }
 }
 
 footer img {

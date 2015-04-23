@@ -20,7 +20,7 @@
 		echo '<div class="bylines">';
 
 		for ($x = 0; $x < $num_authors; $x++) {
-			echo '<h5 class="byline">' . $author_credit[$x] . ' <a href="' . $about_url . '#' . $authors[$x]['user_nicename'] . '">' . $authors[$x]['display_name'] . '</a></h5>';
+			echo '<h4 class="byline">' . $author_credit[$x] . ' <a href="' . $about_url . '#' . $authors[$x]['user_nicename'] . '">' . $authors[$x]['display_name'] . '</a></h4>';
 		}
 
 		echo '</div>';

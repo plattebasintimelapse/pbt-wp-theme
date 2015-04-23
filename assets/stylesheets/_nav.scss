@@ -4,6 +4,11 @@ header {
 	width: 100%;
 }
 
+.nav { text-align: center; }
+
+.navbar-nav { margin: 0 -15px; }
+
+
 .nav > li > a {
 	display: block;
 	padding: 30px 40px;
@@ -13,34 +18,33 @@ header {
 	&:hover, &:focus { color: $blue; background-color: $gray-lighter; }
 }
 
-.nav.navbar-footer > li > a {
-	padding: 20px 30px;
-	text-transform: lowercase;
-	font-weight: 400;
-	&:hover, &:focus { background-color: $gray-dark; color: $gray-lighter; }
+.nav#menu-social-menu > li {
+	display: inline-block;
 }
 
-.navbar-footer {
-	width: 100%;
+.footer-menu {
 	border-bottom: 1px solid $gray-light;
 }
 
-nav {
-	ul { list-style-type: none; padding: 0; margin: 0; }
-	li {
-		display: inline-block;
-		@include breakpoint(mama-bear) { display: block }
-	}
+.nav#footer-menu > li  {
+	@include breakpoint(baby-bear) { display: inline-block; float: left; }
 }
 
-.navbar-footer.nav > li > a {
+.nav#footer-menu > li > a {
+	padding: 20px 30px;
+	text-transform: lowercase;
+	font-weight: 400;
 	text-shadow: none;
+	&:hover, &:focus { background-color: $gray-dark; color: $gray-lighter; }
 }
 
 
-.navbar { 
-	border-radius: 0;
-	margin-bottom: 0;
+#footer-menu.navbar-left {
+	@include breakpoint(mama-bear) { float: none !important; }
+}
+
+#footer-menu.navbar-nav {
+	margin: 0;
 }
 
 .nav .searchform {
@@ -53,10 +57,14 @@ nav {
 	a { color: $gray-lighter; }
 }
 
-.navbar-left {
-	margin-left: -15px;
+.navbar-header { float: left; }
+
+.logo { padding-top: 4px;}
+
+.navbar-brand {
+	width: 90px;
+	padding-left: 0;
+	@include breakpoint(mama-bear) { width: 100px; }
+	@include breakpoint(mama-bear) { width: 110px; }
+	@include breakpoint(papa-bear) { width: 120px; }
 }
-
-.logo { padding-top: 10px;}
-
-.navbar-brand { width: 120px; }

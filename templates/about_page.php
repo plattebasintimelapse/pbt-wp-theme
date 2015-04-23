@@ -168,7 +168,7 @@ get_header();
 				endwhile; endif; wp_reset_postdata(); ?>
 		</div>
 
-		<div class="container container-padding-top">
+		<div class="container">
 			<?php the_field('project_history'); ?>
 		</div>
 	</article>

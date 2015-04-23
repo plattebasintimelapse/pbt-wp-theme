@@ -14,8 +14,8 @@
 						'depth'             => -1,
 			            'container'         => 'div',
 			            'container_class'	=> 'footer-menu',
-			            'menu_class'        => 'nav navbar-nav navbar-footer',
-			            'menu_id'        	=> 'menu-footer'
+			            'menu_class'        => 'nav navbar-nav navbar-left',
+			            'menu_id'        	=> 'footer-menu'
 					) ); ?>
 				</div>
 			</nav>
