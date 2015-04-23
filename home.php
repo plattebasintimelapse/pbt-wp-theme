@@ -5,8 +5,7 @@
 
 get_header(); ?>
 
-	<section class="featured hero-image">
-		<div class="container-fluid">
+
 			<img src="<?php header_image(); ?>" alt="" />
 
 			<div class="featured-story-info-box">

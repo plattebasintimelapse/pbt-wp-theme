@@ -166,9 +166,9 @@ $btn-primary-border:             darken($btn-primary-bg, 1%);
 // $btn-success-bg:                 $brand-success;
 // $btn-success-border:             darken($btn-success-bg, 5%);
 
-// $btn-info-color:                 #fff;
-// $btn-info-bg:                    $brand-info;
-// $btn-info-border:                darken($btn-info-bg, 5%);
+$btn-info-color:                 $gray-lighter;
+$btn-info-bg:                    $brand-primary;
+$btn-info-border:                $gray-lighter;
 
 // $btn-warning-color:              #fff;
 // $btn-warning-bg:                 $brand-warning;

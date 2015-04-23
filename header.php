@@ -25,25 +25,34 @@
 <body <?php body_class(); ?> >
 	<a name="top"></a>
 
-	<nav class="navbar">
-  		<div class="container-fluid">
-    		<div class="navbar-header">
-				<a class="navbar-brand" href="<?php echo home_url(); ?>"><img src="<?php bloginfo( 'stylesheet_directory' ); ?>/assets/img/logo.png" alt=""></a>
-    		</div>
+	<nav class="collapse collapse-bar" role="navigation" id="navbarCollapse2">
+		<div class="container-fluid">
+				<?php wp_nav_menu( array(
+					'theme_location' => 'primary',
+					'depth'             => -1,
+		            'container'         => 'div',
+		            'container_class' 	=> 'main-nav',
+		            'menu_class'        => 'nav navbar-nav navbar-left'
+				) ); ?>
 
-			<?php  wp_nav_menu( array(
-				'theme_location' => 'secondary',
-				'depth'             => 2,
-	            'container'         => 'nav',
-	            'menu_class'        => 'nav navbar-nav navbar-right',
-	        ) );  ?>
-
-	        <?php wp_nav_menu( array(
-				'theme_location' => 'primary',
-				'depth'             => 2,
-	            'container'         => 'nav',
-	            'menu_class'        => 'nav navbar-nav navbar-right'
-			) ); ?>
-
-  		</div><!-- /.container-fluid -->
+				<?php  wp_nav_menu( array(
+					'theme_location' => 'secondary',
+					'depth'             => -1,
+		            'container'         => 'div',
+		            'container_class' 	=> 'social-nav',
+		            'menu_class'        => 'nav navbar-nav navbar-right',
+		        ) );  ?>
+		</div>
 	</nav>
+
+	<div class="collapse collapse-bar" role="search" id="searchbarCollapse2">
+		<div class="container-fluid">
+				<div class="nav navbar-nav navbar-right">
+					<?php get_search_form( ); ?>
+				</div>
+		</div>
+	</div>
+
+	<section class="featured hero-image">
+		<div class="container-fluid">
+			<?php get_template_part( 'templates/main_header' ); ?>

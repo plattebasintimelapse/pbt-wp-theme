@@ -132,6 +132,21 @@ add_filter( 'image_size_names_choose', 'pbt_admin_choose_image_sizes' );
 
 
 
+/**
+ * Search Form function, hooked to get_search_form function
+ */
+function pbt_search_form( $form ) {
+	$form = '<form role="search" method="get" id="searchform" class="searchform" action="' . home_url( '/' ) . '" >
+	<div><label class="screen-reader-text" for="s">' . __( 'Search:' ) . '</label>
+	<input type="text" value="' . get_search_query() . '" name="s" id="s" />
+	<input class="btn btn-info" type="submit" id="searchsubmit" value="'. esc_attr__( 'Search' ) .'" />
+	</div>
+	</form>';
+
+	return $form;
+}
+
+add_filter( 'get_search_form', 'pbt_search_form' );
 
 /**
  * Parse post link and replace it with meta value, or the 'external_url' field.

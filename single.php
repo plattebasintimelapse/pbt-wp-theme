@@ -7,9 +7,8 @@ get_header(); ?>
 
 	<?php while ( have_posts() ) : the_post(); ?>
 
-		<section class="featured hero-image">
-			<div class="container-fluid">
-				<?php the_post_thumbnail( ); ?>
+			<?php the_post_thumbnail( 'pano-header' ); ?>
+
 				<h2 class="post-title"><?php the_title(); ?></h2>
 
 				<?php if( get_field( 'featured_image_caption' ) ): ?>

@@ -7,15 +7,18 @@
 <footer>
 	<div class="container-fluid">
 		<div class="row">
-			<div class="col-xs-12">
-				<?php wp_nav_menu( array(
-					'theme_location' 	=> 'footer',
-					'depth'             => -1,
-		            'container'         => 'nav',
-		            'menu_class'        => 'nav navbar-nav navbar-footer',
-		            'menu_id'        	=> 'menu-footer'
-				) ); ?>
-			</div>
+			<nav role="navigation">
+				<div class="col-xs-12">
+					<?php wp_nav_menu( array(
+						'theme_location' 	=> 'footer',
+						'depth'             => -1,
+			            'container'         => 'div',
+			            'container_class'	=> 'footer-menu',
+			            'menu_class'        => 'nav navbar-nav navbar-footer',
+			            'menu_id'        	=> 'menu-footer'
+					) ); ?>
+				</div>
+			</nav>
 		</div>
 
 		<div class="row row-padding">

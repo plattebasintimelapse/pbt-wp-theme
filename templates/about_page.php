@@ -8,10 +8,8 @@ get_header();
 
 	$user_per_row = 4; ?>
 
-	<?php while ( have_posts() ) : the_post(); ?>
+			<?php while ( have_posts() ) : the_post(); ?>
 
-	<section class="featured hero-image">
-		<div class="container-fluid">
 
 			<?php the_post_thumbnail( 'pbt-pano-header' ); ?>
 			<h2 class="post-title"><?php the_title(); ?></h2>
