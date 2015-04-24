@@ -69,27 +69,28 @@ add_action('init', 'pbt_blog_post_type');
 /**
  * Blog Post Category Taxonomy Registration
  */
-function pbt_region_post_taxonomies() {
+function pbt_basin_post_taxonomies() {
   $labels = array(
-    'name'              => _x( 'Region Categories', 'taxonomy general name' ),
-    'singular_name'     => _x( 'Region Category', 'taxonomy singular name' ),
-    'search_items'      => __( 'Search Region Categories' ),
-    'all_items'         => __( 'All Region Categories' ),
-    'parent_item'       => __( 'Parent Region Category' ),
-    'parent_item_colon' => __( 'Parent Region Category:' ),
-    'edit_item'         => __( 'Edit Region Category' ),
-    'update_item'       => __( 'Update Region Category' ),
-    'add_new_item'      => __( 'Add New Region Category' ),
-    'new_item_name'     => __( 'New Region Category' ),
-    'menu_name'         => __( 'Region Categories' ),
+    'name'              => _x( 'Basin Categories', 'taxonomy general name' ),
+    'singular_name'     => _x( 'Basin Category', 'taxonomy singular name' ),
+    'search_items'      => __( 'Search Basin Categories' ),
+    'all_items'         => __( 'All Basin Categories' ),
+    'parent_item'       => __( 'Parent Basin Category' ),
+    'parent_item_colon' => __( 'Parent Basin Category:' ),
+    'edit_item'         => __( 'Edit Basin Category' ),
+    'update_item'       => __( 'Update Basin Category' ),
+    'add_new_item'      => __( 'Add New Basin Category' ),
+    'new_item_name'     => __( 'New Basin Category' ),
+    'menu_name'         => __( 'Basin Categories' ),
   );
   $args = array(
-    'labels' => $labels,
-    'hierarchical' => true,
+    'labels'        => $labels,
+    'rewrite'       => array( 'slug' => 'basin'),
+    'hierarchical'  => true,
   );
-  register_taxonomy( 'region', 'post', $args );
+  register_taxonomy( 'basin', 'post', $args );
 }
-add_action( 'init', 'pbt_region_post_taxonomies', 0 );
+add_action( 'init', 'pbt_basin_post_taxonomies', 0 );
 
 
 /**

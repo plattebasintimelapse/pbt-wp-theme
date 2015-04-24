@@ -49,19 +49,26 @@ while ( have_posts() ) : the_post();
 
 					foreach ( $user_query->results as $user ) { ?>
 
-						<?php if( ( $i % $user_per_row ) == 0) { echo '<div class="row">'; } $i++; ?>
+						<?php
+							if( ( $i % $user_per_row ) == 0) { echo '<div class="row">'; }
+							$i++;
+							$userID = $user->ID;
+						?>
 
 						<a name="<?php echo $user->user_nicename; ?>"></a>
-						<div class="col-sm-6 col-md-<?php echo $column_width; ?> user user-<?php echo $user->ID; ?>">
+						<div class="col-sm-6 col-md-<?php echo $column_width; ?> user user-<?php echo $userID; ?>">
 
-							<h4><?php echo $user->display_name ?></h4>
+							<h4><a class="link-color-dark" href="<?php echo get_author_posts_url( $userID ); ?>"><?php echo $user->display_name ?></a></h4>
+
 							<h6> <?php echo $user->user_pbt_role ?> <i class="toggle-info btn fa fa-lg fa-plus-circle" data-toggle="collapse" data-target="#userCollapse<?php echo $user->ID ?>" data-target="#userImgCollapse<?php echo $user->ID ?>" aria-expanded="false" aria-controls="collapseExample"></i></h6>
 
 							<div class="collapse in" id="userImgCollapse">
-								<?php
-									$userID = $user->ID;
-									echo get_avatar( $userID, 30 );
-								?>
+								<div class="circle-cropped">
+									<?php
+										$userID = $user->ID;
+										echo get_avatar( $userID, 30 );
+									?>
+								</div>
 							</div>
 
 							<div class="collapse" id="userCollapse<?php echo $user->ID ?>">

@@ -283,7 +283,11 @@
 		color: $blue;
 		&:hover { color: $gray-dark; }
 	}
-	img { padding: 6px; border-radius: 160px; }
+}
+
+.circle-cropped img {
+	padding: 6px;
+	border-radius: 160px;
 }
 
 .author-link {

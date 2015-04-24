@@ -5,7 +5,7 @@
 
 get_header();
 
-	$tax = $wp_query->get_queried_object();
+$tax = $wp_query->get_queried_object();
 
 	if ( is_month() || is_year() ) {
 		$month = get_query_var('monthnum');
@@ -24,14 +24,7 @@ get_header();
 	<div class="container-fluid">
 
 		<h2 class="post-title">
-			<?php echo 'Archive: ';
-			if ( is_category() ){
-				echo $tax->name;
-			} else if ( is_month() ){
-				echo count($countposts) . ' posts from ' . get_the_date('F') . ' ' . get_the_date('Y');
-			} else if (is_year()){
-				echo count($countposts) . ' posts from ' . get_the_time('Y');
-			} ?>
+			<?php echo 'Archve: ' . $tax->name; ?>
 		</h2>
 
 		<?php if( get_field( 'featured_image_caption' ) ): ?>
@@ -47,7 +40,7 @@ get_header();
 		<?php if ( have_posts() ) : ?>
 
 			<h4 class="text-center underlined underlined-dark">
-				<?php if ( is_category() ) {
+				<?php if ( category_description() && is_category() ) {
 					echo category_description();
 				} ?>
 			</h4>
