@@ -233,6 +233,7 @@
 .hero-image-caption {
 	position: absolute;
 	top: 100%;
+	left: 0;
 	color: $text-color;
 	text-shadow: none;
 	font-size: .7em;
@@ -246,6 +247,14 @@
 		max-width: 200px;
 		@include text-over-image();
 	}
+}
+
+.hero-image-caption-right {
+	text-align: right;
+	margin-right: 15px;
+	margin-left: 0;
+	left: auto; // reset default hero-image-caption left style
+	right: 0;
 }
 
 .bylines {

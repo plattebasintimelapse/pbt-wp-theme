@@ -15,12 +15,14 @@ get_header();
 <section class="featured hero-image hero-image-behind" style="background-image: url(<?php echo $post_thumbnail_url ?>)">
 	<div class="container-fluid">
 
-		<h2 class="post-title">
-			<?php the_archive_title(); ?>
-		</h2>
+
+		<div class="featured-meta-box">
+			<h2><?php the_archive_title(); ?></h2>
+			<?php the_archive_description(); ?>
+		</div>
 
 		<?php if( get_field( 'featured_image_caption' ) ): ?>
-			<h6 class="hero-image-caption"><?php the_field( 'featured_image_caption' ); ?></h6>
+			<h6 class="hero-image-caption hero-image-caption-right"><?php the_field( 'featured_image_caption' ); ?></h6>
 		<?php endif; ?>
 	</div> <!-- .container-fluid -->
 </section> <!-- .featured -->
@@ -31,10 +33,6 @@ get_header();
 		<!-- THE ARCHIVE PAGE FEED OF POSTS -->
 		<?php if ( have_posts() ) : ?>
 
-			<h4 class="text-center underlined underlined-dark">
-					<?php the_archive_description(); ?>
-			</h4>
-
 				<?php while ( have_posts() ) : the_post(); ?>
 
 					<div class="row row-some-padding">
@@ -43,7 +41,6 @@ get_header();
 						</div>
 						<div class="col-md-5">
 							<div class="excerpt">
-								<!-- <small class="font-size-small">Posted on: <?php the_date('F j, Y'); ?> by <?php  the_author(); ?></small> -->
 								<?php the_excerpt(); ?>
 								<a class="btn btn-primary btn-sm btn-block" role="button" href="<?php the_permalink() ?>"><h6>Read On</h6></a>
 							</div>
