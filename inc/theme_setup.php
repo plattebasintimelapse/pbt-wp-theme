@@ -1,9 +1,12 @@
 <?php
-
+/**
+ * Basic functions that run in the head of each page.
+ */
 
 /**
  * Load Google Analytics into the header of every page.
- * It checks to see if the currently user is logged in, then don't do it.
+ * It checks to see if the current user is logged in, then don't do it.
+ * No need for tracking logged in users. Am I right, or am I right?
  */
 function pbt_google_analytics() {
 	if ( !is_user_logged_in() ) : // don't track logged in users ?>

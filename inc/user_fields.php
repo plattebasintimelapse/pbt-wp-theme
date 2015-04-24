@@ -1,7 +1,13 @@
 <?php
+/**
+ * Functionality for users registered on the site.
+ * These users are publically displayed on the about page of the site.
+ */
 
-
-
+/**
+ * Hide some of the default user contact fields.
+ * Don't need em.
+ */
 function hide_profile_fields( $contactmethods ) {
     unset($contactmethods['aim']);
     unset($contactmethods['jabber']);
@@ -29,9 +35,10 @@ add_filter('user_contactmethods', 'pbt_modify_contact_methods');
 
 
 
-add_action( 'show_user_profile', 'add_extra_social_links' );
-add_action( 'edit_user_profile', 'add_extra_social_links' );
-
+/**
+ * Add extra social links to the user page
+ * This function is called both when creating a new user or editing an existing.
+ */
 function add_extra_social_links( $user ) {
     ?>
         <h3>User Role</h3>
@@ -44,11 +51,16 @@ function add_extra_social_links( $user ) {
         </table>
     <?php
 }
+add_action( 'show_user_profile', 'add_extra_social_links' );
+add_action( 'edit_user_profile', 'add_extra_social_links' );
 
-add_action( 'personal_options_update', 'save_extra_social_links' );
-add_action( 'edit_user_profile_update', 'save_extra_social_links' );
 
+/**
+ * Write the extra user links to the database.
+ */
 function save_extra_social_links( $user_id ) {
     update_user_meta( $user_id,'user_pbt_role', sanitize_text_field( $_POST['user_pbt_role'] ) );
 }
+add_action( 'personal_options_update', 'save_extra_social_links' );
+add_action( 'edit_user_profile_update', 'save_extra_social_links' );
 
