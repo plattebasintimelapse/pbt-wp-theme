@@ -228,6 +228,10 @@
 	text-align: center;
 	left: 50%;
 	margin-left: -40%;
+	@include breakpoint(mama-bear) {
+		width: 60%;
+		margin-left: -30%;
+	}
 }
 
 .hero-image-caption {
