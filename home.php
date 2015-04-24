@@ -5,10 +5,8 @@
 
 get_header(); ?>
 
-	<section class="featured hero-image">
+	<section class="featured hero-image hero-image-behind" style="background-image: url(<?php header_image(); ?>)">
 		<div class="container-fluid">
-
-			<img src="<?php header_image(); ?>" alt="" />
 
 			<div class="featured-meta-box">
 				<h1><?php bloginfo( 'name' ); ?></h1>
@@ -51,9 +49,9 @@ get_header(); ?>
 
 									<div class="post-meta-box">
 										<h6>Featured Story</h6>
-										<h3 class="post-category"><?php the_category( ' - ' ) ?></h3>
+										<h5 class="post-category"><?php the_category( ' - ' ) ?></h5>
 										<a href="<?php the_permalink() ?>">
-											<h1 class="post-title"><?php the_title(); ?></h1>
+											<h3 class="post-title"><?php the_title(); ?></h3>
 										</a>
 									</div>
 
