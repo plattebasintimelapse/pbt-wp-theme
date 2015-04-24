@@ -11,8 +11,12 @@ get_header();
 		$countposts=get_posts("year=$year&monthnum=$month");
 	}
 
-	$post_thumbnail_id = get_post_thumbnail_id();
-	$post_thumbnail_url = wp_get_attachment_url( $post_thumbnail_id ); ?>
+	if ( has_post_thumbnail() ) {
+		$post_thumbnail_id = get_post_thumbnail_id($post->ID);
+		$post_thumbnail_url = wp_get_attachment_url( $post_thumbnail_id );
+	} else {
+		$post_thumbnail_url = get_header_image();
+	} ?>
 
 <section class="featured hero-image hero-image-behind" style="background-image: url(<?php echo $post_thumbnail_url ?>)">
 	<div class="container-fluid">
@@ -37,24 +41,24 @@ get_header();
 <article class="main category story-feed" role="main">
 	<div class="container">
 
-		<h3 class="text-center">
-			<?php if ( category_description() && is_category() ) {
-				echo category_description();
-			} ?>
-		</h3>
-
 		<!-- THE ARCHIVE PAGE FEED OF POSTS -->
-		<?php if ( have_posts() ) :
+		<?php if ( have_posts() ) : ?>
 
-				while ( have_posts() ) : the_post(); ?>
+			<h4 class="text-center underlined underlined-dark">
+				<?php if ( category_description() && is_category() ) {
+					echo category_description();
+				} ?>
+			</h4>
+
+				<?php while ( have_posts() ) : the_post(); ?>
 
 					<div class="row row-some-padding">
-						<div class="col-md-6">
+						<div id="post-<?php the_ID(); ?>" <?php post_class('col-md-7'); ?>>
 							<?php get_template_part( 'partials/searched-post-feed-thumbnail' ); ?>
 						</div>
-						<div class="col-md-6">
+						<div class="col-md-5">
 							<div class="excerpt">
-								<small class="font-size-small">Posted on: <?php the_date('F j, Y'); ?> by <?php  the_author(); ?></small>
+								<!-- <small class="font-size-small">Posted on: <?php the_date('F j, Y'); ?> by <?php  the_author(); ?></small> -->
 								<?php the_excerpt(); ?>
 								<a class="btn btn-primary btn-sm btn-block" role="button" href="<?php the_permalink() ?>"><h6>Read On</h6></a>
 							</div>
