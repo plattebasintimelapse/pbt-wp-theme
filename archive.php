@@ -11,22 +11,26 @@ get_header();
 		$countposts=get_posts("year=$year&monthnum=$month");
 	}
 
-?>
+	$post_thumbnail_id = get_post_thumbnail_id();
+	$post_thumbnail_url = wp_get_attachment_url( $post_thumbnail_id ); ?>
 
-<section class="featured hero-image">
+<section class="featured hero-image hero-image-behind" style="background-image: url(<?php echo $post_thumbnail_url ?>)">
 	<div class="container-fluid">
 
-		<?php the_post_thumbnail( 'pbt-pano-header' ); ?>
-
-		<h1 class="post-title">
-			<?php single_cat_title( '', true );
-			if (is_month()){
+		<h2 class="post-title">
+			<?php echo 'Archive: ';
+			if ( is_category() ){
+				echo single_cat_title( '', true );
+			} else if ( is_month() ){
 				echo count($countposts) . ' posts from ' . get_the_date('F') . ' ' . get_the_date('Y');
-			}
-			if (is_year()){
+			} else if (is_year()){
 				echo count($countposts) . ' posts from ' . get_the_time('Y');
 			} ?>
-		</h1>
+		</h2>
+
+		<?php if( get_field( 'featured_image_caption' ) ): ?>
+			<h6 class="hero-image-caption"><?php the_field( 'featured_image_caption' ); ?></h6>
+		<?php endif; ?>
 	</div> <!-- .container-fluid -->
 </section> <!-- .featured -->
 
@@ -34,7 +38,7 @@ get_header();
 	<div class="container">
 
 		<h3 class="text-center">
-			<?php if ( category_description() ) {
+			<?php if ( category_description() && is_category() ) {
 				echo category_description();
 			} ?>
 		</h3>
@@ -50,7 +54,7 @@ get_header();
 						</div>
 						<div class="col-md-6">
 							<div class="excerpt">
-								<small class="font-size-small">Posted on: <?php echo get_the_date('F j, Y'); ?></small>
+								<small class="font-size-small">Posted on: <?php the_date('F j, Y'); ?> by <?php  the_author(); ?></small>
 								<?php the_excerpt(); ?>
 								<a class="btn btn-primary btn-sm btn-block" role="button" href="<?php the_permalink() ?>"><h6>Read On</h6></a>
 							</div>
