@@ -2,6 +2,8 @@
 
 /**
  * Change default WP Post to be called Stories, rather than making a Custom Post Type
+ * Anywhere in templating or backend processing, refer to the type as 'post'.
+ * On the front-end, the type is called 'stories'
  */
 function pbt_change_post_label() {
     global $menu;
@@ -34,12 +36,15 @@ add_action( 'admin_menu', 'pbt_change_post_label' );
 add_action( 'init', 'pbt_change_post_object' );
 
 /**
- * Blog Post Custom Post Type
+ * Create Blog Post Custom Post Type
+ * On the backend the type is refered to as 'blog_post' and in the Admin Menus as Blog Posts
+ * On the frontend of the site, for audiences, they are Notebook entries on the notebook page.
+ * I know confusing...
  */
 function pbt_blog_post_type() {
     register_post_type('blog_post', array(
        'label' 					=> 'Blog Posts',
-       'description' 			=> 'Blog posts from the PBT Team members',
+       'description' 			=> 'Blog posts from PBT Team members',
        'public' 				=> true,
        'show_ui' 				=> true,
        'show_in_menu' 			=> true,
@@ -51,7 +56,6 @@ function pbt_blog_post_type() {
        'query_var' 				=> true,
        'has_archive' 			=> true,
        'supports' 				=> array('title','editor','excerpt','revisions','thumbnail','author'),
-       'taxonomies' 			=> array('category','post_tag'),
     ));
 
     global $wp_rewrite;
@@ -61,6 +65,32 @@ function pbt_blog_post_type() {
 }
 
 add_action('init', 'pbt_blog_post_type');
+
+
+/**
+ * Blog Post Category Taxonomy Registration
+ */
+function pbt_blog_post_taxonomies() {
+  $labels = array(
+    'name'              => _x( 'Blog Post Categories', 'taxonomy general name' ),
+    'singular_name'     => _x( 'Blog Post Category', 'taxonomy singular name' ),
+    'search_items'      => __( 'Search Blog Post Categories' ),
+    'all_items'         => __( 'All Blog Post Categories' ),
+    'parent_item'       => __( 'Parent Blog Post Category' ),
+    'parent_item_colon' => __( 'Parent Blog Post Category:' ),
+    'edit_item'         => __( 'Edit Blog Post Category' ), 
+    'update_item'       => __( 'Update Blog Post Category' ),
+    'add_new_item'      => __( 'Add New Blog Post Category' ),
+    'new_item_name'     => __( 'New Blog Post Category' ),
+    'menu_name'         => __( 'Blog Post Categories' ),
+  );
+  $args = array(
+    'labels' => $labels,
+    'hierarchical' => true,
+  );
+  register_taxonomy( 'blog_post_category', 'blog_post', $args );
+}
+add_action( 'init', 'pbt_blog_post_taxonomies', 0 );
 
 /**
  * Custom Permalink Structures

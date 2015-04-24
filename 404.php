@@ -10,9 +10,9 @@ get_header(); ?>
 			<img src="<?php header_image(); ?>" alt="" />
 
 			<div class="featured-story-info-box">
-				<h1>Ah Crap!</h1>
-					<p>We can't find that right now.</p>
-					<?php get_search_form( ); ?>
+				<h1>Oh no!</h1>
+				<h2>That's not here. How embarrassing...</h2>
+				<?php get_search_form( ); ?>
 
 			</div>
 		</div>
