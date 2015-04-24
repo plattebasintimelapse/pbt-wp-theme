@@ -30,7 +30,7 @@
 }
 
 .main {
-	margin: 30px 0;
+	margin: 40px 0;
 	@include breakpoint(baby-bear) { margin: 35px 0; }
 	@include breakpoint(mama-bear) { margin: 40px 0; }
 
@@ -103,8 +103,11 @@
  */
 
 .main .post, .main .blog_post, .main .page  {
-	padding-top: 15px;
+	padding-top: 0;
 	padding-bottom: 15px;
+	@include breakpoint(mama-bear) {
+		padding-bottom: 30px;
+	}
 }
 
 .post-meta-box, .featured-meta-box {
@@ -121,9 +124,9 @@
 
 	@include breakpoint(baby-bear) {
 		left: 50%;
-	width: 80%;
-	margin-left: -(40%);
-	text-align: center;
+		width: 80%;
+		margin-left: -(40%);
+		text-align: center;
 	}
 
 	@include breakpoint(mama-bear) {
@@ -338,7 +341,7 @@
  *  Both a successful search and a no-results search, yearly search and monthly search.
  */
 
-.archive {
+.archive, .search {
 	.btn-block { max-width: 150px; margin: 0 auto; }
 }
 
