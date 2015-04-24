@@ -158,6 +158,8 @@
 		display: none; // hide on small screens
 		@include breakpoint(baby-bear) {
 			display: block;
+			margin-top: 4px;
+			margin-bottom: 18px;
 		}
 	}
 }
