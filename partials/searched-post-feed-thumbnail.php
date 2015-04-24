@@ -13,7 +13,7 @@
 		<div class="post-meta-box">
 
 			<?php if ( get_post_type() === 'blog_post' ) { ?>
-				<h4 class="blog-post-author"><small>A Notebook entry by</small> <?php the_author_meta('display_name') ?></h4>
+				<h4 class="blog-post-author"><small>A Notebook entry by</small> <a href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ) ); ?>"><?php the_author(); ?></a></h4>
 			<?php } else if ( get_post_type() === 'post' ) { ?>
 				<h4 class="post-category"><small>A Story filed under</small> <?php the_category( ' | ' ) ?></h4>
 			<?php } else if ( get_post_type() === 'page' ) { ?>
@@ -21,12 +21,13 @@
 			<?php } ?>
 
 			<h3 class="post-title"><?php the_title(); ?></h3>
-			<a class="btn btn-default read-more-btn" role="button" href="<?php the_permalink() ?>"><h6>Read More</h6></a>
+			
 			<h5 class="post-meta">
-				<small class="font-size-small">Posted on <?php the_date('F j, Y'); ?>
-					by <a href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ) ); ?>"><?php the_author(); ?></a>
+				<small class="font-size-small">Posted on <?php the_date('F j, Y');
+					if ( get_post_type() !== 'blog_post' ) { ?> by <a href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ) ); ?>"><?php the_author(); ?></a><?php } ?>
 				</small>
 			</h5>
+			<a class="btn btn-default read-more-btn" role="button" href="<?php the_permalink() ?>"><h6>Read More</h6></a>
 		</div>
 	</div>
 

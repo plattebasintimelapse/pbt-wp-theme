@@ -5,14 +5,6 @@
 
 get_header();
 
-	$tax = $wp_query->get_queried_object();
-
-	if ( is_month() || is_year() ) {
-		$month = get_query_var('monthnum');
-		$year = get_query_var('year');
-		$countposts=get_posts("year=$year&monthnum=$month");
-	}
-
 	if ( has_post_thumbnail() ) {
 		$post_thumbnail_id = get_post_thumbnail_id($post->ID);
 		$post_thumbnail_url = wp_get_attachment_url( $post_thumbnail_id );
@@ -24,14 +16,7 @@ get_header();
 	<div class="container-fluid">
 
 		<h2 class="post-title">
-			<?php echo 'Archive: ';
-			if ( is_category() ){
-				echo $tax->name;
-			} else if ( is_month() ){
-				echo count($countposts) . ' posts from ' . get_the_date('F') . ' ' . get_the_date('Y');
-			} else if (is_year()){
-				echo count($countposts) . ' posts from ' . get_the_time('Y');
-			} ?>
+			<?php the_archive_title(); ?>
 		</h2>
 
 		<?php if( get_field( 'featured_image_caption' ) ): ?>
@@ -47,9 +32,7 @@ get_header();
 		<?php if ( have_posts() ) : ?>
 
 			<h4 class="text-center underlined underlined-dark">
-				<?php if ( is_category() ) {
-					echo category_description();
-				} ?>
+					<?php the_archive_description(); ?>
 			</h4>
 
 				<?php while ( have_posts() ) : the_post(); ?>

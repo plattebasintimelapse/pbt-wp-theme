@@ -3,12 +3,13 @@
  * The template for displaying Search Results pages.
  */
 
-get_header(); ?>
+get_header();
 
-		<section class="featured hero-image">
-			<div class="container-fluid">
+	$post_thumbnail_id = get_post_thumbnail_id(1);
+	$post_thumbnail_url = wp_get_attachment_url( $post_thumbnail_id ); ?>
 
-				<?php echo get_the_post_thumbnail( 1, 'pbt-pano-header' ); ?>
+	<section class="featured hero-image hero-image-behind hero-image-behind-short" style="background-image: url(<?php echo $post_thumbnail_url ?>)">
+		<div class="container-fluid">
 
 				<h2 class="post-title">Searching for '<?php the_search_query(); ?>'...</h2>
 			</div> <!-- .container-fluid -->

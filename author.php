@@ -74,7 +74,6 @@ get_header(); ?>
 
 		<div class="container container-padding-top">
 		<?php
-			
 
 			if ( have_posts() ) :
 				echo '<h3 class="text-center">Stuff ' . $curauth->first_name . "'s posted</h3>";
@@ -94,6 +93,11 @@ get_header(); ?>
 
 				<?php endwhile;
 
+			else :
+				echo '<h3 class="text-center">' . $curauth->first_name . " hasn't posted anything yet!</h3>";
+				echo '<h2>Try searching for something.</h2>';
+
+				get_search_form( );
 			endif; ?>
 		</div>
 	</section>
