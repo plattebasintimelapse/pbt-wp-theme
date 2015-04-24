@@ -22,7 +22,11 @@
 
 			<h3 class="post-title"><?php the_title(); ?></h3>
 			<a class="btn btn-default read-more-btn" role="button" href="<?php the_permalink() ?>"><h6>Read More</h6></a>
-			<h5 class="post-meta"><small class="font-size-small">Posted on <?php the_date('F j, Y'); ?> by <?php  the_author(); ?></h5>
+			<h5 class="post-meta">
+				<small class="font-size-small">Posted on <?php the_date('F j, Y'); ?>
+					by <a href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ) ); ?>"><?php the_author(); ?></a>
+				</small>
+			</h5>
 		</div>
 	</div>
 

@@ -53,3 +53,8 @@ input:focus:-ms-input-placeholder { color:transparent !important; } /* IE 10+ */
 
 .underlined-dark { border-color: $gray-darker; }
 
+.circle-cropped img {
+	padding: 6px;
+	border-radius: 200px;
+}
+
