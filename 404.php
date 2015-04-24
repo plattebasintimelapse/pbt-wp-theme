@@ -9,7 +9,7 @@ get_header(); ?>
 		<div class="container-fluid">
 			<img src="<?php header_image(); ?>" alt="" />
 
-			<div class="featured-story-info-box">
+			<div class="featured-meta-box">
 				<h1>Oh no!</h1>
 				<h2>That's not here. How embarrassing...</h2>
 				<?php get_search_form( ); ?>

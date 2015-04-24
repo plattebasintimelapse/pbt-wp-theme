@@ -40,13 +40,13 @@ $(function() {
     $(document).ready(function () {
 
         setTimeout(function() {
-            $('.home .featured-story-info-box h1').animate({
+            $('.home .featured-meta-box h1').animate({
                 'margin-top': '0px',
                 'opacity': '1'
             },1000);
         }, 1000);
         setTimeout(function() {
-            $('.home .featured-story-info-box h2').animate({
+            $('.home .featured-meta-box h2').animate({
                 'margin-top': '0px',
                 'opacity': '1'
             },1000);

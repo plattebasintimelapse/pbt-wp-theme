@@ -7,10 +7,10 @@
  */
 ?>
 
-	<div class="story-thumbnail">
+	<div class="post-thumbnail">
 		<?php the_post_thumbnail( 'pbt-post-thumbnail' ); ?>
 
-		<div class="story-info-box">
+		<div class="post-meta-box">
 			<?php if ( get_post_type() === 'blog_post' ) { ?>
 				<h5 class="blog-post-author"><small>A Notebook entry by</small> <?php the_author_meta('display_name') ?></h5>
 			<?php } else if ( get_post_type() === 'post' ) { ?>

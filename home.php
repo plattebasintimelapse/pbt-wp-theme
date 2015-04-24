@@ -10,7 +10,7 @@ get_header(); ?>
 
 			<img src="<?php header_image(); ?>" alt="" />
 
-			<div class="featured-story-info-box">
+			<div class="featured-meta-box">
 				<h1><?php bloginfo( 'name' ); ?></h1>
 				<h2><?php bloginfo( 'description' ); ?></h2>
 
@@ -45,14 +45,15 @@ get_header(); ?>
 
 						<div id="post-<?php the_ID(); ?>" <?php post_class('col-xs-12 col-sm-12 featured-story'); ?>>
 
-							<div class="story-thumbnail">
+							<div class="post-thumbnail">
 								<a href="<?php the_permalink() ?>">
 									<?php the_post_thumbnail( 'pbt-pano-header' ); ?>
 
-									<div class="story-info-box">
-										<h5 class="post-category"><?php the_category( ' - ' ) ?></h5>
+									<div class="post-meta-box">
+										<h6>Featured Story</h6>
+										<h3 class="post-category"><?php the_category( ' - ' ) ?></h3>
 										<a href="<?php the_permalink() ?>">
-											<h3 class="post-title"><?php the_title(); ?></h3>
+											<h1 class="post-title"><?php the_title(); ?></h1>
 										</a>
 									</div>
 

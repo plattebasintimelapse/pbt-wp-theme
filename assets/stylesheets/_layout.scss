@@ -4,7 +4,7 @@
  *  Plus post specific styles for site structure and formatting.
  */
 
-.featured, .story-thumbnail {
+.featured, .post-thumbnail {
 	position: relative;
 }
 
@@ -23,7 +23,7 @@
 .hero-image-behind {
 	height: 600px;
 	background-color: white;
-	background-position: center right;
+	background-position: center center;
 	background-size: cover;
 	background-attachment: fixed;
 	background-repeat: no-repeat;
@@ -88,7 +88,7 @@
  */
 
 
-.home .featured-story-info-box h1, .home .featured-story-info-box h2 {
+.home .featured-meta-box h1, .home .featured-meta-box h2 {
 	opacity: 0;
 	margin-top: 40px;
 }
@@ -107,12 +107,12 @@
 	padding-bottom: 15px;
 }
 
-.story-info-box, .featured-story-info-box {
+.post-meta-box, .featured-meta-box {
 	position: absolute;
 	@include text-over-image();
 }
 
-.story-info-box {
+.post-meta-box {
 	top: 16%;
 	left: 50%;
 	width: 80%;
@@ -147,13 +147,13 @@
 	}
 }
 
-.featured-story .story-info-box {
+.featured-story .post-meta-box {
 	width: 70%;
 	margin-left: -35%;
 	top: 15%;
 }
 
-.featured-story-info-box {
+.featured-meta-box {
 	top: 5%;
 	left: 50%;
 	width: 90%;
@@ -180,7 +180,7 @@
 	}
 }
 
-.home .featured-story-info-box {
+.home .featured-meta-box {
 	display: none;
 	@include breakpoint(mama-bear) {
 		display: block;
