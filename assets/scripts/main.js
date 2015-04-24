@@ -49,8 +49,11 @@ $(function() {
 
     $searchbarCollapse.click(function(){
         $body.toggleClass('search-is-open');
-        if (!$body.hasClass('search-is-open') ) {
-            $searchbarInput.focus();
+        if ($body.hasClass('search-is-open') ) {
+
+            setTimeout(function() {
+                $searchbarInput.focus();
+            }, 1000);
         }
     });
 

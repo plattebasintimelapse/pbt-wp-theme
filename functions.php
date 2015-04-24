@@ -140,7 +140,7 @@ add_filter( 'image_size_names_choose', 'pbt_admin_choose_image_sizes' );
 function pbt_search_form( $form ) {
 	$form = '<form role="search" method="get" id="searchform" class="searchform" action="' . home_url( '/' ) . '" >
 	<div><label class="screen-reader-text" for="s">' . __( 'Search:' ) . '</label>
-	<input type="text" value="' . get_search_query() . '" name="s" id="s" placeholder="Type and press enter" autofocus/>
+	<input type="text" value="' . get_search_query() . '" name="s" id="s" placeholder="Type and press enter"/>
 	</div>
 	</form>';
 
