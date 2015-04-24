@@ -5,7 +5,11 @@
  * It excludes the post featured on the story page.
  */
 
-get_header(); ?>
+get_header();
+
+$featuredPostID; // Used to exclude post from main FEED
+
+?>
 
 <section class="featured hero-image">
 	<div class="container-fluid">
@@ -28,7 +32,10 @@ get_header(); ?>
 
 			<div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
-				<?php the_post_thumbnail( 'pbt-pano-header' ); ?>
+				<?php
+					the_post_thumbnail( 'pbt-pano-header' );
+					$featuredPostID = get_the_ID();
+				?>
 
 				<div class="featured-meta-box">
 
@@ -56,6 +63,7 @@ get_header(); ?>
 			$paged = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
 			$story_page_query_args = array(
 				'post_type' => 'post',
+				'post__not_in' => array( $featuredPostID, ),
 				'orderby' => 'date',
 				'order'   => 'DESC',
 				'showposts' => -1,

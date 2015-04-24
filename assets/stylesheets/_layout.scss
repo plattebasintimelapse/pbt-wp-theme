@@ -187,13 +187,17 @@
 
 	@include breakpoint(baby-bear) {
 		text-align: left;
-		width: 70%;
+		width: 85%;
 		top: 15%;
 		left: 60px;
 		margin-left: 0;
-		h5, p { display: block; }
+		p { display: block; }
 		a.btn { display: inline-block; }
 		p { border-top: 2px solid $gray-lighter; padding-top: 8px; }
+	}
+	@include breakpoint(mama-bear) {
+		width: 70%;
+		h5 { display: block; }
 	}
 }
 
