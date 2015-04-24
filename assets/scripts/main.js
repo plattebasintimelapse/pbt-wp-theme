@@ -1,12 +1,14 @@
 $(document).ready(function () {
     console.log('Scripts all work, eh??');
 
-    $body = $('body');
-    $window = $(window);
-    $navbarCollapse = $('a[data-target="#navbarCollapse"]');
-    $searchbarCollapse = $('a[data-target="#searchbarCollapse"]');
-    $searchbarInput = $('#searchbarCollapse input#s');
-    $heroImageBehind = $('.hero-image-behind');
+    $body                       = $('body');
+    $window                     = $(window);
+    $navbarCollapse             = $('#navbarCollapse');
+    $searchbarCollapse          = $('#searchbarCollapse');
+    $navbarCollapseLink         = $('a[data-target="#navbarCollapse"]');
+    $searchbarCollapseLink      = $('a[data-target="#searchbarCollapse"]');
+    $searchbarInput             = $('#searchbarCollapse input#s');
+    $heroImageBehind            = $('.hero-image-behind');
 
     windowHeight = $window.height();
     $heroImageBehind.height( getHeroImageHeight(windowHeight) );
@@ -42,15 +44,26 @@ var getHeroImageHeight = function(h) {
 
 $(function() {
 
-    $navbarCollapse.click(function(){
+    $navbarCollapseLink.click(function(){
         $body.toggleClass('nav-is-open');
         $(this).find('i').toggleClass('fa-close').toggleClass('fa-bars');
+
+        if ( $body.hasClass('search-is-open') ) {
+            $searchbarCollapse.collapse('toggle');
+            $body.toggleClass('search-is-open');
+        }
     });
 
-    $searchbarCollapse.click(function(){
+    $searchbarCollapseLink.click(function(){
         $body.toggleClass('search-is-open');
-        if ($body.hasClass('search-is-open') ) {
 
+        if ( $body.hasClass('nav-is-open') ) {
+            $navbarCollapse.collapse('toggle');
+            $body.toggleClass('nav-is-open');
+            $navbarCollapseLink.find('i').toggleClass('fa-close').toggleClass('fa-bars');
+        }
+
+        if ( $body.hasClass('search-is-open') ) {
             setTimeout(function() {
                 $searchbarInput.focus();
             }, 1000);
