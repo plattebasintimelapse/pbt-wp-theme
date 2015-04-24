@@ -66,6 +66,31 @@ function pbt_blog_post_type() {
 
 add_action('init', 'pbt_blog_post_type');
 
+/**
+ * Blog Post Category Taxonomy Registration
+ */
+function pbt_region_post_taxonomies() {
+  $labels = array(
+    'name'              => _x( 'Region Categories', 'taxonomy general name' ),
+    'singular_name'     => _x( 'Region Category', 'taxonomy singular name' ),
+    'search_items'      => __( 'Search Region Categories' ),
+    'all_items'         => __( 'All Region Categories' ),
+    'parent_item'       => __( 'Parent Region Category' ),
+    'parent_item_colon' => __( 'Parent Region Category:' ),
+    'edit_item'         => __( 'Edit Region Category' ),
+    'update_item'       => __( 'Update Region Category' ),
+    'add_new_item'      => __( 'Add New Region Category' ),
+    'new_item_name'     => __( 'New Region Category' ),
+    'menu_name'         => __( 'Region Categories' ),
+  );
+  $args = array(
+    'labels' => $labels,
+    'hierarchical' => true,
+  );
+  register_taxonomy( 'region', 'post', $args );
+}
+add_action( 'init', 'pbt_region_post_taxonomies', 0 );
+
 
 /**
  * Blog Post Category Taxonomy Registration
@@ -78,7 +103,7 @@ function pbt_blog_post_taxonomies() {
     'all_items'         => __( 'All Blog Post Categories' ),
     'parent_item'       => __( 'Parent Blog Post Category' ),
     'parent_item_colon' => __( 'Parent Blog Post Category:' ),
-    'edit_item'         => __( 'Edit Blog Post Category' ), 
+    'edit_item'         => __( 'Edit Blog Post Category' ),
     'update_item'       => __( 'Update Blog Post Category' ),
     'add_new_item'      => __( 'Add New Blog Post Category' ),
     'new_item_name'     => __( 'New Blog Post Category' ),

@@ -1,6 +1,6 @@
 <?php
 /**
- * The template for displaying story category pages.
+ * The template for displaying post category pages.
  */
 
 get_header(); ?>
@@ -17,17 +17,19 @@ get_header(); ?>
 <article class="main category story-feed" role="main">
 	<div class="container">
 
-		<?php if ( category_description() ) {
-			echo category_description();
-		} ?>
+		<h3 class="text-center">
+			<?php if ( category_description() ) {
+				echo category_description();
+			} ?>
+		</h3>
 
 		<!-- THE CATEGORY PAGE FEED OF POSTS -->
 		<?php
 			$archive_page_query_args = array(
-				'post_type' => 'post',
-				'cat' => 5,
-				'orderby' => 'title',
-				'order'   => 'ASC',
+				'post_type' 	=> 'post',
+				'cat' 			=> 5,
+				'orderby' 		=> 'date',
+				'order'   		=> 'DESC',
 			);
 
 			$the_query = new WP_Query( $archive_page_query_args );

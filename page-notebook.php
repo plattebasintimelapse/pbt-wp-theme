@@ -5,15 +5,17 @@
  * It excludes the post featured on the story page.
  */
 
-get_header(); ?>
+get_header();
 
-<section class="featured hero-image">
-	<div class="container-fluid">
+	while ( have_posts() ) : the_post();
 
-		<?php while ( have_posts() ) : the_post(); ?>
+	$post_thumbnail_id = get_post_thumbnail_id();
+	$post_thumbnail_url = wp_get_attachment_url( $post_thumbnail_id ); ?>
 
-		<?php the_post_thumbnail( 'pbt-pano-header' ); ?>
+	<section class="featured hero-image hero-image-behind" style="background-image: url(<?php echo $post_thumbnail_url ?>)">
+
 		<h3 class="post-title"><?php the_content(); ?></h3>
+
 	</div> <!-- .container-fluid -->
 </section> <!-- .featured -->
 
@@ -24,8 +26,8 @@ get_header(); ?>
 		<?php
 			$notebook_page_query_args = array(
 				'post_type' => 'blog_post',
-				'orderby' => 'title',
-				'order'   => 'ASC',
+				'orderby' => 'date',
+				'order'   => 'DESC',
 			);
 
 			$the_query = new WP_Query( $notebook_page_query_args );
