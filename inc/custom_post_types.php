@@ -84,9 +84,10 @@ function pbt_basin_post_taxonomies() {
     'menu_name'         => __( 'Basins' ),
   );
   $args = array(
-    'labels'        => $labels,
-    'rewrite'       => array( 'slug' => 'basin'),
-    'hierarchical'  => true,
+    'labels'            => $labels,
+    'rewrite'           => array( 'slug' => 'basin'),
+    'hierarchical'      => true,
+    'show_admin_column' => true,
   );
   register_taxonomy( 'basin', 'post', $args );
 }
@@ -113,10 +114,41 @@ function pbt_blog_post_taxonomies() {
   $args = array(
     'labels' => $labels,
     'hierarchical' => true,
+    'show_admin_column' => true,
+    'show_in_nav_menus' => false,
   );
   register_taxonomy( 'blog_post_category', 'blog_post', $args );
 }
 add_action( 'init', 'pbt_blog_post_taxonomies', 0 );
+
+
+/**
+ * Project Credit Taxonomy Registration
+ */
+function pbt_project_credit_taxonomies() {
+  $labels = array(
+    'name'              => _x( 'Support Levels', 'taxonomy general name' ),
+    'singular_name'     => _x( 'Support Level', 'taxonomy singular name' ),
+    'search_items'      => __( 'Search Support Levels' ),
+    'all_items'         => __( 'All Support Levels' ),
+    'parent_item'       => __( 'Parent Support Level' ),
+    'parent_item_colon' => __( 'Parent Support Level:' ),
+    'edit_item'         => __( 'Edit Support Level' ),
+    'update_item'       => __( 'Update Support Level' ),
+    'add_new_item'      => __( 'Add New Support Level' ),
+    'new_item_name'     => __( 'New Support Level' ),
+    'menu_name'         => __( 'Support Levels' ),
+  );
+  $args = array(
+    'labels'            => $labels,
+    'hierarchical'      => true,
+    'show_admin_column' => true,
+    'public'            => false,
+    'show_ui'           => true,
+  );
+  register_taxonomy( 'support_level', 'project_credit', $args );
+}
+add_action( 'init', 'pbt_project_credit_taxonomies', 0 );
 
 /**
  * Custom Permalink Structures
