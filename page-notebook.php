@@ -28,6 +28,7 @@ get_header();
 				'post_type' => 'blog_post',
 				'orderby' => 'date',
 				'order'   => 'DESC',
+				'posts_per_page' => 10,
 			);
 
 			$the_query = new WP_Query( $notebook_page_query_args );
@@ -37,8 +38,12 @@ get_header();
 				<?php get_template_part( 'partials/post-feed-thumbnail' ); ?>
 			</div>
 
-		<?php endwhile; endif;
-			wp_reset_postdata();wp_reset_postdata();
+		<?php endwhile;
+
+			if ( function_exists("wp_bs_pagination") ) wp_bs_pagination($the_query->max_num_pages);
+
+		endif;
+		wp_reset_postdata();
 		?>
 
 	</div>

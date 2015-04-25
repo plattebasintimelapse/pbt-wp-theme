@@ -6,6 +6,7 @@ require_once('inc/custom_post_types.php');
 require_once('inc/user_fields.php');
 require_once('inc/login.php');
 require_once('inc/capabilities.php');
+require_once('inc/pagination.php');
 require_once('inc/helpers.php');
 
 if ( ! function_exists( 'pbt_setup' ) ) :

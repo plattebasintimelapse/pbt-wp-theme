@@ -65,11 +65,11 @@ $featuredPostID; // Used to exclude post from main FEED
 				'post__not_in' => array( $featuredPostID, ),
 				'orderby' => 'date',
 				'order'   => 'DESC',
-				'posts_per_page' => 2,
+				'posts_per_page' => 10,
 			);
 
 			$the_query = new WP_Query( $story_page_query_args );
-			
+
 			if ( $the_query->have_posts() ) :
 				while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
 
