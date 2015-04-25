@@ -22,7 +22,7 @@ get_header();
 			</div>
 		</section>
 
-		<article id="post-<?php the_ID(); ?>" <?php post_class('main'); ?> role="main">
+		<article id="post-<?php the_ID(); ?>" <?php post_class('main main-content'); ?> role="main">
 
 			<div class="container">
 

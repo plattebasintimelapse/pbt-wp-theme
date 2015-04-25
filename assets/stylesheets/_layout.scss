@@ -86,15 +86,16 @@
 	padding-right: 0;
 }
 
-.post .container, .blog_post .container {
-	max-width: 860px;
+.main-content > .container {
+	max-width: 740px;
+	@include breakpoint(papa-bear) { max-width: 960px; }
+	
 }
 
 /**
  *	HOME PAGE
  *  Styles for the home page
  */
-
 
 .home .featured-meta-box h1, .home .featured-meta-box h2 {
 	opacity: 0;
@@ -259,6 +260,13 @@
 	margin-left: 0;
 	left: auto; // reset default hero-image-caption left style
 	right: 0;
+}
+
+.main-content > .container > p {
+	margin: 0 0 14px;
+	@include breakpoint(papa-bear) {
+		  margin: 0 10% 14px 10%;
+	}
 }
 
 .bylines {

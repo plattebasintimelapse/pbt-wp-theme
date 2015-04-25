@@ -34,7 +34,7 @@ figure.image {
 	display: inline-block;
 	margin-right: 0;
 	@include breakpoint(mama-bear) {
-		margin-right: -15%;
+		// margin-right: -15%;
   	}
 }
 
@@ -42,7 +42,7 @@ figure.alignright {
 	float: right;
 	padding: 20px 0 20px 20px;
 	@include breakpoint(mama-bear) {
-		margin-right: -15%;
+		// margin-right: -15%;
 		
   	}
 }
@@ -51,7 +51,7 @@ figure.alignleft {
 	float: left;
 	padding: 20px 20px 20px 0;
 	@include breakpoint(mama-bear) {
-		margin-left: -15%;
+		// margin-left: -15%;
 		
    	}
 }
@@ -61,13 +61,13 @@ img.size-story-featured, img.size-full {
 	width: 100%;
 	margin-bottom: 4px;
 	@include breakpoint(mama-bear) {
-		width: 115%;
-  		margin-left: -15%;
+		// width: 115%;
+  // 		margin-left: -15%;
   	}
 }
 
 img.size-medium {
-	margin-right: -15%;
+	// margin-right: -15%;
 }
 
 .caption-text {
@@ -115,7 +115,7 @@ img.size-medium {
 	width: 100%;
 	margin-top: 60px;
 	margin-bottom: 60px;
-	@include breakpoint(mama-bear) { width: 130%; margin-left: -15%; }
+	// @include breakpoint(mama-bear) { width: 130%; margin-left: -15%; }
 }
 
 .aside-video {
