@@ -72,6 +72,7 @@ $(function() {
 
     $('.toggle-info').click(function() {
         $(this).parent().siblings('#userImgCollapse').collapse('toggle');
+        $(this).toggleClass('fa-plus-circle').toggleClass('fa-minus-circle');
     });
 });
 

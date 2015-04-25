@@ -12,17 +12,17 @@
 		</a>
 
 		<a class="pull-left hidden-sm hidden-md hidden-lg" href="<?php echo home_url(); ?>">
-			<h2 class="site-title">PBT</h2>
+			<h3 class="site-title">PBT</h3>
 		</a>
 
-		<a class="btn btn-prim pull-right" data-toggle="collapse" data-target="#searchbarCollapse" aria-expanded="false" aria-controls="searchbarCollapse">
+		<a class="btn pull-right" data-toggle="collapse" data-target="#searchbarCollapse" aria-expanded="false" aria-controls="searchbarCollapse">
 			<span class="sr-only">Search</span>
-	    	<i class="fa fa-search fa-2x"></i>
+	    	<i class="fa fa-search fa-lg"></i>
 		</a>
 
-		<a class="btn btn-prim pull-right" data-toggle="collapse" data-target="#navbarCollapse" aria-expanded="false" aria-controls="navbarCollapse">
+		<a class="btn pull-right" data-toggle="collapse" data-target="#navbarCollapse" aria-expanded="false" aria-controls="navbarCollapse">
 			<span class="sr-only">Toggle navigation</span>
-	    	<i class="fa fa-bars fa-2x"></i>
+	    	<i class="fa fa-bars fa-lg"></i>
 		</a>
 
 	</div>

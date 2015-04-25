@@ -20,7 +20,12 @@ header {
 }
 
 header .site-title {
-	margin: 3px 0;
+	font-weight: 700;
+}
+
+header .btn {
+	margin: 4px 0;
+	@include breakpoint(baby-bear) { margin: 0; }
 }
 
 .nav { text-align: center; }
