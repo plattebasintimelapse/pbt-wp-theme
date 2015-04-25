@@ -29,7 +29,7 @@
 			<h3 class="post-title"><?php the_title(); ?></h3>
 
 			<h5 class="post-meta">
-				<small class="font-size-small">Posted on <?php the_date('F j, Y');
+				<small class="font-size-small">Posted on <?php the_date('F j Y');
 					if ( get_post_type() !== 'blog_post' ) { ?> by <a href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ) ); ?>"><?php the_author(); ?></a><?php } ?>
 				</small>
 			</h5>

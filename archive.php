@@ -31,29 +31,31 @@ get_header();
 	<div class="container">
 
 		<!-- THE ARCHIVE PAGE FEED OF POSTS -->
-		<?php if ( have_posts() ) : ?>
+		<?php if ( have_posts() ) { ?>
 
-				<?php while ( have_posts() ) : the_post(); ?>
+			<?php while ( have_posts() ) : the_post(); ?>
 
-					<div class="row row-some-padding">
-						<div id="post-<?php the_ID(); ?>" <?php post_class('col-md-7'); ?>>
-							<?php get_template_part( 'partials/searched-post-feed-thumbnail' ); ?>
-						</div>
-						<div class="col-md-5">
-							<div class="excerpt">
-								<?php the_excerpt(); ?>
-								<a class="btn btn-primary btn-sm btn-block" role="button" href="<?php the_permalink() ?>"><h6>Read On</h6></a>
-							</div>
+				<div class="row row-some-padding">
+					<div id="post-<?php the_ID(); ?>" <?php post_class('col-md-7'); ?>>
+						<?php get_template_part( 'partials/searched-post-feed-thumbnail' ); ?>
+					</div>
+					<div class="col-md-5">
+						<div class="excerpt">
+							<?php the_excerpt(); ?>
+							<a class="btn btn-primary btn-sm btn-block" role="button" href="<?php the_permalink() ?>"><h6>Read On</h6></a>
 						</div>
 					</div>
+				</div>
 
-				<?php endwhile;
+			<?php endwhile; 
 
-			else :
+			if ( function_exists("wp_bs_pagination") ) wp_bs_pagination();
 
-				get_template_part( 'partials/no-results', 'search' );
+		} else {
 
-			endif; ?>
+			get_template_part( 'partials/no-results', 'search' );
+
+		} ?>
 
 	</div>
 </article>

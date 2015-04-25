@@ -28,6 +28,11 @@ get_header();
 
 				<?php get_template_part( 'partials/content', get_post_format() ); ?>
 
+				<div class="navigation">
+				<div class="alignleft"><?php previous_posts_link( '&laquo; Previous Entries' ); ?></div>
+				<div class="alignright"><?php next_posts_link( 'Next Entries &raquo;', '' ); ?></div>
+				</div>
+
 				<?php edit_post_link('edit', '<p class="edit-post-link">', '</p>'); ?>
 
 			</div>
