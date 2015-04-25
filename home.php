@@ -69,28 +69,25 @@ get_header(); ?>
 						wp_reset_postdata();
 					?>
 			</div>
+
 			<div class="row row-little-padding">
 
-				<?php
-					$home_page_feed_query_args = array(
-						'post_type' => 'post',
-						'orderby' => 'date',
-						'meta_key'=> 'home_page_feed',
-						'meta_value' => true,
-						'posts_per_page' => 2,
-					);
+				<?php 
+				if ( have_posts() ) : 
+					while ( have_posts() ) : 
+						the_post(); ?>
 
-					$the_query = new WP_Query( $home_page_feed_query_args );
-					if ( $the_query->have_posts() ) : while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
+							<div id="post-<?php the_ID(); ?>" <?php post_class('col-sm-12 col-md-6'); ?>>
+								<?php get_template_part( 'partials/searched-post-feed-thumbnail' ); ?>
+							</div>
 
-					<div id="post-<?php the_ID(); ?>" <?php post_class('col-sm-12 col-md-6'); ?>>
-						<?php get_template_part( 'partials/post-feed-thumbnail' ); ?>
-					</div>
-
-				<?php endwhile; endif;
-					wp_reset_postdata();
-				?>
+					<?php 
+					endwhile; 
+				endif;
+					
+				wp_reset_postdata(); ?>
 			</div>
+
 		</div>
 
 		<div class="container">
