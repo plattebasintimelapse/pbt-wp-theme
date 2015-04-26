@@ -9,10 +9,8 @@ get_header(); ?>
 	$curauth = (isset($_GET['author_name'])) ? get_user_by('slug', $author_name) : get_userdata(intval($author));
 	?>
 
-	<section class="featured hero-image">
+	<section class="featured hero-image hero-image-behind hero-image-behind-short" style="background-image: url(<?php header_image(); ?>)">
 		<div class="container-fluid">
-
-			<img src="<?php header_image(); ?>" alt="" />
 			<h2 class="post-title"><?php echo $curauth->display_name; ?></h2>
 
 		</div>
