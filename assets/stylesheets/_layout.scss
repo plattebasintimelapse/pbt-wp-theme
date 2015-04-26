@@ -31,10 +31,10 @@
 
 .hero-image-behind-short {
 	//override height set in javascript
-	height: 300px !important;
-	@include breakpoint(baby-bear) { height: 400px !important; }
-	@include breakpoint(mama-bear) { height: 500px !important; }
-	@include breakpoint(papa-bear) { height: 600px !important; }
+	height: 200px !important;
+	@include breakpoint(baby-bear) { height: 300px !important; }
+	@include breakpoint(mama-bear) { height: 350px !important; }
+	@include breakpoint(papa-bear) { height: 400px !important; }
 }
 
 .main {
