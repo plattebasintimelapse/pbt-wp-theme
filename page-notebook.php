@@ -14,7 +14,7 @@ get_header();
 
 	<section class="featured hero-image hero-image-behind" style="background-image: url(<?php echo $post_thumbnail_url ?>)">
 
-		<h3 class="post-title"><?php the_content(); ?></h3>
+		<h4 class="post-title"><?php the_content(); ?></h4>
 
 	</div> <!-- .container-fluid -->
 </section> <!-- .featured -->

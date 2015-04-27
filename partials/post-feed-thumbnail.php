@@ -15,10 +15,10 @@
 
 			<?php if ( get_post_type() === 'blog_post' ) { ?>
 
-				<h5 class="blog-post-author">By <a href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ) ); ?>"><?php the_author(); ?></a></h5>
+				<h5 class="blog-post-author font-size-small">By <a href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ) ); ?>"><?php the_author(); ?></a></h5>
 
 			<?php } else if ( get_post_type() === 'post' ) { ?>
-				<h5 class="post-category">
+				<h5 class="post-category font-size-small">
 
 					<?php if ( is_object_in_term( $post->ID , 'basin' ) ) { //check to see if post has basin category
 
@@ -39,7 +39,18 @@
 
 			<?php } ?>
 
-			<h3 class="post-title"><?php the_title(); ?></h3>
+			<?php
+
+			$title = get_the_title();
+			$short_title = substr($title,0,50);
+			?>
+
+			<a href="<?php the_permalink() ?>">
+				<h3 class="post-title">
+					<?php echo $short_title;
+						if( $short_title != $title) { echo "..."; } ?>
+				</h3>
+			</a>
 			<a class="btn btn-default read-more-btn" role="button" href="<?php the_permalink() ?>"><h6>Read More</h6></a>
 		</div>
 	</div>

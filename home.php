@@ -48,11 +48,25 @@ get_header(); ?>
 									<?php the_post_thumbnail( 'pbt-pano-header' ); ?>
 
 									<div class="post-meta-box">
-										<h6>Featured Story</h6>
-										<h5 class="post-category"><?php the_category( ' - ' ) ?></h5>
+										<h5 class="post-category font-size-small">
+
+											<?php if ( is_object_in_term( $post->ID , 'basin' ) ) { //check to see if post has basin category
+
+												$terms = get_the_terms( $post->ID , 'basin' );
+
+												foreach ( $terms as $term ) {
+													echo '<a href="' . get_term_link( $term ) . '">' . $term->name . '</a> | ';
+												}
+											}
+
+											the_category( ' | ' ); ?>
+
+										</h5>
+
 										<a href="<?php the_permalink() ?>">
-											<h3 class="post-title"><?php the_title(); ?></h3>
+											<h1 class="post-title"><?php the_title(); ?></h1>
 										</a>
+										<?php the_excerpt(); ?>
 									</div>
 
 									<div class="ribbon-wrapper-featured">
@@ -72,19 +86,18 @@ get_header(); ?>
 
 			<div class="row row-little-padding">
 
-				<?php 
-				if ( have_posts() ) : 
-					while ( have_posts() ) : 
+				<?php
+				if ( have_posts() ) :
+					while ( have_posts() ) :
 						the_post(); ?>
 
 							<div id="post-<?php the_ID(); ?>" <?php post_class('col-sm-12 col-md-6'); ?>>
 								<?php get_template_part( 'partials/searched-post-feed-thumbnail' ); ?>
 							</div>
 
-					<?php 
-					endwhile; 
+					<?php
+					endwhile;
 				endif;
-					
 				wp_reset_postdata(); ?>
 			</div>
 
@@ -92,8 +105,8 @@ get_header(); ?>
 
 		<div class="container">
 			<div class="row">
-				<div class="col-xs-12 col-sm-offset-4 col-sm-4">
-					<a href="/stories"><button class="btn btn-primary btn-lg btn-block">More Stories</button></a>
+				<div class="col-xs-12 col-md-offset-4 col-md-4">
+					<a href="/stories"><button class="btn btn-primary btn-lg btn-block"><h3>More Stories</h3></button></a>
 				</div>
 			</div>
 

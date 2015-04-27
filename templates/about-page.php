@@ -96,10 +96,6 @@ while ( have_posts() ) : the_post();
 									<?php }
 
 									if( $user->user_email !== '' ) { ?>
-										<div class="author-link"><a href="mailto:<?php echo $user->user_email ?>"><i class="fa fa-envelope-o"></i></a></div>
-									<?php }
-
-									if( $user->user_email !== '' ) { ?>
 										<div class="author-link"><a href="mailto:<?php echo $user->user_email ?>"><i class="fa fa-envelope-o"></i> <small><?php echo $user->user_email ?></small></a></div>
 									<?php } ?>
 
@@ -134,18 +130,29 @@ while ( have_posts() ) : the_post();
 				'order'   			=> 'ASC',
 			);
 
+			$extraCredits = '';
+
 			$the_query = new WP_Query( $project_credits_query_args );
 			if ( $the_query->have_posts() ) : while ( $the_query->have_posts() ) : $the_query->the_post();
-		?>
 
-		<div class="col-xs-6 col-sm-3">
+				if ( has_post_thumbnail() ) { ?>
 
-			<div class="credit-wrapper">
-				<a target="_blank" href="<?php the_field( 'credit_url' ) ?>"> <?php the_post_thumbnail( ); ?> </a>
-			</div>
+					<div class="col-xs-6 col-sm-3">
+						<div class="credit-wrapper">
+							<a target="_blank" href="<?php the_field( 'credit_url' ) ?>"> <?php the_post_thumbnail( ); ?> </a>
+						</div>
+					</div>
+
+				<?php } else {
+					$extraCredits = get_the_title();
+				}
+			endwhile; endif; wp_reset_postdata(); ?>
+
+		<div class="col-xs-12">
+			<p class="text-center font-size-small">with additional funding by:</p>
+			<p class="text-center"><?php echo $extraCredits; ?>
+			</p>
 		</div>
-
-		<?php endwhile; endif; wp_reset_postdata(); ?>
 	</div>
 
 	<div class="container container-little-padding-top">

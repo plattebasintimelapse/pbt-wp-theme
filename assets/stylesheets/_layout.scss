@@ -15,8 +15,6 @@
 .hero-image {
 	@include text-over-image();
 
-
-
 	a { color: $gray-lighter; }
 }
 
@@ -38,9 +36,9 @@
 }
 
 .main {
-	margin: 40px 0;
-	@include breakpoint(baby-bear) { margin: 35px 0; }
-	@include breakpoint(mama-bear) { margin: 40px 0; }
+	padding: 50px 0;
+	@include breakpoint(baby-bear) { padding: 35px 0; }
+	@include breakpoint(mama-bear) { padding: 40px 0; }
 
 	h2 {
 		margin-bottom: 30px;
@@ -51,6 +49,10 @@
 	.container:first-child h2 {
 		margin-top: 0px;
 	}
+}
+
+.main.status-draft {
+	background-color: #FFFAED;
 }
 
 .container-small {
@@ -89,7 +91,6 @@
 .main-content > .container {
 	max-width: 740px;
 	@include breakpoint(papa-bear) { max-width: 960px; }
-	
 }
 
 /**
@@ -125,34 +126,47 @@
 }
 
 .post-meta-box {
-	top: 12%;
-	text-align: left;
-	width: 90%;
-	left: 5%;
+	top: 2%;
+	text-align: center;
+	width: 96%;
+	left: 3%;
 	text-transform: uppercase;
 
+	.post-title {
+		font-size: 1.3rem;
+	}
+
 	@include breakpoint(baby-bear) {
+		top: 12%;
 		left: 50%;
 		width: 80%;
 		margin-left: -(40%);
 		text-align: center;
+		.post-title {
+			font-size: 1.6rem;
+		}
 	}
 
 	@include breakpoint(mama-bear) {
-		top: 5%;
-		width: 90%;
-		margin-left: -45%;
+		top: 4%;
+		width: 96%;
+		margin-left: -48%;
 	}
 
-	@include breakpoint(mama-bear) {
-		top: 5%;
-		width: 80%;
-		margin-left: -40%;
+	.read-more-btn {
+		display: none; // hide on small screens
+		@include breakpoint(baby-bear) {
+			display: inline-block;
+		}
 	}
 
 	.post-category, .blog-post-author {
-		padding-bottom: 6px;
+		display: none; // hide on small screens
+		@include breakpoint(baby-bear) {
+			display: block;
+			padding-bottom: 6px;
 		border-bottom: 2px solid $gray-lighter;
+		}
 	}
 
 	.post-meta {
@@ -160,16 +174,30 @@
 		@include breakpoint(baby-bear) {
 			display: block;
 			margin-top: 4px;
-			margin-bottom: 18px;
+			margin-bottom: 6px;
 		}
 	}
 }
 
 .featured-story .post-meta-box {
-	width: 70%;
-	margin-left: -35%;
-	top: 15%;
+
+	@include breakpoint(baby-bear) {
+		width: 70%;
+		margin-left: -35%;
+		top: 15%;
+	}
 }
+
+.featured-story .post-meta-box p {
+	text-transform: none;
+	display: none;
+	@include breakpoint(baby-bear) {
+		display: inline-block;
+	}
+}
+
+.featured-story .post-meta-box .post-title {
+  	font-size: 1.6rem;}
 
 .featured-meta-box {
 	top: 5%;
@@ -180,10 +208,8 @@
 
 	h2 { display: inline-block; }
 	h5, p { display: none; }
-	a.btn {
-		display: block;
-		width: 140px;
-  		margin: 0 auto;
+	.read-more-btn {
+		display: none;
   	}
 
 	@include breakpoint(baby-bear) {
@@ -193,12 +219,16 @@
 		left: 60px;
 		margin-left: 0;
 		p { display: block; }
-		a.btn { display: inline-block; }
 		p { border-top: 2px solid $gray-lighter; padding-top: 8px; }
 	}
 	@include breakpoint(mama-bear) {
-		width: 70%;
-		h5 { display: block; }
+		width: 85%;
+		.read-more-btn {
+			display: inline-block;
+			width: 140px;
+  			margin: 0 auto;
+  		}
+		h5 { display: block; margin-bottom: 0; }
 	}
 }
 
@@ -229,6 +259,10 @@
 	text-align: center;
 	left: 50%;
 	margin-left: -40%;
+	font-size: 1.6rem;
+	@include breakpoint(baby-bear) {
+		font-size: 2.4rem;
+	}
 	@include breakpoint(mama-bear) {
 		width: 60%;
 		margin-left: -30%;
@@ -241,10 +275,11 @@
 	left: 0;
 	color: $text-color;
 	text-shadow: none;
-	font-size: .7em;
-	max-width: 60%;
+	font-size: .6em;
+	max-width: 90%;
 	margin-top: 5px;
 	margin-left: 15px;
+
 	@include breakpoint(mama-bear) {
 		color: inherit;
 		top: auto;
@@ -269,6 +304,7 @@
 	}
 }
 
+
 .bylines {
 	margin-bottom: 20px;
 	text-align: center;
@@ -278,6 +314,7 @@
 	display: inline-block;
 	font-weight: 700;
 	padding: 0 5px;
+	margin: 0;
 	a { color: $text-color; &:hover { color: $brand-primary; } }
 }
 
@@ -295,8 +332,12 @@
 .main-widgeted-text {
 	text-align: center;
 	margin-bottom: 10px;
+	.font-size-large {
+		font-size: 1.1rem;
+	}
 	@include breakpoint(mama-bear) {
 		margin-bottom: 80px;
+		font-size: 1.6rem;
 	}
 }
 

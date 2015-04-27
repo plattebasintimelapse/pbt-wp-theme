@@ -12,6 +12,13 @@
 
 .small { color: $gray-darker !important; }
 
+hr {
+	margin-top: 28px;
+	margin-bottom: 28px;
+	border: 0;
+	border-top: 1px solid $gray-light;
+}
+
 .logged-in .nivo-lightbox-close {
 	top: 40px !important;
 }
@@ -35,7 +42,7 @@
 /**********/
 
 figure.image {
-	margin: 20px 0;
+	margin: 30px 0;
 	display: inline-block;
 	margin-right: 0;
 	@include breakpoint(mama-bear) {
@@ -46,33 +53,17 @@ figure.image {
 figure.alignright {
 	float: right;
 	padding: 20px 0 20px 20px;
-	@include breakpoint(mama-bear) {
-		// margin-right: -15%;
-		
-  	}
 }
 
 figure.alignleft {
 	float: left;
 	padding: 20px 20px 20px 0;
-	@include breakpoint(mama-bear) {
-		// margin-left: -15%;
-		
-   	}
 }
 
 
 img.size-story-featured, img.size-full {
 	width: 100%;
 	margin-bottom: 4px;
-	@include breakpoint(mama-bear) {
-		// width: 115%;
-  // 		margin-left: -15%;
-  	}
-}
-
-img.size-medium {
-	// margin-right: -15%;
 }
 
 .caption-text {
