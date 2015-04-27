@@ -10,15 +10,27 @@ get_header();
 		$post_thumbnail_url = wp_get_attachment_url( $post_thumbnail_id );
 	} else {
 		$post_thumbnail_url = get_header_image();
-	} ?>
+	}
+	$countPosts = $wp_the_query->post_count;
+	?>
 
 <section class="featured hero-image hero-image-behind" style="background-image: url(<?php echo $post_thumbnail_url ?>)">
 	<div class="container-fluid">
 
 
 		<div class="featured-meta-box">
-			<h2><?php the_archive_title(); ?></h2>
-			<?php the_archive_description(); ?>
+			<h2><?php the_archive_title(); ?> <small class="font-size-small"><?php echo $countPosts ?> results</small></h2>
+
+			<?php if ( is_year() && $countPosts > 2 ) {
+				echo '<p>In the year ' . get_the_date('Y') . ', we published these stories and blog posts.';
+
+			} else if ( is_month() ) {
+				echo '<p>In ' . get_the_date('F') . ' of ' . get_the_date('Y') . ', we published these stories and blog posts.';
+
+			} else {
+				the_archive_description();
+
+			} ?>
 		</div>
 
 		<?php if( get_field( 'featured_image_caption' ) ): ?>
@@ -47,7 +59,7 @@ get_header();
 					</div>
 				</div>
 
-			<?php endwhile; 
+			<?php endwhile;
 
 			if ( function_exists("wp_bs_pagination") ) wp_bs_pagination();
 
