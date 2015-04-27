@@ -15,8 +15,6 @@
 .hero-image {
 	@include text-over-image();
 
-
-
 	a { color: $gray-lighter; }
 }
 
@@ -38,9 +36,9 @@
 }
 
 .main {
-	margin: 40px 0;
-	@include breakpoint(baby-bear) { margin: 35px 0; }
-	@include breakpoint(mama-bear) { margin: 40px 0; }
+	padding: 50px 0;
+	@include breakpoint(baby-bear) { padding: 35px 0; }
+	@include breakpoint(mama-bear) { padding: 40px 0; }
 
 	h2 {
 		margin-bottom: 30px;
@@ -51,6 +49,10 @@
 	.container:first-child h2 {
 		margin-top: 0px;
 	}
+}
+
+.main.status-draft {
+	background-color: #FFFAED;
 }
 
 .container-small {
@@ -89,7 +91,6 @@
 .main-content > .container {
 	max-width: 740px;
 	@include breakpoint(papa-bear) { max-width: 960px; }
-	
 }
 
 /**
@@ -242,9 +243,10 @@
 	color: $text-color;
 	text-shadow: none;
 	font-size: .7em;
-	max-width: 60%;
+	max-width: 90%;
 	margin-top: 5px;
 	margin-left: 15px;
+
 	@include breakpoint(mama-bear) {
 		color: inherit;
 		top: auto;
@@ -278,6 +280,7 @@
 	display: inline-block;
 	font-weight: 700;
 	padding: 0 5px;
+	margin: 0;
 	a { color: $text-color; &:hover { color: $brand-primary; } }
 }
 
