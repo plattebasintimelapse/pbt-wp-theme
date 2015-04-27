@@ -26,16 +26,19 @@ get_header();
 
 			<div class="container">
 
-				<?php get_template_part( 'partials/content', get_post_format() ); ?>
+				<?php
 
-				<div class="navigation">
-				<div class="alignleft"><?php previous_posts_link( '&laquo; Previous Entries' ); ?></div>
-				<div class="alignright"><?php next_posts_link( 'Next Entries &raquo;', '' ); ?></div>
-				</div>
+					get_template_part( 'partials/content', get_post_format() );
 
-				<?php edit_post_link('edit', '<p class="edit-post-link">', '</p>'); ?>
+					edit_post_link('edit', '<p class="edit-post-link">', '</p>'); ?>
 
 			</div>
+
+			<?php if ( comments_open() && !is_preview() ) { // Check if comments are allowed per post ?>
+				<div class="container container-little-padding-top">
+					<?php comments_template(); ?>
+				</div>
+			<?php } ?>
 
 		</article>
 
