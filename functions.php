@@ -37,7 +37,7 @@ function pbt_setup() {
     add_image_size( 'pbt-post-thumbnail', 400, 200, true );
 	add_image_size( 'pbt-pano-header', 1200, 400, true );
 
-    add_image_size( 'story-featured', 1600, 800, false );
+    add_image_size( 'story-featured', 1600, false );
 
 	/**
 	 * Enable support for Custom Headers

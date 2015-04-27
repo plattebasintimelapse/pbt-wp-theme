@@ -19,9 +19,9 @@ get_header();
 
 
 		<div class="featured-meta-box">
-			<h2><?php the_archive_title(); ?> <small class="font-size-small"><?php echo $countPosts ?> results</small></h2>
+			<h2><?php the_archive_title(); ?> <small class="font-size-small"><?php echo $countPosts; if ($countPosts == 1) { echo ' result'; } else { echo ' results'; }?></small></h2>
 
-			<?php if ( is_year() && $countPosts > 2 ) {
+			<?php if ( is_year() ) {
 				echo '<p>In the year ' . get_the_date('Y') . ', we published these stories and blog posts.';
 
 			} else if ( is_month() ) {

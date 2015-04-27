@@ -126,34 +126,47 @@
 }
 
 .post-meta-box {
-	top: 12%;
-	text-align: left;
-	width: 90%;
-	left: 5%;
+	top: 2%;
+	text-align: center;
+	width: 96%;
+	left: 3%;
 	text-transform: uppercase;
 
+	.post-title {
+		font-size: 1.3rem;
+	}
+
 	@include breakpoint(baby-bear) {
+		top: 12%;
 		left: 50%;
 		width: 80%;
 		margin-left: -(40%);
 		text-align: center;
+		.post-title {
+			font-size: 1.6rem;
+		}
 	}
 
 	@include breakpoint(mama-bear) {
-		top: 5%;
-		width: 90%;
-		margin-left: -45%;
+		top: 4%;
+		width: 96%;
+		margin-left: -48%;
 	}
 
-	@include breakpoint(mama-bear) {
-		top: 5%;
-		width: 80%;
-		margin-left: -40%;
+	.read-more-btn {
+		display: none; // hide on small screens
+		@include breakpoint(baby-bear) {
+			display: inline-block;
+		}
 	}
 
 	.post-category, .blog-post-author {
-		padding-bottom: 6px;
+		display: none; // hide on small screens
+		@include breakpoint(baby-bear) {
+			display: block;
+			padding-bottom: 6px;
 		border-bottom: 2px solid $gray-lighter;
+		}
 	}
 
 	.post-meta {
@@ -161,7 +174,7 @@
 		@include breakpoint(baby-bear) {
 			display: block;
 			margin-top: 4px;
-			margin-bottom: 18px;
+			margin-bottom: 6px;
 		}
 	}
 }
@@ -181,10 +194,8 @@
 
 	h2 { display: inline-block; }
 	h5, p { display: none; }
-	a.btn {
-		display: block;
-		width: 140px;
-  		margin: 0 auto;
+	.read-more-btn {
+		display: none;
   	}
 
 	@include breakpoint(baby-bear) {
@@ -194,12 +205,16 @@
 		left: 60px;
 		margin-left: 0;
 		p { display: block; }
-		a.btn { display: inline-block; }
 		p { border-top: 2px solid $gray-lighter; padding-top: 8px; }
 	}
 	@include breakpoint(mama-bear) {
-		width: 70%;
-		h5 { display: block; }
+		width: 85%;
+		.read-more-btn {
+			display: inline-block;
+			width: 140px;
+  			margin: 0 auto;
+  		}
+		h5 { display: block; margin-bottom: 0; }
 	}
 }
 
@@ -230,6 +245,10 @@
 	text-align: center;
 	left: 50%;
 	margin-left: -40%;
+	font-size: 1.6rem;
+	@include breakpoint(baby-bear) {
+		font-size: 2.4rem;
+	}
 	@include breakpoint(mama-bear) {
 		width: 60%;
 		margin-left: -30%;
@@ -242,7 +261,7 @@
 	left: 0;
 	color: $text-color;
 	text-shadow: none;
-	font-size: .7em;
+	font-size: .6em;
 	max-width: 90%;
 	margin-top: 5px;
 	margin-left: 15px;

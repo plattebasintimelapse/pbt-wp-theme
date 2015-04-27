@@ -6,14 +6,25 @@
 get_header(); ?>
 
 	<?php
-	$curauth = (isset($_GET['author_name'])) ? get_user_by('slug', $author_name) : get_userdata(intval($author));
+
+		if ( has_post_thumbnail() ) {
+			$post_thumbnail_id = get_post_thumbnail_id($post->ID);
+			$post_thumbnail_url = wp_get_attachment_url( $post_thumbnail_id );
+		} else {
+			$post_thumbnail_url = get_header_image();
+		}
+
+		$curauth = (isset($_GET['author_name'])) ? get_user_by('slug', $author_name) : get_userdata(intval($author));
 	?>
 
-	<section class="featured hero-image">
+	<section class="featured hero-image hero-image-behind hero-image-behind-short" style="background-image: url(<?php echo $post_thumbnail_url ?>)">
 		<div class="container-fluid">
 
-			<img src="<?php header_image(); ?>" alt="" />
 			<h2 class="post-title"><?php echo $curauth->display_name; ?></h2>
+
+			<?php if( get_field( 'featured_image_caption' ) ): ?>
+				<h6 class="hero-image-caption hero-image-caption-right"><?php the_field( 'featured_image_caption' ); ?></h6>
+			<?php endif; ?>
 
 		</div>
 	</section>
@@ -22,7 +33,7 @@ get_header(); ?>
 		<div class="container">
 
 			<div class="row">
-				<div class="col-xs-4">
+				<div class="col-sm-4">
 					<div class="circle-cropped">
 						<?php
 							$userID = $curauth->ID;
@@ -31,7 +42,7 @@ get_header(); ?>
 					</div>
 				</div>
 
-				<div class="col-xs-8">
+				<div class="col-sm-8">
 
 					<div class="author-links text-center">
 

@@ -13,6 +13,13 @@ $(document).ready(function () {
     windowHeight = $window.height();
     $heroImageBehind.height( getHeroImageHeight(windowHeight) );
 
+    $.each( $('.post-meta-box'), function() {
+        console.log( $(this).find('.post-title').text() + ' is big: ' + $(this).height())
+        if ( $(this).height() < 132 ) {
+            $(this).css('top', '15%');
+        }
+    });
+
     setTimeout(function() {
         $('.home .featured-meta-box h1').animate({
             'margin-top': '0px',
