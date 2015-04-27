@@ -180,10 +180,24 @@
 }
 
 .featured-story .post-meta-box {
-	width: 70%;
-	margin-left: -35%;
-	top: 15%;
+
+	@include breakpoint(baby-bear) {
+		width: 70%;
+		margin-left: -35%;
+		top: 15%;
+	}
 }
+
+.featured-story .post-meta-box p {
+	text-transform: none;
+	display: none;
+	@include breakpoint(baby-bear) {
+		display: inline-block;
+	}
+}
+
+.featured-story .post-meta-box .post-title {
+  	font-size: 1.6rem;}
 
 .featured-meta-box {
 	top: 5%;
@@ -317,8 +331,12 @@
 .main-widgeted-text {
 	text-align: center;
 	margin-bottom: 10px;
+	.font-size-large {
+		font-size: 1.1rem;
+	}
 	@include breakpoint(mama-bear) {
 		margin-bottom: 80px;
+		font-size: 1.6rem;
 	}
 }
 

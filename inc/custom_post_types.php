@@ -121,9 +121,32 @@ function pbt_blog_post_taxonomies() {
 }
 add_action( 'init', 'pbt_blog_post_taxonomies', 0 );
 
+/**
+ * Create Project Credits Custom Post Type
+ */
+function pbt_project_credits_post_type() {
+    register_post_type('project_credit', array(
+       'label'                  => 'Project Credits',
+       'description'            => 'Credits to appear on the About Page',
+       'public'                 => false,
+       'show_ui'                => true,
+       'show_in_menu'           => true,
+       'menu_position'          => 26,
+       'capability_type'        => 'post',
+       'hierarchical'           => false,
+       'publicly_queryable'     => false,
+       'rewrite'                => false,
+       'query_var'              => true,
+       'has_archive'            => false,
+       'supports'               => array('title','thumbnail'),
+    ));
+}
+
+add_action('init', 'pbt_project_credits_post_type');
+
 
 /**
- * Project Credit Taxonomy Registration
+ * Blog Post Category Taxonomy Registration
  */
 function pbt_project_credit_taxonomies() {
   $labels = array(
@@ -132,7 +155,7 @@ function pbt_project_credit_taxonomies() {
     'search_items'      => __( 'Search Support Levels' ),
     'all_items'         => __( 'All Support Levels' ),
     'parent_item'       => __( 'Parent Support Level' ),
-    'parent_item_colon' => __( 'Parent Support Level:' ),
+    'parent_item_colon' => __( 'Parent Support Level' ),
     'edit_item'         => __( 'Edit Support Level' ),
     'update_item'       => __( 'Update Support Level' ),
     'add_new_item'      => __( 'Add New Support Level' ),
@@ -140,11 +163,10 @@ function pbt_project_credit_taxonomies() {
     'menu_name'         => __( 'Support Levels' ),
   );
   $args = array(
-    'labels'            => $labels,
-    'hierarchical'      => true,
+    'labels' => $labels,
+    'hierarchical' => true,
     'show_admin_column' => true,
-    'public'            => false,
-    'show_ui'           => true,
+    'show_in_nav_menus' => false,
   );
   register_taxonomy( 'support_level', 'project_credit', $args );
 }

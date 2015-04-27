@@ -67,10 +67,6 @@ get_header(); ?>
 						<?php }
 
 						if( $curauth->user_email !== '' ) { ?>
-							<div class="author-link"><a href="mailto:<?php echo $curauth->user_email ?>"><i class="fa fa-envelope-o"></i></a></div>
-						<?php }
-
-						if( $curauth->user_email !== '' ) { ?>
 							<div class="author-link"><a href="mailto:<?php echo $curauth->user_email ?>"><i class="fa fa-envelope-o"></i> <small><?php echo $curauth->user_email ?></small></a></div>
 						<?php } ?>
 

@@ -14,7 +14,6 @@ $(document).ready(function () {
     $heroImageBehind.height( getHeroImageHeight(windowHeight) );
 
     $.each( $('.post-meta-box'), function() {
-        console.log( $(this).find('.post-title').text() + ' is big: ' + $(this).height())
         if ( $(this).height() < 132 ) {
             $(this).css('top', '15%');
         }

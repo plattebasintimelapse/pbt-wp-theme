@@ -31,10 +31,12 @@
 				$short_title = substr($title,0,50);
 			?>
 
-			<h3 class="post-title">
-				<?php echo $short_title;
-					if( $short_title != $title) { echo "..."; } ?>
-			</h3>
+			<a href="<?php the_permalink() ?>">
+				<h3 class="post-title">
+					<?php echo $short_title;
+						if( $short_title != $title) { echo "..."; } ?>
+				</h3>
+			</a>
 
 			<h5 class="post-meta">
 				<small class="font-size-extra-small">Posted on <?php the_date('F j Y');
