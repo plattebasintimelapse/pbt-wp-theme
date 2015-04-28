@@ -3,15 +3,20 @@
  * The main template file.
  */
 
-get_header();
+get_header(); ?>
 
-	while ( have_posts() ) : the_post(); ?>
+	<section class="featured hero-image hero-image-behind" style="background-image: url(<?php header_image(); ?>)">
+		<div class="container-fluid">
 
-				<img src="<?php header_image(); ?>" alt="" />
+			<div class="featured-meta-box">
+				<h1><?php bloginfo( 'name' ); ?></h1>
+				<h2><?php bloginfo( 'description' ); ?></h2>
 
-				<h1 class="post-title"><?php the_title(); ?></h1>
-			</div> <!-- .container-fluid -->
-		</section> <!-- .featured -->
+			</div>
+		</div>
+	</section>
+
+	<?php while ( have_posts() ) : the_post(); ?>
 
 
 		<article id="post-<?php the_ID(); ?>" <?php post_class('main'); ?> role="main">

@@ -125,6 +125,14 @@
 	}
 }
 
+.post-thumbnail {
+	background-color: black;
+}
+
+.post-thumbnail img {
+	opacity: .7;
+}
+
 .post-meta-box, .featured-meta-box {
 	position: absolute;
 	@include text-over-image();
