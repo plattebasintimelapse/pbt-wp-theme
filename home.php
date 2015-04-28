@@ -106,7 +106,7 @@ get_header(); ?>
 		<div class="container">
 			<div class="row">
 				<div class="col-xs-12 col-md-offset-4 col-md-4">
-					<a href="/stories"><button class="btn btn-primary btn-lg btn-block"><h3>More Stories</h3></button></a>
+					<a href="/stories"><button class="btn btn-primary btn-lg btn-block"><h4>More Stories</h4></button></a>
 				</div>
 			</div>
 
