@@ -25,7 +25,7 @@ get_header(); ?>
 			</div>
 		</div>
 
-		<div class="container">
+		<div class="container container-large">
 			<div class="row">
 					<?php
 						$home_page_featured_query_args = array(
@@ -83,8 +83,10 @@ get_header(); ?>
 						wp_reset_postdata();
 					?>
 			</div>
+		</div>
 
-			<div class="row row-little-padding">
+		<div class="container">
+			<div class="row">
 
 				<?php
 				if ( have_posts() ) :
