@@ -115,8 +115,8 @@ add_action( 'after_setup_theme', 'pbt_setup' );
 /**
  * Hack the title tag to show Home when at site.
  */
-add_filter( 'wp_title', 'baw_hack_wp_title_for_home' );
-function baw_hack_wp_title_for_home( $title )
+add_filter( 'wp_title', 'pbt_hack_wp_title_for_home' );
+function pbt_hack_wp_title_for_home( $title )
 {
   if( empty( $title ) && ( is_home() || is_front_page() ) ) {
     return 'Home' . ' | ' . get_bloginfo( 'description' );
