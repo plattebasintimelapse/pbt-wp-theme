@@ -116,13 +116,25 @@ img.size-story-featured, img.size-full {
 .aside-video {
 	width: 100%;
 	float: right;
-	padding: 20px 0 20px 20px;
-	@include breakpoint(mama-bear) { width: 70%; }
+	padding: 20px 0 20px 0;
+	@include breakpoint(mama-bear) { width: 70%; padding: 20px 0 20px 20px; }
 }
 
+/*********************/
+/* Gallery of Images */
+/*********************/
 
+.gallery-item {
+    padding: 20px;
+}
 
+.gallery img {
+  	border: none !important;
+}
 
+.gallery .gallery-caption {
+  display: none;
+}
 
 
 
