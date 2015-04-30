@@ -14,7 +14,7 @@ $(document).ready(function () {
     $heroImageBehind.height( getHeroImageHeight(windowHeight) );
 
     $.each( $('.post-meta-box'), function() {
-        console.log( $(this).height() );
+        // console.log( $(this).height() );
         if ( $(this).height() < 132 ) {
             $(this).css('top', '15%');
         } else if ( $(this).height() < 162  && $window.width() > 768 ) {

@@ -65,3 +65,43 @@ function pbt_video_embed_shortcode( $atts ) {
 
 }
 add_shortcode( 'embed_video', 'pbt_video_embed_shortcode' );
+
+
+/**
+ * Adds a shortcode for displaying responsive iFrames in a content post.
+ * Uses nprapp Pym.js
+ *
+ * @param  string $val     Empty
+ * @param  array  $attr    Shortcode attributes
+ * @return string          Shortcode output
+ */
+function pbt_responsive_iframe_shortcode( $atts ) {
+    extract( shortcode_atts(
+        array(
+            'src'               => '',
+            'id'                => 'example',
+            'size'              => 'featured',
+            'side'              => '',
+        ), $atts )
+    );
+
+    $iframe_class = 'responsive-iframe';
+    if ( !empty($side) ) {
+        $iframe_class .= ' responsive-frame-' . $side;
+    }
+
+    $iframe =   '<div class="responsive-iframe responsive-frame-' . $size . ' responsive-frame-' . $side . '" id="' . $id . '"></div>
+                <script type="text/javascript" src="' . get_template_directory_uri() . '/assets/scripts/lib/pym.min.js"></script>
+                <script type="text/javascript">
+                    var pymParent = new pym.Parent("' . $id . '", "' . $src . '", {});
+                </script>';
+
+    return $iframe;
+
+}
+add_shortcode( 'embed_iframe', 'pbt_responsive_iframe_shortcode' );
+
+
+
+
+

@@ -14,11 +14,11 @@
 
 			<?php if ( get_post_type() === 'blog_post' ) { ?>
 
-				<h4 class="blog-post-author font-size-ex-small"><small>A Notebook entry by</small> <a href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ) ); ?>"><?php the_author(); ?></a></h4>
+				<h4 class="blog-post-author font-size-small"><small>A Notebook entry by</small> <a href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ) ); ?>"><?php the_author(); ?></a></h4>
 
 			<?php } else if ( get_post_type() === 'post' ) { ?>
 
-				<h4 class="post-category font-size-ex-small"><small>A Story filed under</small> <?php the_category( ' | ' ) ?></h4>
+				<h4 class="post-category font-size-small"><small>A Story filed under</small> <?php the_category( ' | ' ) ?></h4>
 
 			<?php } else if ( get_post_type() === 'page' ) { ?>
 

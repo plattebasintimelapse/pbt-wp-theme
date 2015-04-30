@@ -53,11 +53,14 @@ figure.image {
 figure.alignright {
 	float: right;
 	padding: 20px 0 20px 20px;
+	margin: 0;
 }
 
 figure.alignleft {
 	float: left;
 	padding: 20px 20px 20px 0;
+	margin: 0;
+	figcaption { text-align: left; }
 }
 
 
@@ -77,14 +80,14 @@ img.size-story-featured, img.size-full {
 /* Video wrapper */
 /*****************/
 
-.main .video-wrapper {
+.video-wrapper {
     height: 0;
     padding-bottom: 54.25%;
     padding-top: 25px;
     position: relative;
     margin: 5px 0;
 }
-.main .video-wrapper iframe {
+.video-wrapper iframe {
     position: absolute;
     top: 0;
     left: 0;
@@ -92,14 +95,14 @@ img.size-story-featured, img.size-full {
     height: 100%;
 }
 
-.main .timelapse-wrapper {
+.timelapse-wrapper {
     height: 0;
     padding-bottom: 64%;
     padding-top: 25px;
     position: relative;
     margin: 5px 0;
 }
-.main .timelapse-wrapper iframe {
+.timelapse-wrapper iframe {
     position: absolute;
     top: 0;
     left: 0;
@@ -118,6 +121,24 @@ img.size-story-featured, img.size-full {
 	float: right;
 	padding: 20px 0 20px 0;
 	@include breakpoint(mama-bear) { width: 70%; padding: 20px 0 20px 20px; }
+}
+
+/*********************/
+/* Responsive Iframe */
+/*********************/
+
+.responsive-frame-aside {
+    width: 50%;
+}
+
+.responsive-frame-left {
+    float: left;
+    padding-right: 20px;
+}
+
+.responsive-frame-right {
+    float: right;
+    padding-left: 20px;
 }
 
 /*********************/
