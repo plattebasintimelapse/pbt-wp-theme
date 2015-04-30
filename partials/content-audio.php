@@ -2,14 +2,17 @@
 /**
  * The content template for displaying audio posts
  */
-?>
 
+	echo '<h6 class="text-center font-size-ex-small"><em>Posted on ' . get_the_date( 'F j, Y' ) . '</em></h6>';
 
-		<h4>By <?php the_author(); ?></h4>
-		<?php the_content(); ?>
+	pbt_bylines();
 
-		<aside class="social-media"></aside>
+	the_content();
 
-		<section class="audio-container">
+	$audio_file = get_field('audio_file'); ?>
 
-		</section>
+	<div class="featured-audio">
+		<?php echo do_shortcode('[audio mp3='.$audio_file.' flip="y" title="" fontsize="32px"][/audio]'); ?>
+	</div>
+
+	<aside class="post-meta"></aside>

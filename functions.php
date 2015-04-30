@@ -58,7 +58,7 @@ function pbt_setup() {
 	/**
 	 * Enable support for Post Formats
 	 */
-	add_theme_support( 'post-formats', array( 'link' ) );
+	add_theme_support( 'post-formats', array( 'link', 'audio' ) );
 
 	/**
 	 * Register sidebars
