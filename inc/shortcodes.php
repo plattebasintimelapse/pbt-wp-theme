@@ -25,7 +25,7 @@ function pbt_img_caption_shortcode_filter($val, $attr, $content = null) {
     if ( $id )
         $id = esc_attr( $id );
 
-    return '<figure class="image ' . $align . ' ' . $class . '" id="' . $id . '" aria-describedby="figcaption_' . $id . '" class="img-caption ' . esc_attr($align) .'">' . do_shortcode( $content ) . '<figcaption id="figcaption_'. $id . '" class="caption-text" itemprop="description">' . $caption . '</figcaption></figure>';
+    return '<figure class="image ' . $align . ' ' . $class . '" id="' . $id . '" aria-describedby="figcaption_' . $id . '" class="img-caption ' . esc_attr($align) .'">' . do_shortcode( $content ) . '<figcaption style="width:' . $width . 'px;" id="figcaption_'. $id . '" class="caption-text" itemprop="description">' . $caption . '</figcaption></figure>';
 }
 add_filter( 'img_caption_shortcode', 'pbt_img_caption_shortcode_filter', 10, 3 );
 
