@@ -3455,7 +3455,7 @@ header .btn { margin: 4px 0; }
 
 .post-thumbnail { background-color: black; }
 
-.post-thumbnail img { opacity: .7; }
+.post-thumbnail img { opacity: .8; }
 
 .post-meta-box, .featured-meta-box { position: absolute; color: #fafafa; text-shadow: 1px 1px 5px black; }
 .post-meta-box a, .featured-meta-box a { color: #fafafa; opacity: 1; -webkit-transition: all 500ms ease-out; -moz-transition: all 500ms ease-out; -o-transition: all 500ms ease-out; transition: all 500ms ease-out; }
