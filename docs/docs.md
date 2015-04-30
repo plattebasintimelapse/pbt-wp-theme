@@ -50,6 +50,30 @@ Timelapse from Vimeo formatted aside:
 
 	[embed_video vimeo_id="124652660" aspect_ratio="timelapse" size="aside" caption="Jack Creek is a super cool mountain stream in Colorado."]
 
+#Responsive iFrames
+
+Responsive iframes are externally added pages that provide opportunity for more interactive contented embedded straight into the CMS. This shortcode utilizes NPR's Pym.js.
+
+####Embedding
+The base line embed code is
+
+	[embed_iframe id="" src=""]
+	
+#####Options:
+* **src=""** 		*Ex. src="http://projects.plattebasintimelapse.com/assets/static/pages/historical-news-lincoln-water/"*
+* **id=""** 		*Ex. src="newspapers", it must be unique per page
+* **size=""**		*(optional) Ex. size="aside", defaults to featured*
+* **side=""**		*(optional) Ex. size="left" or size="right", used only when size="aside"
+
+######Examples:
+
+An aside module of newspaper clipppings:
+
+	[embed_iframe id="newspaper" src="http://projects.plattebasintimelapse.com/assets/static/pages/historical-news-lincoln-water/" size="aside" side="left"]
+	
+Or a featured interactive chart:
+
+	[embed_iframe id="lincoln-water" src="http://projects.plattebasintimelapse.com/assets/static/pages/lincoln-water/"]
 
 #Gallery
 A Gallery allows you to upload multiple images together, to be viewed in a Lightbox.
