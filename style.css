@@ -3635,7 +3635,7 @@ img.size-story-featured, img.size-full { width: 100%; margin-bottom: 4px; }
 
 .featured-audio span.load_mp3j, .featured-audio span.loadB_mp3j { height: 112%; }
 
-.featured-audio span.posbarB_mp3j .ui-widget-header { background-color: #6aaac3; }
+.featured-audio span.posbarB_mp3j .ui-widget-header { background-color: #6aaac3 !important; }
 
 .featured-audio span.posbarB_mp3j .ui-slider-handle, .featured-audio span.tintmarg { display: none; }
 
