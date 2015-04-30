@@ -136,6 +136,20 @@ function pbt_admin_choose_image_sizes( $sizes ) {
 add_filter( 'image_size_names_choose', 'pbt_admin_choose_image_sizes' );
 
 
+/**
+ * Add a link to the theme docs in the admin header
+ */
+function pbt_docs_admin_link( $wp_admin_bar ) {
+	$args = array(
+		'id'		=> 'pbt-docs',
+		'title' 	=> 'PBT Docs',
+		'href'  	=> 'https://github.com/plattebasintimelapse/pbt-wp-theme/blob/master/docs/docs.md',
+		'meta'  	=> array( 'target' => '_blank' ),
+	);
+	$wp_admin_bar->add_node( $args );
+}
+
+add_action( 'admin_bar_menu', 'pbt_docs_admin_link', 999 );
 
 /**
  * Search Form function, hooked to get_search_form function
