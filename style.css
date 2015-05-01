@@ -3465,8 +3465,9 @@ header .btn { margin: 4px 0; }
 .post-meta-box { top: 2%; text-align: center; width: 96%; left: 3%; text-transform: uppercase; }
 .post-meta-box .post-title { font-size: 1.3rem; }
 @media (min-width: 768px) { .post-meta-box { top: 12%; left: 50%; width: 80%; margin-left: -40%; text-align: center; }
-  .post-meta-box .post-title { font-size: 1.6rem; } }
-@media (min-width: 992px) { .post-meta-box { top: 4%; width: 96%; margin-left: -48%; } }
+  .post-meta-box .post-title { font-size: 1.8rem; } }
+@media (min-width: 992px) { .post-meta-box { top: 0%; width: 96%; margin-left: -48%; } }
+@media (min-width: 1170px) { .post-meta-box { top: 5%; } }
 .post-meta-box .read-more-btn { display: none; }
 @media (min-width: 768px) { .post-meta-box .read-more-btn { display: inline-block; } }
 .post-meta-box .post-category, .post-meta-box .blog-post-author { display: none; }

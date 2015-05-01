@@ -14,11 +14,14 @@ $(document).ready(function () {
     $heroImageBehind.height( getHeroImageHeight(windowHeight) );
 
     $.each( $('.post-meta-box'), function() {
-        // console.log( $(this).height() );
+        console.log( $(this).height() );
         if ( $(this).height() < 132 ) {
             $(this).css('top', '15%');
         } else if ( $(this).height() < 162  && $window.width() > 768 ) {
             $(this).css('top', '15%');
+        } else if ( $(this).height() > 250  && $window.width() > 768 ) {
+            $(this).css('top', '2%');
+            $(this).find('.post-title').css('font-size', '1.6em');
         }
     });
 

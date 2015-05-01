@@ -46,10 +46,10 @@
 			?>
 
 			<a href="<?php the_permalink() ?>">
-				<h3 class="post-title">
+				<h1 class="post-title">
 					<?php echo $short_title;
 						if( $short_title != $title) { echo "..."; } ?>
-				</h3>
+				</h1>
 			</a>
 			<a class="btn btn-default read-more-btn" role="button" href="<?php the_permalink() ?>"><h6>Read More</h6></a>
 		</div>
