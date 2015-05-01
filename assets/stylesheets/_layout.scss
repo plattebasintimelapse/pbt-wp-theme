@@ -218,6 +218,9 @@
   	@include breakpoint(baby-bear) {
 		font-size: 2.1rem;
 	}
+	@include breakpoint(mama-bear) {
+		font-size: 3rem;
+	}
 }
 
 .featured-meta-box {

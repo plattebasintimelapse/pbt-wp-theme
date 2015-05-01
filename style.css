@@ -3482,6 +3482,7 @@ header .btn { margin: 4px 0; }
 
 .featured-story .post-meta-box .post-title { font-size: 1.6rem; }
 @media (min-width: 768px) { .featured-story .post-meta-box .post-title { font-size: 2.1rem; } }
+@media (min-width: 992px) { .featured-story .post-meta-box .post-title { font-size: 3rem; } }
 
 .featured-meta-box { top: 5%; left: 50%; width: 90%; margin-left: -45%; text-align: center; }
 .featured-meta-box h2 { display: inline-block; }
