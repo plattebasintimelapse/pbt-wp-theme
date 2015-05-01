@@ -18,18 +18,10 @@
 				<h5 class="blog-post-author font-size-small">By <a href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ) ); ?>"><?php the_author(); ?></a></h5>
 
 			<?php } else if ( get_post_type() === 'post' ) { ?>
+
 				<h5 class="post-category font-size-small">
 
-					<?php if ( is_object_in_term( $post->ID , 'basin' ) ) { //check to see if post has basin category
-
-						$terms = get_the_terms( $post->ID , 'basin' );
-
-						foreach ( $terms as $term ) {
-							echo '<a href="' . get_term_link( $term ) . '">' . $term->name . '</a> | ';
-						}
-					}
-
-					the_category( ' | ' ); ?>
+					<?php pbt_the_categories($post, ' | ' ); ?>
 
 				</h5>
 

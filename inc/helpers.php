@@ -24,3 +24,37 @@ function pbt_bylines() {
 
 	echo $bylines;
 }
+
+
+/**
+ * This function gets the post categories for the given story.
+ * It rolls through each type of taxonomy that post type might have, checks if it's tagged,
+ * then returns that cateogry, with link, for display.
+ *
+ * @param  post   $post    	The post object
+ * @param  string $sep    	The category separator
+ */
+function pbt_the_categories($post, $sep = ' ') {
+
+	$story_categories = '';
+
+	if ( is_object_in_term( $post->ID , 'basin' ) ) { //check to see if post has basin category
+
+		$terms = get_the_terms( $post->ID , 'basin' );
+
+		foreach ( $terms as $term ) {
+			echo '<a href="' . get_term_link( $term ) . '">' . $term->name . '</a> '. $sep;
+		}
+	}
+
+	if ( is_object_in_term( $post->ID , 'story_type' ) ) { //check to see if post has story type category
+
+		$terms = get_the_terms( $post->ID , 'story_type' );
+
+		foreach ( $terms as $term ) {
+			echo '<a href="' . get_term_link( $term ) . '">' . $term->name . '</a> ' . $sep;
+		}
+	}
+
+	the_category( $sep );
+}
