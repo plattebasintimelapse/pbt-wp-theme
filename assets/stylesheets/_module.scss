@@ -12,6 +12,15 @@
 
 .small { color: $gray-darker !important; }
 
+.badge {
+	background-color: $brand-light;
+	padding: 4px 8px;
+}
+
+a .badge:hover {
+	background-color: $blue;
+}
+
 hr {
 	margin-top: 28px;
 	margin-bottom: 28px;

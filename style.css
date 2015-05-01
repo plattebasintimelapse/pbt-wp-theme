@@ -3330,6 +3330,8 @@ input:focus:-ms-input-placeholder { color: transparent !important; }
 
 .circle-cropped img { padding: 6px; border-radius: 400px; }
 
+.padded-left, .main-content .post-meta .post-date { padding-left: 6px; }
+
 header { position: relative; width: 100%; background-color: #6aaac3; color: #fafafa; text-shadow: 1px 1px 5px black; }
 header a { color: #fafafa; }
 header a:hover, header a:focus { opacity: .6; color: #fafafa; }
@@ -3466,7 +3468,7 @@ header .btn { margin: 4px 0; }
 .post-meta-box .post-title { font-size: 1.3rem; }
 @media (min-width: 768px) { .post-meta-box { top: 12%; left: 50%; width: 80%; margin-left: -40%; text-align: center; }
   .post-meta-box .post-title { font-size: 1.8rem; } }
-@media (min-width: 992px) { .post-meta-box { top: 0%; width: 96%; margin-left: -48%; } }
+@media (min-width: 992px) { .post-meta-box { top: 0%; width: 82%; margin-left: -41%; } }
 @media (min-width: 1170px) { .post-meta-box { top: 5%; } }
 .post-meta-box .read-more-btn { display: none; }
 @media (min-width: 768px) { .post-meta-box .read-more-btn { display: inline-block; } }
@@ -3526,6 +3528,11 @@ header .btn { margin: 4px 0; }
 
 .byline:last-child:after { content: ""; }
 
+.main-content .post-meta { padding-top: 5px; border-top: 1px solid #BFBFBF; color: #BFBFBF; }
+.main-content .post-meta i, .main-content .post-meta .badge, .main-content .post-meta span { vertical-align: bottom; }
+.main-content .post-meta a { color: #BFBFBF; }
+.main-content .post-meta a:hover { color: #6aaac3; }
+
 .edit-post-link { text-align: center; font-size: .7em; margin-top: 100px; }
 
 .main-widgeted-text { text-align: center; margin-bottom: 10px; }
@@ -3576,6 +3583,10 @@ footer img { padding: 20px; width: 60%; min-width: 120px; }
 .well { border: none; background-color: transparent; font-size: .7rem; text-align: left; padding: 4px; }
 
 .small { color: #212121 !important; }
+
+.badge { background-color: #BFBFBF; padding: 4px 8px; }
+
+a .badge:hover { background-color: #6aaac3; }
 
 hr { margin-top: 28px; margin-bottom: 28px; border: 0; border-top: 1px solid #757575; }
 

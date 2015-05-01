@@ -43,7 +43,7 @@ function pbt_the_categories($post, $sep = ' ') {
 		$terms = get_the_terms( $post->ID , 'basin' );
 
 		foreach ( $terms as $term ) {
-			echo '<a href="' . get_term_link( $term ) . '">' . $term->name . '</a> '. $sep;
+			echo '<a href="' . get_term_link( $term ) . '" title="' . esc_attr( sprintf( __( "View all posts in %s" ), $term->name ) ) . '">' . $term->name . '</a> '. $sep;
 		}
 	}
 
@@ -52,9 +52,56 @@ function pbt_the_categories($post, $sep = ' ') {
 		$terms = get_the_terms( $post->ID , 'story_type' );
 
 		foreach ( $terms as $term ) {
-			echo '<a href="' . get_term_link( $term ) . '">' . $term->name . '</a> ' . $sep;
+			echo '<a href="' . get_term_link( $term ) . '" title="' . esc_attr( sprintf( __( "View all posts in %s" ), $term->name ) ) . '">' . $term->name . '</a> ' . $sep;
 		}
 	}
 
-	the_category( $sep );
+	$categories = get_the_category();
+	$output = '';
+	if($categories){
+		foreach($categories as $category) {
+			$output .= '<a href="'.get_category_link( $category->term_id ).'" title="' . esc_attr( sprintf( __( "View all posts in %s" ), $category->name ) ) . '">'.$category->cat_name.'</a>'.$sep;
+		}
+	echo trim($output, $sep);
+	}
+}
+
+/**
+ * This function gets the post categories for the given story.
+ * It rolls through each type of taxonomy that post type might have, checks if it's tagged,
+ * then returns that cateogry, with link, for display.
+ *
+ * @param  post   $post    	The post object
+ * @param  string $sep    	The category separator
+ */
+function pbt_the_badged_categories($post, $sep = ' ') {
+
+	$story_categories = '';
+
+	if ( is_object_in_term( $post->ID , 'basin' ) ) { //check to see if post has basin category
+
+		$terms = get_the_terms( $post->ID , 'basin' );
+
+		foreach ( $terms as $term ) {
+			echo '<a href="' . get_term_link( $term ) . '" title="' . esc_attr( sprintf( __( "View all posts in %s" ), $term->name ) ) . '"><span class="badge font-size-ex-small">' . $term->name . '</span></a> '. $sep;
+		}
+	}
+
+	if ( is_object_in_term( $post->ID , 'story_type' ) ) { //check to see if post has story type category
+
+		$terms = get_the_terms( $post->ID , 'story_type' );
+
+		foreach ( $terms as $term ) {
+			echo '<a href="' . get_term_link( $term ) . '" title="' . esc_attr( sprintf( __( "View all posts in %s" ), $term->name ) ) . '"><span class="badge font-size-ex-small">' . $term->name . '</span></a> ' . $sep;
+		}
+	}
+
+	$categories = get_the_category();
+	$output = '';
+	if($categories){
+		foreach($categories as $category) {
+			$output .= '<a href="'.get_category_link( $category->term_id ).'" title="' . esc_attr( sprintf( __( "View all posts in %s" ), $category->name ) ) . '"><span class="badge font-size-ex-small">'.$category->cat_name.'</span></a>'.$sep;
+		}
+	echo trim($output, $sep);
+	}
 }

@@ -28,10 +28,19 @@ get_header();
 
 				<?php
 
-					get_template_part( 'partials/content', get_post_format() );
+					get_template_part( 'partials/content', get_post_format() ); ?>
 
-					edit_post_link('edit', '<p class="edit-post-link">', '</p>'); ?>
+			</div>
 
+			<div class="container container-little-padding-top">
+				<div class="post-meta font-size-small">
+					<i class="fa fa-tag"></i>
+					<?php
+						pbt_the_badged_categories($post);
+						echo '<span class="post-date font-size-ex-small"><em>Posted on ' . get_the_date( 'F j, Y' ) . '</em></span>';
+						edit_post_link('edit', '<p class="pull-right">', '</p>');
+					?>
+				</div>
 			</div>
 
 			<?php if ( comments_open() && !is_preview() ) { // Check if comments are allowed per post ?>

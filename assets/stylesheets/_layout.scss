@@ -162,8 +162,8 @@
 
 	@include breakpoint(mama-bear) {
 		top: 0%;
-		width: 96%;
-		margin-left: -48%;
+		width: 82%;
+		margin-left: -41%;
 	}
 
 	@include breakpoint(papa-bear) {
@@ -345,6 +345,20 @@
 .byline:after { content: " |"; }
 
 .byline:last-child:after { content: ""; }
+
+.main-content .post-meta {
+	padding-top: 5px;
+	border-top: 1px solid $brand-light;
+	color: $brand-light;
+	i, .badge, span { vertical-align: bottom; }
+	.post-date { @extend .padded-left; }
+	a {
+		color: $brand-light;
+		&:hover {
+			color: $blue;
+		}
+	}
+}
 
 .edit-post-link {
 	text-align: center;

@@ -39,7 +39,6 @@ $featuredPostID; // Used to exclude post from main FEED
 
 				<div class="featured-meta-box">
 
-					<h5>Featured Story</h5>
 					<a href="<?php the_permalink() ?>"><h2><?php the_title(); ?></h2></a>
 					<?php the_excerpt(); ?>
 					<a class="btn btn-default read-more-btn" role="button" href="<?php the_permalink() ?>"><h6>Read More</h6></a>
