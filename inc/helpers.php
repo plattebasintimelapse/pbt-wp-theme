@@ -47,15 +47,6 @@ function pbt_the_categories($post, $sep = ' ') {
 		}
 	}
 
-	if ( is_object_in_term( $post->ID , 'story_type' ) ) { //check to see if post has story type category
-
-		$terms = get_the_terms( $post->ID , 'story_type' );
-
-		foreach ( $terms as $term ) {
-			echo '<a href="' . get_term_link( $term ) . '" title="' . esc_attr( sprintf( __( "View all posts in %s" ), $term->name ) ) . '">' . $term->name . '</a> ' . $sep;
-		}
-	}
-
 	$categories = get_the_category();
 	$output = '';
 	if($categories){
@@ -87,20 +78,22 @@ function pbt_the_badged_categories($post, $sep = ' ') {
 		}
 	}
 
-	if ( is_object_in_term( $post->ID , 'story_type' ) ) { //check to see if post has story type category
-
-		$terms = get_the_terms( $post->ID , 'story_type' );
-
-		foreach ( $terms as $term ) {
-			echo '<a href="' . get_term_link( $term ) . '" title="' . esc_attr( sprintf( __( "View all posts in %s" ), $term->name ) ) . '"><span class="badge font-size-ex-small">' . $term->name . '</span></a> ' . $sep;
-		}
-	}
-
 	$categories = get_the_category();
-	$output = '';
+	$cat_output = '';
 	if($categories){
 		foreach($categories as $category) {
-			$output .= '<a href="'.get_category_link( $category->term_id ).'" title="' . esc_attr( sprintf( __( "View all posts in %s" ), $category->name ) ) . '"><span class="badge font-size-ex-small">'.$category->cat_name.'</span></a>'.$sep;
+			$cat_output .= '<a href="'.get_category_link( $category->term_id ).'" title="' . esc_attr( sprintf( __( "View all posts in %s" ), $category->name ) ) . '"><span class="badge font-size-ex-small">'.$category->cat_name.'</span></a>'.$sep.$sep;
+		}
+	echo trim($cat_output, $sep);
+	}
+
+	echo ' ';
+
+	$tags = get_the_tags();
+	$output = '';
+	if($tags){
+		foreach($tags as $tag) {
+			$output .= '<a href="'.get_tag_link( $tag->term_id ).'" title="' . esc_attr( sprintf( __( "View all posts in %s" ), $tag->name ) ) . '"><span class="badge font-size-ex-small">'.$tag->name.'</span></a>'.$sep;
 		}
 	echo trim($output, $sep);
 	}

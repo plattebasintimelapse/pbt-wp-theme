@@ -3359,7 +3359,7 @@ header .btn { margin: 4px 0; }
 .nav#footer-menu > li:last-child { float: none; }
 @media (min-width: 768px) { .nav#footer-menu > li:last-child { float: right; } }
 
-.nav#footer-menu > li > a { padding: 20px 30px; text-transform: lowercase; font-weight: 400; text-shadow: none; font-size: 1.1rem; }
+.nav#footer-menu > li > a { padding: 20px 30px; text-transform: uppercase; font-weight: 700; text-shadow: none; font-size: 1.1rem; }
 @media (min-width: 768px) { .nav#footer-menu > li > a { font-size: .9rem; } }
 @media (min-width: 992px) { .nav#footer-menu > li > a { font-size: .7rem; } }
 .nav#footer-menu > li > a:hover, .nav#footer-menu > li > a:focus { background-color: #333333; color: #fafafa; }
@@ -3530,6 +3530,7 @@ header .btn { margin: 4px 0; }
 
 .main-content .post-meta { padding-top: 5px; border-top: 1px solid #BFBFBF; color: #BFBFBF; }
 .main-content .post-meta i, .main-content .post-meta .badge, .main-content .post-meta span { vertical-align: bottom; }
+.main-content .post-meta .badge { text-transform: lowercase; }
 .main-content .post-meta a { color: #BFBFBF; }
 .main-content .post-meta a:hover { color: #6aaac3; }
 
