@@ -54,9 +54,6 @@ figure.image {
 	margin: 30px 0;
 	display: inline-block;
 	margin-right: 0;
-	@include breakpoint(mama-bear) {
-		// margin-right: -15%;
-  	}
 }
 
 figure.alignright {
@@ -73,9 +70,16 @@ figure.alignleft {
 }
 
 
-img.size-story-featured, img.size-full {
+figure.featured {
 	width: 100%;
-	margin-bottom: 4px;
+}
+
+figure.full {
+	width: 100%;
+	@include breakpoint(papa-bear) {
+		width: 126%;
+		margin-left: -13%;
+  	}
 }
 
 .caption-text {

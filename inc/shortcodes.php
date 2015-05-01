@@ -22,29 +22,21 @@ function pbt_img_caption_shortcode_filter($val, $attr, $content = null) {
     // if ( 1 > (int) $width )
     //     return $val;
 
-    foreach (get_intermediate_image_sizes() as $s) {
-        if (isset($_wp_additional_image_sizes[$s])) {
-            $width = intval($_wp_additional_image_sizes[$s]['width']);
-            $height = intval($_wp_additional_image_sizes[$s]['height']);
-        } else {
-            $width = get_option($s.'_size_w');
-            $height = get_option($s.'_size_h');
-        }
-    }
-    
-    echo $width;
+    $computed_style = '';
 
-    if ( $width > 1200 )
+    if ( $width > 1199 ) {
+        $class = 'full';
+    } else if ( $width >= 960 ) {
         $class = 'featured';
-    else if ( $width > 600 )
+    } else if ( $width < 960 ) {
         $class = 'aside';
-    else if ( $width <= 600 )
-        $class = 'thumb';
+        $computed_style = 'style="width:' . $width . 'px;"';
+    }
 
     if ( $id )
         $id = esc_attr( $id );
 
-    return '<figure class="image ' . $align . ' ' . $class . '" id="' . $id . '" aria-describedby="figcaption_' . $id . '" class="img-caption ' . esc_attr($align) .'">' . do_shortcode( $content ) . '<figcaption id="figcaption_'. $id . '" class="caption-text" itemprop="description">' . $caption . '</figcaption></figure>';
+    return '<figure class="image ' . esc_attr($align) . ' ' . $class . '" id="' . $id . '" aria-describedby="figcaption_' . $id . '" ' . $computed_style . '>' . do_shortcode( $content ) . '<figcaption id="figcaption_'. $id . '" class="caption-text" itemprop="description">' . $caption . '</figcaption></figure>';
 }
 add_filter( 'img_caption_shortcode', 'pbt_img_caption_shortcode_filter', 10, 3 );
 
