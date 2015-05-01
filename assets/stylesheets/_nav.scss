@@ -60,8 +60,8 @@ header .btn {
 
 .nav#footer-menu > li > a {
 	padding: 20px 30px;
-	text-transform: lowercase;
-	font-weight: 400;
+	text-transform: uppercase;
+	font-weight: 700;
 	text-shadow: none;
 	font-size: 1.1rem;
 	@include breakpoint(baby-bear) { font-size: .9rem; }
