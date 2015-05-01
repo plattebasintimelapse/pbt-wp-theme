@@ -69,29 +69,50 @@ add_action('init', 'pbt_blog_post_type');
 /**
  * Blog Post Category Taxonomy Registration
  */
-function pbt_basin_post_taxonomies() {
-  $labels = array(
-    'name'              => _x( 'Basins', 'taxonomy general name' ),
-    'singular_name'     => _x( 'Basin', 'taxonomy singular name' ),
-    'search_items'      => __( 'Search Basins' ),
-    'all_items'         => __( 'All Basins' ),
-    'parent_item'       => __( 'Parent Basin' ),
-    'parent_item_colon' => __( 'Parent Basin:' ),
-    'edit_item'         => __( 'Edit Basin' ),
-    'update_item'       => __( 'Update Basin' ),
-    'add_new_item'      => __( 'Add New Basin' ),
-    'new_item_name'     => __( 'New Basin' ),
-    'menu_name'         => __( 'Basins' ),
-  );
-  $args = array(
-    'labels'            => $labels,
-    'rewrite'           => array( 'slug' => 'basin'),
-    'hierarchical'      => true,
-    'show_admin_column' => true,
-  );
-  register_taxonomy( 'basin', 'post', $args );
+function pbt_post_taxonomies() {
+    $labels = array(
+        'name'              => _x( 'Basins', 'taxonomy general name' ),
+        'singular_name'     => _x( 'Basin', 'taxonomy singular name' ),
+        'search_items'      => __( 'Search Basins' ),
+        'all_items'         => __( 'All Basins' ),
+        'parent_item'       => __( 'Parent Basin' ),
+        'parent_item_colon' => __( 'Parent Basin:' ),
+        'edit_item'         => __( 'Edit Basin' ),
+        'update_item'       => __( 'Update Basin' ),
+        'add_new_item'      => __( 'Add New Basin' ),
+        'new_item_name'     => __( 'New Basin' ),
+        'menu_name'         => __( 'Basins' ),
+    );
+    $args = array(
+        'labels'            => $labels,
+        'rewrite'           => array( 'slug' => 'basin'),
+        'hierarchical'      => true,
+        'show_admin_column' => true,
+    );
+    register_taxonomy( 'basin', 'post', $args );
+
+    $labels = array(
+        'name'              => _x( 'Story Types', 'taxonomy general name' ),
+        'singular_name'     => _x( 'Story Type', 'taxonomy singular name' ),
+        'search_items'      => __( 'Search Story Types' ),
+        'all_items'         => __( 'All Story Types' ),
+        'parent_item'       => __( 'Parent Story Type' ),
+        'parent_item_colon' => __( 'Parent Story Type:' ),
+        'edit_item'         => __( 'Edit Story Type' ),
+        'update_item'       => __( 'Update Story Type' ),
+        'add_new_item'      => __( 'Add New Story Type' ),
+        'new_item_name'     => __( 'New Story Type' ),
+        'menu_name'         => __( 'Story Types' ),
+    );
+    $args = array(
+        'labels'            => $labels,
+        'rewrite'           => array( 'slug' => 'type'),
+        'hierarchical'      => true,
+        'show_admin_column' => true,
+    );
+    register_taxonomy( 'story_type', 'post', $args );
 }
-add_action( 'init', 'pbt_basin_post_taxonomies', 0 );
+add_action( 'init', 'pbt_post_taxonomies', 0 );
 
 
 /**
