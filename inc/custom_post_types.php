@@ -35,6 +35,33 @@ function pbt_change_post_object() {
 add_action( 'admin_menu', 'pbt_change_post_label' );
 add_action( 'init', 'pbt_change_post_object' );
 
+
+/**
+ * Create Blog Post Custom Post Type
+ * On the backend the type is refered to as 'blog_post' and in the Admin Menus as Blog Posts
+ * On the frontend of the site, for audiences, they are Notebook entries on the notebook page.
+ * I know confusing...
+ */
+
+function pbt_rename_default_category() {
+    global $wp_taxonomies;
+
+    $cat = $wp_taxonomies['category'];
+    $cat->label                     = 'Story Themes';
+    $cat->labels->name              = 'Story Themes';
+    $cat->labels->singular_name     = 'Story Theme';
+    $cat->labels->search_items      = 'Search Story Themes';
+    $cat->labels->all_items         = 'All Story Themes';
+    $cat->labels->parent_item       = 'Parent Story Theme';
+    $cat->labels->parent_item_colon = 'Parent Story Theme:';
+    $cat->labels->edit_item         = 'Edit Story Theme';
+    $cat->labels->update_item       = 'Update Story Theme';
+    $cat->labels->add_new_item      = 'Add New Story Theme';
+    $cat->labels->new_item_name     = 'New Story Theme';
+    $cat->labels->menu_name         = 'Story Themes';
+}
+add_action('init', 'pbt_rename_default_category');
+
 /**
  * Create Blog Post Custom Post Type
  * On the backend the type is refered to as 'blog_post' and in the Admin Menus as Blog Posts
@@ -90,27 +117,6 @@ function pbt_post_taxonomies() {
         'show_admin_column' => true,
     );
     register_taxonomy( 'basin', 'post', $args );
-
-    $labels = array(
-        'name'              => _x( 'Story Types', 'taxonomy general name' ),
-        'singular_name'     => _x( 'Story Type', 'taxonomy singular name' ),
-        'search_items'      => __( 'Search Story Types' ),
-        'all_items'         => __( 'All Story Types' ),
-        'parent_item'       => __( 'Parent Story Type' ),
-        'parent_item_colon' => __( 'Parent Story Type:' ),
-        'edit_item'         => __( 'Edit Story Type' ),
-        'update_item'       => __( 'Update Story Type' ),
-        'add_new_item'      => __( 'Add New Story Type' ),
-        'new_item_name'     => __( 'New Story Type' ),
-        'menu_name'         => __( 'Story Types' ),
-    );
-    $args = array(
-        'labels'            => $labels,
-        'rewrite'           => array( 'slug' => 'type'),
-        'hierarchical'      => true,
-        'show_admin_column' => true,
-    );
-    register_taxonomy( 'story_type', 'post', $args );
 }
 add_action( 'init', 'pbt_post_taxonomies', 0 );
 
