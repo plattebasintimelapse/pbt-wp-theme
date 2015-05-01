@@ -11,6 +11,8 @@ $(document).ready(function () {
     $heroImageBehind            = $('.hero-image-behind');
 
     windowHeight = $window.height();
+
+    $('.iframe-full-width-height').height( windowHeight );
     $heroImageBehind.height( getHeroImageHeight(windowHeight) );
 
     $.each( $('.post-meta-box'), function() {
@@ -47,6 +49,7 @@ $(document).ready(function () {
 $(window).resize(function(){
     windowHeight = $window.height();
 
+    $('.iframe-full-width-height').height( windowHeight );
     $heroImageBehind.height( getHeroImageHeight(windowHeight) );
 });
 
