@@ -151,6 +151,7 @@ function pbt_docs_admin_link( $wp_admin_bar ) {
 
 add_action( 'admin_bar_menu', 'pbt_docs_admin_link', 999 );
 
+
 /**
  * Search Form function, hooked to get_search_form function
  */
@@ -165,17 +166,6 @@ function pbt_search_form( $form ) {
 }
 
 add_filter( 'get_search_form', 'pbt_search_form' );
-
-function unregister_taxonomy(){
-    register_taxonomy('post_tag', array());
-}
-add_action('init', 'unregister_taxonomy');
-
-function remove_post_tag_menus(){
-    remove_menu_page('edit-tags.php?taxonomy=post_tag'); // Post tags
-}
-
-add_action( 'admin_menu', 'remove_post_tag_menus' );
 
 /**
  * Parse post link and replace it with meta value, or the 'external_url' field.
