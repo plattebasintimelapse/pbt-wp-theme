@@ -70,16 +70,12 @@ figure.alignleft {
 }
 
 
-figure.featured {
+figure.featured, figure.full {
 	width: 100%;
 }
 
-figure.full {
-	width: 100%;
-	@include breakpoint(papa-bear) {
-		width: 126%;
-		margin-left: -13%;
-  	}
+figure.full .caption-text {
+	margin-right: 15px;
 }
 
 .caption-text {
@@ -87,6 +83,8 @@ figure.full {
 	color: $gray-light;
 	text-align: right;
 	font-style: italic;
+	width: 90%;
+	float: right;
 }
 
 /*****************/

@@ -18,25 +18,26 @@ function pbt_img_caption_shortcode_filter($val, $attr, $content = null) {
         'caption' => ''
     ), $attr));
 
-    // No caption, no dice... But why width?
-    // if ( 1 > (int) $width )
-    //     return $val;
-
-    $computed_style = '';
-
-    if ( $width > 1199 ) {
-        $class = 'full';
-    } else if ( $width >= 960 ) {
-        $class = 'featured';
-    } else if ( $width < 960 ) {
-        $class = 'aside';
-        $computed_style = 'style="width:' . $width . 'px;"';
-    }
-
     if ( $id )
         $id = esc_attr( $id );
 
-    return '<figure class="image ' . esc_attr($align) . ' ' . $class . '" id="' . $id . '" aria-describedby="figcaption_' . $id . '" ' . $computed_style . '>' . do_shortcode( $content ) . '<figcaption id="figcaption_'. $id . '" class="caption-text" itemprop="description">' . $caption . '</figcaption></figure>';
+    $figure = '';
+    $computed_style = '';
+
+    if ( $width > 1601 ) {
+        $class = 'full';
+        $figure = '</div><div class="full-image container-fluid container-fluid-no-padding"><figure class="image ' . esc_attr($align) . ' ' . $class . '" id="' . $id . '" aria-describedby="figcaption_' . $id . '">' . do_shortcode( $content ) . '<figcaption id="figcaption_'. $id . '" class="caption-text" itemprop="description">' . $caption . '</figcaption></figure></div><div class="container">';
+    } else {
+        if ( $width >= 960 ) {
+            $class = 'featured';
+        } else if ( $width < 960 ) {
+            $class = 'aside';
+            $computed_style = 'style="width:' . $width . 'px;"';
+        }
+        $figure = '<figure class="image ' . esc_attr($align) . ' ' . $class . '" id="' . $id . '" aria-describedby="figcaption_' . $id . '" ' . $computed_style . '>' . do_shortcode( $content ) . '<figcaption id="figcaption_'. $id . '" class="caption-text" itemprop="description">' . $caption . '</figcaption></figure>';
+    }
+
+    return $figure;
 }
 add_filter( 'img_caption_shortcode', 'pbt_img_caption_shortcode_filter', 10, 3 );
 
