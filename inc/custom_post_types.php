@@ -134,7 +134,8 @@ function pbt_blog_post_taxonomies() {
   );
   $args = array(
     'labels' => $labels,
-    'hierarchical' => true,
+    'rewrite'           => array( 'slug' => 'category'),
+    'hierarchical'      => true,
     'show_admin_column' => true,
     'show_in_nav_menus' => false,
   );
