@@ -34,7 +34,7 @@ get_header();
 		</div>
 
 		<?php if( get_field( 'featured_image_caption' ) ): ?>
-			<h6 class="hero-image-caption hero-image-caption-right"><?php the_field( 'featured_image_caption' ); ?></h6>
+			<h6 class="hero-image-caption"><?php the_field( 'featured_image_caption' ); ?></h6>
 		<?php endif; ?>
 	</div> <!-- .container-fluid -->
 </section> <!-- .featured -->

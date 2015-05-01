@@ -296,29 +296,17 @@
 .hero-image-caption {
 	position: absolute;
 	top: 100%;
-	left: 0;
+	right: 0;
 	color: $text-color;
 	text-shadow: none;
 	font-size: .6em;
+	text-align: right;
 	max-width: 90%;
 	margin-top: 5px;
-	margin-left: 15px;
-
-	@include breakpoint(mama-bear) {
-		color: inherit;
-		top: auto;
-		bottom: 10px;
-		max-width: 200px;
-		@include text-over-image();
-	}
-}
-
-.hero-image-caption-right {
-	text-align: right;
 	margin-right: 15px;
-	margin-left: 0;
-	left: auto; // reset default hero-image-caption left style
-	right: 0;
+	@include breakpoint(mama-bear) {
+		max-width: 300px;
+	}
 }
 
 .main-content > .container > p {
