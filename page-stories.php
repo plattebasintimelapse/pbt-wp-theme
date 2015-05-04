@@ -78,15 +78,15 @@ $featuredPostID; // Used to exclude post from main FEED
 						<?php get_template_part( 'partials/post-feed-thumbnail' ); ?>
 					</div>
 
-				<?php endwhile;
+				<?php endwhile; ?>
+	</div>
+	<div class="container">
+		<?php if ( function_exists("wp_bs_pagination") ) wp_bs_pagination($the_query->max_num_pages); ?>
+	</div>
 
-				if ( function_exists("wp_bs_pagination") ) wp_bs_pagination($the_query->max_num_pages);
-
-			endif;
+		<?php  endif;
 			wp_reset_postdata();
 		?>
-
-	</div>
 </article>
 
 

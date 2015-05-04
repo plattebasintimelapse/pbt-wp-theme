@@ -45,7 +45,7 @@ get_header(); ?>
 					<div class="post-thumbnail">
 							<?php the_post_thumbnail( 'pbt-pano-header' ); ?>
 
-							<div class="post-meta-box">
+							<div class="featured-post-meta-box">
 								<h5 class="post-category font-size-small">
 
 									<?php pbt_the_categories($post, ' | ' ); ?>

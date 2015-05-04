@@ -140,7 +140,7 @@
 	opacity: .8;
 }
 
-.post-meta-box, .featured-meta-box {
+.post-meta-box, .featured-meta-box, .featured-post-meta-box {
 	position: absolute;
 	@include text-over-image();
 }
@@ -207,11 +207,12 @@
 	width: 150px;
 }
 
-.featured-story .post-meta-box {
-
+.featured-post-meta-box {
 	width: 80%;
 	margin-left: -40%;
 	top: 10%;
+	left: 50%;
+	text-align: center;
 
 	@include breakpoint(baby-bear) {
 		width: 50%;
@@ -220,7 +221,7 @@
 	}
 }
 
-.featured-story .post-meta-box p {
+.featured-post-meta-box p {
 	text-transform: none;
 	display: none;
 	@include breakpoint(baby-bear) {
@@ -228,7 +229,7 @@
 	}
 }
 
-.featured-story .post-meta-box .post-title {
+.featured-post-meta-box .post-title {
   	font-size: 1.6rem;
   	@include breakpoint(baby-bear) {
 		font-size: 2.1rem;
