@@ -59,12 +59,14 @@ $featuredPostID; // Used to exclude post from main FEED
 
 		<!-- THE STORY PAGE FEED OF POSTS -->
 		<?php
+			$paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
 			$story_page_query_args = array(
 				'post_type' => 'post',
 				'post__not_in' => array( $featuredPostID, ),
 				'orderby' => 'date',
 				'order'   => 'DESC',
-				'posts_per_page' => 10,
+				'posts_per_page' => 4,
+				'paged' => $paged,
 			);
 
 			$the_query = new WP_Query( $story_page_query_args );
@@ -76,7 +78,7 @@ $featuredPostID; // Used to exclude post from main FEED
 						<?php get_template_part( 'partials/post-feed-thumbnail' ); ?>
 					</div>
 
-				<?php endwhile; 
+				<?php endwhile;
 
 				if ( function_exists("wp_bs_pagination") ) wp_bs_pagination($the_query->max_num_pages);
 
