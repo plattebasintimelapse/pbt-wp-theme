@@ -145,7 +145,7 @@
 	@include text-over-image();
 }
 
-.post-meta-box {
+.post-meta-box, .featured-post-meta-box {
 	top: 2%;
 	text-align: center;
 	width: 96%;

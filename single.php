@@ -10,7 +10,7 @@ get_header();
 	$post_thumbnail_id = get_post_thumbnail_id();
 	$post_thumbnail_url = wp_get_attachment_url( $post_thumbnail_id ); ?>
 
-	<section class="featured hero-image hero-image-behind" style="background-image: url(<?php echo $post_thumbnail_url ?>)">
+	<section class="featured hero-image hero-image-behind" style="background-image: url(<?php echo $post_thumbnail_url ?>); background-position: <?php the_field( 'horizontal_weight' ) ?> <?php the_field( 'vertical_weight' )  ?>;">
 		<div class="container-fluid">
 
 				<h2 class="post-title"><?php the_title(); ?></h2>

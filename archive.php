@@ -49,7 +49,7 @@ get_header();
 
 				<div class="row row-some-padding">
 					<div id="post-<?php the_ID(); ?>" <?php post_class('col-md-7'); ?>>
-						<?php get_template_part( 'partials/searched-post-feed-thumbnail' ); ?>
+						<?php get_template_part( 'partials/post-feed-thumbnail' ); ?>
 					</div>
 					<div class="col-md-5">
 						<div class="excerpt">

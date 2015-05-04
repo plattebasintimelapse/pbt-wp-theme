@@ -25,7 +25,7 @@ get_header();
 
 					<div class="row row-some-padding">
 						<div class="col-md-6">
-							<?php get_template_part( 'partials/searched-post-feed-thumbnail' ); ?>
+							<?php get_template_part( 'partials/post-feed-thumbnail' ); ?>
 						</div>
 						<div class="col-md-6">
 							<div class="excerpt">
