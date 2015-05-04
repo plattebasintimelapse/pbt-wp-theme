@@ -127,11 +127,20 @@ figure.full .caption-text {
 	margin-bottom: 60px;
 }
 
-.aside-video {
+.video-aside {
 	width: 100%;
-	float: right;
 	padding: 20px 0 20px 0;
-	@include breakpoint(mama-bear) { width: 70%; padding: 20px 0 20px 20px; }
+	@include breakpoint(mama-bear) { width: 60%; }
+}
+
+.video-left {
+	float: left;
+	@include breakpoint(mama-bear) { padding: 20px 20px 20px 0; }
+}
+
+.video-right {
+	float: right;
+	@include breakpoint(mama-bear) { padding: 20px 0 20px 20px; }
 }
 
 /*********************/

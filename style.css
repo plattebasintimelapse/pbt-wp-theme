@@ -3627,8 +3627,14 @@ figure.full .caption-text { margin-right: 15px; }
 
 .featured-video { width: 100%; margin-top: 60px; margin-bottom: 60px; }
 
-.aside-video { width: 100%; float: right; padding: 20px 0 20px 0; }
-@media (min-width: 992px) { .aside-video { width: 70%; padding: 20px 0 20px 20px; } }
+.video-aside { width: 100%; padding: 20px 0 20px 0; }
+@media (min-width: 992px) { .video-aside { width: 60%; } }
+
+.video-left { float: left; }
+@media (min-width: 992px) { .video-left { padding: 20px 20px 20px 0; } }
+
+.video-right { float: right; }
+@media (min-width: 992px) { .video-right { padding: 20px 0 20px 20px; } }
 
 /*********************/
 /* Responsive Iframe */

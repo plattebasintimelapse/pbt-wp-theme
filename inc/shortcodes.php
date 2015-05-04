@@ -55,6 +55,7 @@ function pbt_video_embed_shortcode( $atts ) {
         array(
             'src'               => '',
             'size'              => 'featured',
+            'side'              => '',
             'vimeo_id'          => '',
             'aspect_ratio'      => 'video',
             'caption'           => '',
@@ -63,7 +64,12 @@ function pbt_video_embed_shortcode( $atts ) {
 
     if ( !empty($vimeo_id) ) { $src = 'https://player.vimeo.com/video/' . $vimeo_id . '?title=0&byline=0&portrait=0'; }
 
-    $embed = '<div class="' . $size . '-video">
+    $iframe_class = 'video';
+    if ( !empty($side) )
+        $iframe_class .= ' video-' . $side;
+    $iframe_class .= ' video-' . $size;
+
+    $embed = '<div class="' . $iframe_class . '">
                 <figure class="' . $aspect_ratio . '-wrapper">
                     <iframe src="' . $src . '" frameborder="0" allowfullscreen="allowfullscreen"></iframe>
                 </figure>';
@@ -98,11 +104,11 @@ function pbt_responsive_iframe_shortcode( $atts ) {
     );
 
     $iframe_class = 'responsive-iframe';
-    if ( !empty($side) ) {
+    if ( !empty($side) )
         $iframe_class .= ' responsive-frame-' . $side;
-    }
+    $iframe_class .= ' responsive-frame-' . $size;
 
-    $iframe =   '<div class="responsive-iframe responsive-frame-' . $size . ' responsive-frame-' . $side . '" id="' . $id . '"></div>
+    $iframe =   '<div class="' . $iframe_class . '" id="' . $id . '"></div>
                 <script type="text/javascript" src="' . get_template_directory_uri() . '/assets/scripts/lib/pym.min.js"></script>
                 <script type="text/javascript">
                     var pymParent = new pym.Parent("' . $id . '", "' . $src . '", {});
