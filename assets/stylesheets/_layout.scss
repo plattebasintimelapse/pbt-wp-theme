@@ -64,6 +64,13 @@
 	max-width: 1300px;
 }
 
+.container-padding {
+	padding: 20px 0;
+	@include breakpoint(baby-bear) { padding: 30px 0; }
+	@include breakpoint(mama-bear) { padding: 4px 0; }
+	@include breakpoint(papa-bear) { padding: 50px 0; }
+}
+
 .container-padding-top {
 	padding-top: 40px;
 	@include breakpoint(baby-bear) { padding-top: 60px; }
@@ -85,6 +92,8 @@
 .row-padding { padding: 50px 0; }
 .row-some-padding { padding: 20px 0; }
 .row-little-padding { padding: 10px 0; }
+
+.row-padding-top { padding-top: 40px; }
 
 .col-extra-padding {
 	padding-left: 30px;

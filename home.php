@@ -17,15 +17,15 @@ get_header(); ?>
 	</section>
 
 	<section class="main" role="main">
-		<div class="container">
-			<div class="row row-ex-padding">
+		<div class="container container-padding">
+			<div class="row">
 				<div class="col-xs-12">
 					<?php dynamic_sidebar( 'pbt-home-main' ); ?>
 				</div>
 			</div>
 		</div>
 
-		<div class="container-fluid container-fluid-no-padding">
+		<div class="container-fluid container-fluid-no-padding container-padding">
 			<?php
 				$home_page_featured_query_args = array(
 					'post_type' => 'post',
@@ -68,7 +68,7 @@ get_header(); ?>
 			?>
 		</div>
 
-		<div class="container container-padding-top">
+		<div class="container container-padding">
 			<div class="row">
 
 				<?php
@@ -86,7 +86,7 @@ get_header(); ?>
 				wp_reset_postdata(); ?>
 			</div>
 
-			<div class="row">
+			<div class="row row-padding-top">
 				<div class="col-xs-12 col-md-offset-4 col-md-4">
 					<a href="/stories"><button class="btn btn-primary btn-ghost btn-lg btn-block"><h4>More Stories</h4></button></a>
 				</div>
@@ -94,7 +94,7 @@ get_header(); ?>
 
 		</div>
 
-		<div class="featured hero-image container-fluid container-padding-top container-fluid-no-padding">
+		<div class="featured hero-image container-fluid container-fluid-no-padding container-little-padding-top">
 
 			<?php echo get_the_post_thumbnail( get_ID_by_page_name( 'Notebook'), 'pbt-pano-header' ); ?>
 
@@ -104,8 +104,8 @@ get_header(); ?>
 
 		</div>
 
-		<div class="container container-large container-little-padding-top">
-				<div class="row">
+		<div class="container container-large container-padding">
+				<div class="row row-padding-top">
 					<?php
 						$home_page_featured_query_args = array(
 							'post_type' => 'blog_post',
@@ -123,7 +123,7 @@ get_header(); ?>
 								<a href="<?php the_permalink() ?>">
 									<?php the_post_thumbnail( 'pbt-post-thumbnail' );  ?>
 								</a>
-								<h6 class="font-size-ex-small text-center">By <a href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ) ); ?>"><?php the_author(); ?></a> on <?php the_date('F j Y'); ?></h6>
+								<!-- <h6 class="font-size-ex-small text-center">By <a href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ) ); ?>"><?php the_author(); ?></a> on <?php the_date('F j Y'); ?></h6> -->
 								<h4 class="text-center"><?php the_title( );  ?></h4>
 
 						</div><!-- #post-## -->
@@ -132,7 +132,7 @@ get_header(); ?>
 						endwhile; endif;
 						wp_reset_postdata();
 					?></div>
-			<div class="row">
+			<div class="row row-padding-top">
 				<div class="col-xs-12 col-md-offset-4 col-md-4">
 					<a href="/notebook"><button class="btn btn-primary btn-ghost btn-lg btn-block"><h4>More Notebook Entries</h4></button></a>
 				</div>
