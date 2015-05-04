@@ -203,12 +203,20 @@
 	}
 }
 
+.featured-story .btn-block {
+	width: 150px;
+}
+
 .featured-story .post-meta-box {
 
+	width: 80%;
+	margin-left: -40%;
+	top: 10%;
+
 	@include breakpoint(baby-bear) {
-		width: 70%;
-		margin-left: -35%;
-		top: 15%;
+		width: 50%;
+		margin-left: -25%;
+		top: 20%;
 	}
 }
 

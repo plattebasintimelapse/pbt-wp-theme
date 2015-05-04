@@ -3350,7 +3350,7 @@ header .btn { margin: 4px 0; }
 
 .nav > li > a { display: block; padding: 20px 40px; color: #fafafa; text-transform: uppercase; font-weight: 700; font-size: 1.6rem; }
 @media (min-width: 768px) { .nav > li > a { font-size: 1.2rem; } }
-@media (min-width: 992px) { .nav > li > a { font-size: 1rem; padding: 40px 40px; } }
+@media (min-width: 992px) { .nav > li > a { font-size: 1rem; padding: 25px 40px; } }
 .nav > li > a:hover, .nav > li > a:focus { color: #6aaac3; background-color: #fafafa; }
 
 .nav#menu-social-menu > li { display: inline-block; }
@@ -3388,7 +3388,7 @@ header .btn { margin: 4px 0; }
 @media (min-width: 768px) { #searchbarCollapse { font-size: 1.2rem; } }
 
 #searchbarCollapse form { margin: 0 auto; padding: 40px 20px; }
-@media (min-width: 768px) { #searchbarCollapse form { padding: 60px 20px; } }
+@media (min-width: 768px) { #searchbarCollapse form { padding: 40px 20px; } }
 
 #searchbarCollapse input { background-color: #8ebfd2; color: white; width: 70%; max-width: 400px; }
 #searchbarCollapse input::-webkit-input-placeholder { color: #fafafa; }
@@ -3483,7 +3483,10 @@ header .btn { margin: 4px 0; }
 .post-meta-box .post-meta { display: none; }
 @media (min-width: 768px) { .post-meta-box .post-meta { display: block; margin-top: 4px; margin-bottom: 6px; } }
 
-@media (min-width: 768px) { .featured-story .post-meta-box { width: 70%; margin-left: -35%; top: 15%; } }
+.featured-story .btn-block { width: 150px; }
+
+.featured-story .post-meta-box { width: 80%; margin-left: -40%; top: 10%; }
+@media (min-width: 768px) { .featured-story .post-meta-box { width: 50%; margin-left: -25%; top: 20%; } }
 
 .featured-story .post-meta-box p { text-transform: none; display: none; }
 @media (min-width: 768px) { .featured-story .post-meta-box p { display: inline-block; } }
@@ -3595,6 +3598,9 @@ hr { margin-top: 28px; margin-bottom: 28px; border: 0; border-top: 1px solid #75
 .logged-in .nivo-lightbox-close { top: 40px !important; }
 
 .btn-lg, .btn-group-lg > .btn, .btn-group-lg > .btn, .btn { border-radius: 0; }
+
+.btn-primary.btn-ghost { color: #6aaac3; background-color: transparent; }
+.btn-primary.btn-ghost:focus, .btn-primary.btn-ghost:hover { color: #fff; background-color: #6aaac3; border-color: #6aaac3; }
 
 .pagination-sm > li > a, .pagination-sm > li > span { padding: 6px 12px; font-size: 14px; }
 

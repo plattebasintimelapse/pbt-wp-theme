@@ -37,6 +37,17 @@ hr {
  	border-radius: 0;
 }
 
+.btn-primary.btn-ghost {
+	color: $brand-primary;
+	background-color: transparent;
+
+	&:focus, &:hover {
+		color: $body-bg;
+		background-color: $brand-primary;
+		border-color: $brand-primary;
+	}
+}
+
 .pagination-sm > li > a, .pagination-sm > li > span {
   padding: 6px 12px;
   font-size: 14px;

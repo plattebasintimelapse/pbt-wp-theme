@@ -98,3 +98,9 @@ function pbt_the_badged_categories($post, $sep = ' ') {
 	echo trim($output, $sep);
 	}
 }
+
+function get_ID_by_page_name($page_name) {
+   global $wpdb;
+   $page_name_id = $wpdb->get_var("SELECT ID FROM $wpdb->posts WHERE post_name = '".$page_name."' AND post_type = 'page'");
+   return $page_name_id;
+}

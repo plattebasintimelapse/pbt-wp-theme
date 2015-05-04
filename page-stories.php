@@ -65,7 +65,7 @@ $featuredPostID; // Used to exclude post from main FEED
 				'post__not_in' => array( $featuredPostID, ),
 				'orderby' => 'date',
 				'order'   => 'DESC',
-				'posts_per_page' => 4,
+				'posts_per_page' => 10,
 				'paged' => $paged,
 			);
 

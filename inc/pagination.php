@@ -19,13 +19,13 @@ add_filter( 'pre_get_posts', 'pbt_archive_query' );
  *  Add blog posts to home page main query
  *  The number of posts is set in the Settings/Reading page
  */
-function pbt_home_posts( $query ) {
-	if ( ! is_admin() && is_home() && $query->is_main_query() )
-		$query->set( 'post_type', array( 'post', 'blog_post' ) );
+// function pbt_home_posts( $query ) {
+// 	if ( ! is_admin() && is_home() && $query->is_main_query() )
+// 		$query->set( 'post_type', array( 'post', 'blog_post' ) );
 
-	return $query;
-}
-add_filter( 'pre_get_posts', 'pbt_home_posts' );
+// 	return $query;
+// }
+// add_filter( 'pre_get_posts', 'pbt_home_posts' );
 
 /**
  *  Add blog posts to author page main query

@@ -26,66 +26,49 @@ get_header(); ?>
 		</div>
 
 		<div class="container-fluid container-fluid-no-padding">
-			<!-- <div class="row"> -->
-					<?php
-						$home_page_featured_query_args = array(
-							'post_type' => 'post',
-							'orderby' => 'date',
-							'meta_key'=> 'featured_post_home_page',
-							'meta_value' => true,
-							'posts_per_page' => 1,
-						);
+			<?php
+				$home_page_featured_query_args = array(
+					'post_type' => 'post',
+					'orderby' => 'date',
+					'meta_key'=> 'featured_post_home_page',
+					'meta_value' => true,
+					'posts_per_page' => 1,
+				);
 
-						$the_query = new WP_Query( $home_page_featured_query_args );
-						if ( $the_query->have_posts() ) : while ( $the_query->have_posts() ) : $the_query->the_post();
+				$the_query = new WP_Query( $home_page_featured_query_args );
+				if ( $the_query->have_posts() ) : while ( $the_query->have_posts() ) : $the_query->the_post();
 
-					?>
+			?>
 
-						<div id="post-<?php the_ID(); ?>" <?php post_class('col-xs-12 col-sm-12 col-no-padding featured-story'); ?>>
+				<div id="post-<?php the_ID(); ?>" <?php post_class('col-xs-12 col-sm-12 col-no-padding featured-story'); ?>>
 
-							<div class="post-thumbnail">
+					<div class="post-thumbnail">
+							<?php the_post_thumbnail( 'pbt-pano-header' ); ?>
+
+							<div class="post-meta-box">
+								<h5 class="post-category font-size-small">
+
+									<?php pbt_the_categories($post, ' | ' ); ?>
+
+								</h5>
+
 								<a href="<?php the_permalink() ?>">
-									<?php the_post_thumbnail( 'pbt-pano-header' ); ?>
-
-									<div class="post-meta-box">
-										<h5 class="post-category font-size-small">
-
-											<?php if ( is_object_in_term( $post->ID , 'basin' ) ) { //check to see if post has basin category
-
-												$terms = get_the_terms( $post->ID , 'basin' );
-
-												foreach ( $terms as $term ) {
-													echo '<a href="' . get_term_link( $term ) . '">' . $term->name . '</a> | ';
-												}
-											}
-
-											the_category( ' | ' ); ?>
-
-										</h5>
-
-										<a href="<?php the_permalink() ?>">
-											<h1 class="post-title"><?php the_title(); ?></h1>
-										</a>
-										<?php the_excerpt(); ?>
-									</div>
-
-									<!-- <div class="ribbon-wrapper-featured">
-										<div class="ribbon-featured">NEW</div>
-									</div>
- -->
+									<h1 class="post-title"><?php the_title(); ?></h1>
 								</a>
+								<?php the_excerpt(); ?>
+								<a class="btn btn-default read-more-btn btn-block" role="button" href="<?php the_permalink() ?>"><h6>Explore</h6></a>
 							</div>
+					</div>
 
-						</div><!-- #post-## -->
+				</div><!-- #post-## -->
 
-					<?php
-						endwhile; endif;
-						wp_reset_postdata();
-					?>
-			<!-- </div> -->
+			<?php
+				endwhile; endif;
+				wp_reset_postdata();
+			?>
 		</div>
 
-		<div class="container">
+		<div class="container container-padding-top">
 			<div class="row">
 
 				<?php
@@ -103,15 +86,57 @@ get_header(); ?>
 				wp_reset_postdata(); ?>
 			</div>
 
-		</div>
-
-		<div class="container">
 			<div class="row">
 				<div class="col-xs-12 col-md-offset-4 col-md-4">
-					<a href="/stories"><button class="btn btn-primary btn-lg btn-block"><h4>More Stories</h4></button></a>
+					<a href="/stories"><button class="btn btn-primary btn-ghost btn-lg btn-block"><h4>More Stories</h4></button></a>
 				</div>
 			</div>
 
+		</div>
+
+		<div class="featured hero-image container-fluid container-padding-top container-fluid-no-padding">
+
+			<?php echo get_the_post_thumbnail( get_ID_by_page_name( 'Notebook'), 'pbt-pano-header' ); ?>
+
+			<div class="post-title">
+				<h3>Read notebook entries from the Platte Basin Timelapse team.</h3>
+			</div>
+
+		</div>
+
+		<div class="container container-large container-little-padding-top">
+				<div class="row">
+					<?php
+						$home_page_featured_query_args = array(
+							'post_type' => 'blog_post',
+							'orderby' => 'date',
+							'posts_per_page' => 4,
+						);
+
+						$the_query = new WP_Query( $home_page_featured_query_args );
+						if ( $the_query->have_posts() ) : while ( $the_query->have_posts() ) : $the_query->the_post();
+
+					?>
+
+						<div id="post-<?php the_ID(); ?>" <?php post_class('col-xs-12 col-sm-3'); ?>>
+
+								<a href="<?php the_permalink() ?>">
+									<?php the_post_thumbnail( 'pbt-post-thumbnail' );  ?>
+								</a>
+								<h6 class="font-size-ex-small text-center">By <a href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ) ); ?>"><?php the_author(); ?></a> on <?php the_date('F j Y'); ?></h6>
+								<h4 class="text-center"><?php the_title( );  ?></h4>
+
+						</div><!-- #post-## -->
+
+					<?php
+						endwhile; endif;
+						wp_reset_postdata();
+					?></div>
+			<div class="row">
+				<div class="col-xs-12 col-md-offset-4 col-md-4">
+					<a href="/notebook"><button class="btn btn-primary btn-ghost btn-lg btn-block"><h4>More Notebook Entries</h4></button></a>
+				</div>
+			</div>
 		</div>
 	</section>
 
