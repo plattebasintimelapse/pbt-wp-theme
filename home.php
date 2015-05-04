@@ -18,15 +18,15 @@ get_header(); ?>
 
 	<section class="main" role="main">
 		<div class="container">
-			<div class="row">
+			<div class="row row-ex-padding">
 				<div class="col-xs-12">
 					<?php dynamic_sidebar( 'pbt-home-main' ); ?>
 				</div>
 			</div>
 		</div>
 
-		<div class="container container-large">
-			<div class="row">
+		<div class="container-fluid container-fluid-no-padding">
+			<!-- <div class="row"> -->
 					<?php
 						$home_page_featured_query_args = array(
 							'post_type' => 'post',
@@ -41,7 +41,7 @@ get_header(); ?>
 
 					?>
 
-						<div id="post-<?php the_ID(); ?>" <?php post_class('col-xs-12 col-sm-12 featured-story'); ?>>
+						<div id="post-<?php the_ID(); ?>" <?php post_class('col-xs-12 col-sm-12 col-no-padding featured-story'); ?>>
 
 							<div class="post-thumbnail">
 								<a href="<?php the_permalink() ?>">
@@ -69,10 +69,10 @@ get_header(); ?>
 										<?php the_excerpt(); ?>
 									</div>
 
-									<div class="ribbon-wrapper-featured">
+									<!-- <div class="ribbon-wrapper-featured">
 										<div class="ribbon-featured">NEW</div>
 									</div>
-
+ -->
 								</a>
 							</div>
 
@@ -82,7 +82,7 @@ get_header(); ?>
 						endwhile; endif;
 						wp_reset_postdata();
 					?>
-			</div>
+			<!-- </div> -->
 		</div>
 
 		<div class="container">

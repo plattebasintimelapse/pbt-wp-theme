@@ -71,6 +71,7 @@ $font-family-base:        $font-family-sans-serif;
 $fa-font-path:        	  "assets/fonts";
 
 $font-size-base:          20px;
+$font-size-ex-large:      ceil(($font-size-base * 1.9));
 $font-size-large:         ceil(($font-size-base * 1.9));
 $font-size-small:         ceil(($font-size-base * 0.90));
 $font-size-ex-small:      ceil(($font-size-base * 0.65));

@@ -80,6 +80,8 @@
 	padding-right: 0;
 }
 
+
+.row-ex-padding { padding: 80px 0; }
 .row-padding { padding: 50px 0; }
 .row-some-padding { padding: 20px 0; }
 .row-little-padding { padding: 10px 0; }
@@ -365,7 +367,7 @@
 	text-align: center;
 	margin-bottom: 10px;
 	.font-size-large {
-		font-size: 1.1rem;
+		font-size: 1.3rem;
 	}
 	@include breakpoint(mama-bear) {
 		margin-bottom: 80px;
