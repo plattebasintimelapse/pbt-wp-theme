@@ -1,6 +1,7 @@
 <?php
 
 require_once('inc/theme_setup.php');
+require_once('inc/filters.php');
 require_once('inc/shortcodes.php');
 require_once('inc/custom_post_types.php');
 require_once('inc/user_fields.php');
