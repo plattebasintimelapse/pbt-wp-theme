@@ -3659,7 +3659,8 @@ figure.full .caption-text { padding-right: 25px; padding-left: 25px; }
 /*********************/
 /* Responsive Iframe */
 /*********************/
-.responsive-frame-aside { width: 50%; }
+.responsive-frame-aside { width: 100%; }
+@media (min-width: 992px) { .responsive-frame-aside { width: 50%; } }
 
 .responsive-frame-left { float: left; padding-right: 20px; }
 
@@ -3677,12 +3678,14 @@ figure.full .caption-text { padding-right: 25px; padding-left: 25px; }
 /*******************/
 /* Featured Audio */
 /******************/
-.featured-audio { position: fixed; bottom: 0; left: 0; width: 100%; padding: 15px; background-color: #333333; z-index: 1031; }
+.featured-audio { position: fixed; bottom: 0; left: 0; width: 100%; padding: 15px; background-color: #333333; color: #fafafa; z-index: 1031; }
+
+.featured-audio-prompt { text-align: center; font-weight: 700; margin-top: 0; margin-bottom: 8px; }
+@media (min-width: 992px) { .featured-audio-prompt { text-align: right; margin-bottom: 0; margin-top: 6px; } }
 
 .featured-audio div.mjp-s-wrapper.s-graphic { padding: 0; display: block; width: 100%; max-width: 1600px; margin: 0 auto !important; }
-@media (min-width: 992px) { .featured-audio div.mjp-s-wrapper.s-graphic { width: 90%; } }
 
-.featured-audio span.group_wrap { width: 90%; display: inline-block; }
+.featured-audio span.group_wrap { width: 80%; display: inline-block; }
 
 .featured-audio span.indi_mp3j { padding-left: 10px; z-index: 1031; color: white; }
 

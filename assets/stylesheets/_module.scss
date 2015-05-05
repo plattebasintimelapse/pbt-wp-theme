@@ -172,7 +172,8 @@ figure.full .caption-text {
 /*********************/
 
 .responsive-frame-aside {
-    width: 50%;
+    width: 100%;
+    @include breakpoint(mama-bear) { width: 50%; }
 }
 
 .responsive-frame-left {
@@ -213,7 +214,20 @@ figure.full .caption-text {
 	width: 100%;
 	padding: 15px;
 	background-color: $gray-dark;
+	color: $gray-lighter;
 	z-index: 1031;
+}
+
+.featured-audio-prompt {
+	text-align: center;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 8px;
+	@include breakpoint(mama-bear) {
+		text-align: right;
+		margin-bottom: 0;
+		margin-top: 6px;
+	}
 }
 
 .featured-audio div.mjp-s-wrapper.s-graphic {
@@ -222,11 +236,10 @@ figure.full .caption-text {
 	width: 100%;
 	max-width: 1600px;
 	margin: 0 auto !important;
-	@include breakpoint(mama-bear) { width: 90%; }
 }
 
 .featured-audio span.group_wrap {
-  width: 90%;
+  width: 80%;
   display: inline-block;
 }
 

@@ -10,14 +10,15 @@ function pbt_bylines() {
 	$about_url = esc_url( get_permalink( get_page_by_title( 'About' ) ) );
 	$num_authors = get_field('num_of_authors');
 
-	$authors_nicename 		= array( get_the_author_meta('nicename'), get_field('second_user')['user_nicename'], get_field('third_user')['user_nicename'] );
-	$authors_displayname 	= array( get_the_author_meta('display_name'), get_field('second_user')['display_name'], get_field('third_user')['display_name'] );
-	$author_credit 			= array( get_field('first_author_credit'), get_field('second_author_credit'), get_field('third_author_credit') );
+	$authors_nicename 		= array( get_the_author_meta('nicename'), 		get_field('second_user')['user_nicename'], 	get_field('third_user')['user_nicename'] );
+	$authors_displayname 	= array( get_the_author_meta('display_name'), 	get_field('second_user')['display_name'], 	get_field('third_user')['display_name'] );
+	$authors_id 			= array( get_the_author_meta( 'ID' ), 			get_field('second_user')['ID'], 			get_field('third_user')['ID'] );
+	$authors_credit 		= array( get_field('first_author_credit'), 		get_field('second_author_credit'), 			get_field('third_author_credit') );
 
 	$bylines = '<div class="bylines">';
 
 	for ($x = 0; $x < $num_authors; $x++) {
-		$bylines = $bylines . '<h6 class="byline">' . $author_credit[$x] . ' <a href="' . $about_url . '#' . $authors_nicename[$x] . '">' . $authors_displayname[$x] . '</a></h6>';
+		$bylines = $bylines . '<h6 class="byline">' . $authors_credit[$x] . ' <a href="' . get_author_posts_url( $authors_id[$x] ) . '">' . $authors_displayname[$x] . '</a></h6>';
 	}
 
 	$bylines = $bylines . '</div>';
@@ -32,13 +33,9 @@ function pbt_bylines() {
  * Currently, these arrays are hard coded to only have 3 authors.
  */
 function pbt_byline() {
-	$about_url = esc_url( get_permalink( get_page_by_title( 'About' ) ) );
+	$author_credit = get_field('first_author_credit');
 
-	$authors_nicename 		= get_the_author_meta('nicename');
-	$authors_displayname 	= get_the_author_meta('display_name');
-	$author_credit 			= get_field('first_author_credit');
-
-	$byline = '<div class="bylines"><h4 class="byline">' . $author_credit . ' <a href="' . $about_url . '#' . $authors_nicename . '">' . $authors_displayname . '</a></h4></div>';
+	$byline = '<div class="bylines"><h4 class="byline">' . $author_credit . '  <a href="' . get_author_posts_url( get_the_author_meta( "ID" ) ) . '">' . get_the_author() . '</a></h4></div>';
 
 	echo $byline;
 }
