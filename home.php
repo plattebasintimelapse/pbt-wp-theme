@@ -63,7 +63,7 @@ get_header();
 									<h1 class="post-title"><?php the_title(); ?></h1>
 								</a>
 								<?php the_excerpt(); ?>
-								<a class="btn btn-default read-more-btn btn-block" role="button" href="<?php the_permalink() ?>"><h6>Explore</h6></a>
+								<a class="btn btn-default read-more-btn btn-block btn-max-width" role="button" href="<?php the_permalink() ?>"><h6>Explore This Story</h6></a>
 							</div>
 					</div>
 
@@ -83,7 +83,7 @@ get_header();
 					while ( have_posts() ) :
 						the_post(); ?>
 
-							<div id="post-<?php the_ID(); ?>" <?php post_class('col-sm-12 col-md-6'); ?>>
+							<div id="post-<?php the_ID(); ?>" <?php post_class('col-xs-10 col-xs-offset-1 col-sm-offset-0 col-sm-12 col-md-6'); ?>>
 								<?php get_template_part( 'partials/post-feed-thumbnail' ); ?>
 							</div>
 
@@ -108,11 +108,11 @@ get_header();
 				$blog_page = get_post( $blog_page_id );
 			?>
 
-			<div class="featured hero-image">
+			<div class="featured">
 				<?php echo get_the_post_thumbnail( $blog_page_id, 'pbt-pano-header' ); ?>
 
 				<div class="featured-post-meta-box">
-					<h1><?php echo $blog_page_title; ?></h1>
+					<h1 class="post-title"><?php echo $blog_page_title; ?></h1>
 					<p><?php echo apply_filters('the_content', $blog_page->post_content); ?></p>
 					<a class="btn btn-default read-more-btn btn-lg btn-block btn-max-width" role="button" href="/notebook"><h6>See All Posts</h6></a>
 				</div>
@@ -134,12 +134,12 @@ get_header();
 
 				?>
 
-					<div id="post-<?php the_ID(); ?>" <?php post_class('col-xs-12 col-sm-3'); ?>>
+					<div id="post-<?php the_ID(); ?>" <?php post_class('col-xs-8 col-xs-offset-2 col-sm-offset-0 col-sm-3'); ?>>
 
 						<a href="<?php the_permalink() ?>">
 							<?php the_post_thumbnail( 'pbt-post-thumbnail' );  ?>
 						</a>
-						<!-- <h6 class="font-size-ex-small text-center">By <a href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ) ); ?>"><?php the_author(); ?></a> on <?php the_date('F j Y'); ?></h6> -->
+						<h6 class="font-size-ex-small text-center">By <a href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ) ); ?>"><?php the_author(); ?></a> on <?php the_date('F j Y'); ?></h6>
 						<h4 class="text-center"><?php the_title( );  ?></h4>
 
 					</div><!-- #post-## -->
