@@ -63,7 +63,7 @@ get_header();
 									<h1 class="post-title"><?php the_title(); ?></h1>
 								</a>
 								<?php the_excerpt(); ?>
-								<a class="btn btn-default read-more-btn btn-block btn-max-width" role="button" href="<?php the_permalink() ?>"><h6>Explore This Story</h6></a>
+								<a class="btn btn-default btn-block btn-max-width" role="button" href="<?php the_permalink() ?>"><h6>Explore This Story</h6></a>
 							</div>
 					</div>
 
@@ -114,7 +114,7 @@ get_header();
 				<div class="featured-post-meta-box">
 					<h1 class="post-title"><?php echo $blog_page_title; ?></h1>
 					<p><?php echo apply_filters('the_content', $blog_page->post_content); ?></p>
-					<a class="btn btn-default read-more-btn btn-lg btn-block btn-max-width" role="button" href="/notebook"><h6>See All Posts</h6></a>
+					<a class="btn btn-default btn-lg btn-block btn-max-width" role="button" href="/notebook"><h6>See All Posts</h6></a>
 				</div>
 			</div>
 
