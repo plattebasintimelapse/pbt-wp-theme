@@ -4,6 +4,6 @@
  */
 
 
-	pbt_bylines();
+	pbt_byline();
 
 	the_content();

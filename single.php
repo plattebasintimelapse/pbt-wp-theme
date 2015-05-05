@@ -33,12 +33,17 @@ get_header();
 			</div>
 
 			<div class="container container-little-padding-top">
+				<div class="post-meta-bylines font-size-small">
+					<?php
+						edit_post_link('edit', '<span class="pull-right">', '</span>');
+						pbt_bylines();
+					?>
+				</div>
 				<div class="post-meta font-size-small">
 					<i class="fa fa-tag"></i>
 					<?php
 						pbt_the_badged_categories($post);
-						echo '<span class="post-date font-size-ex-small"><em>Posted on ' . get_the_date( 'F j, Y' ) . '</em></span>';
-						edit_post_link('edit', '<p class="pull-right">', '</p>');
+						echo '<span class="post-date font-size-small pull-right"><em>Posted on ' . get_the_date( 'F j, Y' ) . '</em></span>';
 					?>
 				</div>
 			</div>

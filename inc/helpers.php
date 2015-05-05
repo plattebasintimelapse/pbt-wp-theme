@@ -17,12 +17,30 @@ function pbt_bylines() {
 	$bylines = '<div class="bylines">';
 
 	for ($x = 0; $x < $num_authors; $x++) {
-		$bylines = $bylines . '<h4 class="byline">' . $author_credit[$x] . ' <a href="' . $about_url . '#' . $authors_nicename[$x] . '">' . $authors_displayname[$x] . '</a></h4>';
+		$bylines = $bylines . '<h6 class="byline">' . $author_credit[$x] . ' <a href="' . $about_url . '#' . $authors_nicename[$x] . '">' . $authors_displayname[$x] . '</a></h6>';
 	}
 
 	$bylines = $bylines . '</div>';
 
 	echo $bylines;
+}
+
+/**
+ * This block of code gets the About page URL: $about_url, the total number of
+ * authors: $num_authors, and then builds arrays of the byline constructors: $authors and $author_credit.
+ * Then echo the array of byline information.
+ * Currently, these arrays are hard coded to only have 3 authors.
+ */
+function pbt_byline() {
+	$about_url = esc_url( get_permalink( get_page_by_title( 'About' ) ) );
+
+	$authors_nicename 		= get_the_author_meta('nicename');
+	$authors_displayname 	= get_the_author_meta('display_name');
+	$author_credit 			= get_field('first_author_credit');
+
+	$byline = '<div class="bylines"><h4 class="byline">' . $author_credit . ' <a href="' . $about_url . '#' . $authors_nicename . '">' . $authors_displayname . '</a></h4></div>';
+
+	echo $byline;
 }
 
 

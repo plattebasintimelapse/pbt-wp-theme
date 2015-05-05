@@ -355,19 +355,28 @@
 	font-weight: 700;
 	padding: 0 5px;
 	margin: 0;
-	a { color: $text-color; &:hover { color: $brand-primary; } }
+	a { color: $text-color; &:hover, &:focus { color: $brand-primary; } }
 }
 
 .byline:after { content: " |"; }
 
 .byline:last-child:after { content: ""; }
 
+.post-meta-bylines {
+	.bylines {
+		margin-bottom: 4px;
+	}
+	.byline {
+		color: $brand-light;
+		a { color: $brand-light; &:hover, &:focus { color: $brand-primary; } }
+	}
+}
+
 .main-content .post-meta {
 	padding-top: 5px;
 	border-top: 1px solid $brand-light;
 	color: $brand-light;
 	i, .badge, span { vertical-align: bottom; }
-	.post-date { @extend .padded-left; }
 	.badge { text-transform: lowercase; }
 	a {
 		color: $brand-light;

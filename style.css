@@ -3332,7 +3332,7 @@ input:focus:-ms-input-placeholder { color: transparent !important; }
 
 .circle-cropped img { padding: 6px; border-radius: 400px; }
 
-.padded-left, .main-content .post-meta .post-date { padding-left: 6px; }
+.padded-left { padding-left: 6px; }
 
 header { position: relative; width: 100%; background-color: #6aaac3; color: #fafafa; text-shadow: 1px 1px 5px black; }
 header a { color: #fafafa; }
@@ -3530,11 +3530,16 @@ header .btn { margin: 4px 0; }
 
 .byline { display: inline-block; font-weight: 700; padding: 0 5px; margin: 0; }
 .byline a { color: #333333; }
-.byline a:hover { color: #6aaac3; }
+.byline a:hover, .byline a:focus { color: #6aaac3; }
 
 .byline:after { content: " |"; }
 
 .byline:last-child:after { content: ""; }
+
+.post-meta-bylines .bylines { margin-bottom: 4px; }
+.post-meta-bylines .byline { color: #BFBFBF; }
+.post-meta-bylines .byline a { color: #BFBFBF; }
+.post-meta-bylines .byline a:hover, .post-meta-bylines .byline a:focus { color: #6aaac3; }
 
 .main-content .post-meta { padding-top: 5px; border-top: 1px solid #BFBFBF; color: #BFBFBF; }
 .main-content .post-meta i, .main-content .post-meta .badge, .main-content .post-meta span { vertical-align: bottom; }

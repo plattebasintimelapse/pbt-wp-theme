@@ -3,7 +3,7 @@
  * The content template for displaying audio posts
  */
 
-	pbt_bylines();
+	pbt_byline();
 
 	the_content();
 
