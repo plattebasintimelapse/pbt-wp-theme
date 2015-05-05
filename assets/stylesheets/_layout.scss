@@ -124,6 +124,20 @@
 	@include breakpoint(papa-bear) { max-width: 960px; }
 }
 
+.overlay {
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	display: block;
+	top: 0;
+	left: 0;
+	z-index: 1;
+	background-color: rgba(0,0,0,0.5);
+	-webkit-transition: background-color 1s ease;
+	-moz-transition: background-color 1s ease;
+	transition: background-color 1s ease;
+}
+
 /**
  *	HOME PAGE
  *  Styles for the home page
@@ -255,6 +269,7 @@
 }
 
 .featured-meta-box {
+	z-index: 2;
 	top: 5%;
 	left: 50%;
 	width: 90%;

@@ -107,6 +107,15 @@ figure.full .caption-text {
 	float: right;
 }
 
+.main-content a > img {
+	margin-top: 30px;
+	margin-bottom: 40px;
+	@include breakpoint(mama-bear) {
+		margin-top: 60px;
+		margin-bottom: 80px;
+	}
+}
+
 /*****************/
 /* Video wrapper */
 /*****************/

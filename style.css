@@ -3459,6 +3459,8 @@ header .btn { margin: 4px 0; }
 .main-content > .container { max-width: 740px; }
 @media (min-width: 1170px) { .main-content > .container { max-width: 960px; } }
 
+.overlay { position: absolute; height: 100%; width: 100%; display: block; top: 0; left: 0; z-index: 1; background-color: rgba(0, 0, 0, 0.5); -webkit-transition: background-color 1s ease; -moz-transition: background-color 1s ease; transition: background-color 1s ease; }
+
 /** 	HOME PAGE Styles for the home page */
 .home .featured-meta-box h1, .home .featured-meta-box h2 { opacity: 0; margin-top: 40px; }
 
@@ -3500,7 +3502,7 @@ header .btn { margin: 4px 0; }
 @media (min-width: 768px) { .featured-post-meta-box .post-title { font-size: 2.1rem; } }
 @media (min-width: 992px) { .featured-post-meta-box .post-title { font-size: 3rem; } }
 
-.featured-meta-box { top: 5%; left: 50%; width: 90%; margin-left: -45%; text-align: center; }
+.featured-meta-box { z-index: 2; top: 5%; left: 50%; width: 90%; margin-left: -45%; text-align: center; }
 .featured-meta-box h2 { display: inline-block; }
 .featured-meta-box h5, .featured-meta-box p { display: none; }
 @media (min-width: 768px) { .featured-meta-box { text-align: left; width: 85%; top: 15%; left: 60px; margin-left: 0; }
@@ -3632,6 +3634,9 @@ figure.featured, figure.full { width: 100%; }
 figure.full .caption-text { padding-right: 25px; padding-left: 25px; }
 
 .caption-text { font-size: 18px; color: #757575; text-align: right; font-style: italic; width: 100%; float: right; }
+
+.main-content a > img { margin-top: 30px; margin-bottom: 40px; }
+@media (min-width: 992px) { .main-content a > img { margin-top: 60px; margin-bottom: 80px; } }
 
 /*****************/
 /* Video wrapper */
