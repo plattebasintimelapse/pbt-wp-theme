@@ -140,10 +140,14 @@ figure.full .caption-text {
     height: 100%;
 }
 
-.featured-video {
+.video-featured {
 	width: 100%;
-	margin-top: 60px;
-	margin-bottom: 60px;
+	margin-top: 30px;
+	margin-bottom: 30px;
+	@include breakpoint(mama-bear) {
+		margin-top: 60px;
+		margin-bottom: 60px;
+	}
 }
 
 .video-aside {
