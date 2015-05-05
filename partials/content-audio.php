@@ -11,7 +11,7 @@
 
 	<div class="featured-audio container">
 		<div class="col-sm-2">
-			<h4 class="featured-audio-prompt">Listen:</h4>
+			<h4 class="featured-audio-prompt">Listen</h4>
 		</div>
 		<div class="col-sm-10">
 			<?php echo do_shortcode('[audio mp3='.$audio_file.' flip="y" title="" fontsize="32px"][/audio]'); ?>

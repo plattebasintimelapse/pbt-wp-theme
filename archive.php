@@ -14,12 +14,12 @@ get_header();
 	$countPosts = $wp_the_query->post_count;
 	?>
 
-<section class="featured hero-image hero-image-behind" style="background-image: url(<?php echo $post_thumbnail_url ?>)">
+<section class="featured hero-image hero-image-behind hero-image-behind-short" style="background-image: url(<?php echo $post_thumbnail_url ?>)">
 	<div class="container-fluid">
 
 
 		<div class="featured-meta-box">
-			<h2><?php the_archive_title(); ?> <small class="font-size-small"><?php echo $countPosts; if ($countPosts == 1) { echo ' result'; } else { echo ' results'; }?></small></h2>
+			<h2><?php single_cat_title( '', true ); ?> <small class="font-size-small"><?php echo $countPosts; if ($countPosts == 1) { echo ' result'; } else { echo ' results'; }?></small></h2>
 
 			<?php if ( is_year() ) {
 				echo '<p>In the year ' . get_the_date('Y') . ', we published these stories and blog posts.';
