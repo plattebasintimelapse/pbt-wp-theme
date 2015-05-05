@@ -3635,9 +3635,6 @@ figure.full .caption-text { padding-right: 25px; padding-left: 25px; }
 
 .caption-text { font-size: 18px; color: #757575; text-align: right; font-style: italic; width: 100%; float: right; }
 
-.main-content a > img { margin-top: 30px; margin-bottom: 40px; }
-@media (min-width: 992px) { .main-content a > img { margin-top: 60px; margin-bottom: 80px; } }
-
 /*****************/
 /* Video wrapper */
 /*****************/
