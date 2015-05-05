@@ -65,10 +65,20 @@
 }
 
 .container-padding {
-	padding: 20px 0;
-	@include breakpoint(baby-bear) { padding: 30px 0; }
-	@include breakpoint(mama-bear) { padding: 4px 0; }
-	@include breakpoint(papa-bear) { padding: 50px 0; }
+	padding-top: 20px;
+	padding-bottom: 20px;
+	@include breakpoint(baby-bear) {
+		padding-top: 30px;
+		padding-bottom: 30px;
+	}
+	@include breakpoint(mama-bear) {
+		padding-top: 40px;
+		padding-bottom: 40px;
+	}
+	@include breakpoint(papa-bear) {
+		padding-top: 50px;
+		padding-bottom: 50px;
+	}
 }
 
 .container-padding-top {
