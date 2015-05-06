@@ -5,9 +5,9 @@
 
 get_header();
 
-	// This is used to populate the blog post section on the home page.
-	// Change this title to whatever you have the blog post page called.
-	$blog_page_title = 'Notebook';
+	$num_stories 		= 4; 			// How many stories to appear on the home page
+	$num_blogs 			= 4; 			// How many blogs to appear on the home page
+	$blog_page_title 	= 'Notebook'; 	// Title of Blog Page used to populate the blog post section on the home page.
 
 
 	?>
@@ -88,7 +88,7 @@ get_header();
 					$query_args = array(
 						'post_type' 		=> 'post',
 						'orderby' 			=> 'date',
-						'posts_per_page' 	=> 4,
+						'posts_per_page' 	=> $num_stories,
 						'meta_key'	 		=> 'home_page_feed',
 						'meta_value' 		=> true,
 					);
@@ -142,7 +142,7 @@ get_header();
 					$query_args = array(
 						'post_type' => 'blog_post',
 						'orderby' => 'date',
-						'posts_per_page' => 4,
+						'posts_per_page' => $num_blogs,
 					);
 
 					$the_query = new WP_Query( $query_args );

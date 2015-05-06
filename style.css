@@ -3616,6 +3616,8 @@ hr { margin-top: 28px; margin-bottom: 28px; border: 0; border-top: 1px solid #75
 
 .logged-in .nivo-lightbox-close { top: 40px !important; }
 
+.btn { border-width: 2px; }
+
 .btn-lg, .btn-group-lg > .btn, .btn-group-lg > .btn, .btn { border-radius: 0; }
 
 .btn-primary.btn-ghost { color: #6aaac3; background-color: transparent; }
