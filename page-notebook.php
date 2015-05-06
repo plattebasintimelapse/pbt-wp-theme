@@ -11,15 +11,23 @@ get_header();
 	$post_thumbnail_id = get_post_thumbnail_id();
 	$post_thumbnail_url = wp_get_attachment_url( $post_thumbnail_id ); ?>
 
-	<section class="featured hero-image hero-image-behind" style="background-image: url(<?php echo $post_thumbnail_url ?>)">
+	<section class="featured hero-image hero-image-behind hero-image-behind-short" style="background-image: url(<?php echo $post_thumbnail_url ?>)">
 
-		<h4 class="post-title"><?php the_content(); ?></h4>
+		<div class="featured-meta-box">
+			<h1><?php the_title(); ?></h1>
+
+			<?php the_content(); ?>
+		</div>
 
 	</div> <!-- .container-fluid -->
 </section> <!-- .featured -->
 
 <article id="post-<?php the_ID(); ?>" <?php post_class('main notebook-feed'); ?> role="main">
 	<div class="container">
+
+		<div class="row row-some-padding">
+			<div class="text-center"></div>
+		</div>
 
 		<!-- THE NOTEBOOK PAGE FEED OF POSTS -->
 		<?php
