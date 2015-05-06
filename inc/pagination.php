@@ -3,42 +3,6 @@
  * Pagination rules throughout the site
  */
 
-
-/**
- *  Limit 6 posts per archive pages
- */
-function pbt_archive_query( $query ){
-    if( ! is_admin() && $query->is_archive( ) && $query->is_main_query() ){
-        $query->set( 'posts_per_page', 6 );
-    }
-}
-add_filter( 'pre_get_posts', 'pbt_archive_query' );
-
-
-/**
- *  Add blog posts to home page main query
- *  The number of posts is set in the Settings/Reading page
- */
-// function pbt_home_posts( $query ) {
-// 	if ( ! is_admin() && is_home() && $query->is_main_query() )
-// 		$query->set( 'post_type', array( 'post', 'blog_post' ) );
-
-// 	return $query;
-// }
-// add_filter( 'pre_get_posts', 'pbt_home_posts' );
-
-/**
- *  Add blog posts to author page main query
- *  The number of posts is set in the Settings/Reading page
- */
-function pbt_author_page_posts( $query ) {
-    if ( ! is_admin() && is_author() && $query->is_main_query() )
-        $query->set( 'post_type', array( 'post', 'blog_post' ) );
-
-    return $query;
-}
-add_filter( 'pre_get_posts', 'pbt_author_page_posts' );
-
 /**
  *  A custom function that displays a bootstrap
  *  version of pagiation

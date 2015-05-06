@@ -110,33 +110,6 @@ endif;
 add_action( 'after_setup_theme', 'pbt_setup' );
 
 
-
-
-
-/**
- * Hack the title tag to show Home when at site.
- */
-add_filter( 'wp_title', 'pbt_hack_wp_title_for_home' );
-function pbt_hack_wp_title_for_home( $title )
-{
-  if( empty( $title ) && ( is_home() || is_front_page() ) ) {
-    return 'Home' . ' | ' . get_bloginfo( 'description' );
-  }
-  return $title;
-}
-
-
-/**
- * Add custom image sizes to Admin Media select box
- */
-function pbt_admin_choose_image_sizes( $sizes ) {
-    return array_merge( $sizes, array(
-        'story-featured' => __( 'Featured Image' ),
-    ) );
-}
-add_filter( 'image_size_names_choose', 'pbt_admin_choose_image_sizes' );
-
-
 /**
  * Add a link to the theme docs in the admin header
  */
@@ -151,41 +124,6 @@ function pbt_docs_admin_link( $wp_admin_bar ) {
 }
 
 add_action( 'admin_bar_menu', 'pbt_docs_admin_link', 999 );
-
-
-/**
- * Search Form function, hooked to get_search_form function
- */
-function pbt_search_form( $form ) {
-	$form = '<form role="search" method="get" id="searchform" class="searchform" action="' . home_url( '/' ) . '" >
-	<div><label class="screen-reader-text" for="s">' . __( 'Search:' ) . '</label>
-	<input type="text" value="' . get_search_query() . '" name="s" id="s" placeholder="Type and press enter"/>
-	</div>
-	</form>';
-
-	return $form;
-}
-
-add_filter( 'get_search_form', 'pbt_search_form' );
-
-/**
- * Parse post link and replace it with meta value, or the 'external_url' field.
- * This is used for the WP post type Link.
- *
- * @wp-hook post_link
- * @param   string $link
- * @param   object $post
- * @return  string
- */
-function pbt_external_permalink( $link, $post ) {
-    $meta = get_post_meta( $post->ID, 'external_url', TRUE );
-    $url  = esc_url( filter_var( $meta, FILTER_VALIDATE_URL ) );
-
-    return $url ? $url : $link;
-}
-add_filter( 'post_link', 'pbt_external_permalink', 10, 2 );
-
-
 
 
 
