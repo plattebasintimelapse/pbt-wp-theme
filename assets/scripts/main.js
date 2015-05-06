@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    console.log('Scripts all work, eh??');
+    console.log('Scripts all work, eh?');
 
     $body                       = $('body');
     $window                     = $(window);
@@ -33,7 +33,7 @@ $(document).ready(function () {
     });
 
     $.each( $('.post-meta-box-small'), function() {
-        console.log( $(this).height() );
+        // console.log( $(this).height() );
         if ( $(this).height() > 130 ) {
             $(this).css('top', '0%');
         } else if ( $(this).height() > 110 ) {
