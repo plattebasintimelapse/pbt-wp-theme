@@ -3654,7 +3654,7 @@ figure.full .caption-text { padding-right: 25px; padding-left: 25px; }
 
 .main-content .container > img.size-thumbnail, .main-content .container > a > img.size-thumbnail { width: 300px; }
 
-figure.image > a > img { margin: 0; }
+figure.image img { margin: 0; }
 
 /*****************/
 /* Video wrapper */
