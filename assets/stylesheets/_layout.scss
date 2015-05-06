@@ -138,6 +138,14 @@
 	transition: background-color 1s ease;
 }
 
+.admin-bar .iframe-full-width-height {
+	margin-top: -32px;
+}
+
+.admin-bar.nav-is-open .iframe-full-width-height, .admin-bar.search-is-open .iframe-full-width-height {
+	margin-top: 0;
+}
+
 /**
  *	HOME PAGE
  *  Styles for the home page
