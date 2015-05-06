@@ -12,3 +12,12 @@
 	}
 	small { color: $gray-lighter; }
 }
+
+@mixin opacity-transition($num) {
+	opacity: 1;
+	-webkit-transition: opacity 500ms ease-out;
+    -moz-transition: opacity 500ms ease-out;
+    -o-transition: opacity 500ms ease-out;
+    transition: opacity 500ms ease-out;
+    &:hover, &:focus { opacity: $num; }
+}

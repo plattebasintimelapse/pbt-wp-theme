@@ -64,10 +64,11 @@ while ( have_posts() ) : the_post();
 
 							<div class="collapse in" id="userImgCollapse">
 								<div class="circle-cropped">
-									<?php
-										$userID = $user->ID;
-										echo get_avatar( $userID, 30 );
-									?>
+									<a href="<?php echo get_author_posts_url( $userID ); ?>">
+										<?php
+											echo get_avatar( $userID, 30 );
+										?>
+									</a>
 								</div>
 							</div>
 
@@ -169,14 +170,17 @@ while ( have_posts() ) : the_post();
 						'order'   			=> 'ASC',
 					);
 
+					$i = 0;
+
 					$the_query = new WP_Query( $project_cooperators_query_args );
 					if ( $the_query->have_posts() ) : while ( $the_query->have_posts() ) : $the_query->the_post();
 
 					if( ( $i % 2 ) === 0) {
-						echo '<div class="row"><div class="col-xs-offset-0 col-sm-offset-1 col-xs-6 col-sm-5">';
+						echo '<div class="row"><div class="col-xs-offset-2 col-xs-8 col-sm-offset-1 col-sm-5">';
 					} else {
-						echo '<div class="col-xs-6 col-sm-5">';
-					} $i++;
+						echo '<div class="col-xs-offset-2 col-xs-8 col-sm-offset-1 col-sm-5">';
+					}
+					$i++;
 				?>
 
 					<div class="text-center font-size-small">
