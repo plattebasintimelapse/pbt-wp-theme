@@ -30,10 +30,14 @@ get_header();
 
 	<section class="main" role="main">
 
-		<div class="container container-padding">
+		<div class="container-fluid container-padding">
 			<div class="row">
-				<div class="col-xs-12">
+				<div class="col-xs-6">
 					<?php dynamic_sidebar( 'pbt-home-main' ); ?>
+				</div>
+
+				<div class="col-xs-6">
+					<iframe height="500px" width="100%" src="http://projects.plattebasintimelapse.com/explorer/" frameborder="0"></iframe>
 				</div>
 			</div>
 		</div>
