@@ -3632,18 +3632,29 @@ hr { margin-top: 28px; margin-bottom: 28px; border: 0; border-top: 1px solid #75
 /**********/
 /* Images */
 /**********/
-figure.image { margin: 30px 0; display: inline-block; margin-right: 0; }
+figure.image { margin: 30px 0; display: inline-block; }
 
 figure.alignright { float: right; padding: 20px 0 20px 20px; margin: 0; }
 
 figure.alignleft { float: left; padding: 20px 20px 20px 0; margin: 0; }
-figure.alignleft figcaption { text-align: left; }
 
 figure.featured, figure.full { width: 100%; }
 
 figure.full .caption-text { padding-right: 25px; padding-left: 25px; }
 
 .caption-text { font-size: 18px; color: #757575; text-align: right; font-style: italic; width: 100%; float: right; }
+
+.main-content .container > img, .main-content .container > a > img { margin: 50px 0; }
+
+.main-content .container > img.alignright, .main-content .container > a > img.alignright { float: right; padding: 20px 0 20px 20px; margin: 0; }
+
+.main-content .container > img.alignleft, .main-content .container > a > img.alignleft { float: left; padding: 20px 20px 20px 0; margin: 0; }
+
+.main-content .container > img.size-medium, .main-content .container > a > img.size-medium { width: 600px; }
+
+.main-content .container > img.size-thumbnail, .main-content .container > a > img.size-thumbnail { width: 300px; }
+
+figure.image > a > img { margin: 0; }
 
 /*****************/
 /* Video wrapper */
