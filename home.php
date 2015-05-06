@@ -69,7 +69,7 @@ get_header();
 									<h1 class="post-title"><?php the_title(); ?></h1>
 								</a>
 								<?php the_excerpt(); ?>
-								<a class="btn btn-default btn-block btn-max-width" role="button" href="<?php the_permalink() ?>"><h6>Explore This Story</h6></a>
+								<a class="btn btn-default btn-block btn-lg btn-lg-max-width" role="button" href="<?php the_permalink() ?>"><h4>Explore This Story</h4></a>
 							</div>
 					</div>
 

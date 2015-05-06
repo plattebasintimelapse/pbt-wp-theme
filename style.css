@@ -3625,6 +3625,8 @@ hr { margin-top: 28px; margin-bottom: 28px; border: 0; border-top: 1px solid #75
 
 .btn-max-width { max-width: 240px; }
 
+.btn-lg-max-width { max-width: 280px; }
+
 .pagination-sm > li > a, .pagination-sm > li > span { padding: 6px 12px; font-size: 14px; }
 
 /**********/
