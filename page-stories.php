@@ -80,6 +80,7 @@ $featuredPostID; // Used to exclude post from main FEED
 
 				<?php endwhile; ?>
 	</div>
+
 	<div class="container">
 		<?php if ( function_exists("wp_bs_pagination") ) wp_bs_pagination($the_query->max_num_pages); ?>
 	</div>

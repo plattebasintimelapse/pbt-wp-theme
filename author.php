@@ -81,26 +81,30 @@ get_header(); ?>
 
 		<div class="container container-little-padding-top">
 		<?php
-
 			if ( have_posts() ) :
 				echo '<h3 class="text-center">' . $curauth->first_name . "'s Credits</h3>";
-				while ( have_posts() ) : the_post(); ?>
+				while ( have_posts() ) :
+					the_post(); ?>
 
-					<div class="row row-some-padding">
-						<div class="col-md-6">
-							<?php get_template_part( 'partials/post-feed-thumbnail' ); ?>
-						</div>
-						<div class="col-md-6">
-							<div class="excerpt">
-								<?php the_excerpt(); ?>
-								<a class="btn btn-primary btn-sm btn-block" role="button" href="<?php the_permalink() ?>"><h6>Read On</h6></a>
+						<div class="row row-some-padding">
+							<div class="col-md-6">
+								<?php get_template_part( 'partials/post-feed-thumbnail' ); ?>
+							</div>
+							<div class="col-md-6">
+								<div class="excerpt">
+									<?php the_excerpt(); ?>
+									<a class="btn btn-primary btn-sm btn-block" role="button" href="<?php the_permalink() ?>"><h6>Read On</h6></a>
+								</div>
 							</div>
 						</div>
-					</div>
 
-				<?php endwhile;
+				<?php endwhile; ?>
 
-			else :
+			<div class="container">
+				<?php if ( function_exists("wp_bs_pagination") ) wp_bs_pagination(); ?>
+			</div>
+
+			<?php else :
 				echo '<h3 class="text-center">' . $curauth->first_name . " hasn't posted anything yet!</h3>";
 				echo '<h2>Try searching for something.</h2>';
 

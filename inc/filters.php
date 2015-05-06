@@ -37,26 +37,15 @@ function pbt_search_form( $form ) {
 add_filter( 'get_search_form', 'pbt_search_form' );
 
 /**
- *  Limit 6 posts per archive pages
+ *  Limit 10 posts per archive pages and author page
  */
 function pbt_archive_query( $query ){
     if( ! is_admin() && $query->is_archive( ) && $query->is_main_query() ){
-        $query->set( 'posts_per_page', 6 );
+        $query->set( 'posts_per_page', 10 );
     }
 }
-add_filter( 'pre_get_posts', 'pbt_archive_query' );
+add_action( 'pre_get_posts', 'pbt_archive_query' );
 
-/**
- *  Add blog posts to author page main query
- *  The number of posts is set in the Settings/Reading page
- */
-function pbt_author_page_posts( $query ) {
-    if ( ! is_admin() && is_author() && $query->is_main_query() )
-        $query->set( 'post_type', array( 'post', 'blog_post' ) );
-
-    return $query;
-}
-add_filter( 'pre_get_posts', 'pbt_author_page_posts' );
 
 /**
  * Parse post link and replace it with meta value, or the 'external_url' field.

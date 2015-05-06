@@ -85,9 +85,19 @@ get_header();
 			<div class="row">
 
 				<?php
-				if ( have_posts() ) :
-					while ( have_posts() ) :
-						the_post(); ?>
+					$query_args = array(
+						'post_type' 		=> 'post',
+						'orderby' 			=> 'date',
+						'posts_per_page' 	=> 4,
+						'meta_key'	 		=> 'home_page_feed',
+						'meta_value' 		=> true,
+					);
+
+					$the_query = new WP_Query( $query_args );
+
+					if ( $the_query->have_posts() ) :
+						while ( $the_query->have_posts() ) :
+							$the_query->the_post(); ?>
 
 							<div id="post-<?php the_ID(); ?>" <?php post_class('col-xs-10 col-xs-offset-1 col-sm-offset-0 col-sm-12 col-md-6'); ?>>
 								<?php get_template_part( 'partials/post-feed-thumbnail' ); ?>
@@ -136,9 +146,10 @@ get_header();
 					);
 
 					$the_query = new WP_Query( $query_args );
-					if ( $the_query->have_posts() ) : while ( $the_query->have_posts() ) : $the_query->the_post();
 
-				?>
+					if ( $the_query->have_posts() ) :
+						while ( $the_query->have_posts() ) :
+							$the_query->the_post(); ?>
 
 					<div id="post-<?php the_ID(); ?>" <?php post_class('col-xs-8 col-xs-offset-2 col-sm-offset-0 col-sm-3'); ?>>
 

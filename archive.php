@@ -59,11 +59,13 @@ get_header();
 					</div>
 				</div>
 
-			<?php endwhile;
+			<?php endwhile; ?>
 
-			if ( function_exists("wp_bs_pagination") ) wp_bs_pagination();
+			<div class="container">
+				<?php if ( function_exists("wp_bs_pagination") ) wp_bs_pagination(); ?>
+			</div>
 
-		} else {
+		<?php } else {
 
 			get_template_part( 'partials/no-results', 'search' );
 
