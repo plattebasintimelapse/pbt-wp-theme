@@ -25,10 +25,6 @@ get_header();
 <article id="post-<?php the_ID(); ?>" <?php post_class('main notebook-feed'); ?> role="main">
 	<div class="container">
 
-		<div class="row row-some-padding">
-			<div class="text-center"></div>
-		</div>
-
 		<!-- THE NOTEBOOK PAGE FEED OF POSTS -->
 		<?php
 			$paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
