@@ -44,7 +44,7 @@
 				</h1>
 			</a>
 
-			<a class="btn btn-default read-more-btn btn-block btn-max-width" role="button" href="<?php the_permalink() ?>"><h6>Read More</h6></a>
+			<a class="btn btn-default read-more-btn btn-block btn-max-width" role="button" href="<?php the_permalink() ?>"><h5>Read More</h5></a>
 		</div>
 	</div>
 

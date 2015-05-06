@@ -16,14 +16,21 @@ $(document).ready(function () {
     $heroImageBehind.height( getHeroImageHeight(windowHeight) );
 
     $.each( $('.post-meta-box'), function() {
-        // console.log( $(this).height() );
-        if ( $(this).height() < 132 ) {
+        console.log( $(this).height() );
+        if ( $(this).height() < 101 ) {
+            $(this).css('top', '25%');
+        } else if ( $(this).height() < 148  && $window.width() > 768 ) {
             $(this).css('top', '15%');
-        } else if ( $(this).height() < 162  && $window.width() > 768 ) {
-            $(this).css('top', '15%');
-        } else if ( $(this).height() > 250  && $window.width() > 768 ) {
-            $(this).css('top', '2%');
-            $(this).find('.post-title').css('font-size', '1.6em');
+        } else if ( $(this).height() < 210  && $window.width() > 768 ) {
+            $(this).css('top', '8%');
+            // $(this).find('.post-title').css('font-size', '1.6em');
+        } else if ( $(this).height() >= 210  && $window.width() > 768 ) {
+            $(this).css({
+                top: '2%',
+                width: '94%',
+                marginLeft: '-47%'
+            });
+            // $(this).find('.post-title').css('font-size', '1.6em');
         }
     });
 

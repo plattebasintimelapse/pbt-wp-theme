@@ -3485,7 +3485,7 @@ header .btn { margin: 4px 0; }
   .post-meta-box .post-title, .featured-post-meta-box .post-title { font-size: 1.8rem; } }
 @media (min-width: 992px) { .post-meta-box, .featured-post-meta-box { top: 0%; width: 82%; margin-left: -41%; } }
 @media (min-width: 1170px) { .post-meta-box, .featured-post-meta-box { top: 5%; } }
-.post-meta-box .read-more-btn, .featured-post-meta-box .read-more-btn { display: block; opacity: 0; position: absolute; top: 60px; left: 50%; width: 160px; margin-left: -80px; }
+.post-meta-box .read-more-btn, .featured-post-meta-box .read-more-btn { display: block; opacity: 0; position: absolute; top: 60px; left: 50%; width: 200px; margin-left: -100px; }
 .post-meta-box .read-more-btn:hover, .post-meta-box .read-more-btn:focus, .featured-post-meta-box .read-more-btn:hover, .featured-post-meta-box .read-more-btn:focus { color: rgba(255, 255, 255, 0.5); border-color: rgba(255, 255, 255, 0.5); }
 .post-meta-box .post-category, .post-meta-box .blog-post-author, .featured-post-meta-box .post-category, .featured-post-meta-box .blog-post-author { display: none; }
 @media (min-width: 768px) { .post-meta-box .post-category, .post-meta-box .blog-post-author, .featured-post-meta-box .post-category, .featured-post-meta-box .blog-post-author { display: block; padding-bottom: 6px; border-bottom: 2px solid #fafafa; } }
