@@ -9,7 +9,8 @@
 ?>
 
 	<div class="post-thumbnail">
-		<a href="<?php the_permalink() ?>"><?php the_post_thumbnail( 'pbt-post-thumbnail' );  ?>
+		<!-- <a href="<?php the_permalink() ?>"> -->
+			<?php the_post_thumbnail( 'pbt-post-thumbnail' );  ?>
 
 			<div class="post-meta-box">
 
@@ -37,12 +38,15 @@
 				$short_title = substr($title,0,50);
 				?>
 
-				<a href="<?php the_permalink() ?>">
+				<!-- <a href="<?php the_permalink() ?>"> -->
 					<h1 class="post-title">
 						<?php echo $short_title;
 							if( $short_title != $title) { echo "..."; } ?>
 					</h1>
-				</a>
-			</div></a>
+				<!-- </a> -->
+
+				<a class="btn btn-default read-more-btn btn-block btn-max-width" role="button" href="<?php the_permalink() ?>"><h6>Read More</h6></a>
+			</div>
+		<!-- </a> -->
 	</div>
 

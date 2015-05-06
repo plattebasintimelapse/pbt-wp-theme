@@ -59,6 +59,38 @@ var getHeroImageHeight = function(h) {
 
 $(function() {
 
+    $('.post-thumbnail').hover(function() {
+
+        $(this).find('img').animate({
+            opacity: '.7'
+        }, 'fast', 'linear');
+
+        $(this).find('.post-title').animate({
+            opacity: '0',
+            marginTop: '-20px'
+        }, 'fast', 'linear').fadeOut();
+
+        $(this).find('.read-more-btn').animate({
+            opacity: '1',
+            marginTop: '20px'
+        }, 'fast', 'linear');
+
+    },function(){
+        $(this).find('img').animate({
+            opacity: '1'
+        }, 'fast', 'linear');
+
+        $(this).find('.post-title').animate({
+            opacity: '1',
+            marginTop: '0'
+        }, 'fast', 'linear').fadeIn();
+
+        $(this).find('.read-more-btn').animate({
+            opacity: '0',
+            marginTop: '0'
+        }, 'fast', 'linear');
+    });
+
     $navbarCollapseLink.click(function(){
         $body.toggleClass('nav-is-open');
         $(this).find('i').toggleClass('fa-close').toggleClass('fa-bars');

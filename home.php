@@ -55,7 +55,7 @@ get_header();
 
 				<div id="post-<?php the_ID(); ?>" <?php post_class('col-xs-12 col-sm-12 col-no-padding featured-story'); ?>>
 
-					<div class="post-thumbnail">
+					<div class="featured-post-thumbnail">
 							<?php the_post_thumbnail( 'pbt-pano-header' ); ?>
 
 							<div class="featured-post-meta-box">
@@ -145,7 +145,7 @@ get_header();
 						<a href="<?php the_permalink() ?>">
 							<?php the_post_thumbnail( 'pbt-post-thumbnail' );  ?>
 						</a>
-						<h6 class="font-size-ex-small text-center">By <a href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ) ); ?>"><?php the_author(); ?></a> on <?php the_date('F j Y'); ?></h6>
+						<h6 class="font-size-ex-small text-center">By <a class="link-color-dark" href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ) ); ?>"><?php the_author(); ?></a> on <?php the_date('F j Y'); ?></h6>
 						<h4 class="text-center"><?php the_title( );  ?></h4>
 
 					</div><!-- #post-## -->
