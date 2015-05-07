@@ -46,17 +46,10 @@ hr {
 	background-color: transparent;
 
 	@include colors-transition($brand-primary, $body-bg, $brand-primary);
-
-
-	&:focus, &:hover {
-		// color: $body-bg;
-		// background-color: $brand-primary;
-		border-color: $brand-primary;
-	}
 }
 
 .btn-default {
-	@include colors-transition(rgba(255,255,255,.2), $gray-lighter, $brand-light);
+	@include colors-transition(rgba(255,255,255,.2), $gray-lighter, $gray-lighter);
 }
 
 .btn-block {

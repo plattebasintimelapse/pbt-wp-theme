@@ -36,7 +36,7 @@ get_header();
 				<div class="post-meta-bylines font-size-small">
 					<?php
 						edit_post_link('edit', '<span class="pull-right">', '</span>');
-						pbt_bylines();
+						pbt_secondary_bylines();
 					?>
 				</div>
 				<div class="post-meta font-size-small">
