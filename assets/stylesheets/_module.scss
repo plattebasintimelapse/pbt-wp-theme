@@ -45,11 +45,18 @@ hr {
 	color: $brand-primary;
 	background-color: transparent;
 
+	@include colors-transition($brand-primary, $body-bg, $brand-primary);
+
+
 	&:focus, &:hover {
-		color: $body-bg;
-		background-color: $brand-primary;
+		// color: $body-bg;
+		// background-color: $brand-primary;
 		border-color: $brand-primary;
 	}
+}
+
+.btn-default {
+	@include colors-transition(rgba(255,255,255,.2), $gray-lighter, $brand-light);
 }
 
 .btn-block {
@@ -65,8 +72,8 @@ hr {
 }
 
 .pagination-sm > li > a, .pagination-sm > li > span {
-  padding: 6px 12px;
-  font-size: 14px;
+  	padding: 6px 12px;
+  	font-size: 14px;
 }
 
 // MODULES IN THE MAIN ARTICLE OF PAGES
