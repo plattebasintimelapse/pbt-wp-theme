@@ -441,7 +441,7 @@
 
 .author-link {
   display: inline-block;
-  padding-right: 0px;
+  padding-right: 4px;
   padding-bottom: 0px;
   margin-top: 0;
 }
@@ -494,10 +494,6 @@
  *  Styles for the archive and search page.
  *  Both a successful search and a no-results search, yearly search and monthly search.
  */
-
-.archive, .search {
-	.btn-block { max-width: 150px; margin: 0 auto; }
-}
 
 /**
  *	SEARCH BAR

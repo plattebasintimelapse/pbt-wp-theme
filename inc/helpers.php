@@ -58,6 +58,32 @@ function pbt_byline() {
 	echo $byline;
 }
 
+function pbt_author_meta($curauth) {
+	if( $curauth->instagram !== '' ) {
+		echo '<div class="author-link"><a target="_blank" href="http://www.instagram.com/' . $curauth->instagram . '"><i class="fa fa-instagram"></i></a></div>';
+	}
+
+	if( $curauth->twitter !== '' ) {
+		echo '<div class="author-link"><a target="_blank" href="http://www.twitter.com/' . $curauth->twitter . '"><i class="fa fa-twitter"></i></a></div>';
+	}
+
+	if( $curauth->github !== '' ) {
+		echo '<div class="author-link"><a target="_blank" href="http://www.github.com/' . $curauth->github . '"><i class="fa fa-github"></i></a></div>';
+	}
+
+	if( $curauth->flickr !== '' ) {
+		echo '<div class="author-link"><a target="_blank" href="http://www.flickr.com/' . $curauth->flickr . '"><i class="fa fa-flickr"></i></a></div>';
+	}
+
+	if( $curauth->user_url !== '' ) {
+		echo '<div class="author-link"><a target="_blank" href="' . $curauth->user_url . '"><i class="fa fa-laptop"></i></a></div>';
+	}
+
+	if( $curauth->user_email !== '' ) {
+		echo '<div class="author-link"><a href="mailto:' . $curauth->user_email . '"><i class="fa fa-envelope-o"></i> <small>' . $curauth->user_email . '</small></a></div>';
+	}
+}
+
 
 /**
  * This function gets the post categories for the given story.

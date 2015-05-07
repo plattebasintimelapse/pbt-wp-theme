@@ -46,6 +46,18 @@ function pbt_archive_query( $query ){
 }
 add_action( 'pre_get_posts', 'pbt_archive_query' );
 
+/**
+ *  Add blog posts to author query
+ */
+function pbt_author_query( $query ){
+    if( ! is_admin() && $query->is_author( ) && $query->is_main_query() ){
+        $query->set( 'post_type', array('post', 'blog_post', ) );
+        // $query->set( 'meta_key', 'second_user' );
+        // $query->set( 'meta_value', the_author() );
+    }
+}
+add_action( 'pre_get_posts', 'pbt_author_query' );
+
 
 /**
  * Parse post link and replace it with meta value, or the 'external_url' field.
