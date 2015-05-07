@@ -32,6 +32,10 @@ hr {
 	top: 40px !important;
 }
 
+.btn {
+	border-width: 2px;
+}
+
 
 .btn-lg, .btn-group-lg > .btn, .btn {
  	border-radius: 0;
@@ -41,11 +45,11 @@ hr {
 	color: $brand-primary;
 	background-color: transparent;
 
-	&:focus, &:hover {
-		color: $body-bg;
-		background-color: $brand-primary;
-		border-color: $brand-primary;
-	}
+	@include colors-transition($brand-primary, $body-bg, $brand-primary);
+}
+
+.btn-default {
+	@include colors-transition(rgba(255,255,255,.2), $gray-lighter, $gray-lighter);
 }
 
 .btn-block {
@@ -56,9 +60,13 @@ hr {
 	max-width: 240px;
 }
 
+.btn-lg-max-width {
+	max-width: 280px;
+}
+
 .pagination-sm > li > a, .pagination-sm > li > span {
-  padding: 6px 12px;
-  font-size: 14px;
+  	padding: 6px 12px;
+  	font-size: 14px;
 }
 
 // MODULES IN THE MAIN ARTICLE OF PAGES
@@ -72,7 +80,6 @@ hr {
 figure.image {
 	margin: 30px 0;
 	display: inline-block;
-	margin-right: 0;
 }
 
 figure.alignright {
@@ -85,7 +92,6 @@ figure.alignleft {
 	float: left;
 	padding: 20px 20px 20px 0;
 	margin: 0;
-	figcaption { text-align: left; }
 }
 
 
@@ -105,6 +111,34 @@ figure.full .caption-text {
 	font-style: italic;
 	width: 100%;
 	float: right;
+}
+
+.main-content .container > img, .main-content .container > a > img  {
+	margin: 50px 0; // Give margin to images without caption
+}
+
+.main-content .container > img.alignright, .main-content .container > a > img.alignright  {
+	float: right;
+	padding: 20px 0 20px 20px;
+	margin: 0;
+}
+
+.main-content .container > img.alignleft, .main-content .container > a > img.alignleft  {
+	float: left;
+	padding: 20px 20px 20px 0;
+	margin: 0;
+}
+
+.main-content .container > img.size-medium, .main-content .container > a > img.size-medium  {
+	width: 600px;
+}
+
+.main-content .container > img.size-thumbnail, .main-content .container > a > img.size-thumbnail  {
+	width: 300px;
+}
+
+figure.image img {
+	margin: 0; // Don't let captioned images get that margin
 }
 
 /*****************/

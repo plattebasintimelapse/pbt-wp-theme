@@ -82,7 +82,7 @@ function pbt_blog_post_type() {
        'rewrite' 				=> false,
        'query_var' 				=> true,
        'has_archive' 			=> true,
-       'supports' 				=> array('title','editor','excerpt','revisions','thumbnail','author'),
+       'supports' 				=> array('title','editor','excerpt','revisions','thumbnail','author','comments'),
     ));
 
     global $wp_rewrite;

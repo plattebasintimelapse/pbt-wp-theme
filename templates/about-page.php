@@ -76,29 +76,7 @@ while ( have_posts() ) : the_post();
 							  	<div class="well">
 							  		<div class="author-links text-center">
 
-									<?php if( $user->instagram !== '' ) { ?>
-										<div class="author-link"><a target="_blank" href="http://www.instagram.com/<?php echo $user->instagram ?>"><i class="fa fa-instagram"></i></a></div>
-									<?php }
-
-									if( $user->twitter !== '' ) { ?>
-										<div class="author-link"><a target="_blank" href="http://www.twitter.com/<?php echo $user->twitter ?>"><i class="fa fa-twitter"></i></a></div>
-									<?php }
-
-									if( $user->github !== '' ) { ?>
-										<div class="author-link"><a target="_blank" href="http://www.github.com/<?php echo $user->github ?>"><i class="fa fa-github"></i></a></div>
-									<?php }
-
-									if( $user->flickr !== '' ) { ?>
-										<div class="author-link"><a target="_blank" href="http://www.flickr.com/<?php echo $user->flickr ?>"><i class="fa fa-flickr"></i></a></div>
-									<?php }
-
-									if( $user->user_url !== '' ) { ?>
-										<div class="author-link"><a target="_blank" href="<?php echo $user->user_url ?>"><i class="fa fa-laptop"></i></a></div>
-									<?php }
-
-									if( $user->user_email !== '' ) { ?>
-										<div class="author-link"><a href="mailto:<?php echo $user->user_email ?>"><i class="fa fa-envelope-o"></i> <small><?php echo $user->user_email ?></small></a></div>
-									<?php } ?>
+										<?php pbt_author_meta($user); ?>
 
 									</div>
 

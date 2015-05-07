@@ -14,7 +14,7 @@ Image resizing should be done prior to upload. There is no need to upload 5MB im
 
 For example: An image originally sized 2000x1200 will get resized and cropped to 300x300 for thumbnail, 400x200 for the post-thumbnail, 1000px width for large sizes and 1600px width for featured sizes.
 
-#####Size: **Max width 2400px**, **Approx 700kb**
+#####Size: **Max width 2400px**, **Approx 600kb**, **No More Than 800kb**
 
 #####Resolution: **Don't Change from default image setting**
 

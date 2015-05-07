@@ -5,9 +5,9 @@
 
 get_header();
 
-	// This is used to populate the blog post section on the home page.
-	// Change this title to whatever you have the blog post page called.
-	$blog_page_title = 'Notebook';
+	$num_stories 		= 4; 			// How many stories to appear on the home page
+	$num_blogs 			= 4; 			// How many blogs to appear on the home page
+	$blog_page_title 	= 'Notebook'; 	// Title of Blog Page used to populate the blog post section on the home page.
 
 
 	?>
@@ -30,14 +30,14 @@ get_header();
 
 	<section class="main" role="main">
 
-		<div class="container-fluid container-padding">
+		<div class="container container-large container-padding">
 			<div class="row">
-				<div class="col-xs-6">
+				<div class="col-md-5">
 					<?php dynamic_sidebar( 'pbt-home-main' ); ?>
 				</div>
 
-				<div class="col-xs-6">
-					<iframe height="500px" width="100%" src="http://projects.plattebasintimelapse.com/explorer/" frameborder="0"></iframe>
+				<div class="col-md-7">
+					<div id="map" style="height: 550px; width: 100%;"></div>
 				</div>
 			</div>
 		</div>
@@ -73,7 +73,7 @@ get_header();
 									<h1 class="post-title"><?php the_title(); ?></h1>
 								</a>
 								<?php the_excerpt(); ?>
-								<a class="btn btn-default btn-block btn-max-width" role="button" href="<?php the_permalink() ?>"><h6>Explore This Story</h6></a>
+								<a class="btn btn-default btn-block btn-lg btn-lg-max-width" role="button" href="<?php the_permalink() ?>"><h4>Explore This Story</h4></a>
 							</div>
 					</div>
 
@@ -92,7 +92,7 @@ get_header();
 					$query_args = array(
 						'post_type' 		=> 'post',
 						'orderby' 			=> 'date',
-						'posts_per_page' 	=> 4,
+						'posts_per_page' 	=> $num_stories,
 						'meta_key'	 		=> 'home_page_feed',
 						'meta_value' 		=> true,
 					);
@@ -146,7 +146,7 @@ get_header();
 					$query_args = array(
 						'post_type' => 'blog_post',
 						'orderby' => 'date',
-						'posts_per_page' => 4,
+						'posts_per_page' => $num_blogs,
 					);
 
 					$the_query = new WP_Query( $query_args );

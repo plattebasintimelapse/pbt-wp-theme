@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    console.log('Scripts all work, eh??');
+    console.log('Scripts all work, eh?');
 
     $body                       = $('body');
     $window                     = $(window);
@@ -10,10 +10,7 @@ $(document).ready(function () {
     $searchbarInput             = $('#searchbarCollapse input#s');
     $heroImageBehind            = $('.hero-image-behind');
 
-    windowHeight = $window.height();
-
-    $('.iframe-full-width-height').height( windowHeight );
-    $heroImageBehind.height( getHeroImageHeight(windowHeight) );
+    runHeightSpecificStyles();
 
     $.each( $('.post-meta-box'), function() {
         // console.log( $(this).height() );
@@ -33,7 +30,7 @@ $(document).ready(function () {
     });
 
     $.each( $('.post-meta-box-small'), function() {
-        console.log( $(this).height() );
+        // console.log( $(this).height() );
         if ( $(this).height() > 130 ) {
             $(this).css('top', '0%');
         } else if ( $(this).height() > 110 ) {
@@ -61,14 +58,22 @@ $(document).ready(function () {
 });
 
 $(window).resize(function(){
+    runHeightSpecificStyles();
+});
+
+function runHeightSpecificStyles() {
     windowHeight = $window.height();
 
     $('.iframe-full-width-height').height( windowHeight );
-    $heroImageBehind.height( getHeroImageHeight(windowHeight) );
-});
+    $heroImageBehind.height( getHeroImageHeight( windowHeight ) );
+}
 
 var getHeroImageHeight = function(h) {
-    return h - 200;
+    if ( h < 720 ) {
+        return h - 20;
+    } else {
+        return h - 200;
+    }
 }
 
 $(function() {

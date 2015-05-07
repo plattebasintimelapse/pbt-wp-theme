@@ -51,6 +51,12 @@ add_action('wp_head', 'pbt_favicon');
  */
 function pbt_scripts() {
 	wp_enqueue_script( 'main-scripts', get_template_directory_uri() . '/assets/scripts/main.min.js', array(), '1.0.0', true);
+	if( is_front_page() ) {
+		wp_enqueue_style( 'leaflet-styles', 'http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css' );
+		wp_enqueue_script( 'leaflet', 'http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js', array() );
+		wp_enqueue_script( 'stamen', get_template_directory_uri() . '/assets/scripts/lib/tile.stamen.js', array() );
+		wp_enqueue_script( 'mapping', get_template_directory_uri() . '/assets/scripts/mapping.js' );
+	}
 }
 
 add_action( 'wp_enqueue_scripts', 'pbt_scripts' );
