@@ -49,6 +49,8 @@ get_header(); ?>
 
 			get_template_part( 'partials/learning-objects/lo', get_field('learning_object_format') );
 
+			edit_post_link('edit learning object', '<div class="text-center font-size-ex-small">', '</div>');
+
 			endwhile; endif;
 			wp_reset_postdata();
 		?>

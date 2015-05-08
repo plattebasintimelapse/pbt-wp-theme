@@ -3,6 +3,7 @@
  * The Learning Object format for a video
  */
 
+    $video = get_field( 'video' );
     $align = get_field( 'col_align' );
     $size = get_field( 'col_size' );
     $video_col_size = '6';
@@ -18,7 +19,7 @@
 	<?php if( $align == 'left' ) { ?>
 
         <div class="col col-sm-<?php echo $video_col_size; ?>">
-            <?php the_field('video'); ?>
+            <?php echo do_shortcode('[embed_video vimeo_id=' . $video . ']'); ?>
         </div>
 
         <div class="col col-sm-<?php echo $content_col_size; ?>">
@@ -32,7 +33,7 @@
         </div>
 
         <div class="col col-sm-<?php echo $video_col_size; ?>">
-            <?php the_field('video'); ?>
+            <?php echo do_shortcode('[embed_video vimeo_id=' . $video . ']'); ?>
         </div>
 
     <?php } ?>
