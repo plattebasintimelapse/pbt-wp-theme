@@ -66,7 +66,7 @@ get_header();
 								</h5>
 
 								<a href="<?php the_permalink() ?>">
-									<h1 class="post-title"><?php the_title(); ?></h1>
+									<h1 class="post-title"><?php pbt_short_title(); ?></h1>
 								</a>
 								<?php the_excerpt(); ?>
 								<a class="btn btn-default btn-block btn-lg btn-lg-max-width" role="button" href="<?php the_permalink() ?>"><h4>Explore This Story</h4></a>
@@ -162,7 +162,7 @@ get_header();
 								<div class="post-meta-box-small">
 
 									<a href="<?php the_permalink() ?>">
-										<h4 class="post-tile"><?php the_title( );  ?></h4>
+										<h4 class="post-tile"><?php pbt_short_title(); ?></h4>
 									</a>
 
 								</div>
