@@ -30,7 +30,7 @@ get_header();
 						<div class="col-md-6">
 							<div class="excerpt">
 								<?php the_excerpt(); ?>
-								<a class="btn btn-primary btn-sm btn-block" role="button" href="<?php the_permalink() ?>"><h6>Read On</h6></a>
+								<a class="btn btn-primary btn-sm btn-block btn-max-width" role="button" href="<?php the_permalink() ?>"><h6>Read On</h6></a>
 							</div>
 						</div>
 					</div>
