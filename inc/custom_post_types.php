@@ -72,7 +72,7 @@ function pbt_blog_post_type() {
     register_post_type('blog_post', array(
        'label' 					=> 'Blog Posts',
        'description' 			=> 'Blog posts from PBT Team members',
-       'public' 				=> true,
+       'public' 		        => true,
        'show_ui' 				=> true,
        'show_in_menu' 			=> true,
        'menu_position' 			=> 5,
@@ -125,27 +125,27 @@ add_action( 'init', 'pbt_post_taxonomies', 0 );
  * Blog Post Category Taxonomy Registration
  */
 function pbt_blog_post_taxonomies() {
-  $labels = array(
-    'name'              => _x( 'Blog Post Categories', 'taxonomy general name' ),
-    'singular_name'     => _x( 'Blog Post Category', 'taxonomy singular name' ),
-    'search_items'      => __( 'Search Blog Post Categories' ),
-    'all_items'         => __( 'All Blog Post Categories' ),
-    'parent_item'       => __( 'Parent Blog Post Category' ),
-    'parent_item_colon' => __( 'Parent Blog Post Category:' ),
-    'edit_item'         => __( 'Edit Blog Post Category' ),
-    'update_item'       => __( 'Update Blog Post Category' ),
-    'add_new_item'      => __( 'Add New Blog Post Category' ),
-    'new_item_name'     => __( 'New Blog Post Category' ),
-    'menu_name'         => __( 'Blog Post Categories' ),
-  );
-  $args = array(
-    'labels' => $labels,
-    'rewrite'           => array( 'slug' => 'category'),
-    'hierarchical'      => true,
-    'show_admin_column' => true,
-    'show_in_nav_menus' => false,
-  );
-  register_taxonomy( 'blog_post_category', 'blog_post', $args );
+    $labels = array(
+        'name'              => _x( 'Blog Post Categories', 'taxonomy general name' ),
+        'singular_name'     => _x( 'Blog Post Category', 'taxonomy singular name' ),
+        'search_items'      => __( 'Search Blog Post Categories' ),
+        'all_items'         => __( 'All Blog Post Categories' ),
+        'parent_item'       => __( 'Parent Blog Post Category' ),
+        'parent_item_colon' => __( 'Parent Blog Post Category:' ),
+        'edit_item'         => __( 'Edit Blog Post Category' ),
+        'update_item'       => __( 'Update Blog Post Category' ),
+        'add_new_item'      => __( 'Add New Blog Post Category' ),
+        'new_item_name'     => __( 'New Blog Post Category' ),
+        'menu_name'         => __( 'Blog Post Categories' ),
+    );
+    $args = array(
+        'labels' => $labels,
+        'rewrite'           => array( 'slug' => 'category'),
+        'hierarchical'      => true,
+        'show_admin_column' => true,
+        'show_in_nav_menus' => false,
+    );
+    register_taxonomy( 'blog_post_category', 'blog_post', $args );
 }
 add_action( 'init', 'pbt_blog_post_taxonomies', 0 );
 
@@ -205,14 +205,31 @@ add_action( 'init', 'pbt_project_credit_taxonomies', 0 );
  * Create Curriculum Post Type
  */
 function pbt_ed_curriculum_post_type() {
+    $labels = array(
+        'name'                => _x( 'Curriculum', 'Post Type General Name' ),
+        'singular_name'       => _x( 'Curriculum', 'Post Type Singular Name' ),
+        'menu_name'           => __( 'Curriculum' ),
+        'parent_item_colon'   => __( 'Parent Curriculum' ),
+        'all_items'           => __( 'All Curriculum' ),
+        'view_item'           => __( 'View Curriculum' ),
+        'add_new_item'        => __( 'Add New Curriculum' ),
+        'add_new'             => __( 'Add New Curriculum' ),
+        'edit_item'           => __( 'Edit Curriculum' ),
+        'update_item'         => __( 'Update Curriculum' ),
+        'search_items'        => __( 'Search Curriculum' ),
+        'not_found'           => __( 'Not Found' ),
+        'not_found_in_trash'  => __( 'Not found in Trash' ),
+    );
     register_post_type('curriculum', array(
-       'label'                  => 'Curriculum',
+       'labels'                 => $labels,
        'description'            => 'A collection of lessons, displayed in a textbook fashion',
        'public'                 => true,
        'show_ui'                => true,
        'show_in_menu'           => true,
        'menu_position'          => 28,
+       'menu_icon'              => 'dashicons-category',
        'capability_type'        => 'post',
+       'rewrite'                => array( 'slug' => 'education'),
        'query_var'              => true,
        'has_archive'            => false,
        'supports'               => array('title','thumbnail','excerpt','revisions'),
@@ -225,6 +242,21 @@ add_action('init', 'pbt_ed_curriculum_post_type');
  * Create Learning Object Post Type
  */
 function pbt_ed_learning_object_post_type() {
+    $labels = array(
+        'name'                => _x( 'Learning Objects', 'Post Type General Name' ),
+        'singular_name'       => _x( 'Learning Object', 'Post Type Singular Name' ),
+        'menu_name'           => __( 'Learning Objects' ),
+        'parent_item_colon'   => __( 'Parent Learning Object' ),
+        'all_items'           => __( 'All Learning Objects' ),
+        'view_item'           => __( 'View Learning Object' ),
+        'add_new_item'        => __( 'Add New Learning Object' ),
+        'add_new'             => __( 'Add New Learning Object' ),
+        'edit_item'           => __( 'Edit Learning Object' ),
+        'update_item'         => __( 'Update Learning Object' ),
+        'search_items'        => __( 'Search Learning Objects' ),
+        'not_found'           => __( 'Not Found' ),
+        'not_found_in_trash'  => __( 'Not found in Trash' ),
+    );
     register_post_type('learning_object', array(
        'label'                  => 'Learning Object',
        'description'            => 'A learning object to be displayed on a curriculum or story',
@@ -232,7 +264,9 @@ function pbt_ed_learning_object_post_type() {
        'show_ui'                => true,
        'show_in_menu'           => true,
        'menu_position'          => 29,
+       'menu_icon'              => 'dashicons-welcome-learn-more',
        'capability_type'        => 'post',
+       'rewrite'                => array( 'slug' => 'learning'),
        'query_var'              => true,
        'has_archive'            => false,
        'supports'               => array('title','thumbnail','editor','excerpt','revisions'),

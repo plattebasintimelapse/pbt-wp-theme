@@ -18,22 +18,22 @@
 
 	<?php if( $align == 'left' ) { ?>
 
-        <div class="col col-sm-<?php echo $video_col_size; ?>">
+        <div class="col-sm-<?php echo $video_col_size; ?>">
             <?php echo do_shortcode('[embed_video vimeo_id=' . $video . ']'); ?>
         </div>
 
-        <div class="col col-sm-<?php echo $content_col_size; ?>">
+        <div class="col-sm-<?php echo $content_col_size; ?>">
             <?php the_content(); ?>
         </div>
 
     <?php } else { ?>
 
-        <div class="col col-sm-<?php echo $content_col_size; ?>">
+        <div class="col-sm-<?php echo $content_col_size; ?>">
             <?php the_content(); ?>
         </div>
 
-        <div class="col col-sm-<?php echo $video_col_size; ?>">
-            <?php echo do_shortcode('[embed_video vimeo_id=' . $video . ']'); ?>
+        <div class="col-sm-<?php echo $video_col_size; ?>">
+            <?php echo do_shortcode('[embed_video size="" vimeo_id=' . $video . ']'); ?>
         </div>
 
     <?php } ?>

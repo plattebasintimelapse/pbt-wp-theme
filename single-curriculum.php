@@ -3,7 +3,9 @@
  * The template for displaying a curriculum page.
  */
 
-get_header(); ?>
+get_header();
+
+	while ( have_posts() ) : the_post(); ?>
 
 	<section class="featured hero-image">
 		<div class="container-fluid">
@@ -35,10 +37,11 @@ get_header(); ?>
 
 		<?php
 			$args = array(
-				'post_type' => 'learning_object',
-				'post_status' => 'publish',
-				'orderby'   => 'menu_order',
-              	'order'     => 'ASC',
+				'post_type' 		=> 'learning_object',
+				'post_status' 		=> 'publish',
+				'posts_per_page'	=> -1,
+				'orderby'   		=> 'menu_order',
+              	'order'     		=> 'ASC',
 			);
 
 			$the_query = new WP_Query( $args );
@@ -58,5 +61,7 @@ get_header(); ?>
 		</div>
 
 	</article>
+
+	<?php endwhile; ?>
 
 <?php get_footer(); ?>

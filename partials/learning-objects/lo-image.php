@@ -17,21 +17,21 @@
 
 	<?php if( $align == 'left' ) { ?>
 
-        <div class="col col-sm-<?php echo $image_col_size; ?>">
+        <div class="col-sm-<?php echo $image_col_size; ?>">
             <?php the_post_thumbnail(); ?>
         </div>
 
-        <div class="col col-sm-<?php echo $content_col_size; ?>">
+        <div class="col-sm-<?php echo $content_col_size; ?>">
             <?php the_content(); ?>
         </div>
 
     <?php } else { ?>
 
-        <div class="col col-sm-<?php echo $content_col_size; ?>">
+        <div class="col-sm-<?php echo $content_col_size; ?>">
             <?php the_content(); ?>
         </div>
 
-        <div class="col col-sm-<?php echo $image_col_size; ?>">
+        <div class="col-sm-<?php echo $image_col_size; ?>">
             <?php the_post_thumbnail(); ?>
         </div>
 
