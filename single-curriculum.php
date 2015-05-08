@@ -16,7 +16,6 @@ get_header(); ?>
 					</div>
 				</div>
 				<div class="row row-little-padding">
-					
 					<div class="col-sm-6">
 						<?php the_excerpt(); ?>
 					</div>
@@ -38,10 +37,14 @@ get_header(); ?>
 			$args = array(
 				'post_type' => 'learning_object',
 				'post_status' => 'publish',
+				'orderby'   => 'menu_order',
+              	'order'     => 'ASC',
 			);
 
 			$the_query = new WP_Query( $args );
-			if ( $the_query->have_posts() ) : while ( $the_query->have_posts() ) : $the_query->the_post();
+			if ( $the_query->have_posts() ) :
+				while ( $the_query->have_posts() ) :
+					$the_query->the_post();
 
 
 			get_template_part( 'partials/learning-objects/lo', get_field('learning_object_format') );
