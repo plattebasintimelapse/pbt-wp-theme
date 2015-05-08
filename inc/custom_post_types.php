@@ -35,6 +35,33 @@ function pbt_change_post_object() {
 add_action( 'admin_menu', 'pbt_change_post_label' );
 add_action( 'init', 'pbt_change_post_object' );
 
+
+/**
+ * Create Blog Post Custom Post Type
+ * On the backend the type is refered to as 'blog_post' and in the Admin Menus as Blog Posts
+ * On the frontend of the site, for audiences, they are Notebook entries on the notebook page.
+ * I know confusing...
+ */
+
+function pbt_rename_default_category() {
+    global $wp_taxonomies;
+
+    $cat = $wp_taxonomies['category'];
+    $cat->label                     = 'Story Themes';
+    $cat->labels->name              = 'Story Themes';
+    $cat->labels->singular_name     = 'Story Theme';
+    $cat->labels->search_items      = 'Search Story Themes';
+    $cat->labels->all_items         = 'All Story Themes';
+    $cat->labels->parent_item       = 'Parent Story Theme';
+    $cat->labels->parent_item_colon = 'Parent Story Theme:';
+    $cat->labels->edit_item         = 'Edit Story Theme';
+    $cat->labels->update_item       = 'Update Story Theme';
+    $cat->labels->add_new_item      = 'Add New Story Theme';
+    $cat->labels->new_item_name     = 'New Story Theme';
+    $cat->labels->menu_name         = 'Story Themes';
+}
+add_action('init', 'pbt_rename_default_category');
+
 /**
  * Create Blog Post Custom Post Type
  * On the backend the type is refered to as 'blog_post' and in the Admin Menus as Blog Posts
@@ -55,7 +82,7 @@ function pbt_blog_post_type() {
        'rewrite' 				=> false,
        'query_var' 				=> true,
        'has_archive' 			=> true,
-       'supports' 				=> array('title','editor','excerpt','revisions','thumbnail','author'),
+       'supports' 				=> array('title','editor','excerpt','revisions','thumbnail','author','comments'),
     ));
 
     global $wp_rewrite;
@@ -69,29 +96,29 @@ add_action('init', 'pbt_blog_post_type');
 /**
  * Blog Post Category Taxonomy Registration
  */
-function pbt_basin_post_taxonomies() {
-  $labels = array(
-    'name'              => _x( 'Basins', 'taxonomy general name' ),
-    'singular_name'     => _x( 'Basin', 'taxonomy singular name' ),
-    'search_items'      => __( 'Search Basins' ),
-    'all_items'         => __( 'All Basins' ),
-    'parent_item'       => __( 'Parent Basin' ),
-    'parent_item_colon' => __( 'Parent Basin:' ),
-    'edit_item'         => __( 'Edit Basin' ),
-    'update_item'       => __( 'Update Basin' ),
-    'add_new_item'      => __( 'Add New Basin' ),
-    'new_item_name'     => __( 'New Basin' ),
-    'menu_name'         => __( 'Basins' ),
-  );
-  $args = array(
-    'labels'            => $labels,
-    'rewrite'           => array( 'slug' => 'basin'),
-    'hierarchical'      => true,
-    'show_admin_column' => true,
-  );
-  register_taxonomy( 'basin', 'post', $args );
+function pbt_post_taxonomies() {
+    $labels = array(
+        'name'              => _x( 'Basins', 'taxonomy general name' ),
+        'singular_name'     => _x( 'Basin', 'taxonomy singular name' ),
+        'search_items'      => __( 'Search Basins' ),
+        'all_items'         => __( 'All Basins' ),
+        'parent_item'       => __( 'Parent Basin' ),
+        'parent_item_colon' => __( 'Parent Basin:' ),
+        'edit_item'         => __( 'Edit Basin' ),
+        'update_item'       => __( 'Update Basin' ),
+        'add_new_item'      => __( 'Add New Basin' ),
+        'new_item_name'     => __( 'New Basin' ),
+        'menu_name'         => __( 'Basins' ),
+    );
+    $args = array(
+        'labels'            => $labels,
+        'rewrite'           => array( 'slug' => 'basin'),
+        'hierarchical'      => true,
+        'show_admin_column' => true,
+    );
+    register_taxonomy( 'basin', 'post', $args );
 }
-add_action( 'init', 'pbt_basin_post_taxonomies', 0 );
+add_action( 'init', 'pbt_post_taxonomies', 0 );
 
 
 /**
@@ -113,7 +140,8 @@ function pbt_blog_post_taxonomies() {
   );
   $args = array(
     'labels' => $labels,
-    'hierarchical' => true,
+    'rewrite'           => array( 'slug' => 'category'),
+    'hierarchical'      => true,
     'show_admin_column' => true,
     'show_in_nav_menus' => false,
   );
@@ -171,6 +199,47 @@ function pbt_project_credit_taxonomies() {
   register_taxonomy( 'support_level', 'project_credit', $args );
 }
 add_action( 'init', 'pbt_project_credit_taxonomies', 0 );
+
+
+/**
+ * Create Curriculum Post Type
+ */
+function pbt_ed_curriculum_post_type() {
+    register_post_type('curriculum', array(
+       'label'                  => 'Curriculum',
+       'description'            => 'A collection of lessons, displayed in a textbook fashion',
+       'public'                 => true,
+       'show_ui'                => true,
+       'show_in_menu'           => true,
+       'menu_position'          => 28,
+       'capability_type'        => 'post',
+       'query_var'              => true,
+       'has_archive'            => false,
+       'supports'               => array('title','thumbnail','excerpt','revisions'),
+    ));
+}
+
+add_action('init', 'pbt_ed_curriculum_post_type');
+
+/**
+ * Create Learning Object Post Type
+ */
+function pbt_ed_learning_object_post_type() {
+    register_post_type('learning_object', array(
+       'label'                  => 'Learning Object',
+       'description'            => 'A learning object to be displayed on a curriculum or story',
+       'public'                 => true,
+       'show_ui'                => true,
+       'show_in_menu'           => true,
+       'menu_position'          => 29,
+       'capability_type'        => 'post',
+       'query_var'              => true,
+       'has_archive'            => false,
+       'supports'               => array('title','thumbnail','editor','excerpt','revisions'),
+    ));
+}
+
+add_action('init', 'pbt_ed_learning_object_post_type');
 
 /**
  * Custom Permalink Structures

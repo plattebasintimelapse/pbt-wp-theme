@@ -18,7 +18,7 @@
 
 			<?php } else if ( get_post_type() === 'post' ) { ?>
 
-				<h4 class="post-category font-size-small"><small>A Story filed under</small> <?php the_category( ' | ' ) ?></h4>
+				<h4 class="post-category font-size-small"><small>A Story filed under</small> <?php pbt_the_categories( $post,  ' | ' ) ?></h4>
 
 			<?php } else if ( get_post_type() === 'page' ) { ?>
 
@@ -32,10 +32,10 @@
 			?>
 
 			<a href="<?php the_permalink() ?>">
-				<h3 class="post-title">
+				<h1 class="post-title">
 					<?php echo $short_title;
 						if( $short_title != $title) { echo "..."; } ?>
-				</h3>
+				</h1>
 			</a>
 
 			<h5 class="post-meta">
@@ -43,7 +43,6 @@
 					if ( get_post_type() !== 'blog_post' ) { ?> by <a href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ) ); ?>"><?php the_author(); ?></a><?php } ?>
 				</small>
 			</h5>
-			<a class="btn btn-default read-more-btn" role="button" href="<?php the_permalink() ?>"><h6>Read More</h6></a>
 		</div>
 	</div>
 

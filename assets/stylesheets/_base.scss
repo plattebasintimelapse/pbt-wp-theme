@@ -10,6 +10,16 @@ body {
 	@include breakpoint(papa-bear) { font-size: 24px; }
 }
 
+body.single-curriculum {
+	h1, h2, h3, h4, h5 {
+		font-family: $font-family-thin;
+		font-weight: 100;
+	}
+	p {
+		font-size: $font-size-small;
+	}
+}
+
 h1, h2, h3, h4, h5 {
 	margin-top: 10px;
 	margin-bottom: 6px;
@@ -26,6 +36,7 @@ a.link-color-dark { color: $gray-dark; &:hover { color: $blue; }}
 .font-size-ex-small { font-size: $font-size-ex-small; }
 .font-size-small { font-size: $font-size-small; }
 .font-size-large { font-size: $font-size-large; }
+.font-size-ex-large { font-size: $font-size-ex-large; }
 
 input {
 	color: $gray;
@@ -53,8 +64,12 @@ input:focus:-ms-input-placeholder { color:transparent !important; } /* IE 10+ */
 
 .underlined-dark { border-color: $gray-darker; }
 
+.underlined-light { border-color: $gray-lighter; }
+
 .circle-cropped img {
 	padding: 6px;
 	border-radius: 400px;
 }
+
+.padded-left { padding-left: 6px; }
 

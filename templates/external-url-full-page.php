@@ -8,8 +8,8 @@ get_header(); ?>
 
 	<?php while ( have_posts() ) : the_post(); ?>
 
-		<iframe height="800px" width="100%" src="<?php the_field('iframe_url'); ?>" frameborder="0"></iframe>
+		<iframe class="iframe-full-width-height" width="100%" src="<?php the_field('iframe_url'); ?>" frameborder="0"></iframe>
 
 	<?php endwhile; ?>
 
- <?php /* get_footer();*/ ?>
+ <?php get_footer('minimal'); ?>

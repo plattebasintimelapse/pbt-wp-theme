@@ -16,6 +16,13 @@
 	@include text-over-image();
 
 	a { color: $gray-lighter; }
+
+	.container {
+		position: absolute;
+		@include block-centered(80%);
+		max-width: 1200px;
+		top: 20%;
+	}
 }
 
 .hero-image-behind {
@@ -64,6 +71,23 @@
 	max-width: 1300px;
 }
 
+.container-padding {
+	padding-top: 20px;
+	padding-bottom: 20px;
+	@include breakpoint(baby-bear) {
+		padding-top: 30px;
+		padding-bottom: 30px;
+	}
+	@include breakpoint(mama-bear) {
+		padding-top: 40px;
+		padding-bottom: 40px;
+	}
+	@include breakpoint(papa-bear) {
+		padding-top: 50px;
+		padding-bottom: 50px;
+	}
+}
+
 .container-padding-top {
 	padding-top: 40px;
 	@include breakpoint(baby-bear) { padding-top: 60px; }
@@ -75,9 +99,18 @@
 	padding-top: 40px;
 }
 
+.container-fluid-no-padding {
+	padding-left: 0;
+	padding-right: 0;
+}
+
+
+.row-ex-padding { padding: 80px 0; }
 .row-padding { padding: 50px 0; }
 .row-some-padding { padding: 20px 0; }
 .row-little-padding { padding: 10px 0; }
+
+.row-padding-top { padding-top: 40px; }
 
 .col-extra-padding {
 	padding-left: 30px;
@@ -96,6 +129,28 @@
 .main-content > .container {
 	max-width: 740px;
 	@include breakpoint(papa-bear) { max-width: 960px; }
+}
+
+.overlay {
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	display: block;
+	top: 0;
+	left: 0;
+	z-index: 1;
+	background-color: rgba(0,0,0,0.5);
+	-webkit-transition: background-color 1s ease;
+	-moz-transition: background-color 1s ease;
+	transition: background-color 1s ease;
+}
+
+.admin-bar .iframe-full-width-height {
+	margin-top: -32px;
+}
+
+.admin-bar.nav-is-open .iframe-full-width-height, .admin-bar.search-is-open .iframe-full-width-height {
+	margin-top: 0;
 }
 
 /**
@@ -125,20 +180,20 @@
 	}
 }
 
-.post-thumbnail {
+.post-thumbnail, .featured-post-thumbnail {
 	background-color: black;
 }
 
 .post-thumbnail img {
-	opacity: .7;
+	opacity: .8;
 }
 
-.post-meta-box, .featured-meta-box {
+.post-meta-box, .featured-meta-box, .featured-post-meta-box {
 	position: absolute;
 	@include text-over-image();
 }
 
-.post-meta-box {
+.post-meta-box, .featured-post-meta-box {
 	top: 2%;
 	text-align: center;
 	width: 96%;
@@ -151,26 +206,21 @@
 
 	@include breakpoint(baby-bear) {
 		top: 12%;
-		left: 50%;
-		width: 80%;
-		margin-left: -(40%);
+		@include block-centered(80%);
 		text-align: center;
 		.post-title {
-			font-size: 1.6rem;
+			font-size: 1.8rem;
 		}
 	}
 
 	@include breakpoint(mama-bear) {
-		top: 4%;
-		width: 96%;
-		margin-left: -48%;
+		top: 0%;
+		width: 82%;
+		margin-left: -41%;
 	}
 
-	.read-more-btn {
-		display: none; // hide on small screens
-		@include breakpoint(baby-bear) {
-			display: inline-block;
-		}
+	@include breakpoint(papa-bear) {
+		top: 5%;
 	}
 
 	.post-category, .blog-post-author {
@@ -178,30 +228,36 @@
 		@include breakpoint(baby-bear) {
 			display: block;
 			padding-bottom: 6px;
-		border-bottom: 2px solid $gray-lighter;
-		}
-	}
-
-	.post-meta {
-		display: none; // hide on small screens
-		@include breakpoint(baby-bear) {
-			display: block;
-			margin-top: 4px;
-			margin-bottom: 6px;
+			border-bottom: 2px solid $gray-lighter;
 		}
 	}
 }
 
-.featured-story .post-meta-box {
+.post-meta-box .read-more-btn {
+	opacity: 0;
+	position: absolute;
+	top: 50px;
+	@include block-centered(200px);
+}
+
+.post-meta-box-small {
+	@extend .post-meta-box;
+	top: 20%;
+}
+
+.featured-post-meta-box {
+	@include block-centered(80%);
+	top: 10%;
+	text-align: center;
 
 	@include breakpoint(baby-bear) {
-		width: 70%;
-		margin-left: -35%;
+		width: 74%;
+		margin-left: -38%;
 		top: 15%;
 	}
 }
 
-.featured-story .post-meta-box p {
+.featured-post-meta-box p {
 	text-transform: none;
 	display: none;
 	@include breakpoint(baby-bear) {
@@ -209,25 +265,24 @@
 	}
 }
 
-.featured-story .post-meta-box .post-title {
+.featured-post-meta-box .post-title {
   	font-size: 1.6rem;
   	@include breakpoint(baby-bear) {
 		font-size: 2.1rem;
 	}
+	@include breakpoint(mama-bear) {
+		font-size: 3rem;
+	}
 }
 
 .featured-meta-box {
+	z-index: 2;
 	top: 5%;
-	left: 50%;
-	width: 90%;
-	margin-left: -45%;
+	@include block-centered(90%);
 	text-align: center;
 
 	h2 { display: inline-block; }
 	h5, p { display: none; }
-	.read-more-btn {
-		display: none;
-  	}
 
 	@include breakpoint(baby-bear) {
 		text-align: left;
@@ -289,29 +344,17 @@
 .hero-image-caption {
 	position: absolute;
 	top: 100%;
-	left: 0;
+	right: 0;
 	color: $text-color;
 	text-shadow: none;
 	font-size: .6em;
+	text-align: right;
 	max-width: 90%;
 	margin-top: 5px;
-	margin-left: 15px;
-
-	@include breakpoint(mama-bear) {
-		color: inherit;
-		top: auto;
-		bottom: 10px;
-		max-width: 200px;
-		@include text-over-image();
-	}
-}
-
-.hero-image-caption-right {
-	text-align: right;
 	margin-right: 15px;
-	margin-left: 0;
-	left: auto; // reset default hero-image-caption left style
-	right: 0;
+	@include breakpoint(mama-bear) {
+		max-width: 300px;
+	}
 }
 
 .main-content > .container > p {
@@ -332,12 +375,36 @@
 	font-weight: 700;
 	padding: 0 5px;
 	margin: 0;
-	a { color: $text-color; &:hover { color: $brand-primary; } }
+	a { color: $text-color; &:hover, &:focus { color: $brand-primary; } }
 }
 
 .byline:after { content: " |"; }
 
 .byline:last-child:after { content: ""; }
+
+.post-meta-bylines {
+	.bylines {
+		margin-bottom: 4px;
+	}
+	.byline {
+		color: $brand-light;
+		a { color: $brand-light; &:hover, &:focus { color: $brand-primary; } }
+	}
+}
+
+.main-content .post-meta {
+	padding-top: 5px;
+	border-top: 1px solid $brand-light;
+	color: $brand-light;
+	i, .badge, span { vertical-align: bottom; }
+	.badge { text-transform: lowercase; }
+	a {
+		color: $brand-light;
+		&:hover {
+			color: $blue;
+		}
+	}
+}
 
 .edit-post-link {
 	text-align: center;
@@ -350,7 +417,7 @@
 	text-align: center;
 	margin-bottom: 10px;
 	.font-size-large {
-		font-size: 1.1rem;
+		font-size: 1.3rem;
 	}
 	@include breakpoint(mama-bear) {
 		margin-bottom: 80px;
@@ -376,11 +443,12 @@
 		color: $blue;
 		&:hover { color: $gray-dark; }
 	}
+	img { @include opacity-transition(.8); }
 }
 
 .author-link {
   display: inline-block;
-  padding-right: 0px;
+  padding-right: 4px;
   padding-bottom: 0px;
   margin-top: 0;
 }
@@ -406,17 +474,18 @@
 
 
 .credit-wrapper {
-	padding: 15px;
+	padding: 25px 0;
 	width: auto;
-	@include breakpoint(papa-bear) { padding: 25px 0; }
+	@include breakpoint(mama-bear) { padding: 35px 0; }
+	@include breakpoint(papa-bear) { padding: 45px 0; }
 
 	img {
-		height: 36px;
+		height: 44px;
 		width: auto;
 		display: block;
   		margin: 0 auto;
-  		@include breakpoint(mama-bear) { height: 40px; }
-  		@include breakpoint(papa-bear) { height: 52px; }
+  		@include breakpoint(mama-bear) { height: 54px; }
+  		@include breakpoint(papa-bear) { height: 62px; }
 	}
 }
 
@@ -432,10 +501,6 @@
  *  Styles for the archive and search page.
  *  Both a successful search and a no-results search, yearly search and monthly search.
  */
-
-.archive, .search {
-	.btn-block { max-width: 150px; margin: 0 auto; }
-}
 
 /**
  *	SEARCH BAR

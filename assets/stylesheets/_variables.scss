@@ -33,6 +33,7 @@ $brand-success:         #5cb85c;
 $brand-info:            lighten($brand-primary, 10%);
 $brand-warning:         #f0ad4e;
 $brand-danger:          #d9534f;
+$brand-light:			#BFBFBF;
 
 
 
@@ -63,6 +64,7 @@ $link-hover-decoration: none;
 //## Font, line-height, and color for body text, headings, and more.
 
 $font-family-sans-serif:  "Proxima Nova", "Helvetica Neue", Helvetica, Arial, sans-serif;
+$font-family-thin:		  "Helvetica Neue Light","Helvetica Neue",Helvetica,Arial,"Lucida Grande",sans-serif;
 $font-family-serif:       Georgia, "Times New Roman", Times, serif;
 $font-family-base:        $font-family-sans-serif;
 
@@ -70,6 +72,7 @@ $font-family-base:        $font-family-sans-serif;
 $fa-font-path:        	  "assets/fonts";
 
 $font-size-base:          20px;
+$font-size-ex-large:      ceil(($font-size-base * 1.9));
 $font-size-large:         ceil(($font-size-base * 1.9));
 $font-size-small:         ceil(($font-size-base * 0.90));
 $font-size-ex-small:      ceil(($font-size-base * 0.65));

@@ -10,7 +10,7 @@ get_header();
 	$post_thumbnail_id = get_post_thumbnail_id();
 	$post_thumbnail_url = wp_get_attachment_url( $post_thumbnail_id ); ?>
 
-	<section class="featured hero-image hero-image-behind" style="background-image: url(<?php echo $post_thumbnail_url ?>)">
+	<section class="featured hero-image hero-image-behind" style="background-image: url(<?php echo $post_thumbnail_url ?>); background-position: <?php the_field( 'horizontal_weight' ) ?> <?php the_field( 'vertical_weight' )  ?>;">
 		<div class="container-fluid">
 
 				<h2 class="post-title"><?php the_title(); ?></h2>
@@ -28,10 +28,24 @@ get_header();
 
 				<?php
 
-					get_template_part( 'partials/content', get_post_format() );
+					get_template_part( 'partials/content', get_post_format() ); ?>
 
-					edit_post_link('edit', '<p class="edit-post-link">', '</p>'); ?>
+			</div>
 
+			<div class="container container-little-padding-top">
+				<div class="post-meta-bylines font-size-small">
+					<?php
+						edit_post_link('edit', '<span class="pull-right">', '</span>');
+						pbt_secondary_bylines();
+					?>
+				</div>
+				<div class="post-meta font-size-small">
+					<i class="fa fa-tag"></i>
+					<?php
+						pbt_the_badged_categories($post);
+						echo '<span class="post-date font-size-small pull-right"><em>Posted on ' . get_the_date( 'F j, Y' ) . '</em></span>';
+					?>
+				</div>
 			</div>
 
 			<?php if ( comments_open() && !is_preview() ) { // Check if comments are allowed per post ?>

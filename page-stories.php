@@ -39,7 +39,6 @@ $featuredPostID; // Used to exclude post from main FEED
 
 				<div class="featured-meta-box">
 
-					<h5>Featured Story</h5>
 					<a href="<?php the_permalink() ?>"><h2><?php the_title(); ?></h2></a>
 					<?php the_excerpt(); ?>
 					<a class="btn btn-default read-more-btn" role="button" href="<?php the_permalink() ?>"><h6>Read More</h6></a>
@@ -60,12 +59,14 @@ $featuredPostID; // Used to exclude post from main FEED
 
 		<!-- THE STORY PAGE FEED OF POSTS -->
 		<?php
+			$paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
 			$story_page_query_args = array(
 				'post_type' => 'post',
 				'post__not_in' => array( $featuredPostID, ),
 				'orderby' => 'date',
 				'order'   => 'DESC',
 				'posts_per_page' => 10,
+				'paged' => $paged,
 			);
 
 			$the_query = new WP_Query( $story_page_query_args );
@@ -77,15 +78,16 @@ $featuredPostID; // Used to exclude post from main FEED
 						<?php get_template_part( 'partials/post-feed-thumbnail' ); ?>
 					</div>
 
-				<?php endwhile; 
+				<?php endwhile; ?>
+	</div>
 
-				if ( function_exists("wp_bs_pagination") ) wp_bs_pagination($the_query->max_num_pages);
+	<div class="container">
+		<?php if ( function_exists("wp_bs_pagination") ) wp_bs_pagination($the_query->max_num_pages); ?>
+	</div>
 
-			endif;
+		<?php  endif;
 			wp_reset_postdata();
 		?>
-
-	</div>
 </article>
 
 

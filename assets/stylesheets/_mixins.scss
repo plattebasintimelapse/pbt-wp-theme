@@ -1,14 +1,37 @@
+@mixin block-centered($width) {
+	display: block;
+	left: 50%;
+	width: $width;
+	margin-left: -($width/2);
+}
+
 @mixin text-over-image() {
 	color: $gray-lighter;
 	text-shadow: $text-shadow-over-image;
 	a {
 		color: $gray-lighter;
-		opacity: 1;
-		-webkit-transition: all 500ms ease-out;
-	    -moz-transition: all 500ms ease-out;
-	    -o-transition: all 500ms ease-out;
-	    transition: all 500ms ease-out;
-		&:hover { opacity: .5; }
 	}
 	small { color: $gray-lighter; }
+}
+
+@mixin opacity-transition($num) {
+	opacity: 1;
+	-webkit-transition: opacity 500ms ease-out;
+    -moz-transition: opacity 500ms ease-out;
+    -o-transition: opacity 500ms ease-out;
+    transition: opacity 500ms ease-out;
+    &:hover, &:focus { opacity: $num; }
+}
+
+@mixin colors-transition($bg-color, $color, $border-color) {
+	-webkit-transition: background-color 500ms ease-in-out, color 500ms ease-in-out, border-color 500ms ease-in-out;
+    -moz-transition: background-color 500ms ease-in-out, color 500ms ease-in-out, border-color 500ms ease-in-out;
+    -o-transition: background-color 500ms ease-in-out, color 500ms ease-in-out, border-color 500ms ease-in-out;
+    transition: background-color 500ms ease-in-out, color 500ms ease-in-out, border-color 500ms ease-in-out;
+
+    &:hover, &:focus {
+    	background-color: $bg-color;
+    	color: $color;
+    	border-color: $border-color;
+    }
 }

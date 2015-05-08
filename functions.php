@@ -1,6 +1,7 @@
 <?php
 
 require_once('inc/theme_setup.php');
+require_once('inc/filters.php');
 require_once('inc/shortcodes.php');
 require_once('inc/custom_post_types.php');
 require_once('inc/user_fields.php');
@@ -58,7 +59,7 @@ function pbt_setup() {
 	/**
 	 * Enable support for Post Formats
 	 */
-	add_theme_support( 'post-formats', array( 'link' ) );
+	add_theme_support( 'post-formats', array( 'link', 'audio' ) );
 
 	/**
 	 * Register sidebars
@@ -109,78 +110,20 @@ endif;
 add_action( 'after_setup_theme', 'pbt_setup' );
 
 
-
-
-
 /**
- * Hack the title tag to show Home when at site.
+ * Add a link to the theme docs in the admin header
  */
-add_filter( 'wp_title', 'pbt_hack_wp_title_for_home' );
-function pbt_hack_wp_title_for_home( $title )
-{
-  if( empty( $title ) && ( is_home() || is_front_page() ) ) {
-    return 'Home' . ' | ' . get_bloginfo( 'description' );
-  }
-  return $title;
+function pbt_docs_admin_link( $wp_admin_bar ) {
+	$args = array(
+		'id'		=> 'pbt-docs',
+		'title' 	=> 'PBT Docs',
+		'href'  	=> 'https://github.com/plattebasintimelapse/pbt-wp-theme/blob/master/docs/docs.md',
+		'meta'  	=> array( 'target' => '_blank' ),
+	);
+	$wp_admin_bar->add_node( $args );
 }
 
-
-/**
- * Add custom image sizes to Admin Media select box
- */
-function pbt_admin_choose_image_sizes( $sizes ) {
-    return array_merge( $sizes, array(
-        'story-featured' => __( 'Featured Image' ),
-    ) );
-}
-add_filter( 'image_size_names_choose', 'pbt_admin_choose_image_sizes' );
-
-
-
-/**
- * Search Form function, hooked to get_search_form function
- */
-function pbt_search_form( $form ) {
-	$form = '<form role="search" method="get" id="searchform" class="searchform" action="' . home_url( '/' ) . '" >
-	<div><label class="screen-reader-text" for="s">' . __( 'Search:' ) . '</label>
-	<input type="text" value="' . get_search_query() . '" name="s" id="s" placeholder="Type and press enter"/>
-	</div>
-	</form>';
-
-	return $form;
-}
-
-add_filter( 'get_search_form', 'pbt_search_form' );
-
-function unregister_taxonomy(){
-    register_taxonomy('post_tag', array());
-}
-add_action('init', 'unregister_taxonomy');
-
-function remove_post_tag_menus(){
-    remove_menu_page('edit-tags.php?taxonomy=post_tag'); // Post tags
-}
-
-add_action( 'admin_menu', 'remove_post_tag_menus' );
-
-/**
- * Parse post link and replace it with meta value, or the 'external_url' field.
- * This is used for the WP post type Link.
- *
- * @wp-hook post_link
- * @param   string $link
- * @param   object $post
- * @return  string
- */
-function pbt_external_permalink( $link, $post ) {
-    $meta = get_post_meta( $post->ID, 'external_url', TRUE );
-    $url  = esc_url( filter_var( $meta, FILTER_VALIDATE_URL ) );
-
-    return $url ? $url : $link;
-}
-add_filter( 'post_link', 'pbt_external_permalink', 10, 2 );
-
-
+add_action( 'admin_bar_menu', 'pbt_docs_admin_link', 999 );
 
 
 

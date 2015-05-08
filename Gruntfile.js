@@ -9,13 +9,14 @@ module.exports = function(grunt) {
         config: config,
 
         watch: {
+            options: { nospawn: true },
             sass: {
-                files: '**/*.scss',
+                files: '<%= config.assets %>/stylesheets/**/*.scss',
                 tasks: ['sass']
             },
-            livereload: {
-                options: { livereload: true },
-                files: ['*.css']
+            js: {
+                files: '<%= config.assets %>/scripts/{,*/}*.js',
+                tasks: ['uglify']
             }
 
         },
@@ -46,6 +47,7 @@ module.exports = function(grunt) {
                         'bower_components/jquery/dist/jquery.js',
                         'bower_components/modernizr/modernizr.js',
                         'bower_components/bootstrap-sass-official/assets/javascripts/bootstrap.js',
+                        'bower_components/jplayer/dist/jplayer/jquery.jplayer.min.js',
                         '<%= config.assets %>/scripts/main.js'
                     ]
                 }

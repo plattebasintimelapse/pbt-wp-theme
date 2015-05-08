@@ -1,8 +1,7 @@
 <?php
 /**
- * The template for the stories page.
- * Description: This is the template that displays all stories curently published.
- * It excludes the post featured on the story page.
+ * The template for the notebook page.
+ * Description: This is the template that displays all notebook entries curently published.
  */
 
 get_header();
@@ -12,9 +11,13 @@ get_header();
 	$post_thumbnail_id = get_post_thumbnail_id();
 	$post_thumbnail_url = wp_get_attachment_url( $post_thumbnail_id ); ?>
 
-	<section class="featured hero-image hero-image-behind" style="background-image: url(<?php echo $post_thumbnail_url ?>)">
+	<section class="featured hero-image hero-image-behind hero-image-behind-short" style="background-image: url(<?php echo $post_thumbnail_url ?>)">
 
-		<h4 class="post-title"><?php the_content(); ?></h4>
+		<div class="featured-meta-box">
+			<h1><?php the_title(); ?></h1>
+
+			<?php the_content(); ?>
+		</div>
 
 	</div> <!-- .container-fluid -->
 </section> <!-- .featured -->
@@ -24,11 +27,13 @@ get_header();
 
 		<!-- THE NOTEBOOK PAGE FEED OF POSTS -->
 		<?php
+			$paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
 			$notebook_page_query_args = array(
 				'post_type' => 'blog_post',
 				'orderby' => 'date',
 				'order'   => 'DESC',
 				'posts_per_page' => 10,
+				'paged' => $paged,
 			);
 
 			$the_query = new WP_Query( $notebook_page_query_args );
@@ -38,15 +43,16 @@ get_header();
 				<?php get_template_part( 'partials/post-feed-thumbnail' ); ?>
 			</div>
 
-		<?php endwhile;
-
-			if ( function_exists("wp_bs_pagination") ) wp_bs_pagination($the_query->max_num_pages);
-
-		endif;
-		wp_reset_postdata();
-		?>
-
+		<?php endwhile; ?>
 	</div>
+
+	<div class="container">
+		<?php if ( function_exists("wp_bs_pagination") ) wp_bs_pagination($the_query->max_num_pages); ?>
+	</div>
+
+	<?php  endif;
+		wp_reset_postdata();
+	?>
 </article>
 
 <?php endwhile; ?>

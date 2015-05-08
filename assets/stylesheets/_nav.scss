@@ -41,7 +41,7 @@ header .btn {
 	font-weight: 700;
 	font-size: 1.6rem;
 	@include breakpoint(baby-bear) { font-size: 1.2rem; }
-	@include breakpoint(mama-bear) { font-size: 1rem; padding: 40px 40px; }
+	@include breakpoint(mama-bear) { font-size: 1rem; padding: 25px 40px; }
 	&:hover, &:focus { color: $blue; background-color: $gray-lighter; }
 }
 
@@ -60,8 +60,8 @@ header .btn {
 
 .nav#footer-menu > li > a {
 	padding: 20px 30px;
-	text-transform: lowercase;
-	font-weight: 400;
+	text-transform: uppercase;
+	font-weight: 700;
 	text-shadow: none;
 	font-size: 1.1rem;
 	@include breakpoint(baby-bear) { font-size: .9rem; }
@@ -108,7 +108,7 @@ header .btn {
 #searchbarCollapse form {
 	margin: 0 auto;
 	padding: 40px 20px;
-	@include breakpoint(baby-bear) { padding: 60px 20px; }
+	@include breakpoint(baby-bear) { padding: 40px 20px; }
 }
 
 #searchbarCollapse input {

@@ -12,6 +12,15 @@
 
 .small { color: $gray-darker !important; }
 
+.badge {
+	background-color: $brand-light;
+	padding: 4px 8px;
+}
+
+a .badge:hover {
+	background-color: $blue;
+}
+
 hr {
 	margin-top: 28px;
 	margin-bottom: 28px;
@@ -23,14 +32,41 @@ hr {
 	top: 40px !important;
 }
 
+.btn {
+	border-width: 2px;
+}
+
 
 .btn-lg, .btn-group-lg > .btn, .btn {
  	border-radius: 0;
 }
 
+.btn-primary.btn-ghost {
+	color: $brand-primary;
+	background-color: transparent;
+
+	@include colors-transition($brand-primary, $body-bg, $brand-primary);
+}
+
+.btn-default {
+	@include colors-transition(rgba(255,255,255,.2), $gray-lighter, $gray-lighter);
+}
+
+.btn-block {
+	margin: 0 auto;
+}
+
+.btn-max-width {
+	max-width: 240px;
+}
+
+.btn-lg-max-width {
+	max-width: 280px;
+}
+
 .pagination-sm > li > a, .pagination-sm > li > span {
-  padding: 6px 12px;
-  font-size: 14px;
+  	padding: 6px 12px;
+  	font-size: 14px;
 }
 
 // MODULES IN THE MAIN ARTICLE OF PAGES
@@ -44,26 +80,28 @@ hr {
 figure.image {
 	margin: 30px 0;
 	display: inline-block;
-	margin-right: 0;
-	@include breakpoint(mama-bear) {
-		// margin-right: -15%;
-  	}
 }
 
 figure.alignright {
 	float: right;
 	padding: 20px 0 20px 20px;
+	margin: 0;
 }
 
 figure.alignleft {
 	float: left;
 	padding: 20px 20px 20px 0;
+	margin: 0;
 }
 
 
-img.size-story-featured, img.size-full {
+figure.featured, figure.full {
 	width: 100%;
-	margin-bottom: 4px;
+}
+
+figure.full .caption-text {
+	padding-right: 25px;
+	padding-left: 25px;
 }
 
 .caption-text {
@@ -71,20 +109,50 @@ img.size-story-featured, img.size-full {
 	color: $gray-light;
 	text-align: right;
 	font-style: italic;
+	width: 100%;
+	float: right;
+}
+
+.main-content .container > img, .main-content .container > a > img  {
+	margin: 50px 0; // Give margin to images without caption
+}
+
+.main-content .container > img.alignright, .main-content .container > a > img.alignright  {
+	float: right;
+	padding: 20px 0 20px 20px;
+	margin: 0;
+}
+
+.main-content .container > img.alignleft, .main-content .container > a > img.alignleft  {
+	float: left;
+	padding: 20px 20px 20px 0;
+	margin: 0;
+}
+
+.main-content .container > img.size-medium, .main-content .container > a > img.size-medium  {
+	width: 600px;
+}
+
+.main-content .container > img.size-thumbnail, .main-content .container > a > img.size-thumbnail  {
+	width: 300px;
+}
+
+figure.image img {
+	margin: 0; // Don't let captioned images get that margin
 }
 
 /*****************/
 /* Video wrapper */
 /*****************/
 
-.main .video-wrapper {
+.video-wrapper {
     height: 0;
     padding-bottom: 54.25%;
     padding-top: 25px;
     position: relative;
     margin: 5px 0;
 }
-.main .video-wrapper iframe {
+.video-wrapper iframe {
     position: absolute;
     top: 0;
     left: 0;
@@ -92,14 +160,14 @@ img.size-story-featured, img.size-full {
     height: 100%;
 }
 
-.main .timelapse-wrapper {
+.timelapse-wrapper {
     height: 0;
     padding-bottom: 64%;
     padding-top: 25px;
     position: relative;
     margin: 5px 0;
 }
-.main .timelapse-wrapper iframe {
+.timelapse-wrapper iframe {
     position: absolute;
     top: 0;
     left: 0;
@@ -107,17 +175,49 @@ img.size-story-featured, img.size-full {
     height: 100%;
 }
 
-.featured-video {
+.video-featured {
 	width: 100%;
-	margin-top: 60px;
-	margin-bottom: 60px;
+	margin-top: 30px;
+	margin-bottom: 40px;
+	@include breakpoint(mama-bear) {
+		margin-top: 60px;
+		margin-bottom: 80px;
+	}
 }
 
-.aside-video {
+.video-aside {
 	width: 100%;
-	float: right;
 	padding: 20px 0 20px 0;
-	@include breakpoint(mama-bear) { width: 70%; padding: 20px 0 20px 20px; }
+	@include breakpoint(mama-bear) { width: 60%; }
+}
+
+.video-left {
+	float: left;
+	@include breakpoint(mama-bear) { padding: 20px 20px 20px 0; }
+}
+
+.video-right {
+	float: right;
+	@include breakpoint(mama-bear) { padding: 20px 0 20px 20px; }
+}
+
+/*********************/
+/* Responsive Iframe */
+/*********************/
+
+.responsive-frame-aside {
+    width: 100%;
+    @include breakpoint(mama-bear) { width: 50%; }
+}
+
+.responsive-frame-left {
+    float: left;
+    padding-right: 20px;
+}
+
+.responsive-frame-right {
+    float: right;
+    padding-left: 20px;
 }
 
 /*********************/
@@ -137,55 +237,70 @@ img.size-story-featured, img.size-full {
 }
 
 
+/*******************/
+/* Featured Audio */
+/******************/
 
-
-
-.ribbon-wrapper-featured {
-	width: 85px;
-	height: 88px;
-	overflow: hidden;
-	position: absolute;
-	top: -3px;
-	right: -3px;
+.featured-audio {
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	padding: 15px;
+	background-color: $brand-primary;
+	color: $gray-lighter;
+	z-index: 1031;
 }
 
-.ribbon-featured {
-	color: white;
+.featured-audio-prompt {
 	text-align: center;
-	font-size: .7em;
-	text-shadow: rgba(0,0,0,0.9) 0px 1px 0px;
-	-webkit-transform: rotate(45deg);
-	-moz-transform:    rotate(45deg);
-	-ms-transform:     rotate(45deg);
-	-o-transform:      rotate(45deg);
-	position: relative;
-	padding: 4px 0;
-	left: -5px;
-	top: 15px;
-	width: 120px;
-	background-color: #dc6252;
-	background-image: -webkit-gradient(linear, left top, left bottom, from(#dc6252), to(#bf4548));
-	background-image: -webkit-linear-gradient(top, #dc6252, #bf4548);
-	background-image:    -moz-linear-gradient(top, #dc6252, #bf4548);
-	background-image:     -ms-linear-gradient(top, #dc6252, #bf4548);
-	background-image:      -o-linear-gradient(top, #dc6252, #bf4548);
-	-webkit-box-shadow: 0px 0px 3px rgba(0,0,0,0.3);
-	-moz-box-shadow:    0px 0px 3px rgba(0,0,0,0.3);
-	box-shadow:         0px 0px 3px rgba(0,0,0,0.3);
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 8px;
+	@include breakpoint(mama-bear) {
+		text-align: right;
+		margin-bottom: 0;
+		margin-top: 6px;
+	}
 }
 
-.ribbon-featured:before, .ribbon-featured:after {
-	content: "";
-	border-top:   4px solid #893211;
-	border-left:  4px solid transparent;
-	border-right: 4px solid transparent;
-	position:absolute;
-	bottom: -4px;
+.featured-audio div.mjp-s-wrapper.s-graphic {
+	padding: 0;
+	display: block;
+	width: 100%;
+	max-width: 1600px;
+	margin: 0 auto !important;
 }
 
-.ribbon-featured:before { left: 0; }
-.ribbon-featured:after { right: 0; }
-
-.mc-form {
-
+.featured-audio span.group_wrap {
+  width: 80%;
+  display: inline-block;
 }
+
+.featured-audio span.indi_mp3j {
+	padding-left: 10px;
+	z-index: 1031;
+	color: white;
+}
+
+
+.featured-audio span.load_mp3j, .featured-audio span.loadB_mp3j {
+  height: 112%;
+}
+
+.featured-audio span.posbarB_mp3j .ui-widget-header {
+  background-color: $brand-primary !important;
+}
+.featured-audio span.posbarB_mp3j .ui-slider-handle, .featured-audio span.tintmarg {
+  display: none;
+}
+
+.featured-audio span.posbarB_mp3j {
+    visibility: visible;
+  	background-color: $gray-darker !important;
+}
+
+.featured-audio .loadMI_mp3j, .featured-audio .loadB_mp3j, .featured-audio .load_mp3j {
+  	background: none;
+}
+

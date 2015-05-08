@@ -7,7 +7,3 @@ tests/
 
 node_modules/
 bower_components/
-
-assets/fonts/
-assets/scripts/main.min.js
-style.css
