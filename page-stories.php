@@ -76,7 +76,8 @@ $featuredPostID; // Used to exclude post from main FEED
 
 					<div id="post-<?php the_ID(); ?>" <?php post_class('col-sm-12 col-md-6'); ?>>
 
-						<?php pbt_bylines(); get_template_part( 'partials/post-feed-thumbnail' ); ?>
+						<?php get_template_part( 'partials/post-feed-thumbnail' ); ?>
+
 					</div>
 
 				<?php endwhile; ?>
