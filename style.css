@@ -3691,6 +3691,8 @@ figure.image img { margin: 0; }
 /*********************/
 /* Responsive Iframe */
 /*********************/
+.responsive-frame-featured { width: 100%; margin: 40px auto; }
+
 .responsive-frame-aside { width: 100%; }
 @media (min-width: 992px) { .responsive-frame-aside { width: 50%; } }
 

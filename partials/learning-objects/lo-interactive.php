@@ -22,5 +22,13 @@ $slug = sanitize_title( get_the_title() );
 	?>
 </section>
 
+<section>
+	<div class="row">
+		<div class="col-xs-12">
+			<?php the_content(); ?>
+		</div>
+	</div>
+</section>
+
 
 
