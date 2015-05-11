@@ -48,10 +48,10 @@ function pbt_add_extra_user_fields( $user ) {
                 <th><label for="user_pbt_role">PBT Role</label></th>
                 <td><input type="text" name="user_pbt_role" value="<?php echo esc_attr(get_the_author_meta( 'user_pbt_role', $user->ID )); ?>" class="regular-text" /></td>
             </tr>
-            <tr>
-                <th><label for="user_pbt_role">Display Order</label></th>
+         <!--    <tr>
+                <th><label for="user_pbt_display_order">Display Order</label></th>
                 <td><input type="text" name="user_pbt_display_order" value="<?php echo esc_attr(get_the_author_meta( 'user_pbt_display_order', $user->ID )); ?>" class="regular-text" /></td>
-            </tr>
+            </tr> -->
         </table>
     <?php
 }
@@ -64,7 +64,7 @@ add_action( 'edit_user_profile', 'pbt_add_extra_user_fields' );
  */
 function pbt_save_extra_user_fields( $user_id ) {
     update_user_meta( $user_id,'user_pbt_role', sanitize_text_field( $_POST['user_pbt_role'] ) );
-    update_user_meta( $user_id,'user_pbt_display_order', sanitize_text_field( $_POST['user_pbt_display_order'] ) );
+    // update_user_meta( $user_id,'user_pbt_display_order', sanitize_text_field( $_POST['user_pbt_display_order'] ) );
 }
 add_action( 'personal_options_update', 'pbt_save_extra_user_fields' );
 add_action( 'edit_user_profile_update', 'pbt_save_extra_user_fields' );

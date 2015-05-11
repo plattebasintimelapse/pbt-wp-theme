@@ -36,8 +36,8 @@ while ( have_posts() ) : the_post();
 				<?php
 					$author_args = array(
 						'exclude' 	=> array( 1, 14 ), // Exclude Platte Admin and full-team user
-						'meta_key'	=> 'user_pbt_display_order',
-						'orderby' 	=> 'meta_value_num',
+						// 'meta_key'	=> 'user_pbt_display_order',
+						// 'orderby' 	=> 'meta_value_num',
 					);
 
 					$user_query = new WP_User_Query( $author_args );
