@@ -35,12 +35,13 @@ while ( have_posts() ) : the_post();
 			<div class="row">
 				<?php
 					$author_args = array(
-						'exclude' => array( 1, 14 ), // Exclude Platte Admin and full-team user
-						'orderby' => 'display_name',
+						'exclude' 	=> array( 1, 14 ), // Exclude Platte Admin and full-team user
+						'meta_key'	=> 'user_pbt_display_order',
+						'orderby' 	=> 'meta_value_num',
 					);
 
 					$user_query = new WP_User_Query( $author_args );
-					$i = 2;
+					$i = 2; //offset columns for the intro text
 					$column_width = 12 / $user_per_row;
 
 					echo '<div class="col-md-' . $column_width * 2 . '"><div class="col-md-lead-in">';
