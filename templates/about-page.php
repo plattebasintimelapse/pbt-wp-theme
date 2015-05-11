@@ -34,8 +34,22 @@ while ( have_posts() ) : the_post();
 
 			<div class="row">
 				<?php
+
+					$admins = get_users( array( 'role' => 'administrator' ) );
+					$authors = get_users( array( 'role' => 'author' ) );
+					$editors = get_users( array( 'role' => 'editor' ) );
+
+					$pbters = array_merge($admins, $authors, $editors);
+
+					$pbters_IDs = array();
+
+					foreach( $pbters as $person ) {
+					    $pbters_IDs[] = $person->ID;
+					}
+
 					$author_args = array(
 						'exclude' 	=> array( 1, 14 ), // Exclude Platte Admin and full-team user
+						'include'	=> $pbters_IDs,
 						'meta_key'	=> 'user_pbt_display_order',
 						'orderby' 	=> 'meta_value_num',
 					);
