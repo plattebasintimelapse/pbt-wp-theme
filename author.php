@@ -60,7 +60,7 @@ get_header(); ?>
 		<div class="container container-little-padding-top">
 		<?php
 			if ( have_posts() ) :
-				echo '<h3 class="text-center">' . $curauth->first_name . "'s Credits</h3>";
+				echo '<h3 class="text-center">' . $curauth->first_name . "'s Work</h3>";
 				while ( have_posts() ) :
 					the_post(); ?>
 
