@@ -76,7 +76,10 @@ get_header(); ?>
 
 					$authors = []; // An array for all authors associated with this post
 
-					array_push($authors, get_the_author_meta('display_name'), get_field('second_user')['display_name'], get_field('third_user')['display_name'], get_field('fourth_user')['display_name']);
+					array_push($authors, get_the_author_meta('display_name') );
+					array_push($authors, get_field('second_user')['display_name'] );
+					array_push($authors, get_field('third_user')['display_name'] );
+					array_push($authors, get_field('fourth_user')['display_name'] );
 
 					if( in_array($curauth->display_name, $authors ) ) { // Check to see if curauth, the author template currently being viewed, is in the array of post authors ?>
 
