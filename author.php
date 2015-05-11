@@ -59,10 +59,26 @@ get_header(); ?>
 
 		<div class="container container-little-padding-top">
 		<?php
-			if ( have_posts() ) :
+			$paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
+			$author_query_args = array(
+				'post_type' 		=> array('post', 'blog_post',),
+				'orderby' 			=> 'date',
+				'order'   			=> 'DESC',
+				'posts_per_page' 	=> 10,
+				'paged' 			=> $paged,
+			);
+
+			$the_query = new WP_Query( $author_query_args );
+			if ( $the_query->have_posts() ) :
 				echo '<h3 class="text-center">' . $curauth->first_name . "'s Work</h3>";
-				while ( have_posts() ) :
-					the_post(); ?>
+				while ( $the_query->have_posts() ) :
+					$the_query->the_post();
+
+					$authors = []; // An array for all authors associated with this post
+
+					array_push($authors, get_the_author_meta('display_name'), get_field('second_user')['display_name'], get_field('third_user')['display_name'], get_field('fourth_user')['display_name']);
+
+					if( in_array($curauth->display_name, $authors ) ) { // Check to see if curauth, the author template currently being viewed, is in the array of post authors ?>
 
 						<div class="row row-some-padding">
 							<div class="col-md-6">
@@ -76,7 +92,9 @@ get_header(); ?>
 							</div>
 						</div>
 
-				<?php endwhile; ?>
+				<?php }
+
+				endwhile; ?>
 
 			<div class="container">
 				<?php if ( function_exists("wp_bs_pagination") ) wp_bs_pagination(); ?>
