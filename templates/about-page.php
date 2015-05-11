@@ -38,8 +38,9 @@ while ( have_posts() ) : the_post();
 					$admins = get_users( array( 'role' => 'administrator' ) );
 					$authors = get_users( array( 'role' => 'author' ) );
 					$editors = get_users( array( 'role' => 'editor' ) );
+					$contributors = get_users( array( 'role' => 'contributors' ) );
 
-					$pbters = array_merge($admins, $authors, $editors);
+					$pbters = array_merge($admins, $authors, $editors, $contributors);
 
 					$pbters_IDs = array();
 
