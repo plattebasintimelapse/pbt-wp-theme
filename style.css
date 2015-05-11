@@ -3533,8 +3533,8 @@ header .btn { margin: 4px 0; }
 @media (min-width: 768px) { .hero-image .post-title { font-size: 2.4rem; } }
 @media (min-width: 992px) { .hero-image .post-title { width: 60%; margin-left: -30%; } }
 
-.hero-image-caption { position: absolute; top: 100%; right: 0; color: #333333; text-shadow: none; font-size: .6em; text-align: right; max-width: 90%; margin-top: 5px; margin-right: 15px; }
-@media (min-width: 992px) { .hero-image-caption { max-width: 300px; } }
+.hero-image-caption { position: absolute; top: 100%; right: 0; color: #757575; text-shadow: none; font-size: .6em; text-align: right; max-width: 90%; margin-top: 5px; margin-right: 15px; }
+@media (min-width: 992px) { .hero-image-caption { max-width: 500px; } }
 
 .main-content > .container > p { margin: 0 0 14px; }
 @media (min-width: 1170px) { .main-content > .container > p { margin: 0 10% 14px 10%; } }

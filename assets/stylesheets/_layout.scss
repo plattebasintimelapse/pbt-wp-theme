@@ -359,7 +359,7 @@
 	position: absolute;
 	top: 100%;
 	right: 0;
-	color: $text-color;
+	color: $gray-light;
 	text-shadow: none;
 	font-size: .6em;
 	text-align: right;
@@ -367,7 +367,7 @@
 	margin-top: 5px;
 	margin-right: 15px;
 	@include breakpoint(mama-bear) {
-		max-width: 300px;
+		max-width: 500px;
 	}
 }
 

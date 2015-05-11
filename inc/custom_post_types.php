@@ -86,7 +86,7 @@ function pbt_blog_post_type() {
     ));
 
     global $wp_rewrite;
-	$blog_post_structure = '/notebook/%year%/%blog_post%';
+	$blog_post_structure = '/notebook/%year%/%monthnum%/%blog_post%';
 	$wp_rewrite->add_rewrite_tag("%blog_post%", '([^/]+)', "blog_post=");
 	$wp_rewrite->add_permastruct('blog_post', $blog_post_structure, false);
 }

@@ -38,7 +38,7 @@ while ( have_posts() ) : the_post();
 					$admins = get_users( array( 'role' => 'administrator' ) );
 					$authors = get_users( array( 'role' => 'author' ) );
 					$editors = get_users( array( 'role' => 'editor' ) );
-					$contributors = get_users( array( 'role' => 'contributors' ) );
+					$contributors = get_users( array( 'role' => 'contributor' ) );
 
 					$pbters = array_merge($admins, $authors, $editors, $contributors);
 
@@ -102,6 +102,44 @@ while ( have_posts() ) : the_post();
 						<?php if( ( $i % $user_per_row ) == 0) { echo '</div> <!--.row -->'; }
 
 					} // END FOR EACH LOOP ?>
+			</div>
+		</div>
+	</div>
+
+	<div class="container">
+		<div class="feed-team">
+			<div class="row">
+				<?php
+
+					$author_args = array(
+						'role'	=> 'guest',
+					);
+
+					$user_query = new WP_User_Query( $author_args );
+
+					foreach ( $user_query->results as $user ) {
+
+						$userID = $user->ID; ?>
+
+						<a name="<?php echo $user->user_nicename; ?>"></a>
+						<div class="col-xs-6 col-sm-4 col-md-2 user user-<?php echo $userID; ?>">
+
+							<h4><a class="link-color-dark" href="<?php echo get_author_posts_url( $userID ); ?>"><?php echo $user->display_name ?></a></h4>
+
+							<h6 class="text-center"> <?php echo $user->user_pbt_role; ?></h6>
+
+							<div class="collapse in" id="userImgCollapse">
+								<div class="circle-cropped">
+									<a href="<?php echo get_author_posts_url( $userID ); ?>">
+										<?php
+											echo get_avatar( $userID, 30 );
+										?>
+									</a>
+								</div>
+							</div>
+						</div> <!-- .user -->
+
+					<?php } // END FOR EACH LOOP ?>
 			</div>
 		</div>
 	</div>
