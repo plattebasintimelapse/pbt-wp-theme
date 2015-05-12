@@ -1,82 +1,86 @@
-$(document).ready(function () {
-    console.log('Scripts all work, eh?');
+(function($) {
 
-    $body                       = $('body');
-    $window                     = $(window);
-    $navbarCollapse             = $('#navbarCollapse');
-    $searchbarCollapse          = $('#searchbarCollapse');
-    $navbarCollapseLink         = $('a[data-target="#navbarCollapse"]');
-    $searchbarCollapseLink      = $('a[data-target="#searchbarCollapse"]');
-    $searchbarInput             = $('#searchbarCollapse input#s');
-    $heroImageBehind            = $('.hero-image-behind');
+    $(document).ready(function () {
+        console.log('Scripts all work, eh?');
 
-    runHeightSpecificStyles();
+        $body                       = $('body');
+        $window                     = $(window);
+        $navbarCollapse             = $('#navbarCollapse');
+        $searchbarCollapse          = $('#searchbarCollapse');
+        $navbarCollapseLink         = $('a[data-target="#navbarCollapse"]');
+        $searchbarCollapseLink      = $('a[data-target="#searchbarCollapse"]');
+        $searchbarInput             = $('#searchbarCollapse input#s');
+        $heroImageBehind            = $('.hero-image-behind');
 
-    $.each( $('.post-meta-box'), function() {
-        // console.log( $(this).height() );
-        if ( $(this).height() < 101 ) {
-            $(this).css('top', '25%');
-        } else if ( $(this).height() < 148  && $window.width() > 768 ) {
-            $(this).css('top', '15%');
-        } else if ( $(this).height() < 210  && $window.width() > 768 ) {
-            $(this).css('top', '8%');
-        } else if ( $(this).height() >= 210  && $window.width() > 768 ) {
-            $(this).css({
-                top: '2%',
-                width: '94%',
-                marginLeft: '-47%'
-            });
-        }
+        runHeightSpecificStyles();
+
+        $.each( $('.post-meta-box'), function() {
+            // console.log( $(this).height() );
+            if ( $(this).height() < 101 ) {
+                $(this).css('top', '25%');
+            } else if ( $(this).height() < 148  && $window.width() > 768 ) {
+                $(this).css('top', '15%');
+            } else if ( $(this).height() < 210  && $window.width() > 768 ) {
+                $(this).css('top', '8%');
+            } else if ( $(this).height() >= 210  && $window.width() > 768 ) {
+                $(this).css({
+                    top: '2%',
+                    width: '94%',
+                    marginLeft: '-47%'
+                });
+            }
+        });
+
+        $.each( $('.post-meta-box-small'), function() {
+            // console.log( $(this).height() );
+            if ( $(this).height() > 130 ) {
+                $(this).css('top', '0%');
+            } else if ( $(this).height() > 110 ) {
+                $(this).css('top', '5%');
+            }
+        });
+
+        setTimeout(function() {
+            $('.home .featured-meta-box h1').animate({
+                'margin-top': '0px',
+                'opacity': '1'
+            },1000);
+        }, 1000);
+        setTimeout(function() {
+            $('.home .featured-meta-box h2').animate({
+                'margin-top': '0px',
+                'opacity': '1'
+            },1000);
+        }, 2000);
+        setTimeout(function() {
+            $('.main-widgeted-text').find('span').animate({
+                'opacity': '1'
+            },1000);
+        }, 4000);
     });
 
-    $.each( $('.post-meta-box-small'), function() {
-        // console.log( $(this).height() );
-        if ( $(this).height() > 130 ) {
-            $(this).css('top', '0%');
-        } else if ( $(this).height() > 110 ) {
-            $(this).css('top', '5%');
-        }
+    $(window).resize(function(){
+        runHeightSpecificStyles();
     });
 
-    setTimeout(function() {
-        $('.home .featured-meta-box h1').animate({
-            'margin-top': '0px',
-            'opacity': '1'
-        },1000);
-    }, 1000);
-    setTimeout(function() {
-        $('.home .featured-meta-box h2').animate({
-            'margin-top': '0px',
-            'opacity': '1'
-        },1000);
-    }, 2000);
-    setTimeout(function() {
-        $('.main-widgeted-text').find('span').animate({
-            'opacity': '1'
-        },1000);
-    }, 4000);
-});
+    function runHeightSpecificStyles() {
+        windowHeight = $window.height();
 
-$(window).resize(function(){
-    runHeightSpecificStyles();
-});
-
-function runHeightSpecificStyles() {
-    windowHeight = $window.height();
-
-    $('.iframe-full-width-height').height( windowHeight );
-    $heroImageBehind.height( getHeroImageHeight( windowHeight ) );
-}
-
-var getHeroImageHeight = function(h) {
-    if ( h < 720 ) {
-        return h - 20;
-    } else {
-        return h - 80;
+        $('.iframe-full-width-height').height( windowHeight );
+        $heroImageBehind.height( getHeroImageHeight( windowHeight ) );
     }
-}
 
-$(function() {
+    var getHeroImageHeight = function(h) {
+        if ( h < 720 ) {
+            return h - 20;
+        } else {
+            return h - 80;
+        }
+    }
+    
+})(jQuery);
+
+(function($) {
 
     $('.post-thumbnail').hover(function() {
 
@@ -140,9 +144,9 @@ $(function() {
         $(this).parent().siblings('#userImgCollapse').collapse('toggle');
         $(this).toggleClass('fa-plus-circle').toggleClass('fa-minus-circle');
     });
-});
+})(jQuery);
 
-$(function() {
+(function($) {
     $('a[href*=#]:not([href=#])').click(function() {
         if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
             var target = $(this.hash);
@@ -155,4 +159,5 @@ $(function() {
             }
         }
     });
-});
+})(jQuery);
+
