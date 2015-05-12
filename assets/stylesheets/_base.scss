@@ -10,6 +10,16 @@ body {
 	@include breakpoint(papa-bear) { font-size: 24px; }
 }
 
+body.single-curriculum {
+	h1, h2, h3, h4, h5 {
+		font-family: $font-family-thin;
+		font-weight: 100;
+	}
+	p {
+		font-size: $font-size-small;
+	}
+}
+
 h1, h2, h3, h4, h5 {
 	margin-top: 10px;
 	margin-bottom: 6px;
@@ -53,6 +63,8 @@ input:focus:-ms-input-placeholder { color:transparent !important; } /* IE 10+ */
 .underlined { padding-bottom: 20px; border-bottom: 1px solid; }
 
 .underlined-dark { border-color: $gray-darker; }
+
+.underlined-light { border-color: $gray-lighter; }
 
 .circle-cropped img {
 	padding: 6px;

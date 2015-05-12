@@ -205,6 +205,11 @@ figure.image img {
 /* Responsive Iframe */
 /*********************/
 
+.responsive-frame-featured {
+    width: 100%;
+    margin: 40px auto;
+}
+
 .responsive-frame-aside {
     width: 100%;
     @include breakpoint(mama-bear) { width: 50%; }

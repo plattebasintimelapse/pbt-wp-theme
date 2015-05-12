@@ -34,26 +34,40 @@ while ( have_posts() ) : the_post();
 
 			<div class="row">
 				<?php
+
+					$admins = get_users( array( 'role' => 'administrator' ) );
+					$authors = get_users( array( 'role' => 'author' ) );
+					$editors = get_users( array( 'role' => 'editor' ) );
+					$contributors = get_users( array( 'role' => 'contributor' ) );
+
+					$pbters = array_merge($admins, $authors, $editors, $contributors);
+
+					$pbters_IDs = array();
+
+					foreach( $pbters as $person ) {
+					    $pbters_IDs[] = $person->ID;
+					}
+
 					$author_args = array(
-						'exclude' => array( 1, 14 ), // Exclude Platte Admin and full-team user
-						'orderby' => 'display_name',
+						'exclude' 	=> array( 1, 14 ), // Exclude Platte Admin and full-team user
+						'include'	=> $pbters_IDs,
+						'meta_key'	=> 'user_pbt_display_order',
+						'orderby' 	=> 'meta_value_num',
 					);
 
 					$user_query = new WP_User_Query( $author_args );
-					$i = 2;
+					$i = 2; //offset columns for the intro text
 					$column_width = 12 / $user_per_row;
 
 					echo '<div class="col-md-' . $column_width * 2 . '"><div class="col-md-lead-in">';
 						the_field('about_the_team');
 					echo '</div></div>';
 
-					foreach ( $user_query->results as $user ) { ?>
+					foreach ( $user_query->results as $user ) {
 
-						<?php
-							if( ( $i % $user_per_row ) == 0) { echo '<div class="row">'; }
-							$i++;
-							$userID = $user->ID;
-						?>
+						if( ( $i % $user_per_row ) == 0) { echo '<div class="row">'; }
+						$i++;
+						$userID = $user->ID; ?>
 
 						<a name="<?php echo $user->user_nicename; ?>"></a>
 						<div class="col-sm-6 col-md-<?php echo $column_width; ?> user user-<?php echo $userID; ?>">
@@ -88,6 +102,44 @@ while ( have_posts() ) : the_post();
 						<?php if( ( $i % $user_per_row ) == 0) { echo '</div> <!--.row -->'; }
 
 					} // END FOR EACH LOOP ?>
+			</div>
+		</div>
+	</div>
+
+	<div class="container">
+		<div class="feed-team">
+			<div class="row">
+				<?php
+
+					$author_args = array(
+						'role'	=> 'guest',
+					);
+
+					$user_query = new WP_User_Query( $author_args );
+
+					foreach ( $user_query->results as $user ) {
+
+						$userID = $user->ID; ?>
+
+						<a name="<?php echo $user->user_nicename; ?>"></a>
+						<div class="col-xs-6 col-sm-4 col-md-2 user user-<?php echo $userID; ?>">
+
+							<h4><a class="link-color-dark" href="<?php echo get_author_posts_url( $userID ); ?>"><?php echo $user->display_name ?></a></h4>
+
+							<h6 class="text-center"> <?php echo $user->user_pbt_role; ?></h6>
+
+							<div class="collapse in" id="userImgCollapse">
+								<div class="circle-cropped">
+									<a href="<?php echo get_author_posts_url( $userID ); ?>">
+										<?php
+											echo get_avatar( $userID, 30 );
+										?>
+									</a>
+								</div>
+							</div>
+						</div> <!-- .user -->
+
+					<?php } // END FOR EACH LOOP ?>
 			</div>
 		</div>
 	</div>
