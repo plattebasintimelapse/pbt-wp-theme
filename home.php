@@ -12,23 +12,23 @@ get_header();
 
 	?>
 
-	<section class="featured hero-image hero-image-behind" style="background-image: url(<?php header_image(); ?>)">
+	<section class="featured hero-image">
 		<div class="container-fluid">
 
-			<!-- <video class="wp-video-shortcode" id="video-245-1" width="930" height="523" preload="metadata" autoplay loop src="http://pbt.dev/wp-content/uploads/2015/05/intro-2-10-16-14.mp4?_=1" style="width: 100%; height: 100%;">
-				<source type="video/mp4" src="http://pbt.dev/wp-content/uploads/2015/05/intro-2-10-16-14.mp4">
-			</video> -->
+			<video preload="metadata" autoplay loop style="width: 100%; height: 100%;">
+				<source type="video/mp4" src="<?php bloginfo( 'stylesheet_directory' ); ?>/assets/video/intro.mp4">
+			</video>
 
-			<!-- <div class="overlay"></div> -->
+			<div class="overlay"></div>
 
-			<div class="featured-meta-box">
+			<div class="featured-meta-box" data-0="opacity:1;" data-300="opacity:0;">
 				<h1><?php bloginfo( 'name' ); ?></h1>
 				<h2><?php bloginfo( 'description' ); ?></h2>
 			</div>
 		</div>
 	</section>
 
-	<section class="main" role="main">
+	<section class="main" role="main" data-0="transform:translateY(-20px);" data-500="transform:translateY(-250px);">
 
 		<div class="container container-large container-padding">
 			<div class="row">

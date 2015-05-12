@@ -12,6 +12,8 @@
         $searchbarInput             = $('#searchbarCollapse input#s');
         $heroImageBehind            = $('.hero-image-behind');
 
+        var s = skrollr.init();
+
         runHeightSpecificStyles();
 
         $.each( $('.post-meta-box'), function() {
@@ -77,7 +79,7 @@
             return h - 80;
         }
     }
-    
+
 })(jQuery);
 
 (function($) {

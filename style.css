@@ -3406,7 +3406,7 @@ header .btn { margin: 4px 0; }
 
 .hero-image > .container-fluid { padding: 0; }
 
-.hero-image { color: #fafafa; text-shadow: 1px 1px 5px black; }
+.hero-image { color: #fafafa; text-shadow: 1px 1px 5px black; z-index: 0; }
 .hero-image a { color: #fafafa; }
 .hero-image small { color: #fafafa; }
 .hero-image a { color: #fafafa; }
@@ -3419,7 +3419,7 @@ header .btn { margin: 4px 0; }
 @media (min-width: 992px) { .hero-image-behind-short { height: 350px !important; } }
 @media (min-width: 1170px) { .hero-image-behind-short { height: 400px !important; } }
 
-.main { padding: 50px 0; }
+.main { padding: 50px 0; background-color: white; z-index: 1; }
 @media (min-width: 768px) { .main { padding: 35px 0; } }
 @media (min-width: 992px) { .main { padding: 40px 0; } }
 .main h2 { margin-bottom: 30px; text-align: center; margin-top: 100px; }
