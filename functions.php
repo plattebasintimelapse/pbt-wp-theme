@@ -75,6 +75,17 @@ function pbt_setup() {
 		'after_title' 	=> '</p>'
 	) );
 
+	register_sidebar( array(
+		'name' 			=> 'PBT Homepage Map Sidebar',
+		'description' 	=> 'A widget area on the homepage map',
+		'id' 			=> 'pbt-home-map',
+		'class'         => '',
+		'before_widget' => '<div class="main-widgeted-text">',
+		'after_widget' 	=> '</div>',
+		'before_title' 	=> '<h2 class="underlined underlined-dark">',
+		'after_title' 	=> '</h2>'
+	) );
+
     register_sidebar( array(
         'name'          => 'PBT Footer Main',
         'description'   => 'A sidebar area on the footer of every page.',

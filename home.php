@@ -15,7 +15,7 @@ get_header();
 	<section class="featured hero-image hero-image-behind" style="background-image: url(<?php header_image(); ?>)">
 		<div class="container-fluid">
 
-		<!-- 	<video class="wp-video-shortcode" id="video-245-1" width="930" height="523" preload="metadata" autoplay loop src="http://pbt.dev/wp-content/uploads/2015/05/intro-2-10-16-14.mp4?_=1" style="width: 100%; height: 100%;">
+			<!-- <video class="wp-video-shortcode" id="video-245-1" width="930" height="523" preload="metadata" autoplay loop src="http://pbt.dev/wp-content/uploads/2015/05/intro-2-10-16-14.mp4?_=1" style="width: 100%; height: 100%;">
 				<source type="video/mp4" src="http://pbt.dev/wp-content/uploads/2015/05/intro-2-10-16-14.mp4">
 			</video> -->
 
@@ -129,8 +129,7 @@ get_header();
 		</div>
 
 		<div class="container container-padding">
-			<h3 class="text-center underlined underlined-dark">There are 40+ cameras throughout the basin, taking one photograph every hour of every day.</h3>
-			<p class="text-center">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maxime debitis amet nihil a, natus possimus, vero, dolorum fugiat doloremque, quibusdam suscipit ipsam fugit quod aliquid. Adipisci magnam, quaerat voluptas minus?</p>
+			<?php dynamic_sidebar( 'pbt-home-map' ); ?>
 		</div>
 
 
@@ -194,6 +193,83 @@ get_header();
 				?>
 			</div>
 		</div>
+
+		<div class="container container-padding-top">
+		<a name="platte"></a>
+		<div class="feed-team">
+
+			<div class="row">
+				<?php
+					$user_per_row = 4;
+
+					$admins = get_users( array( 'role' => 'administrator' ) );
+					$authors = get_users( array( 'role' => 'author' ) );
+					$editors = get_users( array( 'role' => 'editor' ) );
+					$contributors = get_users( array( 'role' => 'contributor' ) );
+
+					$pbters = array_merge($admins, $authors, $editors, $contributors);
+
+					$pbters_IDs = array();
+
+					foreach( $pbters as $person ) {
+					    $pbters_IDs[] = $person->ID;
+					}
+
+					$author_args = array(
+						'exclude' 	=> array( 1, 14 ), // Exclude Platte Admin and full-team user
+						'include'	=> $pbters_IDs,
+						'meta_key'	=> 'user_pbt_display_order',
+						'orderby' 	=> 'meta_value_num',
+					);
+
+					$user_query = new WP_User_Query( $author_args );
+					$i = 0; //offset columns for the intro text
+					$column_width = 12 / $user_per_row;
+
+
+
+					foreach ( $user_query->results as $user ) {
+
+						if( ( $i % $user_per_row ) == 0) { echo '<div class="row">'; }
+						$i++;
+						$userID = $user->ID; ?>
+
+						<a name="<?php echo $user->user_nicename; ?>"></a>
+						<div class="col-sm-6 col-md-<?php echo $column_width; ?> user user-<?php echo $userID; ?>">
+
+							<h4><a class="link-color-dark" href="<?php echo get_author_posts_url( $userID ); ?>"><?php echo $user->display_name ?></a></h4>
+
+							<h6> <?php echo $user->user_pbt_role ?> <i class="toggle-info btn fa fa-lg fa-plus-circle" data-toggle="collapse" data-target="#userCollapse<?php echo $user->ID ?>" data-target="#userImgCollapse<?php echo $user->ID ?>" aria-expanded="false" aria-controls="collapseExample"></i></h6>
+
+							<div class="collapse in" id="userImgCollapse">
+								<div class="circle-cropped">
+									<a href="<?php echo get_author_posts_url( $userID ); ?>">
+										<?php
+											echo get_avatar( $userID, 30 );
+										?>
+									</a>
+								</div>
+							</div>
+
+							<div class="collapse" id="userCollapse<?php echo $user->ID ?>">
+							  	<div class="well">
+							  		<div class="author-links text-center">
+
+										<?php pbt_author_meta($user); ?>
+
+									</div>
+
+									<p><?php echo $user->description ?></p>
+							  	</div>
+							</div>
+						</div> <!-- .user -->
+
+						<?php if( ( $i % $user_per_row ) == 0) { echo '</div> <!--.row -->'; }
+
+					} // END FOR EACH LOOP ?>
+			</div>
+		</div>
+	</div>
 
 	</section>
 
