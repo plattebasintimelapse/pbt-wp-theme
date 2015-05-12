@@ -37,7 +37,8 @@ get_header();
 				</div>
 
 				<div class="col-xs-10 col-xs-offset-1 col-md-6 col-md-offset-0">
-					<img src="<?php bloginfo( 'stylesheet_directory' ); ?>/assets/img/platte-basin.jpeg" alt="">
+					<!-- <img src="<?php bloginfo( 'stylesheet_directory' ); ?>/assets/img/platte-basin.jpeg" alt=""> -->
+					<div id="map-small" style="height: 400px; width: 100%;"></div>
 					<a href="#map" class="btn btn-primary btn-ghost btn-sm btn-block btn-max-width" role="button"><h5>Explore the Basin</h5></a>
 				</div>
 			</div>

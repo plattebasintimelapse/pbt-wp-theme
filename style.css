@@ -3638,6 +3638,8 @@ hr { margin-top: 28px; margin-bottom: 28px; border: 0; border-top: 1px solid #75
 
 .pagination-sm > li > a, .pagination-sm > li > span { padding: 6px 12px; font-size: 14px; }
 
+.leaflet-container { background: white !important; }
+
 /**********/
 /* Images */
 /**********/
