@@ -50,7 +50,8 @@ add_action('wp_head', 'pbt_favicon');
  * The main.min.js file is generated in the local Gruntfile.js after uglification and concatenation.
  */
 function pbt_scripts() {
-	wp_enqueue_script( 'main-scripts', get_template_directory_uri() . '/assets/scripts/main.min.js', array(), '1.0.0', true);
+	wp_register_script('main-scripts', get_template_directory_uri() . '/assets/scripts/main.min.js', array('jquery'), '1.0.0', true);
+	wp_enqueue_script( 'main-scripts' );
 }
 
 add_action( 'wp_enqueue_scripts', 'pbt_scripts' );

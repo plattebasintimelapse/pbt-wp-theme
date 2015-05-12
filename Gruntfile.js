@@ -44,7 +44,7 @@ module.exports = function(grunt) {
                 },
                 files: {
                     'assets/scripts/main.min.js': [
-                        'bower_components/jquery/dist/jquery.js',
+                        // 'bower_components/jquery/dist/jquery.js',
                         'bower_components/modernizr/modernizr.js',
                         'bower_components/bootstrap-sass-official/assets/javascripts/bootstrap.js',
                         'bower_components/jplayer/dist/jplayer/jquery.jplayer.min.js',

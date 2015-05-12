@@ -1,3 +1,5 @@
+(function($) {
+
 $(document).ready(function () {
     console.log('Scripts all work, eh?');
 
@@ -156,3 +158,5 @@ $(function() {
         }
     });
 });
+
+})(jQuery);
