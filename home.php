@@ -32,12 +32,13 @@ get_header();
 
 		<div class="container container-large container-padding">
 			<div class="row">
-				<div class="col-md-5">
+				<div class="col-md-6">
 					<?php dynamic_sidebar( 'pbt-home-main' ); ?>
 				</div>
 
-				<div class="col-md-7">
-					<div id="map" style="height: 550px; width: 100%;"></div>
+				<div class="col-xs-10 col-xs-offset-1 col-md-6 col-md-offset-0">
+					<img src="<?php bloginfo( 'stylesheet_directory' ); ?>/assets/img/platte-basin.jpeg" alt="">
+					<a href="#map" class="btn btn-primary btn-ghost btn-sm btn-block btn-max-width" role="button"><h5>Explore the Basin</h5></a>
 				</div>
 			</div>
 		</div>
@@ -70,7 +71,7 @@ get_header();
 								</h5>
 
 								<a href="<?php the_permalink() ?>">
-									<h1 class="post-title"><?php the_title(); ?></h1>
+									<h1 class="post-title"><?php pbt_short_title(); ?></h1>
 								</a>
 								<?php the_excerpt(); ?>
 								<a class="btn btn-default btn-block btn-lg btn-lg-max-width" role="button" href="<?php the_permalink() ?>"><h4>Explore This Story</h4></a>
@@ -115,11 +116,24 @@ get_header();
 
 			<div class="row row-padding-top">
 				<div class="col-xs-10 col-xs-offset-1 col-md-offset-4 col-md-4">
-					<a href="/stories"><button class="btn btn-primary btn-ghost btn-lg btn-block"><h4>See All Stories</h4></button></a>
+					<a href="/stories" class="btn btn-primary btn-ghost btn-lg btn-block" role="button"><h4>See All Stories</h4></a>
 				</div>
 			</div>
 
 		</div>
+
+<a name="map"></a>
+		<div class="container-fluid container-fluid-no-padding container-padding">
+			
+			<div id="map" style="height: 600px; width: 100%;"></div>
+		</div>
+
+		<div class="container container-padding">
+			<h3 class="text-center underlined underlined-dark">There are 40+ cameras throughout the basin, taking one photograph every hour of every day.</h3>
+			<p class="text-center">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maxime debitis amet nihil a, natus possimus, vero, dolorum fugiat doloremque, quibusdam suscipit ipsam fugit quod aliquid. Adipisci magnam, quaerat voluptas minus?</p>
+		</div>
+
+
 
 		<div class="container-fluid container-fluid-no-padding container-little-padding-top blog-post-feature">
 
@@ -166,7 +180,7 @@ get_header();
 								<div class="post-meta-box-small">
 
 									<a href="<?php the_permalink() ?>">
-										<h4 class="post-tile"><?php the_title( );  ?></h4>
+										<h4 class="post-tile"><?php pbt_short_title(); ?></h4>
 									</a>
 
 								</div>

@@ -31,16 +31,9 @@
 
 			<?php } ?>
 
-			<?php
-
-			$title = get_the_title();
-			$short_title = substr($title,0,50);
-			?>
-
 			<a href="<?php the_permalink() ?>">
 				<h1 class="post-title">
-					<?php echo $short_title;
-						if( $short_title != $title) { echo "..."; } ?>
+					<?php pbt_short_title(); ?>
 				</h1>
 			</a>
 

@@ -124,6 +124,3 @@ function pbt_docs_admin_link( $wp_admin_bar ) {
 }
 
 add_action( 'admin_bar_menu', 'pbt_docs_admin_link', 999 );
-
-
-

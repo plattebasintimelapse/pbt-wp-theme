@@ -39,7 +39,7 @@ add_filter('user_contactmethods', 'pbt_modify_contact_methods');
  * Add extra social links to the user page
  * This function is called both when creating a new user or editing an existing.
  */
-function add_extra_social_links( $user ) {
+function pbt_add_extra_user_fields( $user ) {
     ?>
         <h3>User Role</h3>
 
@@ -48,19 +48,24 @@ function add_extra_social_links( $user ) {
                 <th><label for="user_pbt_role">PBT Role</label></th>
                 <td><input type="text" name="user_pbt_role" value="<?php echo esc_attr(get_the_author_meta( 'user_pbt_role', $user->ID )); ?>" class="regular-text" /></td>
             </tr>
+            <tr>
+                <th><label for="user_pbt_display_order">Display Order</label></th>
+                <td><input type="text" name="user_pbt_display_order" value="<?php echo esc_attr(get_the_author_meta( 'user_pbt_display_order', $user->ID )); ?>" class="regular-text" /></td>
+            </tr>
         </table>
     <?php
 }
-add_action( 'show_user_profile', 'add_extra_social_links' );
-add_action( 'edit_user_profile', 'add_extra_social_links' );
+add_action( 'show_user_profile', 'pbt_add_extra_user_fields' );
+add_action( 'edit_user_profile', 'pbt_add_extra_user_fields' );
 
 
 /**
  * Write the extra user links to the database.
  */
-function save_extra_social_links( $user_id ) {
+function pbt_save_extra_user_fields( $user_id ) {
     update_user_meta( $user_id,'user_pbt_role', sanitize_text_field( $_POST['user_pbt_role'] ) );
+    update_user_meta( $user_id,'user_pbt_display_order', sanitize_text_field( $_POST['user_pbt_display_order'] ) );
 }
-add_action( 'personal_options_update', 'save_extra_social_links' );
-add_action( 'edit_user_profile_update', 'save_extra_social_links' );
+add_action( 'personal_options_update', 'pbt_save_extra_user_fields' );
+add_action( 'edit_user_profile_update', 'pbt_save_extra_user_fields' );
 

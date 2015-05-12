@@ -72,7 +72,7 @@ var getHeroImageHeight = function(h) {
     if ( h < 720 ) {
         return h - 20;
     } else {
-        return h - 200;
+        return h - 80;
     }
 }
 

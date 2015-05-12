@@ -2,14 +2,14 @@ jQuery(document).ready(function () {
 	var layer = new L.StamenTileLayer("terrain-background");
     var map = new L.Map("map", {
         center: new L.LatLng(40.75,-102),
-        zoom: 6
+        zoom: 5,
+        scrollWheelZoom: false
     });
     map.addLayer(layer);
 
     jQuery.getJSON("https://spreadsheets.google.com/feeds/list/1XZx5wnIEaFy7sJ85KI4cJOPrgx4o87ZilsDxp9VNfhs/od6/public/values?alt=json",
         function(data) {
         for (var i = 0; i < data.feed.entry.length; i++) {
-        	console.log( i );
             var tempLocation = {
                 location: data.feed.entry[i]['gsx$title']['$t'],
                 description: data.feed.entry[i]['gsx$description']['$t'],

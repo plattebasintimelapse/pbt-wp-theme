@@ -58,6 +58,10 @@ function pbt_byline() {
 	echo $byline;
 }
 
+
+/**
+ * Print out all the author meta stuff like Instagram links, email, etc.
+ */
 function pbt_author_meta($curauth) {
 	if( $curauth->instagram !== '' ) {
 		echo '<div class="author-link"><a target="_blank" href="http://www.instagram.com/' . $curauth->instagram . '"><i class="fa fa-instagram"></i></a></div>';
@@ -82,6 +86,13 @@ function pbt_author_meta($curauth) {
 	if( $curauth->user_email !== '' ) {
 		echo '<div class="author-link"><a href="mailto:' . $curauth->user_email . '"><i class="fa fa-envelope-o"></i> <small>' . $curauth->user_email . '</small></a></div>';
 	}
+}
+
+function pbt_short_title() {
+	$title = get_the_title();
+	$short_title = substr($title,0,50);
+	echo $short_title;
+	if( $short_title != $title) { echo "..."; }
 }
 
 
