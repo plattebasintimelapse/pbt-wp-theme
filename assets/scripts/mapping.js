@@ -1,6 +1,6 @@
 (function($) {
 
-    jQuery(document).ready(function () {
+    $(document).ready(function () {
         createMainMap();
         createAboutMap();
 
@@ -14,7 +14,7 @@
             });
             map.addLayer(layer);
 
-            jQuery.getJSON('wp-content/themes/pbt/assets/data/platte-basin-outline.json', function(data) {
+            $.getJSON('wp-content/themes/pbt/assets/data/platte-basin-outline.json', function(data) {
                 var platte_basin_outline = L.geoJson(data, {
                     style: function(feature) {
 
@@ -31,7 +31,7 @@
 
             });
 
-            jQuery.getJSON("https://spreadsheets.google.com/feeds/list/1XZx5wnIEaFy7sJ85KI4cJOPrgx4o87ZilsDxp9VNfhs/od6/public/values?alt=json",
+            $.getJSON("https://spreadsheets.google.com/feeds/list/1XZx5wnIEaFy7sJ85KI4cJOPrgx4o87ZilsDxp9VNfhs/od6/public/values?alt=json",
                 function(data) {
                 for (var i = 0; i < data.feed.entry.length; i++) {
                     var tempLocation = {
@@ -80,7 +80,7 @@
 
             });
 
-            jQuery.getJSON('wp-content/themes/pbt/assets/data/states.json', function(data) {
+            $.getJSON('wp-content/themes/pbt/assets/data/states.json', function(data) {
                 var states = L.geoJson(data, {
                     style: function(feature) {
 
@@ -97,7 +97,7 @@
 
             });
 
-            jQuery.getJSON('wp-content/themes/pbt/assets/data/platte-basins.json', function(data) {
+            $.getJSON('wp-content/themes/pbt/assets/data/platte-basins.json', function(data) {
                 platte_basin_outline = L.geoJson(data, {
                     style: function(feature) {
 

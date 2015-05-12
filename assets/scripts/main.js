@@ -59,6 +59,32 @@
                 'opacity': '1'
             },1000);
         }, 4000);
+
+        $navbarCollapseLink.click(function(){
+            $body.toggleClass('nav-is-open');
+            $(this).find('i').toggleClass('fa-close').toggleClass('fa-bars');
+
+            if ( $body.hasClass('search-is-open') ) {
+                $searchbarCollapse.collapse('toggle');
+                $body.toggleClass('search-is-open');
+            }
+        });
+
+        $searchbarCollapseLink.click(function(){
+            $body.toggleClass('search-is-open');
+
+            if ( $body.hasClass('nav-is-open') ) {
+                $navbarCollapse.collapse('toggle');
+                $body.toggleClass('nav-is-open');
+                $navbarCollapseLink.find('i').toggleClass('fa-close').toggleClass('fa-bars');
+            }
+
+            if ( $body.hasClass('search-is-open') ) {
+                setTimeout(function() {
+                    $searchbarInput.focus();
+                }, 1000);
+            }
+        });
     });
 
     $(window).resize(function(){
@@ -79,7 +105,6 @@
             return h - 80;
         }
     }
-
 })(jQuery);
 
 (function($) {
@@ -116,39 +141,11 @@
         }, 'fast', 'linear');
     });
 
-    $navbarCollapseLink.click(function(){
-        $body.toggleClass('nav-is-open');
-        $(this).find('i').toggleClass('fa-close').toggleClass('fa-bars');
-
-        if ( $body.hasClass('search-is-open') ) {
-            $searchbarCollapse.collapse('toggle');
-            $body.toggleClass('search-is-open');
-        }
-    });
-
-    $searchbarCollapseLink.click(function(){
-        $body.toggleClass('search-is-open');
-
-        if ( $body.hasClass('nav-is-open') ) {
-            $navbarCollapse.collapse('toggle');
-            $body.toggleClass('nav-is-open');
-            $navbarCollapseLink.find('i').toggleClass('fa-close').toggleClass('fa-bars');
-        }
-
-        if ( $body.hasClass('search-is-open') ) {
-            setTimeout(function() {
-                $searchbarInput.focus();
-            }, 1000);
-        }
-    });
-
     $('.toggle-info').click(function() {
         $(this).parent().siblings('#userImgCollapse').collapse('toggle');
         $(this).toggleClass('fa-plus-circle').toggleClass('fa-minus-circle');
     });
-})(jQuery);
 
-(function($) {
     $('a[href*=#]:not([href=#])').click(function() {
         if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
             var target = $(this.hash);
@@ -161,5 +158,5 @@
             }
         }
     });
-})(jQuery);
 
+})(jQuery);

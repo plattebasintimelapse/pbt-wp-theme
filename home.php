@@ -123,10 +123,9 @@ get_header();
 
 		</div>
 
-<a name="map"></a>
+		<a name="map"></a>
 		<div class="container-fluid container-fluid-no-padding container-padding">
-			
-			<div id="map" style="height: 600px; width: 100%;"></div>
+			<div id="map" style="height: 700px; width: 100%;"></div>
 		</div>
 
 		<div class="container container-padding">
