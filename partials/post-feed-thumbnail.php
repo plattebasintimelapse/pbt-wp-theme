@@ -37,7 +37,7 @@
 				</h1>
 			</a>
 
-			<a class="btn btn-default read-more-btn btn-block btn-max-width" role="button" href="<?php the_permalink() ?>"><h5>Read More</h5></a>
+			<a class="btn btn-default read-more-btn btn-block btn-max-width" role="button" rel="bookmark" title="Permanent Link to <?php the_title_attribute(); ?>" href="<?php the_permalink() ?>"><h5>Read More</h5></a>
 		</div>
 	</div>
 
