@@ -163,23 +163,6 @@
 	margin-top: -32px;
 }
 
-.admin-bar.nav-is-open .iframe-full-width-height, .admin-bar.search-is-open .iframe-full-width-height {
-	margin-top: 0;
-}
-
-/**
- *	HOME PAGE
- *  Styles for the home page
- */
-
-.home .featured-meta-box h1, .home .featured-meta-box h2 {
-	opacity: 0;
-	margin-top: 40px;
-}
-
-.main-widgeted-text span { opacity: 0; color: $blue; }
-
-
 /**
  *	POST FEED
  *  Styles for the generic post feed, displays in a grided format.
@@ -198,9 +181,7 @@
 	background-color: black;
 }
 
-.post-thumbnail img {
-	opacity: .8;
-}
+
 
 .post-meta-box, .featured-meta-box, .featured-post-meta-box {
 	position: absolute;
@@ -214,17 +195,10 @@
 	left: 3%;
 	text-transform: uppercase;
 
-	.post-title {
-		font-size: 1.3rem;
-	}
-
 	@include breakpoint(baby-bear) {
 		top: 12%;
 		@include block-centered(80%);
 		text-align: center;
-		.post-title {
-			font-size: 1.8rem;
-		}
 	}
 
 	@include breakpoint(mama-bear) {
@@ -236,14 +210,21 @@
 	@include breakpoint(papa-bear) {
 		top: 5%;
 	}
+}
 
-	.post-category, .blog-post-author {
-		display: none; // hide on small screens
-		@include breakpoint(baby-bear) {
-			display: block;
-			padding-bottom: 6px;
-			border-bottom: 2px solid $gray-lighter;
-		}
+.post-meta-box-lg .post-title {
+	font-size: 1.3rem;
+	@include breakpoint(baby-bear) {
+		font-size: 1.8rem;
+	}
+}
+
+.post-meta-box .post-category, .post-meta-box .blog-post-author {
+	display: none; // hide on small screens
+	@include breakpoint(baby-bear) {
+		display: block;
+		padding-bottom: 6px;
+		border-bottom: 2px solid $gray-lighter;
 	}
 }
 
@@ -254,20 +235,21 @@
 	@include block-centered(200px);
 }
 
-.post-meta-box-small {
-	@extend .post-meta-box;
-	top: 20%;
-}
-
 .featured-post-meta-box {
 	@include block-centered(80%);
-	top: 10%;
+	top: 14%;
 	text-align: center;
 
 	@include breakpoint(baby-bear) {
-		width: 74%;
-		margin-left: -38%;
+		@include block-centered(74%);
+		top: 8%;
+	}
+
+	@include breakpoint(mama-bear) {
 		top: 15%;
+	}
+	@include breakpoint(papa-bear) {
+		top: 20%;
 	}
 }
 
@@ -319,11 +301,17 @@
 }
 
 .home .featured-meta-box {
-	display: none;
-	@include breakpoint(mama-bear) {
-		display: block;
+	h1 { display: none; }
+	h2 { font-size: 1.4rem; }
+	@include breakpoint(baby-bear) {
+		h1 { display: block; }
+		h2 { font-size: 2.4rem; }
 		top: 30%;
-		width: 80%;
+		@include block-centered(60%);
+		text-align: center;
+	}
+	@include breakpoint(baby-bear) {
+		@include block-centered(80%);
 	}
 }
 
@@ -340,18 +328,15 @@
 
 .hero-image .post-title {
 	position: absolute;
-	width: 80%;
+	@include block-centered(80%);
 	bottom: 20px;
 	text-align: center;
-	left: 50%;
-	margin-left: -40%;
 	font-size: 1.6rem;
 	@include breakpoint(baby-bear) {
 		font-size: 2.4rem;
 	}
 	@include breakpoint(mama-bear) {
-		width: 60%;
-		margin-left: -30%;
+		@include block-centered(60%);
 	}
 }
 
@@ -425,21 +410,6 @@
 	font-size: .7em;
 	margin-top: 100px;
 }
-
-
-.main-widgeted-text {
-	text-align: center;
-	margin-bottom: 10px;
-	.font-size-large {
-		font-size: 1.3rem;
-	}
-	@include breakpoint(mama-bear) {
-		margin-bottom: 80px;
-		font-size: 1.6rem;
-	}
-}
-
-
 
 
 /**
@@ -536,7 +506,7 @@
 
 
 /**
- *	FOOTER - SIDE WIDE
+ *	FOOTER - SITE WIDE
  *  Styles for the a the site-wide footer
  */
 

@@ -155,18 +155,16 @@ get_header();
 
 						<div class="post-thumbnail">
 
-							<a href="<?php the_permalink() ?>">
+							<?php the_post_thumbnail( 'pbt-post-thumbnail' );  ?>
 
-								<?php the_post_thumbnail( 'pbt-post-thumbnail' );  ?>
+							<div class="post-meta-box post-meta-box-sm">
 
-								<div class="post-meta-box-small">
+								<a href="<?php the_permalink() ?>">
+									<h4 class="post-title"><?php pbt_short_title(); ?></h4>
+								</a>
+								<a class="btn btn-default read-more-btn btn-block btn-max-width btn-sm" role="button" href="<?php the_permalink() ?>"><h6>Read More</h6></a>
 
-									<a href="<?php the_permalink() ?>">
-										<h4 class="post-tile"><?php pbt_short_title(); ?></h4>
-									</a>
-
-								</div>
-							</a>
+							</div>
 						</div>
 					</div><!-- #post-## -->
 

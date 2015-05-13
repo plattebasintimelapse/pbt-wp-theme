@@ -11,7 +11,7 @@
 	<div class="post-thumbnail">
 		<?php the_post_thumbnail( 'pbt-post-thumbnail' );  ?>
 
-		<div class="post-meta-box">
+		<div class="post-meta-box post-meta-box-lg">
 
 			<?php if ( get_post_type() === 'blog_post' ) { ?>
 
