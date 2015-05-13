@@ -11,7 +11,7 @@
 	<div class="post-thumbnail">
 		<?php the_post_thumbnail( 'pbt-post-thumbnail' );  ?>
 
-		<div class="post-meta-box">
+		<div class="post-meta-box post-meta-box-lg">
 
 			<?php if ( get_post_type() === 'blog_post' ) { ?>
 
@@ -37,7 +37,7 @@
 				</h1>
 			</a>
 
-			<a class="btn btn-default read-more-btn btn-block btn-max-width" role="button" href="<?php the_permalink() ?>"><h5>Read More</h5></a>
+			<a class="btn btn-default read-more-btn btn-block btn-max-width" role="button" rel="bookmark" title="Permanent Link to <?php the_title_attribute(); ?>" href="<?php the_permalink() ?>"><h5>Read More</h5></a>
 		</div>
 	</div>
 

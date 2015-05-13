@@ -117,7 +117,7 @@ get_header();
 
 			<div class="row row-padding-top">
 				<div class="col-xs-10 col-xs-offset-1 col-md-offset-4 col-md-4">
-					<a href="/stories" class="btn btn-primary btn-ghost btn-lg btn-block" role="button"><h4>See All Stories</h4></a>
+					<a class="btn btn-primary btn-ghost btn-lg btn-block" title="Link to See All Stories" href="/stories"><h4>See All Stories</h4></a>
 				</div>
 			</div>
 
@@ -147,7 +147,7 @@ get_header();
 				<div class="featured-post-meta-box">
 					<h1 class="post-title"><?php echo $blog_page_title; ?></h1>
 					<p><?php echo apply_filters('the_content', $blog_page->post_content); ?></p>
-					<a class="btn btn-default btn-lg btn-block btn-max-width" role="button" href="/notebook"><h6>See All Posts</h6></a>
+					<a class="btn btn-default btn-lg btn-block btn-max-width" role="button" title="Link to See All Blog Posts" href="/notebook"><h6>See All Posts</h6></a>
 				</div>
 			</div>
 
@@ -172,18 +172,16 @@ get_header();
 
 						<div class="post-thumbnail">
 
-							<a href="<?php the_permalink() ?>">
+							<?php the_post_thumbnail( 'pbt-post-thumbnail' );  ?>
 
-								<?php the_post_thumbnail( 'pbt-post-thumbnail' );  ?>
+							<div class="post-meta-box post-meta-box-sm">
 
-								<div class="post-meta-box-small">
+								<a href="<?php the_permalink() ?>">
+									<h4 class="post-title"><?php pbt_short_title(); ?></h4>
+								</a>
+								<a class="btn btn-default read-more-btn btn-block btn-max-width btn-sm" role="button" rel="bookmark" title="Permanent Link to <?php the_title_attribute(); ?>" href="<?php the_permalink() ?>"><h6>Read More</h6></a>
 
-									<a href="<?php the_permalink() ?>">
-										<h4 class="post-tile"><?php pbt_short_title(); ?></h4>
-									</a>
-
-								</div>
-							</a>
+							</div>
 						</div>
 					</div><!-- #post-## -->
 
