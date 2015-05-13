@@ -16,7 +16,8 @@ get_header();
 		<div class="container-fluid">
 
 			<video preload="metadata" autoplay loop style="width: 100%; height: 100%;">
-				<source type="video/mp4" src="<?php bloginfo( 'stylesheet_directory' ); ?>/assets/video/intro.mp4">
+				<source type="video/mp4" src="<?php bloginfo( 'stylesheet_directory' ); ?>/assets/video/intro.mp4" />
+				<img src="<?php bloginfo( 'stylesheet_directory' ); ?>/assets/img/intro.jpg" title="Your browser does not support the <video> tag" />
 			</video>
 
 			<div class="overlay"></div>
@@ -30,17 +31,16 @@ get_header();
 
 	<section class="main" role="main" data-0="transform:translateY(-20px);" data-500="transform:translateY(-250px);">
 
-		<div class="container container-large container-padding">
+		<div class="container container-padding">
 			<div class="row">
-				<div class="col-md-6">
+				<div class="col-md-12">
 					<?php dynamic_sidebar( 'pbt-home-main' ); ?>
 				</div>
 
-				<div class="col-xs-10 col-xs-offset-1 col-md-6 col-md-offset-0">
-					<!-- <img src="<?php bloginfo( 'stylesheet_directory' ); ?>/assets/img/platte-basin.jpeg" alt=""> -->
+				<!-- <div class="col-xs-10 col-xs-offset-1 col-md-6 col-md-offset-0">
 					<div id="map-small" style="height: 400px; width: 100%;"></div>
-					<a href="#map" class="btn btn-primary btn-ghost btn-sm btn-block btn-max-width" role="button"><h5>Explore the Basin</h5></a>
-				</div>
+					<a href="#map" class="btn btn-primary btn-ghost btn-sm btn-block btn-max-width" role="button"><h5>Explore the Platte Basin</h5></a>
+				</div> -->
 			</div>
 		</div>
 
@@ -125,10 +125,10 @@ get_header();
 
 		<a name="map"></a>
 		<div class="container-fluid container-fluid-no-padding container-padding">
-			<div id="map" style="height: 700px; width: 100%;"></div>
+			<div id="map" style="height: 500px; width: 100%;"></div>
 		</div>
 
-		<div class="container container-padding">
+		<div class="container container-little-padding-top">
 			<?php dynamic_sidebar( 'pbt-home-map' ); ?>
 		</div>
 
@@ -193,83 +193,6 @@ get_header();
 				?>
 			</div>
 		</div>
-
-		<div class="container container-padding-top">
-		<a name="platte"></a>
-		<div class="feed-team">
-
-			<div class="row">
-				<?php
-					$user_per_row = 4;
-
-					$admins = get_users( array( 'role' => 'administrator' ) );
-					$authors = get_users( array( 'role' => 'author' ) );
-					$editors = get_users( array( 'role' => 'editor' ) );
-					$contributors = get_users( array( 'role' => 'contributor' ) );
-
-					$pbters = array_merge($admins, $authors, $editors, $contributors);
-
-					$pbters_IDs = array();
-
-					foreach( $pbters as $person ) {
-					    $pbters_IDs[] = $person->ID;
-					}
-
-					$author_args = array(
-						'exclude' 	=> array( 1, 14 ), // Exclude Platte Admin and full-team user
-						'include'	=> $pbters_IDs,
-						'meta_key'	=> 'user_pbt_display_order',
-						'orderby' 	=> 'meta_value_num',
-					);
-
-					$user_query = new WP_User_Query( $author_args );
-					$i = 0; //offset columns for the intro text
-					$column_width = 12 / $user_per_row;
-
-
-
-					foreach ( $user_query->results as $user ) {
-
-						if( ( $i % $user_per_row ) == 0) { echo '<div class="row">'; }
-						$i++;
-						$userID = $user->ID; ?>
-
-						<a name="<?php echo $user->user_nicename; ?>"></a>
-						<div class="col-sm-6 col-md-<?php echo $column_width; ?> user user-<?php echo $userID; ?>">
-
-							<h4><a class="link-color-dark" href="<?php echo get_author_posts_url( $userID ); ?>"><?php echo $user->display_name ?></a></h4>
-
-							<h6> <?php echo $user->user_pbt_role ?> <i class="toggle-info btn fa fa-lg fa-plus-circle" data-toggle="collapse" data-target="#userCollapse<?php echo $user->ID ?>" data-target="#userImgCollapse<?php echo $user->ID ?>" aria-expanded="false" aria-controls="collapseExample"></i></h6>
-
-							<div class="collapse in" id="userImgCollapse">
-								<div class="circle-cropped">
-									<a href="<?php echo get_author_posts_url( $userID ); ?>">
-										<?php
-											echo get_avatar( $userID, 30 );
-										?>
-									</a>
-								</div>
-							</div>
-
-							<div class="collapse" id="userCollapse<?php echo $user->ID ?>">
-							  	<div class="well">
-							  		<div class="author-links text-center">
-
-										<?php pbt_author_meta($user); ?>
-
-									</div>
-
-									<p><?php echo $user->description ?></p>
-							  	</div>
-							</div>
-						</div> <!-- .user -->
-
-						<?php if( ( $i % $user_per_row ) == 0) { echo '</div> <!--.row -->'; }
-
-					} // END FOR EACH LOOP ?>
-			</div>
-		</div>
-	</div>
 
 	</section>
 

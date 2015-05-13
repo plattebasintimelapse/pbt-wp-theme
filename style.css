@@ -3422,7 +3422,7 @@ header .btn { margin: 4px 0; }
 .main { padding: 50px 0; background-color: white; z-index: 1; }
 @media (min-width: 768px) { .main { padding: 35px 0; } }
 @media (min-width: 992px) { .main { padding: 40px 0; } }
-.main h2 { margin-bottom: 30px; text-align: center; margin-top: 100px; }
+.main h2 { margin-bottom: 30px; text-align: center; }
 .main .container:first-child h2 { margin-top: 0px; }
 
 .main.status-draft { background-color: #FFFAED; }

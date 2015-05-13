@@ -7,3 +7,6 @@ tests/
 
 node_modules/
 bower_components/
+
+assets/img
+assets/video
