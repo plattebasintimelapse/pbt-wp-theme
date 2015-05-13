@@ -3355,7 +3355,7 @@ header .btn { margin: 4px 0; }
 
 .nav > li > a { display: block; padding: 20px 40px; color: #fafafa; text-transform: uppercase; font-weight: 700; font-size: 1.6rem; }
 @media (min-width: 768px) { .nav > li > a { font-size: 1.2rem; } }
-@media (min-width: 992px) { .nav > li > a { font-size: 1rem; padding: 25px 40px; } }
+@media (min-width: 992px) { .nav > li > a { font-size: 1rem; padding: 35px 40px; } }
 .nav > li > a:hover, .nav > li > a:focus { color: #6aaac3; background-color: #fafafa; }
 
 .nav#menu-social-menu > li { display: inline-block; }
