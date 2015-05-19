@@ -168,7 +168,7 @@ get_header();
 						while ( $the_query->have_posts() ) :
 							$the_query->the_post(); ?>
 
-					<div id="post-<?php the_ID(); ?>" <?php post_class('col-xs-8 col-xs-offset-2 col-md-offset-0 col-md-6 col-lg-3'); ?>>
+					<div id="post-<?php the_ID(); ?>" <?php post_class('col-xs-offset-2 col-xs-8 col-sm-offset-0 col-sm-6 col-md-3'); ?>>
 
 						<div class="post-thumbnail">
 
