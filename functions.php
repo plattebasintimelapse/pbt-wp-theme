@@ -69,7 +69,7 @@ function pbt_setup() {
 		'description' 	=> 'A widget area on the homepage',
 		'id' 			=> 'pbt-home-main',
 		'class'         => '',
-		'before_widget' => '<div class="main-widgeted-text">',
+		'before_widget' => '<div class="main-widgeted-text text-center">',
 		'after_widget' 	=> '</div>',
 		'before_title' 	=> '<p class="underlined underlined-dark font-size-large">',
 		'after_title' 	=> '</p>'
@@ -80,7 +80,7 @@ function pbt_setup() {
 		'description' 	=> 'A widget area on the homepage map',
 		'id' 			=> 'pbt-home-map',
 		'class'         => '',
-		'before_widget' => '<div class="main-widgeted-text">',
+		'before_widget' => '<div class="main-widgeted-text text-center">',
 		'after_widget' 	=> '</div>',
 		'before_title' 	=> '<h2 class="underlined underlined-dark">',
 		'after_title' 	=> '</h2>'

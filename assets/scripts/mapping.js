@@ -2,13 +2,13 @@
 
     $(document).ready(function () {
         createMainMap();
-        createAboutMap();
+        // createAboutMap();
 
         function createMainMap() {
             var layer = new L.StamenTileLayer("terrain-background");
             var map = new L.Map("map", {
                 center: new L.LatLng(40.75,-102),
-                zoom: 5,
+                zoom: 6,
                 scrollWheelZoom: false,
                 attributionControl: null
             });
@@ -77,8 +77,8 @@
                 scrollWheelZoom: false,
                 zoomControl:false,
                 attributionControl: null
-
             });
+
 
             $.getJSON('wp-content/themes/pbt/assets/data/states.json', function(data) {
                 var states = L.geoJson(data, {
@@ -87,7 +87,8 @@
                         var styles = {
                             fillOpacity: 0,
                             weight: 1,
-                            color: 'lightgray'
+                            color: 'lightgray',
+                            label: 'hello'
                         }
 
                         return styles;

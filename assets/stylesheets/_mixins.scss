@@ -5,6 +5,20 @@
 	margin-left: -($width/2);
 }
 
+@mixin prop-transition($prop, $time) {
+	-webkit-transition: $prop $time ease-out;
+    -moz-transition: $prop $time ease-out;
+    -o-transition: $prop $time ease-out;
+    transition: $prop $time ease-out;
+}
+
+@mixin prop-transition-delayed($prop, $time, $delay) {
+	-webkit-transition: $prop $time $delay ease-out;
+    -moz-transition: $prop $time $delay ease-out;
+    -o-transition: $prop $time $delay ease-out;
+    transition: $prop $time $delay ease-out;
+}
+
 @mixin text-over-image() {
 	color: $gray-lighter;
 	text-shadow: $text-shadow-over-image;
