@@ -24,6 +24,7 @@ add_filter('user_contactmethods','hide_profile_fields',10,1);
 function pbt_modify_contact_methods($profile_fields) {
 
 	// Add new fields
+    $profile_fields['public_email'] = __('Public Email');
 	$profile_fields['twitter'] = __('Twitter Username');
 	$profile_fields['instagram'] = __('Instagram Username');
 	$profile_fields['flickr'] = __('Flickr Username');

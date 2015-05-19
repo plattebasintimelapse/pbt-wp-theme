@@ -84,7 +84,7 @@ function pbt_author_meta($curauth) {
 	}
 
 	if( $curauth->user_email !== '' ) {
-		echo '<div class="author-link"><a href="mailto:' . $curauth->user_email . '"><i class="fa fa-envelope-o"></i> <small>' . $curauth->user_email . '</small></a></div>';
+		echo '<div class="author-link"><a href="mailto:' . $curauth->public_email . '"><i class="fa fa-envelope-o"></i> <small>' . $curauth->public_email . '</small></a></div>';
 	}
 }
 
