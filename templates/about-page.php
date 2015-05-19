@@ -106,13 +106,24 @@ while ( have_posts() ) : the_post();
 		</div>
 	</div>
 
-	<div class="container container-padding">
+	<div class="container">
 		<div class="feed-team">
 			<div class="row">
 				<?php
 
+					$guests = get_users( array( 'role' => 'guest' ) );
+					$emeritus = get_users( array( 'role' => 'emeritus' ) );
+
+					$pbters = array_merge($guests, $emeritus );
+
+					$pbters_IDs = array();
+
+					foreach( $pbters as $person ) {
+					    $pbters_IDs[] = $person->ID;
+					}
+
 					$author_args = array(
-						'role'	=> 'guest',
+						'include'	=> $pbters_IDs,
 					);
 
 					$user_query = new WP_User_Query( $author_args );
