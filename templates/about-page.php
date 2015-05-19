@@ -106,7 +106,7 @@ while ( have_posts() ) : the_post();
 		</div>
 	</div>
 
-	<div class="container container-padding">
+	<div class="container">
 		<div class="feed-team">
 			<div class="row">
 				<?php
