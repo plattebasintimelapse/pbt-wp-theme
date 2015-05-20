@@ -22,13 +22,13 @@
         </div>
 
         <div class="col-sm-<?php echo $content_col_size; ?>">
-            <?php the_content(); ?>
+            <?php the_field('pre_learn_more'); ?>
         </div>
 
     <?php } else { ?>
 
         <div class="col-sm-<?php echo $content_col_size; ?>">
-            <?php the_content(); ?>
+            <?php the_field('pre_learn_more'); ?>
         </div>
 
         <div class="col-sm-<?php echo $image_col_size; ?>">

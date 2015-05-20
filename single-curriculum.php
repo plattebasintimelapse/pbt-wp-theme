@@ -50,10 +50,12 @@ get_header();
 					$the_query->the_post();
 
 
-			get_template_part( 'partials/learning-objects/lo', get_field('learning_object_format') );
+			get_template_part( 'partials/learning-objects/lo', get_field('learning_object_format') ); ?>
 
-			edit_post_link('edit learning object', '<div class="text-center font-size-ex-small">', '</div>');
+			<a class="btn btn-primary read-more-btn btn-block btn-max-width" role="button" rel="bookmark" title="Permanent Link to <?php the_title_attribute(); ?>" href="<?php the_permalink() ?>"><h5>Read More</h5></a>
 
+
+		<?php
 			endwhile; endif;
 			wp_reset_postdata();
 		?>

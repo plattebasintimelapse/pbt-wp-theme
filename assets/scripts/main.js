@@ -19,22 +19,22 @@
         $.each( $('.post-meta-box-lg'), function() {
             // console.log( $(this).height() );
             if ( $(this).height() < 101 ) {
-                $(this).addClass('small');
+                $(this).addClass('post-meta-box-short');
             } else if ( $(this).height() < 148  && $window.width() > 768 ) {
-                $(this).addClass('normal');
+                $(this).addClass('post-meta-box-normal');
             } else if ( $(this).height() < 210  && $window.width() > 768 ) {
-                $(this).addClass('tall');
+                $(this).addClass('post-meta-box-tall');
             } else if ( $(this).height() >= 210  && $window.width() > 768 ) {
-                $(this).addClass('ex-tall');
+                $(this).addClass('post-meta-box-ex-tall');
             }
         });
 
         $.each( $('.post-meta-box-sm'), function() {
             // console.log( $(this).height() );
             if ( $(this).height() > 80 ) {
-                $(this).addClass('tall');
+                $(this).addClass('post-meta-box-tall');
             } else {
-                $(this).addClass('normal');
+                $(this).addClass('post-meta-box-normal');
             }
         });
 

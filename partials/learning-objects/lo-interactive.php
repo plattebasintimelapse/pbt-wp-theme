@@ -25,7 +25,7 @@ $slug = sanitize_title( get_the_title() );
 <section>
 	<div class="row">
 		<div class="col-xs-12">
-			<?php the_content(); ?>
+			<?php the_field('pre_learn_more'); ?>
 		</div>
 	</div>
 </section>
