@@ -135,6 +135,11 @@
 	@include breakpoint(papa-bear) { max-width: 960px; }
 }
 
+.main-content.narrow > .container {
+	max-width: 700px;
+	@include breakpoint(papa-bear) { max-width: 840px; }
+}
+
 .overlay {
 	position: absolute;
 	height: 100%;

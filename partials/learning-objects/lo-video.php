@@ -3,9 +3,9 @@
  * The Learning Object format for a video
  */
 
-    $video = get_field( 'video' );
-    $align = get_field( 'col_align' );
-    $size = get_field( 'col_size' );
+    $video = get_field( 'video', $lo_id );
+    $align = get_field( 'col_align', $lo_id );
+    $size = get_field( 'col_size', $lo_id );
     $video_col_size = '6';
     $content_col_size = '6';
 
@@ -14,7 +14,7 @@
     else { $video_col_size = '6'; $content_col_size = '6'; }
 ?>
 
-<section id="lo-<?php the_ID(); ?>" <?php post_class('row row-padding'); ?>>
+<section id="lo-<?php echo $lo_id?>" <?php post_class('row row-padding'); ?>>
 
 	<?php if( $align == 'left' ) { ?>
 
@@ -23,13 +23,13 @@
         </div>
 
         <div class="col-sm-<?php echo $content_col_size; ?>">
-            <?php the_field('pre_learn_more'); ?>
+            <?php the_field('pre_learn_more', $lo_id); ?>
         </div>
 
     <?php } else { ?>
 
         <div class="col-sm-<?php echo $content_col_size; ?>">
-            <?php the_field('pre_learn_more'); ?>
+            <?php the_field('pre_learn_more', $lo_id); ?>
         </div>
 
         <div class="col-sm-<?php echo $video_col_size; ?>">
