@@ -3492,13 +3492,13 @@ header .btn { margin: 4px 0; }
 .post-meta-box-lg .post-title { font-size: 1.3rem; }
 @media (min-width: 768px) { .post-meta-box-lg .post-title { font-size: 1.8rem; } }
 
-.post-meta-box .post-category, .post-meta-box .blog-post-author { display: none; }
-@media (min-width: 768px) { .post-meta-box .post-category, .post-meta-box .blog-post-author { display: block; padding-bottom: 6px; border-bottom: 2px solid #fafafa; } }
+.post-meta-box .post-category, .post-meta-box .blog-post-author, .featured-post-meta-box .post-category, .featured-post-meta-box .blog-post-author { display: none; }
+@media (min-width: 768px) { .post-meta-box .post-category, .post-meta-box .blog-post-author, .featured-post-meta-box .post-category, .featured-post-meta-box .blog-post-author { display: block; padding-bottom: 6px; border-bottom: 2px solid #fafafa; } }
 
 .post-meta-box .read-more-btn { opacity: 0; position: absolute; top: 50px; display: block; left: 50%; width: 200px; margin-left: -100px; }
 
-.featured-post-meta-box { display: block; left: 50%; width: 80%; margin-left: -40%; top: 14%; text-align: center; }
-@media (min-width: 768px) { .featured-post-meta-box { display: block; left: 50%; width: 74%; margin-left: -37%; top: 8%; } }
+.featured-post-meta-box { display: block; left: 50%; width: 80%; margin-left: -40%; top: 2%; text-align: center; }
+@media (min-width: 768px) { .featured-post-meta-box { display: block; left: 50%; width: 74%; margin-left: -37%; top: 4%; } }
 @media (min-width: 992px) { .featured-post-meta-box { top: 15%; } }
 @media (min-width: 1170px) { .featured-post-meta-box { top: 20%; } }
 
@@ -3519,12 +3519,13 @@ header .btn { margin: 4px 0; }
   .featured-meta-box .read-more-btn { display: inline-block; width: 140px; margin: 0 auto; }
   .featured-meta-box h5 { display: block; margin-bottom: 0; } }
 
+.home .featured-meta-box { top: 60%; }
 .home .featured-meta-box h1 { display: none; }
 .home .featured-meta-box h2 { font-size: 1.4rem; }
-@media (min-width: 768px) { .home .featured-meta-box { top: 30%; display: block; left: 50%; width: 60%; margin-left: -30%; text-align: center; }
+@media (min-width: 768px) { .home .featured-meta-box { top: 20%; display: block; left: 50%; width: 60%; margin-left: -30%; text-align: center; }
   .home .featured-meta-box h1 { display: block; }
   .home .featured-meta-box h2 { font-size: 2.4rem; } }
-@media (min-width: 768px) { .home .featured-meta-box { display: block; left: 50%; width: 80%; margin-left: -40%; } }
+@media (min-width: 992px) { .home .featured-meta-box { display: block; left: 50%; width: 80%; margin-left: -40%; top: 30%; } }
 
 .post-description { text-transform: none; }
 
@@ -3737,13 +3738,18 @@ figure.image img { margin: 0; }
 
 .home .main-widgeted-text span { opacity: 0; color: #6aaac3; }
 
-.post-meta-box-lg.post-meta-box-short { top: 25%; }
-.post-meta-box-lg.post-meta-box-normal { top: 15%; }
+.post-meta-box-lg.post-meta-box-short { top: 5%; }
+@media (min-width: 768px) { .post-meta-box-lg.post-meta-box-short { top: 25%; } }
+.post-meta-box-lg.post-meta-box-normal { top: 8%; }
+@media (min-width: 768px) { .post-meta-box-lg.post-meta-box-normal { top: 15%; } }
 .post-meta-box-lg.post-meta-box-tall { top: 8%; }
 .post-meta-box-lg.post-meta-box-ex-tall { top: 3%; width: 90%; margin-left: -45%; }
 
-.post-meta-box-sm.post-meta-box-normal { top: 25%; }
+.post-meta-box-sm.post-meta-box-normal { top: 12%; }
+@media (min-width: 768px) { .post-meta-box-sm.post-meta-box-normal { top: 25%; } }
 .post-meta-box-sm.post-meta-box-tall { top: 12%; }
+.post-meta-box-sm.post-meta-box-tall .post-title { font-size: .8rem; }
+@media (min-width: 768px) { .post-meta-box-sm.post-meta-box-tall { font-size: 1rem; } }
 
 .post-thumbnail img { opacity: .8; -webkit-transition: opacity 500ms ease-out; -moz-transition: opacity 500ms ease-out; -o-transition: opacity 500ms ease-out; transition: opacity 500ms ease-out; }
 .post-thumbnail .post-title { display: block; opacity: 1; -webkit-transition: opacity 500ms ease-out; -moz-transition: opacity 500ms ease-out; -o-transition: opacity 500ms ease-out; transition: opacity 500ms ease-out; }

@@ -228,7 +228,7 @@
 	}
 }
 
-.post-meta-box .post-category, .post-meta-box .blog-post-author {
+.post-meta-box .post-category, .post-meta-box .blog-post-author, .featured-post-meta-box .post-category, .featured-post-meta-box .blog-post-author {
 	display: none; // hide on small screens
 	@include breakpoint(baby-bear) {
 		display: block;
@@ -246,12 +246,12 @@
 
 .featured-post-meta-box {
 	@include block-centered(80%);
-	top: 14%;
+	top: 2%;
 	text-align: center;
 
 	@include breakpoint(baby-bear) {
 		@include block-centered(74%);
-		top: 8%;
+		top: 4%;
 	}
 
 	@include breakpoint(mama-bear) {
@@ -312,15 +312,17 @@
 .home .featured-meta-box {
 	h1 { display: none; }
 	h2 { font-size: 1.4rem; }
+	top: 60%;
 	@include breakpoint(baby-bear) {
 		h1 { display: block; }
 		h2 { font-size: 2.4rem; }
-		top: 30%;
+		top: 20%;
 		@include block-centered(60%);
 		text-align: center;
 	}
-	@include breakpoint(baby-bear) {
+	@include breakpoint(mama-bear) {
 		@include block-centered(80%);
+		top: 30%;
 	}
 }
 

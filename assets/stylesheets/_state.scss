@@ -7,8 +7,8 @@
 .home .main-widgeted-text span { opacity: 0; color: $blue; }
 
 .post-meta-box-lg {
-	&.post-meta-box-short { top: 25%; }
-	&.post-meta-box-normal { top: 15%; }
+	&.post-meta-box-short { top: 5%; @include breakpoint(baby-bear) { top: 25%; } }
+	&.post-meta-box-normal { top: 8%; @include breakpoint(baby-bear) { top: 15%; } }
 	&.post-meta-box-tall { top: 8%; }
 	&.post-meta-box-ex-tall {
 		top: 3%;
@@ -18,8 +18,14 @@
 }
 
 .post-meta-box-sm {
-	&.post-meta-box-normal { top: 25%; }
-	&.post-meta-box-tall { top: 12%; }
+	&.post-meta-box-normal { top: 12%; @include breakpoint(baby-bear) { top: 25%; } }
+	&.post-meta-box-tall {
+		top: 12%;
+		.post-title {
+			font-size: .8rem;
+		}
+		@include breakpoint(baby-bear) { font-size: 1rem; }
+	}
 }
 
 

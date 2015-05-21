@@ -75,7 +75,7 @@
     }
 
     function mobileCheck(w) {
-        if (w < 1030 ) {
+        if (w <= 992 ) {
             var mobiles = document.querySelectorAll('.mobile-check');
             for(var i = 0; i<mobiles.length;i++) {
               // videojs(videos[i]).destroy();
