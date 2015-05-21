@@ -23,13 +23,13 @@
         </div>
 
         <div class="col-sm-<?php echo $content_col_size; ?>">
-            <?php the_field('pre_learn_more', $lo_id); ?>
+            <?php if ($has_lesson) { the_field('pre_learn_more', $lo_id ); } else { echo get_the_content_by_id( $lo_id ); } ?>
         </div>
 
     <?php } else { ?>
 
         <div class="col-sm-<?php echo $content_col_size; ?>">
-            <?php the_field('pre_learn_more', $lo_id); ?>
+            <?php if ($has_lesson) { the_field('pre_learn_more', $lo_id ); } else { echo get_the_content_by_id( $lo_id ); } ?>
         </div>
 
         <div class="col-sm-<?php echo $video_col_size; ?>">

@@ -13,7 +13,6 @@ get_header(); ?>
 
 		<div class="container" style="position: relative;">
 			<div class="col-sm-12">
-				<h3><?php the_title(); ?></h3>
 				<?php the_content(); ?>
 			</div>
 			<aside style="position: absolute; top: 100px; left: 100%; background-color: gray; width: 200px; padding: 15px; ">

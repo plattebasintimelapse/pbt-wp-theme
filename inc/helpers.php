@@ -95,6 +95,14 @@ function pbt_short_title() {
 	if( $short_title != $title) { echo "..."; }
 }
 
+function get_the_content_by_id($post_id) {
+	$page_data = get_page($post_id);
+	if ($page_data) {
+		return $page_data->post_content;
+	}
+		else return false;
+}
+
 
 /**
  * This function gets the post categories for the given story.

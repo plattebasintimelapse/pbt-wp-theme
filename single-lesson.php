@@ -41,10 +41,15 @@ get_header();
 				if( $learning_objects_list ):
 					foreach( $learning_objects_list as $learning_object ):
 
+						$has_lesson = get_field('has_lesson', $learning_object->ID);
+
 						set_query_var( 'lo_id', $learning_object->ID );
+						set_query_var( 'has_lesson', $has_lesson );
 						get_template_part( 'partials/learning-objects/lo', get_field('learning_object_format', $learning_object->ID) ); ?>
 
-						<a class="btn btn-primary btn-ghost btn-sm" role="button" rel="bookmark" title="Permanent Link to <?php echo get_the_title( $learning_object->ID ); ?> " href="<?php echo get_permalink( $learning_object->ID ); ?>"><h6><i class="fa fa-book"></i> Do Lesson </h6></a>
+						<?php if( get_field( 'has_lesson', $learning_object->ID ) ) { ?>
+							<a class="btn btn-primary btn-ghost btn-sm" role="button" rel="bookmark" title="Permanent Link to <?php echo get_the_title( $learning_object->ID ); ?> " href="<?php echo get_permalink( $learning_object->ID ); ?>"><h6><i class="fa fa-book"></i> Do Lesson </h6></a>
+						<?php } ?>
 
 					<?php endforeach; endif;
 						wp_reset_postdata();

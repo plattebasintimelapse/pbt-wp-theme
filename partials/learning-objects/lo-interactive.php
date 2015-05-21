@@ -25,7 +25,7 @@ $slug = sanitize_title( get_the_title() );
 <section>
 	<div class="row">
 		<div class="col-xs-12">
-			<?php the_field('pre_learn_more', $lo_id ); ?>
+			<?php if ($has_lesson) { the_field('pre_learn_more', $lo_id ); } else { echo get_the_content_by_id( $lo_id ); } ?>
 		</div>
 	</div>
 </section>
