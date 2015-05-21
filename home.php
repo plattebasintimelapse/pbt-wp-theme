@@ -20,9 +20,9 @@ get_header();
 					<source type="video/mp4" src="http://projects.plattebasintimelapse.com/assets/static/video/intro.mp4" />
 					<img src="<?php bloginfo( 'stylesheet_directory' ); ?>/assets/img/intro.jpg" title="Your browser does not support the <video> tag" />
 				</video>
-
-				<div class="overlay"></div>
 			</div>
+
+			<div class="overlay"></div>
 
 			<div id="intro-image-wrapper">
 				<img src="<?php bloginfo( 'stylesheet_directory' ); ?>/assets/img/intro.jpg" title="Your browser does not support the <video> tag" />
@@ -35,7 +35,7 @@ get_header();
 			</div>
 
 			<div class="featured-meta-box" id="spinning-loader">
-				<i class="fa fa-spinner fa-spin fa-5x"></i>
+				<i class="fa fa-spinner fa-spin fa-3x"></i>
 			</div>
 		</div>
 	</section>
