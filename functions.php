@@ -30,10 +30,10 @@ function pbt_setup() {
 	 */
 	update_option( 'thumbnail_size_w', 300, true );
 	update_option( 'thumbnail_size_h', 300, true );
-    update_option( 'medium_size_w', 600, true );
-    update_option( 'medium_size_h', 400, true );
-	update_option( 'large_size_w', 1000, true );
-	update_option( 'large_size_h', 500, true );
+    update_option( 'medium_size_w', 500, true );
+    update_option( 'medium_size_h', 300, true );
+	update_option( 'large_size_w', 600, true );
+	update_option( 'large_size_h', 400, true );
 
     add_image_size( 'pbt-post-thumbnail', 400, 200, true );
 	add_image_size( 'pbt-pano-header', 1200, 400, true );
