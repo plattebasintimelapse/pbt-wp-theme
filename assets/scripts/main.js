@@ -35,24 +35,6 @@
                 $(this).addClass('post-meta-box-normal');
             }
         });
-
-        setTimeout(function() {
-            $('.home .featured-meta-box h1').animate({
-                'margin-top': '0px',
-                'opacity': '1'
-            },1000);
-        }, 1000);
-        setTimeout(function() {
-            $('.home .featured-meta-box h2').animate({
-                'margin-top': '0px',
-                'opacity': '1'
-            },1000);
-        }, 2000);
-        setTimeout(function() {
-            $('.main-widgeted-text').find('span').animate({
-                'opacity': '1'
-            },1000);
-        }, 4000);
     });
 
     $(window).resize(function(){
@@ -75,13 +57,41 @@
     }
 
     function mobileCheck(w) {
-        if (w <= 992 ) {
-            var mobiles = document.querySelectorAll('.mobile-check');
-            for(var i = 0; i<mobiles.length;i++) {
-              // videojs(videos[i]).destroy();
-              mobiles[i].remove();
-           }
+        var check = true;
+        if (w > 992 && check ) {
+
+            var video = document.getElementById("intro-video");
+
+            video.load();
+
+            video.addEventListener('loadeddata', function() {
+                $('#spinning-loader').toggleClass('hidden');
+                $('#intro-video-wrapper').toggleClass('hidden');
+                $('#intro-image-wrapper').toggleClass('hidden');
+                video.play();
+                introAnimation();
+            }, false);
         }
+    }
+
+    function introAnimation() {
+        setTimeout(function() {
+            $('.home .featured-meta-box h1').animate({
+                'margin-top': '0px',
+                'opacity': '1'
+            },1000);
+        }, 1000);
+        setTimeout(function() {
+            $('.home .featured-meta-box h2').animate({
+                'margin-top': '0px',
+                'opacity': '1'
+            },1000);
+        }, 2000);
+        setTimeout(function() {
+            $('.main-widgeted-text').find('span').animate({
+                'opacity': '1'
+            },1000);
+        }, 4000);
     }
 
     $(function() {

@@ -15,8 +15,8 @@ get_header();
 	<section class="featured hero-image">
 		<div class="container-fluid">
 
-			<div class="visible-md visible-lg mobile-check">
-				<video preload="auto" autoplay loop style="width: 100%; height: 100%;">
+			<div class="hidden" id="intro-video-wrapper">
+				<video id="intro-video" preload="none" loop style="width: 100%; height: 100%;">
 					<source type="video/mp4" src="http://projects.plattebasintimelapse.com/assets/static/video/intro.mp4" />
 					<img src="<?php bloginfo( 'stylesheet_directory' ); ?>/assets/img/intro.jpg" title="Your browser does not support the <video> tag" />
 				</video>
@@ -24,13 +24,18 @@ get_header();
 				<div class="overlay"></div>
 			</div>
 
-			<div class="visible-xs visible-sm">
+			<div id="intro-image-wrapper">
 				<img src="<?php bloginfo( 'stylesheet_directory' ); ?>/assets/img/intro.jpg" title="Your browser does not support the <video> tag" />
+				
 			</div>
 
 			<div class="featured-meta-box">
 				<h1><?php bloginfo( 'name' ); ?></h1>
 				<h2><?php bloginfo( 'description' ); ?></h2>
+			</div>
+
+			<div class="featured-meta-box" id="spinning-loader">
+				<i class="fa fa-spinner fa-spin fa-5x"></i>
 			</div>
 		</div>
 	</section>
