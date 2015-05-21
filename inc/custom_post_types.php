@@ -202,25 +202,25 @@ add_action( 'init', 'pbt_project_credit_taxonomies', 0 );
 
 
 /**
- * Create Curriculum Post Type
+ * Create Lesson Post Type
  */
-function pbt_ed_curriculum_post_type() {
+function pbt_ed_lesson_post_type() {
     $labels = array(
-        'name'                => _x( 'Curriculum', 'Post Type General Name' ),
-        'singular_name'       => _x( 'Curriculum', 'Post Type Singular Name' ),
-        'menu_name'           => __( 'Curriculum' ),
-        'parent_item_colon'   => __( 'Parent Curriculum' ),
-        'all_items'           => __( 'All Curriculum' ),
-        'view_item'           => __( 'View Curriculum' ),
-        'add_new_item'        => __( 'Add New Curriculum' ),
-        'add_new'             => __( 'Add New Curriculum' ),
-        'edit_item'           => __( 'Edit Curriculum' ),
-        'update_item'         => __( 'Update Curriculum' ),
-        'search_items'        => __( 'Search Curriculum' ),
+        'name'                => _x( 'Lessons', 'Post Type General Name' ),
+        'singular_name'       => _x( 'Lesson', 'Post Type Singular Name' ),
+        'menu_name'           => __( 'Lessons' ),
+        'parent_item_colon'   => __( 'Parent Lesson' ),
+        'all_items'           => __( 'All Lessons' ),
+        'view_item'           => __( 'View Lesson' ),
+        'add_new_item'        => __( 'Add New Lesson' ),
+        'add_new'             => __( 'Add New Lesson' ),
+        'edit_item'           => __( 'Edit Lesson' ),
+        'update_item'         => __( 'Update Lesson' ),
+        'search_items'        => __( 'Search Lessons' ),
         'not_found'           => __( 'Not Found' ),
         'not_found_in_trash'  => __( 'Not found in Trash' ),
     );
-    register_post_type('curriculum', array(
+    register_post_type('lesson', array(
        'labels'                 => $labels,
        'description'            => 'A collection of lessons, displayed in a textbook fashion',
        'public'                 => true,
@@ -236,7 +236,7 @@ function pbt_ed_curriculum_post_type() {
     ));
 }
 
-add_action('init', 'pbt_ed_curriculum_post_type');
+add_action('init', 'pbt_ed_lesson_post_type');
 
 /**
  * Create Learning Object Post Type
@@ -259,7 +259,7 @@ function pbt_ed_learning_object_post_type() {
     );
     register_post_type('learning_object', array(
        'label'                  => 'Learning Object',
-       'description'            => 'A learning object to be displayed on a curriculum or story',
+       'description'            => 'A learning object to be displayed on a lesson or story',
        'public'                 => true,
        'show_ui'                => true,
        'show_in_menu'           => true,

@@ -3291,8 +3291,8 @@ html { font-size: 20px; }
 @media (min-width: 992px) { body { font-size: 22px; } }
 @media (min-width: 1170px) { body { font-size: 24px; } }
 
-body.single-curriculum h1, body.single-curriculum h2, body.single-curriculum h3, body.single-curriculum h4, body.single-curriculum h5, body.single-learning_object h1, body.single-learning_object h2, body.single-learning_object h3, body.single-learning_object h4, body.single-learning_object h5 { font-family: "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; font-weight: 100; }
-body.single-curriculum p, body.single-learning_object p { font-size: 18px; }
+body.single-lesson h1, body.single-lesson h2, body.single-lesson h3, body.single-lesson h4, body.single-lesson h5, body.single-learning_object h1, body.single-learning_object h2, body.single-learning_object h3, body.single-learning_object h4, body.single-learning_object h5 { font-family: "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; font-weight: 100; }
+body.single-lesson p, body.single-learning_object p { font-size: 18px; }
 
 h1, h2, h3, h4, h5 { margin-top: 10px; margin-bottom: 6px; }
 
