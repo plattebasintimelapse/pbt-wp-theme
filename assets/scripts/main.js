@@ -67,10 +67,12 @@
             video.load();
 
             video.addEventListener('loadeddata', function() {
-                $('#intro-video-wrapper').toggleClass('hidden');
-                $('#intro-image-wrapper').toggleClass('hidden');
-                video.play();
-                introAnimation();
+                if ( video.readyState === 4 ) {
+                    $('#intro-video-wrapper').toggleClass('hidden');
+                    $('#intro-image-wrapper').toggleClass('hidden');
+                    video.play();
+                    introAnimation();
+                }
             }, false);
 
         } else {

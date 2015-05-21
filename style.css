@@ -3425,6 +3425,8 @@ header .btn { margin: 4px 0; }
 .main h2 { margin-bottom: 30px; text-align: center; }
 .main .container:first-child h2 { margin-top: 0px; }
 
+.home .main { -ms-transform: translateY(-20px); /* IE 9 */ -webkit-transform: translateY(-20px); /* Safari */ transform: translateY(-20px); }
+
 .main.status-draft { background-color: #FFFAED; }
 
 .container-small { max-width: 700px; }

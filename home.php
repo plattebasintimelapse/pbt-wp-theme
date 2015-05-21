@@ -16,7 +16,7 @@ get_header();
 		<div class="container-fluid">
 
 			<div class="hidden" id="intro-video-wrapper">
-				<video id="intro-video" preload="none" loop style="width: 100%; height: 100%;">
+				<video id="intro-video" preload="auto" loop style="width: 100%; height: 100%;">
 					<source type="video/mp4" src="http://projects.plattebasintimelapse.com/assets/static/video/intro.mp4" />
 					<img src="<?php bloginfo( 'stylesheet_directory' ); ?>/assets/img/intro.jpg" title="Your browser does not support the <video> tag" />
 				</video>
@@ -39,7 +39,7 @@ get_header();
 		</div>
 	</section>
 
-	<section class="main" role="main" style="transform:translateY(-20px);">
+	<section class="main" role="main">
 
 		<div class="container container-padding">
 			<div class="row">

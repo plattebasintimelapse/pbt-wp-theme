@@ -62,6 +62,12 @@
 	}
 }
 
+.home .main {
+	-ms-transform: translateY(-20px);; /* IE 9 */
+   	-webkit-transform: translateY(-20px); /* Safari */
+    transform: translateY(-20px);
+}
+
 .main.status-draft {
 	background-color: #FFFAED;
 }
