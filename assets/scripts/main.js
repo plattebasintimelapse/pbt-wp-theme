@@ -1,7 +1,6 @@
 (function($) {
 
     $(document).ready(function () {
-        console.log('Scripts all work, eh?');
 
         $body                       = $('body');
         $window                     = $(window);
@@ -12,10 +11,8 @@
         $searchbarInput             = $('#searchbarCollapse input#s');
         $heroImageBehind            = $('.hero-image-behind');
 
-        var s = skrollr.init();
-
         runHeightSpecificStyles();
-        // mobileCheck( $window.width() );
+        mobileCheck( $window.width() );
 
         $.each( $('.post-meta-box-lg'), function() {
             // console.log( $(this).height() );

@@ -28,14 +28,14 @@ get_header();
 				<img src="<?php bloginfo( 'stylesheet_directory' ); ?>/assets/img/intro.jpg" title="Your browser does not support the <video> tag" />
 			</div>
 
-			<div class="featured-meta-box" data-0="opacity:1;" data-300="opacity:0;">
+			<div class="featured-meta-box">
 				<h1><?php bloginfo( 'name' ); ?></h1>
 				<h2><?php bloginfo( 'description' ); ?></h2>
 			</div>
 		</div>
 	</section>
 
-	<section class="main" role="main" data-0="transform:translateY(-20px);" data-500="transform:translateY(-250px);">
+	<section class="main" role="main" style="transform:translateY(-20px);">
 
 		<div class="container container-padding">
 			<div class="row">

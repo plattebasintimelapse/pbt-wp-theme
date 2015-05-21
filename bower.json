@@ -16,8 +16,7 @@
   ],
   "dependencies": {
     "jquery": "~2.1.3",
-    "jplayer": "~2.9.2",
-    "skrollr": "~0.6.29"
+    "jplayer": "~2.9.2"
   },
   "devDependencies": {
     "bootstrap-sass-official": "~3.3.4",

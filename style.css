@@ -3309,9 +3309,11 @@ a.link-color-dark:hover { color: #6aaac3; }
 
 .font-size-small { font-size: 18px; }
 
-.font-size-large { font-size: 38px; }
+.font-size-large { font-size: 20px; }
+@media (min-width: 992px) { .font-size-large { font-size: 38px; } }
 
-.font-size-ex-large { font-size: 38px; }
+.font-size-ex-large { font-size: 20px; }
+@media (min-width: 992px) { .font-size-ex-large { font-size: 38px; } }
 
 input { color: #545454; padding: 6px 18px; font-size: .8em; border-radius: 20px; border: none; -moz-box-shadow: inset 0 0 6px #757575; -webkit-box-shadow: inset 0 0 6px #757575; box-shadow: inset 0 0 6px #757575; }
 input:focus { outline: none; background-color: #8ebfd2; }
@@ -3327,8 +3329,6 @@ input:focus::-moz-placeholder { color: transparent !important; }
 input:focus:-ms-input-placeholder { color: transparent !important; }
 
 /* IE 10+ */
-.mc-form { width: 80%; margin: 0 auto; }
-
 .underlined { padding-bottom: 20px; border-bottom: 1px solid; }
 
 .underlined-dark { border-color: #212121; }
@@ -3469,8 +3469,8 @@ header .btn { margin: 4px 0; }
 
 .overlay { position: absolute; height: 100%; width: 100%; display: block; top: 0; left: 0; z-index: 1; background-color: rgba(0, 0, 0, 0.3); -webkit-transition: background-color 1s ease; -moz-transition: background-color 1s ease; transition: background-color 1s ease; }
 
-.split { -webkit-column-count: 2; -moz-column-count: 2; column-count: 2; -webkit-column-gap: 30px; -moz-column-gap: 30px; column-gap: 30px; }
-@media (min-width: 768px) { .split { -webkit-column-count: 1; -moz-column-count: 1; column-count: 1; } }
+.split { -webkit-column-count: 1; -moz-column-count: 1; column-count: 1; }
+@media (min-width: 768px) { .split { -webkit-column-count: 2; -moz-column-count: 2; column-count: 2; -webkit-column-gap: 30px; -moz-column-gap: 30px; column-gap: 30px; } }
 
 .admin-bar .iframe-full-width-height { margin-top: -32px; }
 
@@ -3603,6 +3603,8 @@ footer .col { min-height: 180px; padding-bottom: 20px; margin-bottom: 20px; bord
 footer .col:last-child { border-right: none; border-bottom: none; }
 
 footer img { padding: 20px; width: 60%; min-width: 120px; }
+
+.mc-form { width: 80%; margin: 0 auto; }
 
 .well { border: none; background-color: transparent; font-size: .7rem; text-align: left; padding: 4px; }
 

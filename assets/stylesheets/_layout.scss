@@ -155,16 +155,16 @@
 }
 
 .split {
-	-webkit-column-count: 2;
-	-moz-column-count: 2;
-	column-count: 2;
-	-webkit-column-gap: 30px;
-	-moz-column-gap: 30px;
-	column-gap: 30px;
+	-webkit-column-count: 1;
+	-moz-column-count: 1;
+	column-count: 1;
 	@include breakpoint(baby-bear) {
-		-webkit-column-count: 1;
-		-moz-column-count: 1;
-		column-count: 1;
+		-webkit-column-count: 2;
+		-moz-column-count: 2;
+		column-count: 2;
+		-webkit-column-gap: 30px;
+		-moz-column-gap: 30px;
+		column-gap: 30px;
 	}
 }
 
@@ -541,6 +541,11 @@ footer img {
 	padding: 20px;
 	width: 60%;
 	min-width: 120px;
+}
+
+.mc-form {
+	width: 80%;
+	margin: 0 auto;
 }
 
 
