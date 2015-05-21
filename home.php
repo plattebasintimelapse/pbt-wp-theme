@@ -26,7 +26,6 @@ get_header();
 
 			<div id="intro-image-wrapper">
 				<img src="<?php bloginfo( 'stylesheet_directory' ); ?>/assets/img/intro.jpg" title="Your browser does not support the <video> tag" />
-				
 			</div>
 
 			<div class="featured-meta-box">

@@ -12,7 +12,10 @@
         $heroImageBehind            = $('.hero-image-behind');
 
         runHeightSpecificStyles();
-        loadVideo( $window.width() );
+
+        if ( $body.hasClass('home') ) {
+            loadVideo( $window.width() );
+        }
 
         $.each( $('.post-meta-box-lg'), function() {
             // console.log( $(this).height() );
@@ -69,6 +72,7 @@
                 video.play();
                 introAnimation();
             }, false);
+
         } else {
             introAnimation();
         }

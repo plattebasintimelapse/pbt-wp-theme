@@ -312,7 +312,7 @@
 .home .featured-meta-box {
 	h1 { display: none; }
 	h2 { font-size: 1.4rem; }
-	top: 60%;
+	top: 30%;
 	@include breakpoint(baby-bear) {
 		h1 { display: block; }
 		h2 { font-size: 2.4rem; }
@@ -370,9 +370,12 @@
 .main-content > .container > p {
 	margin: 0 0 14px;
 	@include breakpoint(papa-bear) {
-		  margin: 0 10% 14px 10%;
+		margin: 0 10% 14px 10%;
+
 	}
 }
+
+.main-content > .container > hr { margin: 50px 25% 50px 25%; color: $brand-info; }
 
 
 .bylines {
