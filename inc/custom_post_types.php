@@ -258,9 +258,10 @@ function pbt_ed_learning_object_post_type() {
         'not_found_in_trash'  => __( 'Not found in Trash' ),
     );
     register_post_type('learning_object', array(
-       'label'                  => 'Learning Object',
+       'labels'                 => $labels,
        'description'            => 'A learning object to be displayed on a lesson or story',
        'public'                 => true,
+       'exclude_from_search'    => true,
        'show_ui'                => true,
        'show_in_menu'           => true,
        'menu_position'          => 29,

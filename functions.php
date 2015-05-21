@@ -65,7 +65,7 @@ function pbt_setup() {
 	 * Register sidebars
 	 */
 	register_sidebar( array(
-		'name' 			=> 'PBT Homepage Sidebar',
+		'name' 			=> 'PBT Homepage Panel',
 		'description' 	=> 'A widget area on the homepage',
 		'id' 			=> 'pbt-home-main',
 		'class'         => '',
@@ -76,7 +76,7 @@ function pbt_setup() {
 	) );
 
 	register_sidebar( array(
-		'name' 			=> 'PBT Homepage Map Sidebar',
+		'name' 			=> 'PBT Homepage Map Panel',
 		'description' 	=> 'A widget area on the homepage map',
 		'id' 			=> 'pbt-home-map',
 		'class'         => '',
