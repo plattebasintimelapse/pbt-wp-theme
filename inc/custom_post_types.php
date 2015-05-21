@@ -224,6 +224,7 @@ function pbt_ed_lesson_post_type() {
        'labels'                 => $labels,
        'description'            => 'A collection of lessons, displayed in a textbook fashion',
        'public'                 => true,
+       'exclude_from_search'    => true,
        'show_ui'                => true,
        'show_in_menu'           => true,
        'menu_position'          => 28,
