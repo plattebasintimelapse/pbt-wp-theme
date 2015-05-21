@@ -15,6 +15,7 @@
         var s = skrollr.init();
 
         runHeightSpecificStyles();
+        // mobileCheck( $window.width() );
 
         $.each( $('.post-meta-box-lg'), function() {
             // console.log( $(this).height() );
@@ -73,6 +74,16 @@
             return h - 20;
         } else {
             return h - 80;
+        }
+    }
+
+    function mobileCheck(w) {
+        if (w < 1030 ) {
+            var mobiles = document.querySelectorAll('.mobile-check');
+            for(var i = 0; i<mobiles.length;i++) {
+              // videojs(videos[i]).destroy();
+              mobiles[i].remove();
+           }
         }
     }
 

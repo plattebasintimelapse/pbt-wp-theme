@@ -15,12 +15,18 @@ get_header();
 	<section class="featured hero-image">
 		<div class="container-fluid">
 
-			<video preload="metadata" autoplay loop style="width: 100%; height: 100%;">
-				<source type="video/mp4" src="http://projects.plattebasintimelapse.com/assets/static/video/intro.mp4" />
-				<img src="<?php bloginfo( 'stylesheet_directory' ); ?>/assets/img/intro.jpg" title="Your browser does not support the <video> tag" />
-			</video>
+			<div class="visible-md visible-lg mobile-check">
+				<video preload="auto" autoplay loop style="width: 100%; height: 100%;">
+					<source type="video/mp4" src="http://projects.plattebasintimelapse.com/assets/static/video/intro.mp4" />
+					<img src="<?php bloginfo( 'stylesheet_directory' ); ?>/assets/img/intro.jpg" title="Your browser does not support the <video> tag" />
+				</video>
 
-			<div class="overlay"></div>
+				<div class="overlay"></div>
+			</div>
+
+			<div class="visible-xs visible-sm">
+				<img src="<?php bloginfo( 'stylesheet_directory' ); ?>/assets/img/intro.jpg" title="Your browser does not support the <video> tag" />
+			</div>
 
 			<div class="featured-meta-box" data-0="opacity:1;" data-300="opacity:0;">
 				<h1><?php bloginfo( 'name' ); ?></h1>
