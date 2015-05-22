@@ -18,6 +18,7 @@ get_header();
 			<div class="hidden" id="intro-video-wrapper">
 				<video id="intro-video" preload="auto" loop style="width: 100%; height: 100%;">
 					<source type="video/mp4" src="http://projects.plattebasintimelapse.com/assets/static/video/intro.mp4" />
+					<source type="video/webm" src="http://projects.plattebasintimelapse.com/assets/static/video/intro.webm" />
 					<img src="<?php bloginfo( 'stylesheet_directory' ); ?>/assets/img/intro.jpg" title="Your browser does not support the <video> tag" />
 				</video>
 			</div>
