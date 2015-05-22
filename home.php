@@ -141,6 +141,11 @@ get_header();
 
 		<div class="container container-little-padding-top">
 			<?php dynamic_sidebar( 'pbt-home-map' ); ?>
+			<div class="row row-padding-top">
+				<div class="col-xs-10 col-xs-offset-1 col-md-offset-4 col-md-4">
+					<a class="btn btn-primary btn-ghost btn-lg btn-block" title="Link to Explore All Images" href="http://images.plattebasintimelapse.com"><h4>Explore All Images</h4></a>
+				</div>
+			</div>
 		</div>
 
 
