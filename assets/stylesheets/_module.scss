@@ -87,21 +87,33 @@ figure.image {
 }
 
 figure.aside {
-	float: right;
-	padding: 20px 0 20px 20px;
 	margin: 0;
+	padding: 20px;
+
+	@include max-breakpoint(super-baby-bear) { width: 100% !important; }
+	@include max-breakpoint(baby-bear) { width: 100% !important; }
+
+	@include breakpoint(mama-bear) {
+		float: right;
+		padding: 20px 0 20px 20px;
+	}
 }
 
 figure.aside.alignright {
-	float: right;
-	padding: 20px 0 20px 20px;
-	margin: 0;
+	padding: 20px;
+	@include breakpoint(mama-bear) {
+		float: right;
+		padding: 20px 0 20px 20px;
+	}
 }
 
+
 figure.aside.alignleft {
-	float: left;
-	padding: 20px 20px 20px 0;
-	margin: 0;
+	padding: 20px;
+	@include breakpoint(mama-bear) {
+		float: right;
+		padding: 20px 20px 20px 0;
+	}
 }
 
 
