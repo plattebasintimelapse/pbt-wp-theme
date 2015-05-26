@@ -17,6 +17,8 @@
             loadVideo( $window.width() );
         }
 
+        introAnimation();
+
         $.each( $('.post-meta-box-lg'), function() {
             // console.log( $(this).height() );
             if ( $(this).height() < 101 ) {
@@ -71,17 +73,15 @@
                     $('#intro-video-wrapper').toggleClass('hidden');
                     $('#intro-image-wrapper').toggleClass('hidden');
                     video.play();
-                    introAnimation();
+                    $('#spinning-loader').toggleClass('hidden');
                 }
             }, false);
 
-        } else {
-            introAnimation();
         }
     }
 
     function introAnimation() {
-        $('#spinning-loader').toggleClass('hidden');
+        // 
         setTimeout(function() {
             $('.home .featured-meta-box h1').animate({
                 'margin-top': '0px',
