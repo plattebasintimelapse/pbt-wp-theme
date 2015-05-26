@@ -45,6 +45,14 @@
 	@include breakpoint(papa-bear) { height: 400px !important; }
 }
 
+.hero-image-behind-ex-short {
+	//override height set in javascript
+	height: 100px !important;
+	@include breakpoint(baby-bear) { height: 100px !important; }
+	@include breakpoint(mama-bear) { height: 150px !important; }
+	@include breakpoint(papa-bear) { height: 250px !important; }
+}
+
 .main {
 	padding: 50px 0;
 	background-color: white;

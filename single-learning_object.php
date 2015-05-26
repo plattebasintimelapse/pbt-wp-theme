@@ -3,7 +3,13 @@
  * The template for displaying a learning object
  */
 
-get_header(); ?>
+get_header();
+
+	$post_thumbnail_id = get_post_thumbnail_id();
+	$post_thumbnail_url = wp_get_attachment_url( $post_thumbnail_id ); ?>
+
+	<section class="featured hero-image hero-image-behind hero-image-behind-short" style="background-image: url(<?php echo $post_thumbnail_url ?>); background-position: <?php the_field( 'horizontal_weight' ) ?> <?php the_field( 'vertical_weight' )  ?>;">
+	</section> <!-- .featured -->
 
 	<article id="post-<?php the_ID(); ?>" <?php post_class('main main-content education'); ?> role="main" >
 
@@ -39,11 +45,11 @@ get_header(); ?>
 						</div>
 					</div>
 
-					<?php if( get_field('additional_notes_links') ): ?>
+					<?php if( get_field('notes_links') ): ?>
 						<div class="row">
 							<div class="col-xs-12">
-								<h5>Additional Notes & Links:</h5>
-								<p class="font-size-ex-small"><?php the_field('additional_notes_links'); ?></p>
+								<h4>Additional Notes & Links:</h4>
+								<?php the_field('notes_links'); ?>
 							</div>
 						</div>
 					<?php endif; ?>

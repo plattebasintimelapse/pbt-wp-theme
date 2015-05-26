@@ -11,9 +11,9 @@ get_header();
 	<section class="featured hero-image hero-image-behind hero-image-behind-short" style="background-image: url(<?php echo $post_thumbnail_url ?>)">
 		<div class="container-fluid">
 
-				<h2 class="post-title">Searching for '<?php the_search_query(); ?>'...</h2>
-			</div> <!-- .container-fluid -->
-		</section> <!-- .featured -->
+			<h2 class="post-title">Searching for '<?php the_search_query(); ?>'...</h2>
+		</div> <!-- .container-fluid -->
+	</section> <!-- .featured -->
 
 <article class="main search-result" role="main">
 	<div class="container">
