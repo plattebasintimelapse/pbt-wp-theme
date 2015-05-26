@@ -32,7 +32,7 @@ get_header();
 							<div class="col-xs-12">
 								<h4>Downloads:</h4>
 								<p>
-									<a href="<?php the_field('downloads'); ?>" download="<?php the_title(); ?> - Worksheet"><i class="fa fa-file-text-o fa-3x"></i></a>
+									<a href="<?php the_field('downloads'); ?>" download="<?php the_field('download_title'); ?>"><i class="fa fa-file-text-o fa-3x"></i></a>
 								</p>
 							</div>
 						</div>
