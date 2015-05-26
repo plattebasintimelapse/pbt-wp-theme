@@ -21,15 +21,16 @@ get_header(); ?>
 						</div>
 					</div>
 
-					<div class="row">
-						<div class="col-xs-12">
-							<h4>Downloads:</h4>
-							<p>
-								<a href="<?php the_field('download'); ?>"><i class="fa fa-file-text-o fa-3x"></i></a>
-								<i class="fa fa-file-text-o fa-3x"></i>
-							</p>
+					<?php if( get_field('downloads') ): ?>
+						<div class="row">
+							<div class="col-xs-12">
+								<h4>Downloads:</h4>
+								<p>
+									<a href="<?php the_field('downloads'); ?>" download="<?php the_title(); ?> - Worksheet"><i class="fa fa-file-text-o fa-3x"></i></a>
+								</p>
+							</div>
 						</div>
-					</div>
+					<?php endif; ?>
 
 					<div class="row">
 						<div class="col-xs-12">
@@ -38,12 +39,14 @@ get_header(); ?>
 						</div>
 					</div>
 
-					<div class="row">
-						<div class="col-xs-12">
-							<h4>Additional Links:</h4>
-							<p><a class="link-color-dark" href="#">National Audubon Society</a></p>
+					<?php if( get_field('additional_notes_links') ): ?>
+						<div class="row">
+							<div class="col-xs-12">
+								<h5>Additional Notes & Links:</h5>
+								<p class="font-size-ex-small"><?php the_field('additional_notes_links'); ?></p>
+							</div>
 						</div>
-					</div>
+					<?php endif; ?>
 
 					<div class="row row-little-padding">
 						<div class="col-xs-12">
