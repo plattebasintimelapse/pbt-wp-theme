@@ -5,19 +5,26 @@
 
 get_header(); ?>
 
-	<article id="post-<?php the_ID(); ?>" <?php post_class('main main-content narrow education'); ?> role="main" >
+	<article id="post-<?php the_ID(); ?>" <?php post_class('main main-content education'); ?> role="main" >
 
 		<?php while ( have_posts() ) : the_post(); ?>
 
 
 
-		<div class="container" style="position: relative;">
-			<div class="col-sm-12">
+		<div class="container container-large" style="position: relative;">
+			<div class="col-sm-8">
 				<?php the_content(); ?>
 			</div>
-			<aside style="position: absolute; top: 100px; left: 100%; background-color: gray; width: 200px; padding: 15px; ">
-				<p>Some stuff about this learning object</p>
-			</aside>
+			<div class="col-sm-4">
+				<h4>Time:</h4>
+				<p>30 minutes</p>
+				<h4>Standards:</h4>
+				<p>Life Science, Earth Science</p>
+				<i class="fa fa-file-text-o fa-3x"></i>
+				<i class="fa fa-file-text-o fa-3x"></i>
+				<h4>Additional Links:</h4>
+				<p>National Audubon Society</p>
+			</div>
 		</div>
 
 		<?php endwhile; ?>
