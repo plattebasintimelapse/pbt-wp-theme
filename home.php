@@ -17,9 +17,8 @@ get_header();
 
 			<div class="hidden" id="intro-video-wrapper">
 				<video id="intro-video" preload="auto" loop style="width: 100%; height: 100%;">
-					<source type="video/mp4" src="http://projects.plattebasintimelapse.com/assets/static/video/intro.mp4" />
-					<source type="video/webm" src="http://projects.plattebasintimelapse.com/assets/static/video/intro.webm" />
-					<source type="video/ogg" src="http://projects.plattebasintimelapse.com/assets/static/video/intro.ogg" />
+					<source type="video/mp4" src="http://projects.plattebasintimelapse.com/assets/static/video/intro-2.mp4" />
+					<source type="video/webm" src="http://projects.plattebasintimelapse.com/assets/static/video/intro-2.webm" />
 					<img src="<?php bloginfo( 'stylesheet_directory' ); ?>/assets/img/intro.jpg" title="Your browser does not support the <video> tag" />
 				</video>
 			</div>
@@ -35,13 +34,18 @@ get_header();
 				<h2><?php bloginfo( 'description' ); ?></h2>
 			</div>
 
-			<div class="featured-meta-box" id="spinning-loader">
-				<i class="fa fa-spinner fa-spin fa-3x"></i>
+			<div class="featured-meta-box featured-meta-box-begin">
+				<a class="btn btn-default btn-sm btn-no-border" href="#main"><i class="fa fa-angle-down fa-3x"></i></a>
 			</div>
+
+			<!-- <div class="featured-meta-box" id="spinning-loader">
+				<i class="fa fa-spinner fa-spin fa-3x"></i>
+			</div> -->
 		</div>
 	</section>
 
 	<section class="main" role="main">
+		<a name="main"></a>
 
 		<div class="container container-padding">
 			<div class="row">

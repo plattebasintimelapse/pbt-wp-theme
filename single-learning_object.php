@@ -19,7 +19,34 @@ get_header();
 				<div class="col-sm-8">
 					<?php the_content(); ?>
 				</div>
-				<div class="col-sm-4">
+
+				<div class="col-sm-4" style="background-color: #F4F4F4; padding: 10px 20px;">
+
+					<div class="row">
+						<div class="col-xs-12">
+							<h4>Lesson:</h4>
+							<?php
+								$lessons = get_posts(array(
+									'post_type' => 'lesson',
+									'meta_query' => array(
+										array(
+											'key' => 'learning_objects_list',
+											'value' => '"' . get_the_ID() . '"',
+											'compare' => 'LIKE',
+										)
+									)
+								));
+								if( $lessons ):
+									foreach( $lessons as $lesson ): ?>
+										<a class="link-color-dark" href="<?php echo get_permalink( $lesson->ID ); ?>">
+											<?php echo get_the_title( $lesson->ID ); ?>
+										</a>
+									<?php endforeach;
+								endif;
+							?>
+						</div>
+					</div>
+
 					<div class="row">
 						<div class="col-xs-12">
 							<h4>Time:</h4>
@@ -32,7 +59,7 @@ get_header();
 							<div class="col-xs-12">
 								<h4>Downloads:</h4>
 								<p>
-									<a href="<?php the_field('downloads'); ?>" download="<?php the_field('download_title'); ?>"><i class="fa fa-file-text-o fa-3x"></i></a>
+									<a href="<?php the_field('downloads'); ?>" download="<?php the_field('download_title'); ?>"><i class="fa fa-file-text-o fa-2x"></i></a>
 								</p>
 							</div>
 						</div>
@@ -41,7 +68,21 @@ get_header();
 					<div class="row">
 						<div class="col-xs-12">
 							<h4>Standards:</h4>
-							<p>Life Science, Earth Science</p>
+							<?php
+								$postid = get_the_ID();
+								$sep = ', ';
+								$standards = '';
+								if ( is_object_in_term( $post->ID , 'education_standard' ) ) { //check to see if post has basin category
+
+									$terms = get_the_terms( $post->ID , 'education_standard' );
+
+									foreach ( $terms as $term ) {
+										$standards .=  $term->name . $sep;
+									}
+
+									echo trim($standards, $sep);
+								}
+							?>
 						</div>
 					</div>
 
@@ -54,17 +95,6 @@ get_header();
 						</div>
 					<?php endif; ?>
 
-					<div class="row row-little-padding">
-						<div class="col-xs-12">
-							<a class="btn btn-primary btn-ghost btn-sm" role="button" href="#"><h6>Nebraska Standards</h6></a>
-						</div>
-					</div>
-
-					<div class="row row-little-padding">
-						<div class="col-xs-12">
-							<a class="btn btn-primary btn-ghost btn-sm" role="button" href="#"><h6>Next Gen Standards</h6></a>
-						</div>
-					</div>
 				</div>
 			</div>
 

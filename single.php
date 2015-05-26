@@ -7,16 +7,16 @@ get_header();
 
 	while ( have_posts() ) : the_post();
 
-	$post_thumbnail_id = get_post_thumbnail_id();
-	$post_thumbnail_url = wp_get_attachment_url( $post_thumbnail_id ); ?>
+		$post_thumbnail_id = get_post_thumbnail_id();
+		$post_thumbnail_url = wp_get_attachment_url( $post_thumbnail_id ); ?>
 
-	<section class="featured hero-image hero-image-behind" style="background-image: url(<?php echo $post_thumbnail_url ?>); background-position: <?php the_field( 'horizontal_weight' ) ?> <?php the_field( 'vertical_weight' )  ?>;">
-		<div class="container-fluid">
+		<section class="featured hero-image hero-image-behind" style="background-image: url(<?php echo $post_thumbnail_url ?>); background-position: <?php the_field( 'horizontal_weight' ) ?> <?php the_field( 'vertical_weight' )  ?>;">
+			<div class="container-fluid">
 
 				<h2 class="post-title"><?php the_title(); ?></h2>
 
 				<?php if( get_field( 'featured_image_caption' ) ): ?>
-    				<h6 class="hero-image-caption"><?php the_field( 'featured_image_caption' ); ?></h6>
+					<h6 class="hero-image-caption"><?php the_field( 'featured_image_caption' ); ?></h6>
 				<?php endif; ?>
 
 			</div>
@@ -26,9 +26,7 @@ get_header();
 
 			<div class="container">
 
-				<?php
-
-					get_template_part( 'partials/content', get_post_format() ); ?>
+				<?php get_template_part( 'partials/content', get_post_format() ); ?>
 
 			</div>
 

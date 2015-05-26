@@ -163,7 +163,7 @@
 	top: 0;
 	left: 0;
 	z-index: 1;
-	background-color: rgba(0,0,0,0.3);
+	background-color: rgba(0,0,0,0.4);
 	-webkit-transition: background-color 1s ease;
 	-moz-transition: background-color 1s ease;
 	transition: background-color 1s ease;
@@ -334,19 +334,33 @@
 
 .home .featured-meta-box {
 	h1 { display: none; }
-	h2 { font-size: 1.4rem; }
+	h2 { font-size: 2rem; }
 	top: 30%;
 	@include breakpoint(baby-bear) {
-		h1 { display: block; }
-		h2 { font-size: 2.4rem; }
+		h1 { display: block; font-size: 3.2rem; }
+		h2 { font-size: 2rem; }
 		top: 20%;
-		@include block-centered(60%);
+		@include block-centered(90%);
 		text-align: center;
 	}
 	@include breakpoint(mama-bear) {
 		@include block-centered(80%);
+		h1 { font-size: 3.6rem; }
+		h2 { font-size: 2.4rem; }
 		top: 30%;
 	}
+	@include breakpoint(papa-bear) {
+		@include block-centered(90%);
+		h1 { font-size: 4rem; }
+		h2 { font-size: 2.6rem; }
+		top: 30%;
+	}
+}
+
+.home .featured-meta-box.featured-meta-box-begin {
+	bottom: 5%;
+	top: auto;
+	@include block-centered(20%);
 }
 
 .post-description {

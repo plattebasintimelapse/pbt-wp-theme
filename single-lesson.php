@@ -35,6 +35,36 @@ get_header();
 
 		<div class="container">
 
+			<div class="container container-small" style="background-color: #F4F4F4; padding: 20px;">
+				<div class="row">
+					<div class="col-xs-12">
+						<h3 class="text-center">Resources</h3>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-xs-6">
+						<h5 class="text-center">Lesson Guide</h5>
+						<p class="text-center">
+							<a href="#" download="#"><i class="fa fa-file-text-o fa-5x"></i></a>
+						</p>
+					</div>
+					<div class="col-xs-6">
+						<h5 class="text-center">Vocabulary</h5>
+						<p class="text-center">
+							<a href="#" download="#"><i class="fa fa-file-text-o fa-5x"></i></a>
+						</p>
+					</div>
+				</div>
+				<div class="row row-little-padding">
+					<div class="col-xs-6">
+						<a class="btn btn-primary btn-ghost btn-sm btn-block btn-max-width" role="button" href="#"><h6>Nebraska Standards</h6></a>
+					</div>
+					<div class="col-xs-6">
+						<a class="btn btn-primary btn-ghost btn-sm btn-block btn-max-width" role="button" href="#"><h6>Next Gen Standards</h6></a>
+					</div>
+				</div>
+			</div>
+
 		<?php
 			$learning_objects_list = get_field('learning_objects_list');
 
