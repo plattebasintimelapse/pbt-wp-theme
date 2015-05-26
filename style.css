@@ -3651,6 +3651,8 @@ hr { margin-top: 28px; margin-bottom: 28px; border: 0; border-top: 1px solid #75
 
 .btn-block { margin: 0 auto; }
 
+.btn-xs-max-width { max-width: 60px; }
+
 .btn-max-width { max-width: 240px; }
 
 .btn-lg-max-width { max-width: 280px; }

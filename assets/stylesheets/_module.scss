@@ -1,4 +1,4 @@
-// These modules override the default Bootstrap modules.
+// Some of these modules override the default Bootstrap modules.
 // You may need to bring in additional styles from the Bootstrap
 // stylesheets to continue modifying.
 
@@ -32,14 +32,10 @@ hr {
 	top: 40px !important;
 }
 
-.btn {
-	border-width: 2px;
-}
+.btn { border-width: 2px; }
 
 
-.btn-lg, .btn-group-lg > .btn, .btn {
- 	border-radius: 0;
-}
+.btn-lg, .btn-group-lg > .btn, .btn { border-radius: 0; }
 
 .btn-primary.btn-ghost {
 	color: $brand-primary;
@@ -48,25 +44,17 @@ hr {
 	@include colors-transition($brand-primary, $body-bg, $brand-primary);
 }
 
-.btn-default {
-	@include colors-transition(rgba(255,255,255,.2), $gray-lighter, $gray-lighter);
-}
+.btn-default { @include colors-transition(rgba(255,255,255,.2), $gray-lighter, $gray-lighter); }
 
-.btn-block {
-	margin: 0 auto;
-}
+.btn-block { margin: 0 auto; }
 
-.btn-max-width {
-	max-width: 240px;
-}
+.btn-xs-max-width { max-width: 60px; }
 
-.btn-lg-max-width {
-	max-width: 280px;
-}
+.btn-max-width { max-width: 240px; }
 
-.btn-no-border {
-	border: none;
-}
+.btn-lg-max-width { max-width: 280px; }
+
+.btn-no-border { border: none; }
 
 .pagination-sm > li > a, .pagination-sm > li > span {
   	padding: 6px 12px;

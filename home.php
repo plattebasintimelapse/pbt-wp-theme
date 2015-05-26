@@ -32,10 +32,7 @@ get_header();
 			<div class="featured-meta-box">
 				<h1><?php bloginfo( 'name' ); ?></h1>
 				<h2><?php bloginfo( 'description' ); ?></h2>
-			</div>
-
-			<div class="featured-meta-box featured-meta-box-begin">
-				<a class="btn btn-default btn-sm btn-no-border" href="#main"><i class="fa fa-angle-down fa-3x"></i></a>
+				<a class="btn btn-default btn-sm btn-no-border btn-block btn-xs-max-width" href="#main"><i class="fa fa-angle-down fa-3x"></i></a>
 			</div>
 
 			<!-- <div class="featured-meta-box" id="spinning-loader">
