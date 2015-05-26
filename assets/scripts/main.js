@@ -11,6 +11,9 @@
         $searchbarInput             = $('#searchbarCollapse input#s');
         $heroImageBehind            = $('.hero-image-behind');
 
+        searchIsOpen                = false;
+        navIsOpen                   = false;
+
         runHeightSpecificStyles();
 
         if ( $body.hasClass('home') ) {
@@ -81,7 +84,6 @@
     }
 
     function introAnimation() {
-        // 
         setTimeout(function() {
             $('.home .featured-meta-box h1').animate({
                 'margin-top': '0px',
@@ -141,25 +143,29 @@
 
         $navbarCollapseLink.click(function(){
             $body.toggleClass('nav-is-open');
+            navIsOpen = !navIsOpen;
 
             $(this).find('i').toggleClass('fa-close').toggleClass('fa-bars');
 
-            if ( $body.hasClass('search-is-open') ) {
+            if ( searchIsOpen ) {
                 $searchbarCollapse.collapse('toggle');
                 $body.toggleClass('search-is-open');
+                searchIsOpen = !searchIsOpen;
             }
         });
 
         $searchbarCollapseLink.click(function(){
             $body.toggleClass('search-is-open');
+            searchIsOpen = !searchIsOpen;
 
-            if ( $body.hasClass('nav-is-open') ) {
+            if ( navIsOpen ) {
                 $navbarCollapse.collapse('toggle');
                 $body.toggleClass('nav-is-open');
+                navIsOpen = !navIsOpen;
                 $navbarCollapseLink.find('i').toggleClass('fa-close').toggleClass('fa-bars');
             }
 
-            if ( $body.hasClass('search-is-open') ) {
+            if ( searchIsOpen ) {
                 setTimeout(function() {
                     $searchbarInput.focus();
                 }, 500);
