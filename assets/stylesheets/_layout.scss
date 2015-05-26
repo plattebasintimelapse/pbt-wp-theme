@@ -161,6 +161,14 @@
 	transition: background-color 1s ease;
 }
 
+#map {
+	height: 300px;
+	width: 100%;
+	@include breakpoint(mama-bear) {
+		height: 500px;
+	}
+}
+
 .split {
 	-webkit-column-count: 1;
 	-moz-column-count: 1;

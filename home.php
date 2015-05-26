@@ -137,7 +137,7 @@ get_header();
 
 		<a name="map"></a>
 		<div class="container-fluid container-fluid-no-padding container-padding">
-			<div id="map" style="height: 500px; width: 100%;"></div>
+			<div id="map"></div>
 			<div class="timelapse-content"></div>
 		</div>
 
