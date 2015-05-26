@@ -363,6 +363,13 @@
 	@include block-centered(20%);
 }
 
+#intro-arrow {
+	display: none;
+	@include breakpoint(baby-bear) {
+		display: block;
+	}
+}
+
 .post-description {
 	text-transform: none;
 }

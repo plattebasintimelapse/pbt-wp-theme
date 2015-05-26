@@ -3545,6 +3545,9 @@ header .btn { margin: 4px 0; }
 
 .home .featured-meta-box.featured-meta-box-begin { bottom: 5%; top: auto; display: block; left: 50%; width: 20%; margin-left: -10%; }
 
+#intro-arrow { display: none; }
+@media (min-width: 768px) { #intro-arrow { display: block; } }
+
 .post-description { text-transform: none; }
 
 /** 	POST PAGE Styles for the a single post on that page. */

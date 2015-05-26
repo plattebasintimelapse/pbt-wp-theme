@@ -97,6 +97,11 @@
             },1000);
         }, 2000);
         setTimeout(function() {
+            $('.home #intro-arrow').animate({
+                'opacity': '1'
+            },1000);
+        }, 2500);
+        setTimeout(function() {
             $('.main-widgeted-text').find('span').animate({
                 'opacity': '1'
             },1000);
