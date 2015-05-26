@@ -107,7 +107,7 @@ function get_the_content_by_id($post_id) {
 /**
  * This function gets the post categories for the given story.
  * It rolls through each type of taxonomy that post type might have, checks if it's tagged,
- * then returns that cateogry, with link, for display.
+ * then echos that cateogry, with link, for display.
  *
  * @param  post   $post    	The post object
  * @param  string $sep    	The category separator
@@ -138,7 +138,7 @@ function pbt_the_categories($post, $sep = ' ') {
 /**
  * This function gets the post categories for the given story.
  * It rolls through each type of taxonomy that post type might have, checks if it's tagged,
- * then returns that cateogry, with link, for display.
+ * then echos that cateogry, with link, for display.
  *
  * @param  post   $post    	The post object
  * @param  string $sep    	The category separator

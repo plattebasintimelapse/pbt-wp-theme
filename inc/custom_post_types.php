@@ -278,6 +278,34 @@ function pbt_ed_learning_object_post_type() {
 add_action('init', 'pbt_ed_learning_object_post_type');
 
 /**
+ * Learning Object Education Standard Taxonomy Registration
+ */
+function pbt_ed_learning_object_taxonomies() {
+    $labels = array(
+        'name'              => _x( 'Education Standards', 'taxonomy general name' ),
+        'singular_name'     => _x( 'Education Standard', 'taxonomy singular name' ),
+        'search_items'      => __( 'Search Education Standards' ),
+        'all_items'         => __( 'All Education Standards' ),
+        'parent_item'       => __( 'Parent Education Standard' ),
+        'parent_item_colon' => __( 'Parent Education Standard:' ),
+        'edit_item'         => __( 'Edit Education Standard' ),
+        'update_item'       => __( 'Update Education Standard' ),
+        'add_new_item'      => __( 'Add New Education Standard' ),
+        'new_item_name'     => __( 'New Education Standard' ),
+        'menu_name'         => __( 'Education Standards' ),
+    );
+    $args = array(
+        'labels' => $labels,
+        'rewrite'           => array( 'slug' => 'standard'),
+        'hierarchical'      => true,
+        'show_admin_column' => true,
+        'show_in_nav_menus' => false,
+    );
+    register_taxonomy( 'education_standard', 'learning_object', $args );
+}
+add_action( 'init', 'pbt_ed_learning_object_taxonomies', 0 );
+
+/**
  * Custom Permalink Structures
  */
 add_filter('post_type_link', 'pbt_blog_post_permalink', 10, 3);
