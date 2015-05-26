@@ -3649,11 +3649,16 @@ hr { margin-top: 28px; margin-bottom: 28px; border: 0; border-top: 1px solid #75
 /**********/
 figure.image { margin: 30px 0; display: inline-block; }
 
-figure.aside { float: right; padding: 20px 0 20px 20px; margin: 0; }
+figure.aside { margin: 0; padding: 20px; }
+@media (max-width: 767px) { figure.aside { width: 100% !important; } }
+@media (min-width: 768px) and (max-width: 991px) { figure.aside { width: 100% !important; } }
+@media (min-width: 992px) { figure.aside { float: right; padding: 20px 0 20px 20px; } }
 
-figure.aside.alignright { float: right; padding: 20px 0 20px 20px; margin: 0; }
+figure.aside.alignright { padding: 20px; }
+@media (min-width: 992px) { figure.aside.alignright { float: right; padding: 20px 0 20px 20px; } }
 
-figure.aside.alignleft { float: left; padding: 20px 20px 20px 0; margin: 0; }
+figure.aside.alignleft { padding: 20px; }
+@media (min-width: 992px) { figure.aside.alignleft { float: right; padding: 20px 20px 20px 0; } }
 
 figure.featured, figure.full { width: 100%; }
 
