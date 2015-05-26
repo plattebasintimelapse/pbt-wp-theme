@@ -3,8 +3,8 @@
  * The Learning Object format for an image
  */
 
-    $align = get_field( 'col_align' );
-    $size = get_field( 'col_size' );
+    $align = get_field( 'col_align', $lo_id  );
+    $size = get_field( 'col_size', $lo_id  );
     $image_col_size = '6';
     $content_col_size = '6';
 
@@ -13,26 +13,26 @@
     else { $image_col_size = '6'; $content_col_size = '6'; }
 ?>
 
-<section id="lo-<?php the_ID(); ?>" <?php post_class('row row-padding'); ?>>
+<section id="lo-<?php echo $lo_id ?>" <?php post_class('row row-padding'); ?>>
 
 	<?php if( $align == 'left' ) { ?>
 
         <div class="col-sm-<?php echo $image_col_size; ?>">
-            <?php the_post_thumbnail(); ?>
+            <?php echo get_the_post_thumbnail( $lo_id ); ?>
         </div>
 
         <div class="col-sm-<?php echo $content_col_size; ?>">
-            <?php the_content(); ?>
+            <?php if ($has_lesson) { the_field('pre_learn_more', $lo_id ); } else { echo get_the_content_by_id( $lo_id ); } ?>
         </div>
 
     <?php } else { ?>
 
         <div class="col-sm-<?php echo $content_col_size; ?>">
-            <?php the_content(); ?>
+            <?php if ($has_lesson) { the_field('pre_learn_more', $lo_id ); } else { echo get_the_content_by_id( $lo_id ); } ?>
         </div>
 
         <div class="col-sm-<?php echo $image_col_size; ?>">
-            <?php the_post_thumbnail(); ?>
+            <?php echo get_the_post_thumbnail( $lo_id ); ?>
         </div>
 
     <?php } ?>

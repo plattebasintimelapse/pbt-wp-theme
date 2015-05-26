@@ -1,7 +1,6 @@
 (function($) {
 
     $(document).ready(function () {
-        console.log('Scripts all work, eh?');
 
         $body                       = $('body');
         $window                     = $(window);
@@ -14,45 +13,31 @@
 
         runHeightSpecificStyles();
 
+        if ( $body.hasClass('home') ) {
+            loadVideo( $window.width() );
+        }
+
         $.each( $('.post-meta-box-lg'), function() {
             // console.log( $(this).height() );
             if ( $(this).height() < 101 ) {
-                $(this).addClass('small');
+                $(this).addClass('post-meta-box-short');
             } else if ( $(this).height() < 148  && $window.width() > 768 ) {
-                $(this).addClass('normal');
+                $(this).addClass('post-meta-box-normal');
             } else if ( $(this).height() < 210  && $window.width() > 768 ) {
-                $(this).addClass('tall');
+                $(this).addClass('post-meta-box-tall');
             } else if ( $(this).height() >= 210  && $window.width() > 768 ) {
-                $(this).addClass('ex-tall');
+                $(this).addClass('post-meta-box-ex-tall');
             }
         });
 
         $.each( $('.post-meta-box-sm'), function() {
-            console.log( $(this).height() );
+            // console.log( $(this).height() );
             if ( $(this).height() > 80 ) {
-                $(this).addClass('tall');
+                $(this).addClass('post-meta-box-tall');
             } else {
-                $(this).addClass('normal');
+                $(this).addClass('post-meta-box-normal');
             }
         });
-
-        setTimeout(function() {
-            $('.home .featured-meta-box h1').animate({
-                'margin-top': '0px',
-                'opacity': '1'
-            },1000);
-        }, 1000);
-        setTimeout(function() {
-            $('.home .featured-meta-box h2').animate({
-                'margin-top': '0px',
-                'opacity': '1'
-            },1000);
-        }, 2000);
-        setTimeout(function() {
-            $('.main-widgeted-text').find('span').animate({
-                'opacity': '1'
-            },1000);
-        }, 4000);
     });
 
     $(window).resize(function(){
@@ -72,6 +57,48 @@
         } else {
             return h - 80;
         }
+    }
+
+    function loadVideo(w) {
+        if (w > 992 && !isMobile.any() ) {
+
+            var video = document.getElementById("intro-video");
+
+            video.load();
+
+            video.addEventListener('loadeddata', function() {
+                if ( video.readyState === 4 ) {
+                    $('#intro-video-wrapper').toggleClass('hidden');
+                    $('#intro-image-wrapper').toggleClass('hidden');
+                    video.play();
+                    introAnimation();
+                }
+            }, false);
+
+        } else {
+            introAnimation();
+        }
+    }
+
+    function introAnimation() {
+        $('#spinning-loader').toggleClass('hidden');
+        setTimeout(function() {
+            $('.home .featured-meta-box h1').animate({
+                'margin-top': '0px',
+                'opacity': '1'
+            },1000);
+        }, 1000);
+        setTimeout(function() {
+            $('.home .featured-meta-box h2').animate({
+                'margin-top': '0px',
+                'opacity': '1'
+            },1000);
+        }, 2000);
+        setTimeout(function() {
+            $('.main-widgeted-text').find('span').animate({
+                'opacity': '1'
+            },1000);
+        }, 4000);
     }
 
     $(function() {
@@ -159,5 +186,26 @@
             }
         });
     });
+
+    var isMobile = {
+        Android: function() {
+            return navigator.userAgent.match(/Android/i);
+        },
+        BlackBerry: function() {
+            return navigator.userAgent.match(/BlackBerry/i);
+        },
+        iOS: function() {
+            return navigator.userAgent.match(/iPhone|iPad|iPod/i);
+        },
+        Opera: function() {
+            return navigator.userAgent.match(/Opera Mini/i);
+        },
+        Windows: function() {
+            return navigator.userAgent.match(/IEMobile/i);
+        },
+        any: function() {
+            return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows());
+        }
+    };
 
 })(jQuery);

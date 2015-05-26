@@ -23,7 +23,7 @@
 		if ( $the_query->have_posts() ) : while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
 
 		<div id="post-<?php the_ID(); ?>" <?php post_class('col-sm-12 col-md-6'); ?>>
-			<?php get_template_part( 'partials/searched-post-feed-thumbnail' ); ?>
+			<?php get_template_part( 'partials/post-feed-thumbnail' ); ?>
 		</div>
 
 	<?php endwhile; endif;

@@ -12,18 +12,29 @@ get_header();
 
 	?>
 
-	<section class="featured hero-image hero-image-behind" style="background-image: url(<?php header_image(); ?>)">
+	<section class="featured hero-image">
 		<div class="container-fluid">
 
-		<!-- 	<video class="wp-video-shortcode" id="video-245-1" width="930" height="523" preload="metadata" autoplay loop src="http://pbt.dev/wp-content/uploads/2015/05/intro-2-10-16-14.mp4?_=1" style="width: 100%; height: 100%;">
-				<source type="video/mp4" src="http://pbt.dev/wp-content/uploads/2015/05/intro-2-10-16-14.mp4">
-			</video> -->
+			<div class="hidden" id="intro-video-wrapper">
+				<video id="intro-video" preload="auto" loop style="width: 100%; height: 100%;">
+					<source type="video/mp4" src="http://projects.plattebasintimelapse.com/assets/static/video/intro.mp4" />
+					<img src="<?php bloginfo( 'stylesheet_directory' ); ?>/assets/img/intro.jpg" title="Your browser does not support the <video> tag" />
+				</video>
+			</div>
 
-			<!-- <div class="overlay"></div> -->
+			<div class="overlay"></div>
+
+			<div id="intro-image-wrapper">
+				<img src="<?php bloginfo( 'stylesheet_directory' ); ?>/assets/img/intro.jpg" title="Your browser does not support the <video> tag" />
+			</div>
 
 			<div class="featured-meta-box">
 				<h1><?php bloginfo( 'name' ); ?></h1>
 				<h2><?php bloginfo( 'description' ); ?></h2>
+			</div>
+
+			<div class="featured-meta-box" id="spinning-loader">
+				<i class="fa fa-spinner fa-spin fa-3x"></i>
 			</div>
 		</div>
 	</section>
@@ -32,9 +43,14 @@ get_header();
 
 		<div class="container container-padding">
 			<div class="row">
-				<div class="col-xs-12">
+				<div class="col-md-12">
 					<?php dynamic_sidebar( 'pbt-home-main' ); ?>
 				</div>
+
+				<!-- <div class="col-xs-10 col-xs-offset-1 col-md-6 col-md-offset-0">
+					<div id="map-small" style="height: 400px; width: 100%;"></div>
+					<a href="#map" class="btn btn-primary btn-ghost btn-sm btn-block btn-max-width" role="button"><h5>Explore the Platte Basin</h5></a>
+				</div> -->
 			</div>
 		</div>
 
@@ -117,6 +133,23 @@ get_header();
 
 		</div>
 
+		<a name="map"></a>
+		<div class="container-fluid container-fluid-no-padding container-padding">
+			<div id="map" style="height: 500px; width: 100%;"></div>
+			<div class="timelapse-content"></div>
+		</div>
+
+		<div class="container container-little-padding-top">
+			<?php dynamic_sidebar( 'pbt-home-map' ); ?>
+			<div class="row row-padding">
+				<div class="col-xs-10 col-xs-offset-1 col-md-offset-4 col-md-4">
+					<a class="btn btn-primary btn-ghost btn-lg btn-block" title="Link to Explore All Images" href="http://images.plattebasintimelapse.com"><h4>Explore All Images</h4></a>
+				</div>
+			</div>
+		</div>
+
+
+
 		<div class="container-fluid container-fluid-no-padding container-little-padding-top blog-post-feature">
 
 			<?php
@@ -151,7 +184,7 @@ get_header();
 						while ( $the_query->have_posts() ) :
 							$the_query->the_post(); ?>
 
-					<div id="post-<?php the_ID(); ?>" <?php post_class('col-xs-8 col-xs-offset-2 col-md-offset-0 col-md-6 col-lg-3'); ?>>
+					<div id="post-<?php the_ID(); ?>" <?php post_class('col-xs-offset-2 col-xs-8 col-sm-offset-0 col-sm-6 col-md-3'); ?>>
 
 						<div class="post-thumbnail">
 

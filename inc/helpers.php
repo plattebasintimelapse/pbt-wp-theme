@@ -83,8 +83,8 @@ function pbt_author_meta($curauth) {
 		echo '<div class="author-link"><a target="_blank" href="' . $curauth->user_url . '"><i class="fa fa-laptop"></i></a></div>';
 	}
 
-	if( $curauth->user_email !== '' ) {
-		echo '<div class="author-link"><a href="mailto:' . $curauth->user_email . '"><i class="fa fa-envelope-o"></i> <small>' . $curauth->user_email . '</small></a></div>';
+	if( $curauth->public_email !== '' ) {
+		echo '<div class="author-link"><a href="mailto:' . $curauth->public_email . '"><i class="fa fa-envelope-o"></i> <small>' . $curauth->public_email . '</small></a></div>';
 	}
 }
 
@@ -93,6 +93,14 @@ function pbt_short_title() {
 	$short_title = substr($title,0,50);
 	echo $short_title;
 	if( $short_title != $title) { echo "..."; }
+}
+
+function get_the_content_by_id($post_id) {
+	$page_data = get_page($post_id);
+	if ($page_data) {
+		return $page_data->post_content;
+	}
+		else return false;
 }
 
 

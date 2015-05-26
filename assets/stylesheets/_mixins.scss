@@ -21,7 +21,6 @@
 
 @mixin text-over-image() {
 	color: $gray-lighter;
-	text-shadow: $text-shadow-over-image;
 	a {
 		color: $gray-lighter;
 	}

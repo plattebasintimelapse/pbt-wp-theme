@@ -22,13 +22,13 @@ while ( have_posts() ) : the_post();
 </section>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class('main about'); ?> role="main">
-	<div class="container">
+	<div class="container container-little-padding-top">
 		<div class="col-xs-12">
 			<?php the_content(); ?>
 		</div>
 	</div>
 
-	<div class="container container-padding-top">
+	<div class="container container-padding">
 		<a name="platte"></a>
 		<div class="feed-team">
 
@@ -111,8 +111,19 @@ while ( have_posts() ) : the_post();
 			<div class="row">
 				<?php
 
+					$guests = get_users( array( 'role' => 'guest' ) );
+					$emeritus = get_users( array( 'role' => 'emeritus' ) );
+
+					$pbters = array_merge($guests, $emeritus );
+
+					$pbters_IDs = array();
+
+					foreach( $pbters as $person ) {
+					    $pbters_IDs[] = $person->ID;
+					}
+
 					$author_args = array(
-						'role'	=> 'guest',
+						'include'	=> $pbters_IDs,
 					);
 
 					$user_query = new WP_User_Query( $author_args );
@@ -225,7 +236,7 @@ while ( have_posts() ) : the_post();
 			endwhile; endif; wp_reset_postdata(); ?>
 	</div>
 
-	<div class="container">
+	<div class="container container-padding">
 		<?php the_field('project_history'); ?>
 	</div>
 </article>

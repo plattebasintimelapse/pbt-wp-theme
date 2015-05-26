@@ -14,6 +14,7 @@ function pbt_img_caption_shortcode_filter($val, $attr, $content = null) {
         'id'      => '',
         'class'   => '',
         'align'   => 'aligncenter',
+        'behind'  => 'false',
         'width'   => '',
         'caption' => ''
     ), $attr));
@@ -24,9 +25,12 @@ function pbt_img_caption_shortcode_filter($val, $attr, $content = null) {
     $figure = '';
     $computed_style = '';
 
-    if ( $width > 1601 ) {
+    if ( $width > 1601 and $behind === 'true' ) {
+        $class = 'behind';
+        $figure = '</div><div class="full-image container-fluid container-fluid-no-padding"><figure class="image ' . $class . '" id="' . $id . '" aria-describedby="figcaption_' . $id . '">' . do_shortcode( $content ) . '<figcaption id="figcaption_'. $id . '" class="caption-text" itemprop="description">' . $caption . '</figcaption></figure></div><div class="container">';
+    } else if ( $width > 1601 ) {
         $class = 'full';
-        $figure = '</div><div class="full-image container-fluid container-fluid-no-padding"><figure class="image ' . esc_attr($align) . ' ' . $class . '" id="' . $id . '" aria-describedby="figcaption_' . $id . '">' . do_shortcode( $content ) . '<figcaption id="figcaption_'. $id . '" class="caption-text" itemprop="description">' . $caption . '</figcaption></figure></div><div class="container">';
+        $figure = '</div><div class="full-image container-fluid container-fluid-no-padding"><figure class="image ' . $class . '" id="' . $id . '" aria-describedby="figcaption_' . $id . '">' . do_shortcode( $content ) . '<figcaption id="figcaption_'. $id . '" class="caption-text" itemprop="description">' . $caption . '</figcaption></figure></div><div class="container">';
     } else {
         if ( $width >= 960 ) {
             $class = 'featured';

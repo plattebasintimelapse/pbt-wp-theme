@@ -15,6 +15,8 @@
 .hero-image {
 	@include text-over-image();
 
+	z-index: 0;
+
 	a { color: $gray-lighter; }
 
 	.container {
@@ -30,7 +32,8 @@
 	background-color: white;
 	background-position: center center;
 	background-size: cover;
-	background-attachment: fixed;
+	background-attachment: scroll;
+	@include breakpoint(baby-bear) { background-attachment: fixed; }
 	background-repeat: no-repeat;
 }
 
@@ -44,18 +47,26 @@
 
 .main {
 	padding: 50px 0;
+	background-color: white;
+	z-index:1;
 	@include breakpoint(baby-bear) { padding: 35px 0; }
 	@include breakpoint(mama-bear) { padding: 40px 0; }
 
 	h2 {
 		margin-bottom: 30px;
 		text-align: center;
-		margin-top: 100px;
+		// margin-top: 100px;
 	}
 
 	.container:first-child h2 {
 		margin-top: 0px;
 	}
+}
+
+.home .main {
+	-ms-transform: translateY(-20px);; /* IE 9 */
+   	-webkit-transform: translateY(-20px); /* Safari */
+    transform: translateY(-20px);
 }
 
 .main.status-draft {
@@ -131,6 +142,11 @@
 	@include breakpoint(papa-bear) { max-width: 960px; }
 }
 
+.main-content.narrow > .container {
+	max-width: 700px;
+	@include breakpoint(papa-bear) { max-width: 840px; }
+}
+
 .overlay {
 	position: absolute;
 	height: 100%;
@@ -139,23 +155,23 @@
 	top: 0;
 	left: 0;
 	z-index: 1;
-	background-color: rgba(0,0,0,0.5);
+	background-color: rgba(0,0,0,0.3);
 	-webkit-transition: background-color 1s ease;
 	-moz-transition: background-color 1s ease;
 	transition: background-color 1s ease;
 }
 
 .split {
-	-webkit-column-count: 2;
-	-moz-column-count: 2;
-	column-count: 2;
-	-webkit-column-gap: 30px;
-	-moz-column-gap: 30px;
-	column-gap: 30px;
+	-webkit-column-count: 1;
+	-moz-column-count: 1;
+	column-count: 1;
 	@include breakpoint(baby-bear) {
-		-webkit-column-count: 1;
-		-moz-column-count: 1;
-		column-count: 1;
+		-webkit-column-count: 2;
+		-moz-column-count: 2;
+		column-count: 2;
+		-webkit-column-gap: 30px;
+		-moz-column-gap: 30px;
+		column-gap: 30px;
 	}
 }
 
@@ -219,7 +235,7 @@
 	}
 }
 
-.post-meta-box .post-category, .post-meta-box .blog-post-author {
+.post-meta-box .post-category, .post-meta-box .blog-post-author, .featured-post-meta-box .post-category, .featured-post-meta-box .blog-post-author {
 	display: none; // hide on small screens
 	@include breakpoint(baby-bear) {
 		display: block;
@@ -237,12 +253,12 @@
 
 .featured-post-meta-box {
 	@include block-centered(80%);
-	top: 14%;
+	top: 2%;
 	text-align: center;
 
 	@include breakpoint(baby-bear) {
 		@include block-centered(74%);
-		top: 8%;
+		top: 4%;
 	}
 
 	@include breakpoint(mama-bear) {
@@ -303,15 +319,17 @@
 .home .featured-meta-box {
 	h1 { display: none; }
 	h2 { font-size: 1.4rem; }
+	top: 30%;
 	@include breakpoint(baby-bear) {
 		h1 { display: block; }
 		h2 { font-size: 2.4rem; }
-		top: 30%;
+		top: 20%;
 		@include block-centered(60%);
 		text-align: center;
 	}
-	@include breakpoint(baby-bear) {
+	@include breakpoint(mama-bear) {
 		@include block-centered(80%);
+		top: 30%;
 	}
 }
 
@@ -359,9 +377,12 @@
 .main-content > .container > p {
 	margin: 0 0 14px;
 	@include breakpoint(papa-bear) {
-		  margin: 0 10% 14px 10%;
+		margin: 0 10% 14px 10%;
+
 	}
 }
+
+.main-content > .container > hr { margin: 50px 25% 50px 25%; color: $brand-info; }
 
 
 .bylines {
@@ -532,6 +553,11 @@ footer img {
 	padding: 20px;
 	width: 60%;
 	min-width: 120px;
+}
+
+.mc-form {
+	width: 80%;
+	margin: 0 auto;
 }
 
 

@@ -30,10 +30,10 @@ function pbt_setup() {
 	 */
 	update_option( 'thumbnail_size_w', 300, true );
 	update_option( 'thumbnail_size_h', 300, true );
-    update_option( 'medium_size_w', 600, true );
-    update_option( 'medium_size_h', 400, true );
-	update_option( 'large_size_w', 1000, true );
-	update_option( 'large_size_h', 500, true );
+    update_option( 'medium_size_w', 500, true );
+    update_option( 'medium_size_h', 300, true );
+	update_option( 'large_size_w', 600, true );
+	update_option( 'large_size_h', 400, true );
 
     add_image_size( 'pbt-post-thumbnail', 400, 200, true );
 	add_image_size( 'pbt-pano-header', 1200, 400, true );
@@ -65,7 +65,7 @@ function pbt_setup() {
 	 * Register sidebars
 	 */
 	register_sidebar( array(
-		'name' 			=> 'PBT Homepage Sidebar',
+		'name' 			=> 'PBT Homepage Panel',
 		'description' 	=> 'A widget area on the homepage',
 		'id' 			=> 'pbt-home-main',
 		'class'         => '',
@@ -73,6 +73,17 @@ function pbt_setup() {
 		'after_widget' 	=> '</div>',
 		'before_title' 	=> '<p class="underlined underlined-dark font-size-large">',
 		'after_title' 	=> '</p>'
+	) );
+
+	register_sidebar( array(
+		'name' 			=> 'PBT Homepage Map Panel',
+		'description' 	=> 'A widget area on the homepage map',
+		'id' 			=> 'pbt-home-map',
+		'class'         => '',
+		'before_widget' => '<div class="main-widgeted-text text-center">',
+		'after_widget' 	=> '</div>',
+		'before_title' 	=> '<h2 class="underlined underlined-dark">',
+		'after_title' 	=> '</h2>'
 	) );
 
     register_sidebar( array(

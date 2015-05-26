@@ -3,7 +3,7 @@
 // This variable styelsheet is meant to provides a place to override much
 // of the functionality in the Bootstrap _variables.scss sheet.
 //
-// You must run the SASS precompile with 'grunt build' in order
+// YOU MUST RUN the SASS precompiler with 'grunt build' in order
 // to generate the theme's stylesheet.
 
 
@@ -167,23 +167,9 @@ $btn-primary-color:              #fff;
 $btn-primary-bg:                 $brand-primary;
 $btn-primary-border:             darken($btn-primary-bg, 1%);
 
-// $btn-success-color:              #fff;
-// $btn-success-bg:                 $brand-success;
-// $btn-success-border:             darken($btn-success-bg, 5%);
-
 $btn-info-color:                 $gray-lighter;
 $btn-info-bg:                    $brand-primary;
 $btn-info-border:                $gray-lighter;
-
-// $btn-warning-color:              #fff;
-// $btn-warning-bg:                 $brand-warning;
-// $btn-warning-border:             darken($btn-warning-bg, 5%);
-
-// $btn-danger-color:               #fff;
-// $btn-danger-bg:                  $brand-danger;
-// $btn-danger-border:              darken($btn-danger-bg, 5%);
-
-// $btn-link-disabled-color:        $gray-light;
 
 $borders-over-image: 1px solid white;
 

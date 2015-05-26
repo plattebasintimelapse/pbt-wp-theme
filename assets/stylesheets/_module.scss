@@ -69,6 +69,10 @@ hr {
   	font-size: 14px;
 }
 
+.leaflet-container {
+  background: white !important;
+}
+
 // MODULES IN THE MAIN ARTICLE OF PAGES
 // These are elements that are used in the article secion
 // of pages. Things like responsive videos, images, sidebars and more.
@@ -82,13 +86,19 @@ figure.image {
 	display: inline-block;
 }
 
-figure.alignright {
+figure.aside {
 	float: right;
 	padding: 20px 0 20px 20px;
 	margin: 0;
 }
 
-figure.alignleft {
+figure.aside.alignright {
+	float: right;
+	padding: 20px 0 20px 20px;
+	margin: 0;
+}
+
+figure.aside.alignleft {
 	float: left;
 	padding: 20px 20px 20px 0;
 	margin: 0;
@@ -105,12 +115,13 @@ figure.full .caption-text {
 }
 
 .caption-text {
-	font-size: $font-size-small;
+	font-size: $font-size-ex-small;
 	color: $gray-light;
 	text-align: right;
 	font-style: italic;
 	width: 100%;
 	float: right;
+	padding-top: 4px;
 }
 
 .main-content .container > img, .main-content .container > a > img  {
@@ -175,7 +186,7 @@ figure.image img {
     height: 100%;
 }
 
-.video-featured {
+.video-featured, .video-full {
 	width: 100%;
 	margin-top: 30px;
 	margin-bottom: 40px;
