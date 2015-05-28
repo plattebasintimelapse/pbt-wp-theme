@@ -24,33 +24,15 @@ get_header();
 
 					<div class="row">
 						<div class="col-xs-12">
-							<h4>Lesson:</h4>
-							<?php
-								$lessons = get_posts(array(
-									'post_type' => 'lesson',
-									'meta_query' => array(
-										array(
-											'key' => 'learning_objects_list',
-											'value' => '"' . get_the_ID() . '"',
-											'compare' => 'LIKE',
-										)
-									)
-								));
-								if( $lessons ):
-									foreach( $lessons as $lesson ): ?>
-										<a class="link-color-dark" href="<?php echo get_permalink( $lesson->ID ); ?>">
-											<?php echo get_the_title( $lesson->ID ); ?>
-										</a>
-									<?php endforeach;
-								endif;
-							?>
+							<h4>Time:</h4>
+							<p><?php the_field('time_to_complete'); ?></p>
 						</div>
 					</div>
 
 					<div class="row">
 						<div class="col-xs-12">
-							<h4>Time:</h4>
-							<p><?php the_field('time_to_complete'); ?></p>
+							<h4>Grade Level:</h4>
+							<p><?php the_field('grade_level'); ?></p>
 						</div>
 					</div>
 
@@ -94,6 +76,33 @@ get_header();
 							</div>
 						</div>
 					<?php endif; ?>
+
+					<div class="row row-some-padding-top">
+						<div class="col-xs-12">
+							<!-- <h4>Lesson:</h4> -->
+							<?php
+								$lessons = get_posts(array(
+									'post_type' => 'lesson',
+									'meta_query' => array(
+										array(
+											'key' => 'learning_objects_list',
+											'value' => '"' . get_the_ID() . '"',
+											'compare' => 'LIKE',
+										)
+									)
+								));
+								if( $lessons ):
+									foreach( $lessons as $lesson ): ?>
+										<p>
+											<a class="link-clor-dark" href="<?php echo get_permalink( $lesson->ID ); ?>">
+												<i class="fa fa-arrow-left"></i> Return to <?php echo get_the_title( $lesson->ID ); ?>
+											</a>
+										</p>
+									<?php endforeach;
+								endif;
+							?>
+						</div>
+					</div>
 
 				</div>
 			</div>

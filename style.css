@@ -3461,6 +3461,10 @@ header .btn { margin: 4px 0; }
 
 .row-little-padding { padding: 10px 0; }
 
+.row-little-padding-top { padding-top: 10px; }
+
+.row-some-padding-top { padding-top: 20px; }
+
 .row-padding-top { padding-top: 40px; }
 
 .col-extra-padding { padding-left: 30px; padding-right: 30px; }
