@@ -54,36 +54,38 @@ get_header();
 								</div>
 							<?php endif; ?>
 
-							<div class="col-xs-4 col-sm-3 col-md-12">
-								<h4>Nebraska Standards:</h4>
-								<?php
-									$postid = get_the_ID();
-									$sep = ', ';
-									$standards = '';
-									if ( is_object_in_term( $post->ID , 'education_standard' ) ) { //check to see if post has basin category
-
-										$terms = get_the_terms( $post->ID , 'education_standard' );
-
-										foreach ( $terms as $term ) {
-											$standards .=  $term->name . $sep;
-										}
-
-										echo trim($standards, $sep);
-									}
-								?>
-							</div>
-
-							<div class="col-xs-4 col-sm-3 col-md-12">
-								<h4>Next Gen Standards:</h4>
-								<p>A Link Here</p>
-							</div>
-
 							<?php if( get_field('notes_links') ): ?>
 								<div class="col-xs-4 col-sm-3 col-md-12">
 									<h4>Links:</h4>
 									<?php the_field('notes_links'); ?>
 								</div>
 							<?php endif; ?>
+
+							<?php
+								$postid = get_the_ID();
+								$sep = ', ';
+								$standards = '';
+
+								if ( is_object_in_term( $post->ID , 'education_standard' ) ) { //check to see if post has basin category ?>
+
+									<div class="col-xs-4 col-sm-3 col-md-12">
+										<h4>Nebraska Standards:</h4>
+
+									<?php $terms = get_the_terms( $post->ID , 'education_standard' );
+
+									foreach ( $terms as $term ) {
+										$standards .=  $term->name . $sep;
+									}
+
+									echo trim($standards, $sep); ?>
+
+									</div>
+								<?php } ?>
+
+							<div class="col-xs-4 col-sm-3 col-md-12">
+								<h4>Next Gen Standards:</h4>
+								<p>A Link Here</p>
+							</div>
 
 							<div class="col-xs-12 col-v-some-padding">
 								<?php
@@ -114,6 +116,12 @@ get_header();
 				</aside>
 
 				<div class="col-md-8 col-md-pull-4">
+
+					<?php if( get_field('learning_outcomes') ): ?>
+						<h4>Learning Outcomes</h4>
+						<?php the_field('learning_outcomes'); ?>
+					<?php endif; ?>
+
 					<?php the_content(); ?>
 				</div>
 			</div>
