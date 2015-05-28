@@ -56,6 +56,13 @@ hr {
 
 .btn-no-border { border: none; }
 
+.affix-top-offset.affix { top: 60px; }
+
+.no-affix-xs { @include max-breakpoint(super-baby-bear) { position: static; } }
+.no-affix-sm { @include max-breakpoint(baby-bear) { position: static; } }
+.no-affix-md { @include max-breakpoint(mama-bear) { position: static; } }
+.no-affix-lg { @include max-breakpoint(papa-bear) { position: static; } }
+
 .pagination-sm > li > a, .pagination-sm > li > span {
   	padding: 6px 12px;
   	font-size: 14px;

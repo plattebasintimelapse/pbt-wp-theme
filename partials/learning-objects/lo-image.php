@@ -13,7 +13,7 @@
     else { $image_col_size = '6'; $content_col_size = '6'; }
 ?>
 
-<section id="lo-<?php echo $lo_id ?>" <?php post_class('row row-padding'); ?>>
+<section id="lo-<?php echo $lo_id ?>" <?php post_class('row row-padding-top'); ?>>
 
 	<?php if( $align == 'left' ) { ?>
 

@@ -18,13 +18,15 @@ get_header();
 					</div>
 				</div>
 				<div class="row row-little-padding">
-					<div class="col-sm-6">
+					<div class="col-sm-8">
 						<?php the_excerpt(); ?>
 					</div>
-					<!-- <div class="col-sm-offset-2 col-sm-4 text-right">
-						<h4>Learning Objects</h4>
-						<a href="#" class="btn btn-default btn-sm">Water</a>
-					</div> -->
+					<div class="col-sm-offset-2 col-sm-2 text-right">
+						<h5>Teacher Guide</h5>
+						<p class="font-size-ex-small">
+							<a href="#">View</a> / <a href="#" download="#">Download <i class="fa fa-file-text-o fa-lg"></i></a>
+						</p>
+					</div>
 				</div>
 			</div>
 
@@ -33,35 +35,41 @@ get_header();
 
 	<article id="post-<?php the_ID(); ?>" <?php post_class('main main-content education'); ?> role="main">
 
-		<div class="container-fluid" style="background-color: #F4F4F4; padding: 20px; margin-top:-40px;">
+		<div class="container-fluid info-box under-hero-image">
 				<div class="row">
-					<div class="col-xs-2 col-xs-offset-2">
+					<!-- <div class="col-xs-2 col-xs-offset-2">
 						<h4 class="text-right">Resources:</h4>
-					</div>
-					<div class="col-xs-1 ">
-						<!-- <h5 class="text-center">Lesson Guide</h5> -->
+					</div> -->
+					<div class="col-xs-2 col-xs-offset-4">
+						<h5 class="text-center">Lesson Guide</h5>
 						<h6 class="text-center">
 							<a href="#" download="#"><i class="fa fa-file-text-o fa-3x"></i></a>
 						</h6>
+						<p class="font-size-ex-small text-center">
+							<a href="#">View</a> / <a href="#" download="#">Download</a>
+						</p>
 					</div>
-					<div class="col-xs-1">
-						<!-- <h5 class="text-center">Vocabulary</h5> -->
+					<div class="col-xs-2">
+						<h5 class="text-center">Vocabulary</h5>
 						<h6 class="text-center">
 							<a href="#" download="#"><i class="fa fa-file-text-o fa-3x"></i></a>
 						</h6>
+						<p class="font-size-ex-small text-center">
+							<a href="#">View</a> / <a href="#" download="#">Download</a>
+						</p>
 					</div>
-					<div class="col-xs-1">
-						<!-- <a class="btn btn-primary btn-ghost btn-sm btn-block btn-max-width" role="button" href="#"><h6>Nebraska Standards</h6></a> -->
+					<!-- <div class="col-xs-2">
+						<a class="btn btn-primary btn-ghost btn-sm btn-block btn-max-width" role="button" href="#"><h6>Nebraska Standards</h6></a>
 						<h6 class="text-center">
 							<a href="#" download="#"><i class="fa fa-file-o fa-3x"></i></a>
 						</h6>
 					</div>
-					<div class="col-xs-1">
-						<!-- <a class="btn btn-primary btn-ghost btn-sm btn-block btn-max-width" role="button" href="#"><h6>Next Gen Standards</h6></a> -->
+					<div class="col-xs-2">
+						<a class="btn btn-primary btn-ghost btn-sm btn-block btn-max-width" role="button" href="#"><h6>Next Gen Standards</h6></a>
 						<h6 class="text-center">
 							<a href="#" download="#"><i class="fa fa-file-pdf-o fa-3x"></i></a>
 						</h6>
-					</div>
+					</div> -->
 				</div>
 			</div>
 

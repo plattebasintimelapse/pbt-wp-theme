@@ -7,7 +7,7 @@ $url = get_field('interactive_url');
 $slug = sanitize_title( get_the_title() );
 ?>
 
-<section id="lo-<?php echo $lo_id ?>" <?php post_class('row row-padding'); ?>>
+<section id="lo-<?php echo $lo_id ?>" <?php post_class('row row-padding-top'); ?>>
 	<div class="col-xs-12">
 		<div id="<?php $slug; ?>"></div>
 	</div>
