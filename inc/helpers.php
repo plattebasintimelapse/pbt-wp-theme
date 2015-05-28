@@ -88,6 +88,23 @@ function pbt_author_meta($curauth) {
 	}
 }
 
+/**
+ * This function returns the content for a learning object to be displayed
+ * on the lesson page. It checks it is a complete learning object, then display the
+ * pre_learn_more field, otherwise display entire content.
+ *
+ * @param  boolean   $has_lesson    A complete lesson with link
+ * @param  interger	 $lo_id    		The ID of learning object
+ */
+function pbt_get_learning_object_lessoned_content($has_lesson, $lo_id) {
+	if ($has_lesson) {
+        the_field('pre_learn_more', $lo_id );
+        return '<a class="btn btn-primary btn-ghost btn-sm" role="button" rel="bookmark" title="Permanent Link to ' . get_the_title( $lo_id ) . '" href="' . get_permalink( $lo_id ) . '"><h6><i class="fa fa-book"></i> Learn More </h6></a>';
+    } else {
+        return get_the_content_by_id( $lo_id );
+    }
+}
+
 function pbt_short_title() {
 	$title = get_the_title();
 	$short_title = substr($title,0,50);

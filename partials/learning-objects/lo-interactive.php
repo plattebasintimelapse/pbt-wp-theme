@@ -25,7 +25,7 @@ $slug = sanitize_title( get_the_title() );
 <section>
 	<div class="row">
 		<div class="col-xs-12">
-			<?php if ($has_lesson) { the_field('pre_learn_more', $lo_id ); } else { echo get_the_content_by_id( $lo_id ); } ?>
+			<?php echo pbt_get_learning_object_lessoned_content($has_lesson, $lo_id); ?>
 		</div>
 	</div>
 </section>

@@ -22,13 +22,13 @@
         </div>
 
         <div class="col-sm-<?php echo $content_col_size; ?>">
-            <?php if ($has_lesson) { the_field('pre_learn_more', $lo_id ); } else { echo get_the_content_by_id( $lo_id ); } ?>
+            <?php echo pbt_get_learning_object_lessoned_content($has_lesson, $lo_id); ?>
         </div>
 
     <?php } else { ?>
 
         <div class="col-sm-<?php echo $content_col_size; ?>">
-            <?php if ($has_lesson) { the_field('pre_learn_more', $lo_id ); } else { echo get_the_content_by_id( $lo_id ); } ?>
+            <?php echo pbt_get_learning_object_lessoned_content($has_lesson, $lo_id); ?>
         </div>
 
         <div class="col-sm-<?php echo $image_col_size; ?>">

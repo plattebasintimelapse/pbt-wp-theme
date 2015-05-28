@@ -39,7 +39,7 @@ get_header();
 					<?php if( get_field('downloads') ): ?>
 						<div class="row">
 							<div class="col-xs-12">
-								<h4>Downloads:</h4>
+								<h4>Lesson Plan:</h4>
 								<p>
 									<a href="<?php the_field('downloads'); ?>" download="<?php the_field('download_title'); ?>"><i class="fa fa-file-text-o fa-2x"></i></a>
 								</p>

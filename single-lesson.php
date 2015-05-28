@@ -79,10 +79,6 @@ get_header();
 						set_query_var( 'has_lesson', $has_lesson );
 						get_template_part( 'partials/learning-objects/lo', get_field('learning_object_format', $learning_object->ID) ); ?>
 
-						<?php if( get_field( 'has_lesson', $learning_object->ID ) ) { ?>
-							<a class="btn btn-primary btn-ghost btn-sm" role="button" rel="bookmark" title="Permanent Link to <?php echo get_the_title( $learning_object->ID ); ?> " href="<?php echo get_permalink( $learning_object->ID ); ?>"><h6><i class="fa fa-book"></i> Learn More </h6></a>
-						<?php } ?>
-
 					<?php endforeach; endif;
 						wp_reset_postdata();
 					?>
