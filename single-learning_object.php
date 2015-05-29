@@ -118,8 +118,10 @@ get_header();
 				<div class="col-md-8 col-md-pull-4">
 
 					<?php if( get_field('learning_outcomes') ): ?>
-						<h4>Learning Outcomes</h4>
-						<?php the_field('learning_outcomes'); ?>
+						<div class="info-box">
+							<h4>Learning Outcomes</h4>
+							<?php the_field('learning_outcomes'); ?>
+						</div>
 					<?php endif; ?>
 
 					<?php the_content(); ?>
