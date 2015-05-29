@@ -1,5 +1,4 @@
 <?php
-
 /**
  * This block of code gets the total number of authors: $num_authors,
  * and then builds arrays of the byline constructors: $authors and $author_credit.
