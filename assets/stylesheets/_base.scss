@@ -37,7 +37,7 @@ a.link-color-dark { color: $gray-dark; &:hover { color: $blue; }}
 .font-size-ex-large { font-size: $font-size-base; @include breakpoint(mama-bear) { font-size: $font-size-ex-large; } }
 
 input {
-	color: $gray;
+	color: $gray-light;
 	padding: 6px 18px;
 	font-size: .8em;
 	border-radius: 20px;
@@ -45,13 +45,18 @@ input {
 	-moz-box-shadow:    inset 0 0 6px $gray-light;
    	-webkit-box-shadow: inset 0 0 6px $gray-light;
    	box-shadow:         inset 0 0 6px $gray-light;
-	&:focus { outline: none; background-color: $brand-info; }
+	&:focus { outline: none; color: $gray-lighter; background-color: $brand-info; }
 }
 
-input:focus::-webkit-input-placeholder { color:transparent !important; }
-input:focus:-moz-placeholder { color:transparent !important; } /* FF 4-18 */
-input:focus::-moz-placeholder { color:transparent !important; } /* FF 19+ */
-input:focus:-ms-input-placeholder { color:transparent !important; } /* IE 10+ */
+input::-webkit-input-placeholder { color: $brand-light; }
+input:-moz-placeholder { color: $brand-light; } /* FF 4-18 */
+input::-moz-placeholder { color: $brand-light; } /* FF 19+ */
+input:-ms-input-placeholder { color: $brand-light; } /* IE 10+ */
+
+input:focus::-webkit-input-placeholder { color: $gray-lighter; }
+input:focus:-moz-placeholder { color: $gray-lighter; } /* FF 4-18 */
+input:focus::-moz-placeholder { color: $gray-lighter; } /* FF 19+ */
+input:focus:-ms-input-placeholder { color: $gray-lighter; } /* IE 10+ */
 
 .inline {
 	display: inline;
