@@ -57,8 +57,10 @@ get_header();
 
 				<?php if ( comments_open() && !is_preview() ) { // Check if comments are allowed per post ?>
 					
-					<div class="collapse" id="comments-<?php the_ID(); ?>">
-						<?php comments_template(); ?>
+					<div class="row row-padding">
+						<div class="collapse" id="comments-<?php the_ID(); ?>">
+							<?php comments_template(); ?>
+						</div>
 					</div>
 
 				<?php } ?>
