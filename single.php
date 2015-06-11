@@ -37,10 +37,6 @@ get_header();
 					<div class="row row-padding">
 						<button class="btn btn-primary btn-ghost btn-sm btn-block btn-sm-max-width toggle-plus-minus" type="button" data-toggle="collapse" href="#comments-<?php the_ID(); ?>" aria-expanded="false" aria-controls="comments-<?php the_ID(); ?>"><h6><i class="fa fa-plus"></i> Comments</h6></button>
 					</div>
-					
-					<div class="collapse" id="comments-<?php the_ID(); ?>">
-						<?php comments_template(); ?>
-					</div>
 
 				<?php } ?>
 
@@ -50,6 +46,7 @@ get_header();
 						pbt_secondary_bylines();
 					?>
 				</div>
+
 				<div class="post-meta font-size-small">
 					<i class="fa fa-tag"></i>
 					<?php
@@ -57,6 +54,14 @@ get_header();
 						echo '<span class="post-date font-size-small pull-right"><em>Posted on ' . get_the_date( 'F j, Y' ) . '</em></span>';
 					?>
 				</div>
+
+				<?php if ( comments_open() && !is_preview() ) { // Check if comments are allowed per post ?>
+					
+					<div class="collapse" id="comments-<?php the_ID(); ?>">
+						<?php comments_template(); ?>
+					</div>
+
+				<?php } ?>
 			</div>
 
 			
