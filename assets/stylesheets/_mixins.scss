@@ -42,7 +42,7 @@
     -o-transition: background-color 500ms ease-in-out, color 500ms ease-in-out, border-color 500ms ease-in-out;
     transition: background-color 500ms ease-in-out, color 500ms ease-in-out, border-color 500ms ease-in-out;
 
-    &:hover, &:focus {
+    &:hover {
     	background-color: $bg-color;
     	color: $color;
     	border-color: $border-color;

@@ -30,7 +30,20 @@ get_header();
 
 			</div>
 
-			<div class="container container-little-padding-top">
+			<div class="container">
+
+				<?php if ( comments_open() && !is_preview() ) { // Check if comments are allowed per post ?>
+				
+					<div class="row row-padding">
+						<button class="btn btn-primary btn-ghost btn-sm btn-block btn-sm-max-width toggle-plus-minus" type="button" data-toggle="collapse" href="#comments-<?php the_ID(); ?>" aria-expanded="false" aria-controls="comments-<?php the_ID(); ?>"><h6><i class="fa fa-plus"></i> Comments</h6></button>
+					</div>
+					
+					<div class="collapse" id="comments-<?php the_ID(); ?>">
+						<?php comments_template(); ?>
+					</div>
+
+				<?php } ?>
+
 				<div class="post-meta-bylines font-size-small">
 					<?php
 						edit_post_link('edit', '<span class="pull-right">', '</span>');
@@ -46,11 +59,9 @@ get_header();
 				</div>
 			</div>
 
-			<?php if ( comments_open() && !is_preview() ) { // Check if comments are allowed per post ?>
-				<div class="container container-little-padding-top">
-					<?php comments_template(); ?>
-				</div>
-			<?php } ?>
+			
+
+			
 
 		</article>
 

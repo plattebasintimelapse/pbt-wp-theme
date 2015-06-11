@@ -181,6 +181,11 @@
             $(this).parent().siblings('#userImgCollapse').collapse('toggle');
             $(this).toggleClass('fa-plus-circle').toggleClass('fa-minus-circle');
         });
+
+        $('.toggle-plus-minus').click(function() {
+            $(this).find('.fa').toggleClass('fa-plus').toggleClass('fa-minus');
+            console.log($(this).find('fa'));
+        })
     });
 
     $(function() {

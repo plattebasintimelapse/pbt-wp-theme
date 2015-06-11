@@ -3682,14 +3682,16 @@ hr { margin-top: 28px; margin-bottom: 28px; border: 0; border-top: 1px solid #75
 .btn-lg, .btn-group-lg > .btn, .btn-group-lg > .btn, .btn { border-radius: 0; }
 
 .btn-primary.btn-ghost { color: #6aaac3; background-color: transparent; -webkit-transition: background-color 500ms ease-in-out, color 500ms ease-in-out, border-color 500ms ease-in-out; -moz-transition: background-color 500ms ease-in-out, color 500ms ease-in-out, border-color 500ms ease-in-out; -o-transition: background-color 500ms ease-in-out, color 500ms ease-in-out, border-color 500ms ease-in-out; transition: background-color 500ms ease-in-out, color 500ms ease-in-out, border-color 500ms ease-in-out; }
-.btn-primary.btn-ghost:hover, .btn-primary.btn-ghost:focus { background-color: #6aaac3; color: #fff; border-color: #6aaac3; }
+.btn-primary.btn-ghost:hover { background-color: #6aaac3; color: #fff; border-color: #6aaac3; }
 
 .btn-default { -webkit-transition: background-color 500ms ease-in-out, color 500ms ease-in-out, border-color 500ms ease-in-out; -moz-transition: background-color 500ms ease-in-out, color 500ms ease-in-out, border-color 500ms ease-in-out; -o-transition: background-color 500ms ease-in-out, color 500ms ease-in-out, border-color 500ms ease-in-out; transition: background-color 500ms ease-in-out, color 500ms ease-in-out, border-color 500ms ease-in-out; }
-.btn-default:hover, .btn-default:focus { background-color: rgba(255, 255, 255, 0.2); color: #fafafa; border-color: #fafafa; }
+.btn-default:hover { background-color: rgba(255, 255, 255, 0.2); color: #fafafa; border-color: #fafafa; }
 
 .btn-block { margin: 0 auto; }
 
 .btn-xs-max-width { max-width: 60px; }
+
+.btn-sm-max-width { max-width: 120px; }
 
 .btn-max-width { max-width: 240px; }
 
