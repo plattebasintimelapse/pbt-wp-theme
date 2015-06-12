@@ -93,12 +93,16 @@ function pbt_author_meta($curauth) {
  * pre_learn_more field, otherwise display entire content.
  *
  * @param  boolean   $has_lesson    A complete lesson with link
+ * @param  boolean   $has_more    	A lesson with more to read
  * @param  interger	 $lo_id    		The ID of learning object
  */
-function pbt_get_learning_object_lessoned_content($has_lesson, $lo_id) {
+function pbt_get_learning_object_lessoned_content($has_lesson, $has_more, $lo_id) {
 	if ($has_lesson) {
         the_field('pre_learn_more', $lo_id );
-        return '<a class="btn btn-primary btn-ghost btn-sm" role="button" rel="bookmark" title="Permanent Link to ' . get_the_title( $lo_id ) . '" href="' . get_permalink( $lo_id ) . '"><h6><i class="fa fa-book"></i> Learn More </h6></a>';
+        return '<a class="btn btn-primary btn-ghost btn-sm" role="button" rel="bookmark" title="Permanent Link to ' . get_the_title( $lo_id ) . '" href="' . get_permalink( $lo_id ) . '"><h6><i class="fa fa-pencil"></i> Do Activity </h6></a>';
+    } elseif ($has_more) {
+        the_field('pre_learn_more', $lo_id );
+        return '<a class="btn btn-primary btn-ghost btn-sm" role="button" rel="bookmark" title="Permanent Link to ' . get_the_title( $lo_id ) . '" href="' . get_permalink( $lo_id ) . '"><h6><i class="fa fa-book"></i> Read More </h6></a>';
     } else {
         return get_the_content_by_id( $lo_id );
     }
