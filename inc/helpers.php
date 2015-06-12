@@ -99,10 +99,10 @@ function pbt_author_meta($curauth) {
 function pbt_get_learning_object_lessoned_content($has_lesson, $has_more, $lo_id) {
 	if ($has_lesson) {
         the_field('pre_learn_more', $lo_id );
-        return '<a class="btn btn-primary btn-ghost btn-sm" role="button" rel="bookmark" title="Permanent Link to ' . get_the_title( $lo_id ) . '" href="' . get_permalink( $lo_id ) . '"><h6><i class="fa fa-pencil"></i> Do Activity </h6></a>';
+        return '<h6><a class="btn btn-primary btn-ghost btn-lg" role="button" rel="bookmark" title="Permanent Link to ' . get_the_title( $lo_id ) . '" href="' . get_permalink( $lo_id ) . '"><i class="fa fa-pencil"></i> Do Activity </a></h6>';
     } elseif ($has_more) {
         the_field('pre_learn_more', $lo_id );
-        return '<a class="btn btn-primary btn-ghost btn-sm" role="button" rel="bookmark" title="Permanent Link to ' . get_the_title( $lo_id ) . '" href="' . get_permalink( $lo_id ) . '"><h6><i class="fa fa-book"></i> Read More </h6></a>';
+        return '<h6><a class="btn btn-primary btn-ghost btn-xs" role="button" rel="bookmark" title="Permanent Link to ' . get_the_title( $lo_id ) . '" href="' . get_permalink( $lo_id ) . '"><i class="fa fa-book"></i> Read More </a></h6>';
     } else {
         return get_the_content_by_id( $lo_id );
     }
