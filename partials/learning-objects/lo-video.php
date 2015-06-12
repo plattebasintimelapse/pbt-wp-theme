@@ -14,12 +14,12 @@
     else { $video_col_size = '6'; $content_col_size = '6'; }
 ?>
 
-<section id="lo-<?php echo $lo_id?>" <?php post_class('row row-padding-top'); ?>>
+<section id="lo-<?php echo $lo_id?>" <?php post_class('row row-padding'); ?>>
 
 	<?php if( $align == 'left' ) { ?>
 
         <div class="col-sm-<?php echo $video_col_size; ?>">
-            <?php echo do_shortcode('[embed_video vimeo_id=' . $video . ']'); ?>
+            <?php echo do_shortcode('[embed_video size="" vimeo_id=' . $video . ']'); ?>
         </div>
 
         <div class="col-sm-<?php echo $content_col_size; ?>">

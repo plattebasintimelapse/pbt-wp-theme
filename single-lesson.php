@@ -83,6 +83,10 @@ get_header();
 
 						$has_lesson = get_field('has_lesson', $learning_object->ID);
 
+						// $interactive = get_field('interactive_url', $learning_object->ID);
+
+						// echo $interactive;
+
 						set_query_var( 'lo_id', $learning_object->ID );
 						set_query_var( 'has_lesson', $has_lesson );
 						get_template_part( 'partials/learning-objects/lo', get_field('learning_object_format', $learning_object->ID) ); ?>
