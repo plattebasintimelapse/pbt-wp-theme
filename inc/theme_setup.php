@@ -63,6 +63,11 @@ function pbt_scripts() {
 
 add_action( 'wp_enqueue_scripts', 'pbt_scripts' );
 
+// Handle weird wp-emoji-error
+// https://wordpress.org/support/topic/version-422-wp-emoji-releaseminjs-error
+remove_action( 'wp_head', 'print_emoji_detection_script', 7 );
+remove_action( 'wp_print_styles', 'print_emoji_styles' );
+
 /**
  * Load typekit stylesheet stuff
  */
