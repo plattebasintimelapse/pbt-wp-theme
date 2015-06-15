@@ -19,7 +19,7 @@ $slug = sanitize_title( get_the_title(), $lo_id );
 
 </div>
 
-<div class="container-fluid">
+<div class="container-fluid container-padding">
 	<section>
 		<?php
 			$iframe =   '<div id="' . $slug . '"></div>
