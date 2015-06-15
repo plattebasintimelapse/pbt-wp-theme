@@ -14,6 +14,7 @@ get_header(); ?>
 	<article class="main" role="main">
 		<div class="container">
 			<h3 class="text-center">That's not here. How embarrassing...</h2>
+				
 			<h2>Try searching for something.</h2>
 			<?php get_search_form( ); ?>
 
