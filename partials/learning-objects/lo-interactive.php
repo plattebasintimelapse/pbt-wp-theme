@@ -21,9 +21,6 @@ $slug = sanitize_title( get_the_title(), $lo_id );
 
 <div class="container-fluid">
 	<section>
-		<div class="col-xs-12">
-			<div id="<?php $slug; ?>"></div>
-		</div>
 		<?php
 			$iframe =   '<div id="' . $slug . '"></div>
 			                <script type="text/javascript" src="' . get_template_directory_uri() . '/assets/scripts/lib/pym.min.js"></script>
