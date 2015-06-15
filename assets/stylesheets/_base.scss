@@ -15,7 +15,7 @@ body.single-lesson, body.single-learning_object {
 		font-family: $font-family-thin;
 		font-weight: 100;
 	}
-font-size: $font-size-small;
+	font-size: $font-size-small;
 }
 
 h1, h2, h3, h4, h5 {
@@ -29,7 +29,10 @@ h6 { margin: 3px 0; }
 
 img { width: 100%; height: auto; }
 
+.color-brand-light { color: $brand-light; }
+
 a.link-color-dark { color: $gray-dark; &:hover { color: $blue; }}
+a.link-color-brand-light { color: $brand-light; &:hover { color: $blue; }}
 
 .font-size-ex-small { font-size: $font-size-ex-small; }
 .font-size-small { font-size: $font-size-small; }

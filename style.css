@@ -3302,8 +3302,13 @@ h6 { margin: 3px 0; }
 
 img { width: 100%; height: auto; }
 
+.color-brand-light { color: #BFBFBF; }
+
 a.link-color-dark { color: #333333; }
 a.link-color-dark:hover { color: #6aaac3; }
+
+a.link-color-brand-light { color: #BFBFBF; }
+a.link-color-brand-light:hover { color: #6aaac3; }
 
 .font-size-ex-small { font-size: 13px; }
 
