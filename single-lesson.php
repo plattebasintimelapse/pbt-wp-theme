@@ -41,7 +41,7 @@ get_header();
 						<h4 class="text-right">Resources:</h4>
 					</div> -->
 					<div class="col-xs-2 col-xs-offset-4">
-						<h5 class="text-center">Lesson Guide</h5>
+						<h5 class="text-center">Lesson Plan</h5>
 						<h6 class="text-center">
 							<a href="#" download="#"><i class="fa fa-file-text-o fa-3x"></i></a>
 						</h6>
