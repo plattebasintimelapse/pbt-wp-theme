@@ -4,6 +4,7 @@
  */
 
     $video = get_field( 'video', $lo_id );
+    $aspect_ratio = get_field( 'video_aspect_ratio', $lo_id );
     $align = get_field( 'col_align', $lo_id );
     $size = get_field( 'col_size', $lo_id );
     $video_col_size = '6';
@@ -19,7 +20,7 @@
 	<?php if( $align == 'left' ) { ?>
 
         <div class="col-sm-<?php echo $video_col_size; ?>">
-            <?php echo do_shortcode('[embed_video size="" vimeo_id=' . $video . ']'); ?>
+            <?php echo do_shortcode('[embed_video size="" aspect_ratio=' . $aspect_ratio . ' vimeo_id=' . $video . ']'); ?>
         </div>
 
         <div class="col-sm-<?php echo $content_col_size; ?>">
@@ -33,7 +34,7 @@
         </div>
 
         <div class="col-sm-<?php echo $video_col_size; ?>">
-            <?php echo do_shortcode('[embed_video size="" vimeo_id=' . $video . ']'); ?>
+            <?php echo do_shortcode('[embed_video size="" aspect_ratio=' . $aspect_ratio . ' vimeo_id=' . $video . ']'); ?>
         </div>
 
     <?php } ?>
