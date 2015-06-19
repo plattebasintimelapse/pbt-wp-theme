@@ -74,6 +74,10 @@ hr {
   background: white !important;
 }
 
+div.jx-image img {
+  	width: initial; // Override 100% for juxtapose.js image
+}
+
 // MODULES IN THE MAIN ARTICLE OF PAGES
 // These are elements that are used in the article secion
 // of pages. Things like responsive videos, images, sidebars and more.

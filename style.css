@@ -3718,6 +3718,8 @@ hr { margin-top: 28px; margin-bottom: 28px; border: 0; border-top: 1px solid #75
 
 .leaflet-container { background: white !important; }
 
+div.jx-image img { width: initial; }
+
 /**********/
 /* Images */
 /**********/
