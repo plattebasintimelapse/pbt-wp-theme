@@ -41,10 +41,7 @@ get_header();
 				<?php } ?>
 
 				<div class="post-meta-bylines font-size-small">
-					<?php
-						edit_post_link('edit', '<span class="pull-right">', '</span>');
-						pbt_secondary_bylines();
-					?>
+					<?php pbt_secondary_bylines(); ?>
 				</div>
 
 				<div class="post-meta font-size-small">
@@ -53,6 +50,10 @@ get_header();
 						pbt_the_badged_categories($post);
 						echo '<span class="post-date font-size-small pull-right"><em>Posted on ' . get_the_date( 'F j, Y' ) . '</em></span>';
 					?>
+				</div>
+
+				<div class="row row-padding">
+					<?php edit_post_link('Edit This Post', '<button class="btn btn-primary btn-ghost btn-sm btn-block btn-sm-max-width" type="button"><h6>', '</h6></button>'); ?>
 				</div>
 
 				<?php if ( comments_open() && !is_preview() ) { // Check if comments are allowed per post ?>
