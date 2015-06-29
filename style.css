@@ -3734,7 +3734,7 @@ figure.aside.alignright { padding: 20px; }
 @media (min-width: 992px) { figure.aside.alignright { float: right; padding: 20px 0 20px 20px; } }
 
 figure.aside.alignleft { padding: 20px; }
-@media (min-width: 992px) { figure.aside.alignleft { float: right; padding: 20px 20px 20px 0; } }
+@media (min-width: 992px) { figure.aside.alignleft { float: left; padding: 20px 20px 20px 0; } }
 
 figure.featured, figure.full { width: 100%; }
 
