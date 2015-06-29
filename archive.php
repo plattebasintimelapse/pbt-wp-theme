@@ -48,13 +48,26 @@ get_header();
 			<?php while ( have_posts() ) : the_post(); ?>
 
 				<div class="row row-some-padding">
-					<div id="post-<?php the_ID(); ?>" <?php post_class('col-md-7'); ?>>
+
+					<div id="post-<?php the_ID(); ?>" <?php post_class('col-md-6 col-v-little-padding'); ?>>
 						<?php get_template_part( 'partials/post-feed-thumbnail' ); ?>
 					</div>
-					<div class="col-md-5">
-						<div class="excerpt">
-							<?php the_excerpt(); ?>
-							<a class="btn btn-primary btn-sm btn-block btn-max-width" role="button" href="<?php the_permalink() ?>"><h6>Read On</h6></a>
+
+					<div class="col-md-6 col-v-little-padding">
+						<div class="row color-brand-light">
+							<div class="col-xs-12">
+								<p class="post-date font-size-ex-small"><em>Posted on <?php echo get_the_date( 'F j, Y' ) ?> </em> by <a class="link-color-brand-light" href="<?php echo get_author_posts_url( get_the_author_meta( "ID" ) ) ?>"> <?php echo get_the_author(); ?></a></p>
+							</div>
+						</div>
+
+						<div class="row font-size-small">
+							<div class="col-xs-12"><?php the_excerpt(); ?></div>
+						</div>
+
+						<div class="row">
+							<div class="col-xs-12">
+								<a class="btn btn-primary btn-ghost btn-sm btn-block btn-sm-max-width" role="button" href="<?php the_permalink() ?>"><h6>Read On</h6></a>
+							</div>
 						</div>
 					</div>
 				</div>

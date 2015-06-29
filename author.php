@@ -80,13 +80,25 @@ get_header(); ?>
 					if( in_array($curauth->ID, $authors ) ) { // Check to see if curauth, the author template currently being viewed, is in the array of post authors ?>
 
 						<div class="row row-some-padding">
-							<div class="col-md-6">
+							<div id="post-<?php the_ID(); ?>" <?php post_class('col-md-6 col-v-little-padding'); ?>>
 								<?php get_template_part( 'partials/post-feed-thumbnail' ); ?>
 							</div>
-							<div class="col-md-6">
-								<div class="excerpt">
-									<?php the_excerpt(); ?>
-									<a class="btn btn-primary btn-sm btn-block btn-max-width" role="button" href="<?php the_permalink() ?>"><h6>Read On</h6></a>
+
+							<div class="col-md-6 col-v-little-padding">
+								<div class="row color-brand-light">
+									<div class="col-xs-12">
+										<p class="post-date font-size-ex-small"><em>Posted on <?php echo get_the_date( 'F j, Y' ) ?> </em></p>
+									</div>
+								</div>
+
+								<div class="row font-size-small">
+									<div class="col-xs-12"><?php the_excerpt(); ?></div>
+								</div>
+
+								<div class="row">
+									<div class="col-xs-12">
+										<a class="btn btn-primary btn-ghost btn-sm btn-block btn-sm-max-width" role="button" href="<?php the_permalink() ?>"><h6>Read On</h6></a>
+									</div>
 								</div>
 							</div>
 						</div>

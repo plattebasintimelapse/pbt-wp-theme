@@ -21,9 +21,11 @@ get_header(); ?>
 				while ( have_posts() ) : the_post(); ?>
 
 					<div class="row row-some-padding">
-						<div class="col-md-6 col-v-little-padding">
+
+						<div id="post-<?php the_ID(); ?>" <?php post_class('col-md-6 col-v-little-padding'); ?>>
 							<?php get_template_part( 'partials/post-feed-thumbnail' ); ?>
 						</div>
+
 						<div class="col-md-6 col-v-little-padding">
 							<div class="row color-brand-light">
 								<div class="col-xs-12">
@@ -44,9 +46,13 @@ get_header(); ?>
 						</div>
 					</div>
 
-				<?php endwhile;
+				<?php endwhile; ?>
 
-			else :
+				<div class="container">
+					<?php if ( function_exists("wp_bs_pagination") ) wp_bs_pagination(); ?>
+				</div>
+
+			<?php else :
 
 				get_template_part( 'partials/no-results', 'search' );
 
