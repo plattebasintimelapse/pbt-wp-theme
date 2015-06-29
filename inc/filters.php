@@ -46,6 +46,16 @@ function pbt_archive_query( $query ){
 }
 add_action( 'pre_get_posts', 'pbt_archive_query' );
 
+/**
+ *  Limit 10 posts per search page
+ */
+function pbt_search_query( $query ){
+    if( ! is_admin() && $query->is_search( ) && $query->is_main_query() ){
+        $query->set( 'posts_per_page', 10 );
+    }
+}
+add_action( 'pre_get_posts', 'pbt_search_query' );
+
 
 /**
  * Parse post link and replace it with meta value, or the 'external_url' field.
