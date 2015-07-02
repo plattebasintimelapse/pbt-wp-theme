@@ -9,7 +9,9 @@ module.exports = function(grunt) {
         config: config,
 
         watch: {
-            options: { nospawn: true },
+            options: {
+                livereload: true
+            },
             sass: {
                 files: '<%= config.assets %>/stylesheets/**/*.scss',
                 tasks: ['sass']
@@ -17,6 +19,9 @@ module.exports = function(grunt) {
             js: {
                 files: '<%= config.assets %>/scripts/{,*/}*.js',
                 tasks: ['uglify']
+            },
+            php: {
+                files: '**/*.php'
             }
 
         },

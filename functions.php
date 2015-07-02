@@ -10,6 +10,11 @@ require_once('inc/capabilities.php');
 require_once('inc/pagination.php');
 require_once('inc/helpers.php');
 
+$include_file = 'inc/dev.php';
+if ( is_file( dirname(__FILE__) . DIRECTORY_SEPARATOR . $include_file ) )
+	require_once( $include_file );
+
+
 if ( ! function_exists( 'pbt_setup' ) ) :
 /**
  * Sets up theme defaults and registers support for various WordPress features.
