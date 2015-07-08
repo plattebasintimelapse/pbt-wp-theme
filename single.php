@@ -45,9 +45,11 @@ get_header();
 				</div>
 
 				<div class="post-meta font-size-small">
-					<i class="fa fa-tag"></i>
 					<?php
-						pbt_the_badged_categories($post);
+						if ( pbt_has_categories($post) ) {
+							echo '<i class="fa fa-tag"></i>';
+							pbt_the_badged_categories($post);
+						}
 						echo '<span class="post-date font-size-small pull-right"><em>Posted on ' . get_the_date( 'F j, Y' ) . '</em></span>';
 					?>
 				</div>

@@ -23,13 +23,12 @@ module.exports = function(grunt) {
             php: {
                 files: '**/*.php'
             }
-
         },
 
         sass: {
             options: {
                 sourcemap: 'none',
-                style: 'compact'
+                style: 'compressed'
             },
             dist: {
                 files: [{
@@ -41,14 +40,15 @@ module.exports = function(grunt) {
                 }]
             }
         },
+
         uglify: {
-            my_target: {
+            dist: {
                 options: {
                     banner: '/*! <%= pkg.name %> - v<%= pkg.version %> - ' +
                         '<%= grunt.template.today("yyyy-mm-dd") %> */'
                 },
                 files: {
-                    'assets/scripts/main.min.js': [
+                    '<%= config.assets %>/scripts/main.min.js': [
                         'bower_components/modernizr/modernizr.js',
                         'bower_components/bootstrap-sass-official/assets/javascripts/bootstrap.js',
                         'bower_components/jplayer/dist/jplayer/jquery.jplayer.min.js',
@@ -57,6 +57,7 @@ module.exports = function(grunt) {
                 }
             }
         },
+
         copy: {
             dist: {
                 files: [{

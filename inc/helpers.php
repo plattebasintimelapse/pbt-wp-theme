@@ -156,6 +156,46 @@ function pbt_the_categories($post, $sep = ' ') {
 }
 
 /**
+ * This function checks to see if the given post has any tags, of all taxonomies.
+ *
+ * @param  post   $post    	The post object
+ */
+function pbt_has_categories($post) {
+	$total = 0;
+	$story_categories = '';
+
+	if ( is_object_in_term( $post->ID , 'basin' ) ) { //check to see if post has basin category
+
+		$terms = get_the_terms( $post->ID , 'basin' );
+
+		foreach ( $terms as $term ) {
+			$total = $total + 1;
+		}
+	}
+
+	$categories = get_the_category();
+	$cat_output = '';
+	if($categories){
+		foreach($categories as $category) {
+			$total = $total + 1;
+		}
+	}
+
+	$tags = get_the_tags();
+	$output = '';
+	if($tags){
+		foreach($tags as $tag) {
+			$total = $total + 1;
+		}
+	}
+	if ($total >= 1):
+		return True;
+	else:
+		return False;
+	endif;
+}
+
+/**
  * This function gets the post categories for the given story.
  * It rolls through each type of taxonomy that post type might have, checks if it's tagged,
  * then echos that cateogry, with link, for display.
@@ -166,6 +206,8 @@ function pbt_the_categories($post, $sep = ' ') {
 function pbt_the_badged_categories($post, $sep = ' ') {
 
 	$story_categories = '';
+
+	echo ' ';
 
 	if ( is_object_in_term( $post->ID , 'basin' ) ) { //check to see if post has basin category
 
