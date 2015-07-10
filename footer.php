@@ -2,6 +2,8 @@
 /**
  * The template for displaying the footer.
  */
+
+$options = get_option( 'pbt_settings' );
 ?>
 
 <footer>
@@ -31,7 +33,9 @@
 		</div>
 
 		<div class="row">
-			<div class="col-xs-12">
+			<div class="col-xs-12 col-xs-offset-0 col-sm-10 col-sm-offset-1 col-md-8 col-sm-offset-2">
+				
+				<p class="text-center font-size-ex-small"><?php echo $options['pbt_legal_disclaimer']; ?></p>
 				<p class="text-center font-size-ex-small"><?php echo 'Copyright &copy; 2011-' . date('Y') ?></p>
 			</div>
 		</div>
