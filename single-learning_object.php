@@ -16,39 +16,39 @@ get_header();
 		<?php while ( have_posts() ) : the_post(); ?>
 
 			<div class="container" style="position: relative;">
-				<aside class="col-md-4 col-md-push-8 col-xs-12">
+				<aside class="col-md-4 col-md-push-8 col-sm-12">
 
 					<div class="info-box aside-info-box affix-top-offset no-affix-sm no-affix-xs" data-spy="affix" data-offset-top="440" data-offset-bottom="20">
 						<div class="row">
 
 							<?php if ( get_field('has_lesson') ) { ?>
 
-								<div class="col-xs-4 col-sm-3 col-md-12">
+								<div class="col-sm-6 col-md-12">
 									<h4>Time:</h4>
 									<p><?php the_field('time_to_complete'); ?></p>
 								</div>
 
-								<div class="col-xs-4 col-sm-3 col-md-12">
+								<div class="col-sm-6 col-md-12">
 									<h4>Grade Level:</h4>
 									<p><?php the_field('grade_level'); ?></p>
 								</div>
 
 								<?php if( get_field('materials') ): ?>
-									<div class="col-xs-4 col-sm-3 col-md-12">
+									<div class="col-sm-6 col-md-12">
 										<h4>Materials:</h4>
 										<p><?php the_field('materials'); ?></p>
 									</div>
 								<?php endif; ?>
 
 								<?php if( get_field('key_ideas') ): ?>
-									<div class="col-xs-4 col-sm-3 col-md-12">
+									<div class="col-sm-6 col-md-12">
 										<h4>Key Ideas:</h4>
 										<p><?php the_field('key_ideas'); ?></p>
 									</div>
 								<?php endif; ?>
 
 								<?php if( get_field('downloads') ): ?>
-									<div class="col-xs-4 col-sm-3 col-md-12">
+									<div class="col-sm-6 col-md-12">
 										<h4>Lesson Plan:</h4>
 										<p class="font-size-ex-small">
 											<?php the_field('download_title'); ?>
@@ -58,7 +58,7 @@ get_header();
 								<?php endif; ?>
 
 								<?php if( get_field('notes_links') ): ?>
-									<div class="col-xs-4 col-sm-3 col-md-12">
+									<div class="col-sm-6 col-md-12">
 										<h4>Links:</h4>
 										<?php the_field('notes_links'); ?>
 									</div>
@@ -71,7 +71,7 @@ get_header();
 
 									if ( is_object_in_term( $post->ID , 'education_standard' ) ) { //check to see if post has basin category ?>
 
-										<div class="col-xs-4 col-sm-3 col-md-12">
+										<div class="col-sm-6 col-md-12">
 											<h4>Nebraska Standards:</h4>
 
 										<?php $terms = get_the_terms( $post->ID , 'education_standard' );
@@ -85,7 +85,7 @@ get_header();
 										</div>
 									<?php } ?>
 
-								<div class="col-xs-4 col-sm-3 col-md-12">
+								<div class="col-sm-6 col-md-12">
 									<h4>Next Gen Standards:</h4>
 									<p>A Link Here</p>
 								</div>
@@ -120,7 +120,7 @@ get_header();
 					</div>
 				</aside>
 
-				<div class="col-md-8 col-md-pull-4">
+				<div class="col-md-8 col-md-pull-4 col-sm-12">
 
 					<?php if( get_field('learning_outcomes') ): ?>
 						<div class="info-box">

@@ -23,7 +23,8 @@
 		position: absolute;
 		@include block-centered(80%);
 		max-width: 1200px;
-		top: 20%;
+		top: 5%;
+		@include breakpoint(mama-bear) { top: 20%; }
 	}
 }
 
