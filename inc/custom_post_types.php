@@ -120,6 +120,35 @@ function pbt_post_taxonomies() {
 }
 add_action( 'init', 'pbt_post_taxonomies', 0 );
 
+/**
+ * Post Category Taxonomy Registration
+ */
+function pbt_special_post_taxonomies() {
+    $labels = array(
+        'name'              => _x( 'Series', 'taxonomy general name' ),
+        'singular_name'     => _x( 'Series', 'taxonomy singular name' ),
+        'search_items'      => __( 'Search Series' ),
+        'all_items'         => __( 'All Series' ),
+        'parent_item'       => __( 'Parent Series' ),
+        'parent_item_colon' => __( 'Parent Series:' ),
+        'edit_item'         => __( 'Edit Series' ),
+        'update_item'       => __( 'Update Series' ),
+        'add_new_item'      => __( 'Add New Series' ),
+        'new_item_name'     => __( 'New Series' ),
+        'menu_name'         => __( 'Series' ),
+    );
+    $args = array(
+        'labels'            => $labels,
+        'public'            => true,
+        'rewrite'           => array( 'slug' => 'series'),
+        'show_in_quick_edit' => false,
+        'hierarchical'      => true,
+        'show_admin_column' => true,
+    );
+    register_taxonomy( 'series', 'post', $args );
+}
+add_action( 'init', 'pbt_special_post_taxonomies', 0 );
+
 
 /**
  * Blog Post Category Taxonomy Registration

@@ -218,6 +218,15 @@ function pbt_the_badged_categories($post, $sep = ' ') {
 		}
 	}
 
+	if ( is_object_in_term( $post->ID , 'series' ) ) { //check to see if post has series category
+
+		$terms = get_the_terms( $post->ID , 'series' );
+
+		foreach ( $terms as $term ) {
+			echo '<a href="' . get_term_link( $term ) . '" title="' . esc_attr( sprintf( __( "View all posts in %s" ), $term->name ) ) . '"><span class="badge font-size-ex-small">' . $term->name . '</span></a> '. $sep;
+		}
+	}
+
 	$categories = get_the_category();
 	$cat_output = '';
 	if($categories){
