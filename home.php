@@ -8,6 +8,7 @@ get_header();
 	$num_stories 		= 4; 			// How many stories to appear on the home page
 	$num_blogs 			= 4; 			// How many blogs to appear on the home page
 	$blog_page_title 	= 'Notebook'; 	// Title of Blog Page used to populate the blog post section on the home page.
+	$votp_page_title 	= 'Voices of the Platte'; 	// Title of Voices of the Platte Page used to populate the blog post section on the home page.
 
 
 	?>
@@ -123,9 +124,9 @@ get_header();
 							</div>
 
 					<?php
-					endwhile;
-				endif;
-				wp_reset_postdata(); ?>
+						endwhile;
+					endif;
+					wp_reset_postdata(); ?>
 			</div>
 
 			<div class="row row-padding-top">
@@ -151,65 +152,97 @@ get_header();
 			</div>
 		</div>
 
+		<?php $votp_page = get_page_by_title( $votp_page_title );
 
+		if ( ! is_null($votp_page) ): ?>
 
-		<div class="container-fluid container-fluid-no-padding container-little-padding-top blog-post-feature">
+			<a name="votp"></a>
+			<div class="container-fluid container-fluid-no-padding container-little-padding-top votp-feature">
+				<div class="featured">
+					<?php echo get_the_post_thumbnail( $votp_page->ID, 'pbt-pano-header' ); ?>
 
-			<?php
-				$blog_page_id = get_ID_by_page_name( $blog_page_title );
-				$blog_page = get_post( $blog_page_id );
-			?>
+					<div class="featured-post-meta-box">
+						<h4>Featured Series</h4>
+						<h1 class="post-title"><?php echo $votp_page_title; ?></h1>
+					</div>
+				</div>
 
-			<div class="featured">
-				<?php echo get_the_post_thumbnail( $blog_page_id, 'pbt-pano-header' ); ?>
+				<div class="col-xs-12">
+					<div class="row row-padding-top">
+						<div class="col-xs-10 col-xs-offset-1 col-md-offset-2 col-md-8 text-center">
+							<?php echo apply_filters('the_content', $votp_page->post_content); ?>
+						</div>
+					</div>
+					<div class="row row-padding">
+						<div class="col-xs-10 col-xs-offset-1 col-md-offset-4 col-md-4">
+							<!-- <p class="text-center"><?php echo apply_filters('the_content', $votp_page->post_content); ?></p> -->
+							
+							<a class="btn btn-primary btn-ghost btn-lg btn-block" title="Link to Voices of the Platte Stories" href="/voices-of-the-platte"><h4>Listen to Voices of the Platte</h4></a>
+						</div>
+					</div>
+				</div>
 
-				<div class="featured-post-meta-box">
-					<h1 class="post-title"><?php echo $blog_page_title; ?></h1>
-					<p><?php echo apply_filters('the_content', $blog_page->post_content); ?></p>
-					<a class="btn btn-default btn-lg btn-block btn-max-width" role="button" title="Link to See All Blog Posts" href="/notebook"><h6>See All Posts</h6></a>
+			</div>
+
+		<?php endif;
+
+		$blog_page = get_page_by_title( $blog_page_title );
+
+		if ( ! is_null($blog_page) ): ?>
+
+			<a name="blog"></a>
+			<div class="container-fluid container-fluid-no-padding container-little-padding-top blog-post-feature">
+				<div class="featured">
+					<?php echo get_the_post_thumbnail( $blog_page->ID, 'pbt-pano-header' ); ?>
+
+					<div class="featured-post-meta-box">
+						<h1 class="post-title"><?php echo $blog_page_title; ?></h1>
+						<p><?php echo apply_filters('the_content', $blog_page->post_content); ?></p>
+						<a class="btn btn-default btn-lg btn-block btn-max-width" role="button" title="Link to See All Blog Posts" href="/notebook"><h6>See All Posts</h6></a>
+					</div>
 				</div>
 			</div>
 
-		</div>
+			<div class="container container-large container-padding blog-post-feed">
+				<div class="row row-padding-top">
+					<?php
+						$query_args = array(
+							'post_type' => 'blog_post',
+							'orderby' => 'date',
+							'posts_per_page' => $num_blogs,
+						);
 
-		<div class="container container-large container-padding blog-post-feed">
-			<div class="row row-padding-top">
-				<?php
-					$query_args = array(
-						'post_type' => 'blog_post',
-						'orderby' => 'date',
-						'posts_per_page' => $num_blogs,
-					);
+						$the_query = new WP_Query( $query_args );
 
-					$the_query = new WP_Query( $query_args );
+						if ( $the_query->have_posts() ) :
+							while ( $the_query->have_posts() ) :
+								$the_query->the_post(); ?>
 
-					if ( $the_query->have_posts() ) :
-						while ( $the_query->have_posts() ) :
-							$the_query->the_post(); ?>
+						<div id="post-<?php the_ID(); ?>" <?php post_class('col-xs-offset-2 col-xs-8 col-sm-offset-0 col-sm-6 col-md-3'); ?>>
 
-					<div id="post-<?php the_ID(); ?>" <?php post_class('col-xs-offset-2 col-xs-8 col-sm-offset-0 col-sm-6 col-md-3'); ?>>
+							<div class="post-thumbnail">
 
-						<div class="post-thumbnail">
+								<?php the_post_thumbnail( 'pbt-post-thumbnail' );  ?>
 
-							<?php the_post_thumbnail( 'pbt-post-thumbnail' );  ?>
+								<div class="post-meta-box post-meta-box-sm">
 
-							<div class="post-meta-box post-meta-box-sm">
+									<a href="<?php the_permalink() ?>">
+										<h4 class="post-title"><?php pbt_short_title(); ?></h4>
+									</a>
+									<a class="btn btn-default read-more-btn btn-block btn-max-width btn-sm" role="button" rel="bookmark" title="Permanent Link to <?php the_title_attribute(); ?>" href="<?php the_permalink() ?>"><h6>Read More</h6></a>
 
-								<a href="<?php the_permalink() ?>">
-									<h4 class="post-title"><?php pbt_short_title(); ?></h4>
-								</a>
-								<a class="btn btn-default read-more-btn btn-block btn-max-width btn-sm" role="button" rel="bookmark" title="Permanent Link to <?php the_title_attribute(); ?>" href="<?php the_permalink() ?>"><h6>Read More</h6></a>
-
+								</div>
 							</div>
 						</div>
-					</div><!-- #post-## -->
 
-				<?php
-					endwhile; endif;
-					wp_reset_postdata();
-				?>
+					<?php
+						endwhile; endif;
+						wp_reset_postdata();
+					?>
+				</div>
 			</div>
-		</div>
+
+		<?php endif; ?>
 
 	</section>
 
