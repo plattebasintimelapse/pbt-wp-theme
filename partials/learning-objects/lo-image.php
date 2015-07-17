@@ -22,12 +22,14 @@
         </div>
 
         <div class="col-sm-<?php echo $content_col_size; ?>">
+            <?php echo '<h3>Chapter ' . $i . ': ' . get_the_title() . '</h3>'; ?>
             <?php echo pbt_get_learning_object_lessoned_content($has_lesson, $has_more, $lo_id); ?>
         </div>
 
     <?php } else { ?>
 
         <div class="col-sm-<?php echo $content_col_size; ?>">
+            <?php echo '<h3>Chapter ' . $i . ': ' . get_the_title($lo_id) . '</h3>'; ?>
             <?php echo pbt_get_learning_object_lessoned_content($has_lesson, $has_more, $lo_id); ?>
         </div>
 

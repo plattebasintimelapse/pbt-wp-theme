@@ -122,13 +122,15 @@ get_header();
 
 				<div class="col-md-8 col-md-pull-4">
 
+					<h2><?php the_title(); ?></h2>
+
 					<?php if( get_field('learning_outcomes') ): ?>
-						<div class="info-box">
+						<div class="info-box row-some-margin">
 							<h4>Learning Outcomes</h4>
 							<?php the_field('learning_outcomes'); ?>
 						</div>
 					<?php endif; ?>
-
+					
 					<?php the_content(); ?>
 				</div>
 			</div>

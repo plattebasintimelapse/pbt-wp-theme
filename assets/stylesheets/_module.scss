@@ -42,6 +42,12 @@ hr {
 	background-color: transparent;
 
 	@include colors-transition($brand-primary, $body-bg, $brand-primary);
+
+
+}
+
+.btn-primary.active {
+	background-color: $gray-lighter;
 }
 
 .btn-default { @include colors-transition(rgba(255,255,255,.2), $gray-lighter, $gray-lighter); }
