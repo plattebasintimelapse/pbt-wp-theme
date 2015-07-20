@@ -123,7 +123,41 @@ function pbt_responsive_iframe_shortcode( $atts ) {
 }
 add_shortcode( 'embed_iframe', 'pbt_responsive_iframe_shortcode' );
 
+/**
+ * Adds a shortcode for displaying custom post types - like learning objects
+ *
+ * @param  array  $attr    Shortcode attributes
+ * @return string          Shortcode output
+ */
+function pbt_lo_shortcode( $atts ) {
+    extract( shortcode_atts(
+        array(
+            'slug'              => '',
+            'icon'              => 'graduation-cap',
+            'activity'          => 'Activity',
+            'float'             => 'left',
+        ), $atts )
+    );
 
+    $args = array(
+        'name'        => $slug,
+        'post_type'   => 'learning_object',
+        'post_status' => 'publish',
+        'numberposts' => 1
+    );
+    $posts = get_posts($args);
+    $embed = '';
+    if( $posts ) :
+        $post_id = $posts[0]->ID;
+        $embed .= '<div class="info-box pull-' . $float . '">';
+        $embed .= '<h3><a href="' . get_post_permalink($post_id) . '"><i class="fa fa-lg fa-' . $icon . '"></i> ' . $posts[0]->post_title . '</a></h3>';
+        $embed .= '</div>';
+    endif;
+
+    return $embed;
+
+}
+add_shortcode( 'learning', 'pbt_lo_shortcode' );
 
 
 
