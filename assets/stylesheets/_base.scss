@@ -10,7 +10,7 @@ body {
 	@include breakpoint(papa-bear) { font-size: 24px; }
 }
 
-body.single-ed_story, body.single-ed_chapter, body.single-learning_object {
+body.single-ed_story, body.single-ed_chapter, body.single-learning_object, article.education {
 	h1, h2, h3, h4, h5 {
 		font-family: $font-family-thin;
 		font-weight: 100;

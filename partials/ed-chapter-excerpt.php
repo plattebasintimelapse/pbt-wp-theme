@@ -3,18 +3,13 @@
  * The Learning Object format for an image
  */
 
-if ($i % 2 == 0):
-    $align = 'left';
-else:
-    $align = 'right';
-endif;
 ?>
 
 <section <?php post_class('row row-padding'); ?>>
 
-	<?php if( $align == 'left' ) { ?>
+	<?php if( $i % 2 == 0 ) { ?>
 
-        <div class="col-sm-6">
+        <div class="col-sm-6 hidden-xs">
             <?php echo get_the_post_thumbnail( $post_id ); ?>
         </div>
 
@@ -32,7 +27,7 @@ endif;
             <?php echo '<h6><a class="btn btn-primary btn-ghost btn-md" role="button" rel="bookmark" title="Permanent Link to ' . get_the_title( $post_id ) . '" href="' . get_permalink( $post_id ) . '"><i class="fa fa-book"></i> Read More </a></h6>'; ?>
         </div>
 
-        <div class="col-sm-6">
+        <div class="col-sm-6 hidden-xs">
             <?php echo get_the_post_thumbnail( $post_id ); ?>
         </div>
 

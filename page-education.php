@@ -22,11 +22,12 @@ get_header();
 	</div> <!-- .container-fluid -->
 </section> <!-- .featured -->
 
-<article id="post-<?php the_ID(); ?>" <?php post_class('main'); ?> role="main">
+<article id="post-<?php the_ID(); ?>" <?php post_class('main education'); ?> role="main">
 	<div class="container">
 
 		<!-- THE NOTEBOOK PAGE FEED OF POSTS -->
 		<?php
+			$i = 1;
 			$args = array(
 				'post_type' => 'ed_story',
 				'orderby' => 'date',
@@ -35,42 +36,54 @@ get_header();
 			);
 
 			$the_query = new WP_Query( $args );
-			if ( $the_query->have_posts() ) : while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
+			if ( $the_query->have_posts() ) : while ( $the_query->have_posts() ) : $the_query->the_post(); 
 
-			<div id="post-<?php the_ID(); ?>" <?php post_class('col-sm-12 col-md-6'); ?>>
-				<div class="post-thumbnail">
-					<?php the_post_thumbnail( 'pbt-post-thumbnail' );  ?>
+			$post_id = get_the_id();
+			$i++;
 
-					<div class="post-meta-box post-meta-box-lg">
+			if( $i % 2 == 0 ) { ?>
 
-						<?php if ( get_post_type() === 'blog_post' ) { ?>
-
-							<h5 class="blog-post-author font-size-small">By <a href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ) ); ?>"><?php the_author(); ?></a></h5>
-
-						<?php } else if ( get_post_type() === 'post' ) { ?>
-
-							<h5 class="post-category font-size-small">
-
-								<?php pbt_the_categories($post, ' | ' ); ?>
-
-							</h5>
-
-						<?php } else if ( get_post_type() === 'page' ) { ?>
-
-							<h5 class="post-category">page</h5>
-
-						<?php } ?>
-
-						<a href="<?php the_permalink() ?>">
-							<h1 class="post-title">
-								<?php pbt_short_title(); ?>
-							</h1>
+				<div id="post-<?php the_ID(); ?>" <?php post_class('row row-some-padding'); ?>>
+					<div class="col-sm-6">
+						<a href="<?php the_permalink() ?>"><?php the_post_thumbnail( 'pbt-post-thumbnail' );  ?></a>
+					</div>
+					
+					<div class="col-sm-6">
+						<a class="link-color-dark" href="<?php the_permalink() ?>">
+							<h3> <?php the_title(); ?> </h3>
 						</a>
-
-						<a class="btn btn-default read-more-btn btn-block btn-max-width" role="button" rel="bookmark" title="Permanent Link to <?php the_title_attribute(); ?>" href="<?php the_permalink() ?>"><h5>Read More</h5></a>
+						
+						<?php $list = get_field( 'chapter_list', $post_id );
+						if( $list ):
+							echo '<h4>Chapters: ' . count($list) . '</h4>';
+						endif; ?>
+						<?php the_excerpt(); ?>
+						<a class="btn btn-primary btn-ghost btn-lg btn-block btn-sm-max-width" role="button" href="<?php the_permalink() ?>"><h5>Enter</h5></a>
 					</div>
 				</div>
-			</div>
+
+			<?php } else { ?>
+
+				<div id="post-<?php the_ID(); ?>" <?php post_class('row row-some-padding'); ?>>
+					<div class="col-sm-6 text-right">
+						<a class="link-color-dark" href="<?php the_permalink() ?>">
+							<h3> <?php the_title(); ?> </h3>
+						</a>
+						
+						<?php $list = get_field( 'chapter_list', $post_id );
+						if( $list ):
+							echo '<h4>Chapters: ' . count($list) . '</h4>';
+						endif; ?>
+						<?php the_excerpt(); ?>
+						<a class="btn btn-primary btn-ghost btn-lg btn-block btn-sm-max-width" role="button" href="<?php the_permalink() ?>"><h5>Enter</h5></a>
+					</div>
+
+					<div class="col-sm-6">
+						<a href="<?php the_permalink() ?>"><?php the_post_thumbnail( 'pbt-post-thumbnail' );  ?></a>
+					</div>
+				</div>
+
+			<?php } ?>
 
 		<?php endwhile; ?>
 	</div>
