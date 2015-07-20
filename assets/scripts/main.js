@@ -177,24 +177,6 @@
             }
         });
 
-        $('#chapter-view-btn').click(function() {
-            if ( ! $(this).hasClass('active') ) {
-                $(this).toggleClass('active');
-                $('#learning-object-view-btn').toggleClass('active');
-                $('#chapter-view').toggleClass('hidden');
-                $('#learning-object-view').toggleClass('hidden');
-            }
-        });
-
-        $('#learning-object-view-btn').click(function() {
-            if ( ! $(this).hasClass('active') ) {
-                $(this).toggleClass('active');
-                $('#chapter-view-btn').toggleClass('active');
-                $('#chapter-view').toggleClass('hidden');
-                $('#learning-object-view').toggleClass('hidden');
-            }
-        });
-
         $('.toggle-info').click(function() {
             $(this).parent().siblings('#userImgCollapse').collapse('toggle');
             $(this).toggleClass('fa-plus-circle').toggleClass('fa-minus-circle');

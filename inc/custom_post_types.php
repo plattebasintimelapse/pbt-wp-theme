@@ -233,25 +233,25 @@ add_action( 'init', 'pbt_project_credit_taxonomies', 0 );
 /**
  * Create Lesson Post Type
  */
-function pbt_ed_lesson_post_type() {
+function pbt_ed_story_post_type() {
     $labels = array(
-        'name'                => _x( 'Lessons', 'Post Type General Name' ),
+        'name'                => _x( 'Ed Stories', 'Post Type General Name' ),
         'singular_name'       => _x( 'Lesson', 'Post Type Singular Name' ),
-        'menu_name'           => __( 'Lessons' ),
-        'parent_item_colon'   => __( 'Parent Lesson' ),
-        'all_items'           => __( 'All Lessons' ),
-        'view_item'           => __( 'View Lesson' ),
-        'add_new_item'        => __( 'Add New Lesson' ),
-        'add_new'             => __( 'Add New Lesson' ),
-        'edit_item'           => __( 'Edit Lesson' ),
-        'update_item'         => __( 'Update Lesson' ),
-        'search_items'        => __( 'Search Lessons' ),
+        'menu_name'           => __( 'Ed Stories' ),
+        'parent_item_colon'   => __( 'Parent Ed Story' ),
+        'all_items'           => __( 'All Ed Stories' ),
+        'view_item'           => __( 'View Ed Story' ),
+        'add_new_item'        => __( 'Add New Ed Story' ),
+        'add_new'             => __( 'Add New Ed Story' ),
+        'edit_item'           => __( 'Edit Ed Story' ),
+        'update_item'         => __( 'Update Ed Story' ),
+        'search_items'        => __( 'Search Ed Stories' ),
         'not_found'           => __( 'Not Found' ),
         'not_found_in_trash'  => __( 'Not found in Trash' ),
     );
-    register_post_type('lesson', array(
+    register_post_type('ed_story', array(
        'labels'                 => $labels,
-       'description'            => 'A collection of lessons, displayed in a textbook fashion',
+       'description'            => 'A collection of ed stories, displayed in a textbook fashion',
        'public'                 => true,
        'exclude_from_search'    => true,
        'show_ui'                => true,
@@ -259,14 +259,52 @@ function pbt_ed_lesson_post_type() {
        'menu_position'          => 28,
        'menu_icon'              => 'dashicons-category',
        'capability_type'        => 'post',
-       'rewrite'                => array( 'slug' => 'education'),
+       'rewrite'                => array( 'slug' => 'ed'),
        'query_var'              => true,
        'has_archive'            => false,
        'supports'               => array('title','thumbnail','excerpt','revisions'),
     ));
 }
 
-add_action('init', 'pbt_ed_lesson_post_type');
+add_action('init', 'pbt_ed_story_post_type');
+
+/**
+ * Create Ed Chapter Post Type
+ */
+function pbt_ed_chapter_post_type() {
+    $labels = array(
+        'name'                => _x( 'Ed Chapters', 'Post Type General Name' ),
+        'singular_name'       => _x( 'Ed Chapter', 'Post Type Singular Name' ),
+        'menu_name'           => __( 'Ed Chapters' ),
+        'parent_item_colon'   => __( 'Parent Ed Chapter' ),
+        'all_items'           => __( 'All Ed Chapters' ),
+        'view_item'           => __( 'View Ed Chapter' ),
+        'add_new_item'        => __( 'Add New Ed Chapter' ),
+        'add_new'             => __( 'Add New Ed Chapter' ),
+        'edit_item'           => __( 'Edit Ed Chapter' ),
+        'update_item'         => __( 'Update Ed Chapter' ),
+        'search_items'        => __( 'Search Ed Chapters' ),
+        'not_found'           => __( 'Not Found' ),
+        'not_found_in_trash'  => __( 'Not found in Trash' ),
+    );
+    register_post_type('ed_chapter', array(
+       'labels'                 => $labels,
+       'description'            => 'A education chapter that appears on ed stories page',
+       'public'                 => true,
+       'exclude_from_search'    => true,
+       'show_ui'                => true,
+       'show_in_menu'           => true,
+       'menu_position'          => 9.483,
+       'menu_icon'              => 'dashicons-welcome-learn-more',
+       'capability_type'        => 'post',
+       'rewrite'                => array( 'slug' => 'chapter'),
+       'query_var'              => true,
+       'has_archive'            => false,
+       'supports'               => array('title','thumbnail','editor','excerpt','revisions'),
+    ));
+}
+
+add_action('init', 'pbt_ed_chapter_post_type');
 
 /**
  * Create Learning Object Post Type
@@ -297,7 +335,7 @@ function pbt_ed_learning_object_post_type() {
        'menu_position'          => 29,
        'menu_icon'              => 'dashicons-welcome-learn-more',
        'capability_type'        => 'post',
-       'rewrite'                => array( 'slug' => 'learning'),
+       'rewrite'                => array( 'slug' => 'ed/learning'),
        'query_var'              => true,
        'has_archive'            => false,
        'supports'               => array('title','thumbnail','editor','excerpt','revisions'),

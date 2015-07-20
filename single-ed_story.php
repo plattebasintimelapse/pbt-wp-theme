@@ -35,12 +35,12 @@ get_header();
 
 	<article id="post-<?php the_ID(); ?>" <?php post_class('main main-content education'); ?> role="main">
 
-		<div class="container-fluid info-box under-hero-image">
+		<div class="container-fluid info-box under-hero-image color-special">
 			<div class="row">
 				<!-- <div class="col-xs-2 col-xs-offset-2">
 					<h4 class="text-right">Resources:</h4>
 				</div> -->
-				<!-- <div class="col-xs-2 col-xs-offset-4">
+				<div class="col-xs-2 col-xs-offset-4">
 					<h5 class="text-center">Lesson Plan</h5>
 					<h6 class="text-center">
 						<a href="#" download="#"><i class="fa fa-file-text-o fa-3x"></i></a>
@@ -57,8 +57,8 @@ get_header();
 					<p class="font-size-ex-small text-center">
 						<a href="#">View</a> / <a href="#" download="#">Download</a>
 					</p>
-				</div> -->
-
+				</div>
+<!-- 
 				<div class="col-xs-2 col-xs-offset-4">
 					<a class="btn btn-primary btn-ghost active" id="chapter-view-btn">
 						<h5 class="text-center">View Chapters <i class="fa fa-book"></i></h5>
@@ -68,7 +68,7 @@ get_header();
 					<a class="btn btn-primary btn-ghost" id="learning-object-view-btn">
 						<h5 class="text-center">View Learning Objects <i class="fa fa-gear"></i></h5>
 					</a>
-				</div>
+				</div> -->
 				<!-- <div class="col-xs-2">
 					<a class="btn btn-primary btn-ghost btn-sm btn-block btn-max-width" role="button" href="#"><h6>Nebraska Standards</h6></a>
 					<h6 class="text-center">
@@ -87,54 +87,25 @@ get_header();
 			
 				
 		<?php 
-		$learning_objects_list = get_field('learning_objects_list');
+		$list = get_field('chapter_list');
 	
-		if( $learning_objects_list ): ?>
+		if( $list ): ?>
 
 			<div id="chapter-view" class="">
 				<div class="container">
 
 					<?php 
 					$i = 0;
-					foreach( $learning_objects_list as $post ):
+					foreach( $list as $post ):
 						setup_postdata($post);
-						$i++;
-						$has_lesson = get_field('has_lesson', $post->ID);
-						$has_more = get_field('has_more', $post->ID);
-		
-						set_query_var( 'lo_id', $post->ID );
-						set_query_var( 'has_lesson', $has_lesson );
-						set_query_var( 'has_more', $has_more );
+						$i++;		
+						set_query_var( 'post_id', $post->ID );
 						set_query_var( 'i', $i ); ?>
 
 						<?php 
-						get_template_part( 'partials/learning-objects/lo', get_field('learning_object_format', $post->ID) ); 
+						get_template_part( 'partials/ed-chapter-excerpt' ); 
 
 					endforeach;?>
-		
-				</div>
-			</div>
-
-			<div id="learning-object-view" class="hidden">
-				<div class="container">
-					<?php 
-					$i = 0;
-					foreach( $learning_objects_list as $post ):
-						setup_postdata($post);
-						$i++;
-						$has_lesson = get_field('has_lesson', $post->ID);
-						$has_more = get_field('has_more', $post->ID);
-		
-						set_query_var( 'lo_id', $post->ID );
-						set_query_var( 'has_lesson', $has_lesson );
-						set_query_var( 'has_more', $has_more );
-						set_query_var( 'i', $i ); ?>
-
-						<div class="row row-some-padding-top underlined underlined-dark">
-							<?php echo '<h3>Chapter ' . $i . ': ' . get_the_title() . '</h3>'; ?>
-						</div>
-
-					<?php endforeach;?>
 		
 				</div>
 			</div>
