@@ -152,39 +152,7 @@ get_header();
 			</div>
 		</div>
 
-		<?php $votp_page = get_page_by_title( $votp_page_title );
-
-		if ( ! is_null($votp_page) ): ?>
-
-			<a name="votp"></a>
-			<div class="container-fluid container-fluid-no-padding container-little-padding-top votp-feature">
-				<div class="featured">
-					<?php echo get_the_post_thumbnail( $votp_page->ID, 'pbt-pano-header' ); ?>
-
-					<div class="featured-post-meta-box">
-						<h4>Featured Series</h4>
-						<h1 class="post-title"><?php echo $votp_page_title; ?></h1>
-					</div>
-				</div>
-
-				<div class="col-xs-12">
-					<div class="row row-padding-top">
-						<div class="col-xs-10 col-xs-offset-1 col-md-offset-2 col-md-8 text-center">
-							<?php echo apply_filters('the_content', $votp_page->post_content); ?>
-						</div>
-					</div>
-					<div class="row row-padding">
-						<div class="col-xs-10 col-xs-offset-1 col-md-offset-4 col-md-4">
-							<!-- <p class="text-center"><?php echo apply_filters('the_content', $votp_page->post_content); ?></p> -->
-							
-							<a class="btn btn-primary btn-ghost btn-lg btn-block" title="Link to Voices of the Platte Stories" href="/voices-of-the-platte"><h4>Listen to Voices of the Platte</h4></a>
-						</div>
-					</div>
-				</div>
-
-			</div>
-
-		<?php endif;
+		<?php 
 
 		$blog_page = get_page_by_title( $blog_page_title );
 
