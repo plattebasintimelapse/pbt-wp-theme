@@ -142,7 +142,7 @@ function pbt_lo_shortcode( $atts ) {
 
     $embed = '';
 
-    if ( ! $slug == '' ):
+    if ( ! empty($slug) ):
 
         $args = array(
             'name'        => $slug,
@@ -159,10 +159,10 @@ function pbt_lo_shortcode( $atts ) {
             $embed .= '</div>';
         endif;
 
-    elseif ( ! $src = '' ):
+    elseif ( ! empty($src) ):
 
         $embed .= '<div class="info-box pull-' . $float . '">';
-        $embed .= '<h3><a href="' . $src . '"><i class="fa fa-lg fa-' . $icon . '"></i> ' . $title . '</a></h3>';
+        $embed .= '<h3><a target="_blank" href="' . $src . '"><i class="fa fa-lg fa-' . $icon . '"></i> ' . $title . '</a></h3>';
         $embed .= '</div>';
 
     endif;
