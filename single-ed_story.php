@@ -21,12 +21,12 @@ get_header();
 					<div class="col-sm-8">
 						<?php the_excerpt(); ?>
 					</div>
-					<div class="col-sm-offset-2 col-sm-2 text-right">
+					<!-- <div class="col-sm-offset-2 col-sm-2 text-right">
 						<h5>Teacher Guide</h5>
 						<p class="font-size-ex-small">
 							<a href="#">View</a> / <a href="#" download="#">Download <i class="fa fa-file-text-o fa-lg"></i></a>
 						</p>
-					</div>
+					</div> -->
 				</div>
 			</div>
 

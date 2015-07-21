@@ -21,8 +21,6 @@ get_header();
 					<div class="info-box aside-info-box affix-top-offset no-affix-sm no-affix-xs" data-spy="affix" data-offset-top="440" data-offset-bottom="20">
 						<div class="row">
 
-							<?php if ( get_field('has_lesson') ) { ?>
-
 								<div class="col-sm-6 col-md-12">
 									<h4>Time:</h4>
 									<p><?php the_field('time_to_complete'); ?></p>
@@ -89,8 +87,6 @@ get_header();
 									<h4>Next Gen Standards:</h4>
 									<p>A Link Here</p>
 								</div>
-
-							<?php } ?>
 
 							<div class="col-xs-12 col-v-some-padding">
 								<?php

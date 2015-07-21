@@ -53,10 +53,6 @@ get_header();
 							<h3> <?php the_title(); ?> </h3>
 						</a>
 						
-						<?php $list = get_field( 'chapter_list', $post_id );
-						if( $list ):
-							echo '<h4>Chapters: ' . count($list) . '</h4>';
-						endif; ?>
 						<?php the_excerpt(); ?>
 						<a class="btn btn-primary btn-ghost btn-lg btn-block btn-sm-max-width" role="button" href="<?php the_permalink() ?>"><h5>Enter</h5></a>
 					</div>
@@ -70,10 +66,6 @@ get_header();
 							<h3> <?php the_title(); ?> </h3>
 						</a>
 						
-						<?php $list = get_field( 'chapter_list', $post_id );
-						if( $list ):
-							echo '<h4>Chapters: ' . count($list) . '</h4>';
-						endif; ?>
 						<?php the_excerpt(); ?>
 						<a class="btn btn-primary btn-ghost btn-lg btn-block btn-sm-max-width" role="button" href="<?php the_permalink() ?>"><h5>Enter</h5></a>
 					</div>
