@@ -38,6 +38,14 @@
 	background-repeat: no-repeat;
 }
 
+.hero-image-behind-medium {
+	//override height set in javascript
+	height: 200px !important;
+	@include breakpoint(baby-bear) { height: 400px !important; }
+	@include breakpoint(mama-bear) { height: 450px !important; }
+	@include breakpoint(papa-bear) { height: 550px !important; }
+}
+
 .hero-image-behind-short {
 	//override height set in javascript
 	height: 200px !important;
