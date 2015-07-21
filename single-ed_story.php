@@ -37,50 +37,28 @@ get_header();
 
 		<div class="container-fluid info-box under-hero-image color-special">
 			<div class="row">
-				<!-- <div class="col-xs-2 col-xs-offset-2">
-					<h4 class="text-right">Resources:</h4>
-				</div> -->
-				<div class="col-xs-2 col-xs-offset-4">
-					<h5 class="text-center">Lesson Plans</h5>
-					<h6 class="text-center">
-						<a href="#" download="#"><i class="fa fa-file-text-o fa-3x"></i></a>
-					</h6>
-					<p class="font-size-ex-small text-center">
-						<a href="#">View</a> / <a href="#" download="#">Download</a>
-					</p>
-				</div>
-				<div class="col-xs-2">
-					<h5 class="text-center">Vocabulary</h5>
-					<h6 class="text-center">
-						<a href="#" download="#"><i class="fa fa-file-text-o fa-3x"></i></a>
-					</h6>
-					<p class="font-size-ex-small text-center">
-						<a href="#">View</a> / <a href="#" download="#">Download</a>
-					</p>
-				</div>
-<!-- 
-				<div class="col-xs-2 col-xs-offset-4">
-					<a class="btn btn-primary btn-ghost active" id="chapter-view-btn">
-						<h5 class="text-center">View Chapters <i class="fa fa-book"></i></h5>
-					</a>
-				</div>
-				<div class="col-xs-2">
-					<a class="btn btn-primary btn-ghost" id="learning-object-view-btn">
-						<h5 class="text-center">View Learning Objects <i class="fa fa-gear"></i></h5>
-					</a>
-				</div> -->
-				<!-- <div class="col-xs-2">
-					<a class="btn btn-primary btn-ghost btn-sm btn-block btn-max-width" role="button" href="#"><h6>Nebraska Standards</h6></a>
-					<h6 class="text-center">
-						<a href="#" download="#"><i class="fa fa-file-o fa-3x"></i></a>
-					</h6>
-				</div>
-				<div class="col-xs-2">
-					<a class="btn btn-primary btn-ghost btn-sm btn-block btn-max-width" role="button" href="#"><h6>Next Gen Standards</h6></a>
-					<h6 class="text-center">
-						<a href="#" download="#"><i class="fa fa-file-pdf-o fa-3x"></i></a>
-					</h6>
-				</div> -->
+				<?php if( get_field('lesson_plan_pdf') ): ?>
+					<div class="col-xs-2 col-xs-offset-4">
+						<h5 class="text-center">Lesson Plans</h5>
+						<h6 class="text-center">
+							<a href="<?php the_field('lesson_plan_pdf'); ?>" download="<?php the_field('lesson_plan_pdf_title'); ?>"><i class="fa fa-file-text-o fa-3x"></i></a>
+						</h6>
+						<p class="font-size-ex-small text-center">
+							<a href="<?php the_field('lesson_plan_pdf'); ?>">View</a> / <a href="<?php the_field('lesson_plan_pdf'); ?>" download="<?php the_field('lesson_plan_pdf_title'); ?>">Download</a>
+						</p>
+					</div>
+				<?php endif; ?>
+				<?php if( get_field('vocabulary_pdf') ): ?>
+					<div class="col-xs-2">
+						<h5 class="text-center">Vocabulary</h5>
+						<h6 class="text-center">
+							<a href="<?php the_field('vocabulary_pdf'); ?>" download="<?php the_field('vocabulary_pdf_title'); ?>"><i class="fa fa-file-text-o fa-3x"></i></a>
+						</h6>
+						<p class="font-size-ex-small text-center">
+							<a href="<?php the_field('vocabulary_pdf'); ?>">View</a> / <a href="<?php the_field('vocabulary_pdf'); ?>" download="<?php the_field('vocabulary_pdf_title'); ?>">Download</a>
+						</p>
+					</div>
+				<?php endif; ?>
 			</div>
 		</div>
 

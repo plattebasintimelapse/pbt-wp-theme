@@ -45,16 +45,6 @@ get_header();
 									</div>
 								<?php endif; ?>
 
-								<?php if( get_field('downloads') ): ?>
-									<div class="col-sm-6 col-md-12">
-										<h4>Lesson Plan:</h4>
-										<p class="font-size-ex-small">
-											<?php the_field('download_title'); ?>
-											<a href="<?php the_field('downloads'); ?>">View</a> / <a href="<?php the_field('downloads'); ?>" download="<?php the_field('download_title'); ?>">Download <i class="fa fa-file-text-o fa-lg"></i></a>
-										</p>
-									</div>
-								<?php endif; ?>
-
 								<?php if( get_field('notes_links') ): ?>
 									<div class="col-sm-6 col-md-12">
 										<h4>Links:</h4>

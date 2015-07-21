@@ -9,7 +9,7 @@ get_header();
 	$num_blogs 			= 4; 			// How many blogs to appear on the home page
 	$blog_page_title 	= 'Notebook'; 	// Title of Blog Page used to populate the blog post section on the home page.
 	$votp_page_title 	= 'Voices of the Platte'; 	// Title of Voices of the Platte Page used to populate the blog post section on the home page.
-
+	$learn_page_title 	= 'Learn'; 	// Title of Voices of the Platte Page used to populate the blog post section on the home page.
 
 	?>
 
@@ -175,7 +175,38 @@ get_header();
 					</div>
 					<div class="row row-padding">
 						<div class="col-xs-10 col-xs-offset-1 col-md-offset-4 col-md-4">
-							<a class="btn btn-primary btn-ghost btn-lg btn-block" title="Link to Voices of the Platte Stories" href="/voices-of-the-platte"><h4>Listen to Voices of the Platte</h4></a>
+							<a class="btn btn-primary btn-ghost btn-lg btn-block" title="Link to Voices of the Platte Stories" href="<?php echo get_post_permalink( $votp_page->ID ); ?>"><h4>Listen to Voices of the Platte</h4></a>
+						</div>
+					</div>
+				</div>
+
+			</div>
+
+		<?php endif;
+
+		$learn_page = get_page_by_title( $learn_page_title );
+
+		if ( $learn_page->post_status == 'publish' ) : ?>
+
+			<a name="learn"></a>
+			<div class="container-fluid container-fluid-no-padding container-little-padding-top learn-feature">
+				<div class="featured">
+					<?php echo get_the_post_thumbnail( $learn_page->ID, 'pbt-pano-header' ); ?>
+
+					<div class="featured-post-meta-box">
+						<h1 class="post-title"><?php echo $learn_page_title; ?></h1>
+					</div>
+				</div>
+
+				<div class="col-xs-12">
+					<div class="row row-padding-top">
+						<div class="col-xs-10 col-xs-offset-1 col-md-offset-2 col-md-8 text-center">
+							<?php echo apply_filters('the_content', $learn_page->post_content); ?>
+						</div>
+					</div>
+					<div class="row row-padding">
+						<div class="col-xs-10 col-xs-offset-1 col-md-offset-4 col-md-4">
+							<a class="btn btn-primary btn-ghost btn-lg btn-block" title="Link to Education Content Producted by PBT" href="<?php echo get_post_permalink( $learn_page->ID ); ?>"><h4>Learn More</h4></a>
 						</div>
 					</div>
 				</div>
@@ -196,7 +227,7 @@ get_header();
 					<div class="featured-post-meta-box">
 						<h1 class="post-title"><?php echo $blog_page_title; ?></h1>
 						<p><?php echo apply_filters('the_content', $blog_page->post_content); ?></p>
-						<a class="btn btn-default btn-lg btn-block btn-max-width" role="button" title="Link to See All Blog Posts" href="/notebook"><h6>See All Posts</h6></a>
+						<a class="btn btn-default btn-lg btn-block btn-max-width" role="button" title="Link to See All Blog Posts" href="<?php echo get_post_permalink( $blog_page->ID ); ?>"><h6>See All Posts</h6></a>
 					</div>
 				</div>
 			</div>
