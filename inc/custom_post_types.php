@@ -259,7 +259,7 @@ function pbt_ed_story_post_type() {
        'menu_position'          => 28,
        'menu_icon'              => 'dashicons-category',
        'capability_type'        => 'post',
-       'rewrite'                => array( 'slug' => 'education'),
+       'rewrite'                => array( 'slug' => 'learn'),
        'query_var'              => true,
        'has_archive'            => false,
        'supports'               => array('title','thumbnail','excerpt','revisions'),

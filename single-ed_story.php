@@ -17,16 +17,10 @@ get_header();
 						<h1><?php the_title(); ?></h1>
 					</div>
 				</div>
-				<div class="row row-little-padding">
-					<div class="col-sm-8">
+				<div class="row row-little-padding hidden-xs">
+					<div class="col-sm-10">
 						<?php the_excerpt(); ?>
 					</div>
-					<!-- <div class="col-sm-offset-2 col-sm-2 text-right">
-						<h5>Teacher Guide</h5>
-						<p class="font-size-ex-small">
-							<a href="#">View</a> / <a href="#" download="#">Download <i class="fa fa-file-text-o fa-lg"></i></a>
-						</p>
-					</div> -->
 				</div>
 			</div>
 
@@ -35,32 +29,35 @@ get_header();
 
 	<article id="post-<?php the_ID(); ?>" <?php post_class('main main-content education'); ?> role="main">
 
-		<div class="container-fluid info-box under-hero-image color-special">
-			<div class="row">
-				<?php if( get_field('lesson_plan_pdf') ): ?>
-					<div class="col-xs-2 col-xs-offset-4">
-						<h5 class="text-center">Lesson Plans</h5>
-						<h6 class="text-center">
-							<a href="<?php the_field('lesson_plan_pdf'); ?>" download="<?php the_field('lesson_plan_pdf_title'); ?>"><i class="fa fa-file-text-o fa-3x"></i></a>
-						</h6>
-						<p class="font-size-ex-small text-center">
-							<a href="<?php the_field('lesson_plan_pdf'); ?>">View</a> / <a href="<?php the_field('lesson_plan_pdf'); ?>" download="<?php the_field('lesson_plan_pdf_title'); ?>">Download</a>
-						</p>
-					</div>
-				<?php endif; ?>
-				<?php if( get_field('vocabulary_pdf') ): ?>
-					<div class="col-xs-2">
-						<h5 class="text-center">Vocabulary</h5>
-						<h6 class="text-center">
-							<a href="<?php the_field('vocabulary_pdf'); ?>" download="<?php the_field('vocabulary_pdf_title'); ?>"><i class="fa fa-file-text-o fa-3x"></i></a>
-						</h6>
-						<p class="font-size-ex-small text-center">
-							<a href="<?php the_field('vocabulary_pdf'); ?>">View</a> / <a href="<?php the_field('vocabulary_pdf'); ?>" download="<?php the_field('vocabulary_pdf_title'); ?>">Download</a>
-						</p>
-					</div>
-				<?php endif; ?>
+		<?php if( get_field('lesson_plan_pdf') or get_field('vocabulary_pdf') ): ?>
+
+			<div class="container-fluid info-box under-hero-image color-special">
+				<div class="row">
+					<?php if( get_field('lesson_plan_pdf') ): ?>
+						<div class="col-sm-2 col-sm-offset-4 col-xs-6">
+							<h5 class="text-center">Lesson Plans</h5>
+							<h6 class="text-center">
+								<a href="<?php the_field('lesson_plan_pdf'); ?>" download="<?php the_field('lesson_plan_pdf_title'); ?>"><i class="fa fa-file-text-o fa-2x"></i></a>
+							</h6>
+							<p class="font-size-ex-small text-center">
+								<a href="<?php the_field('lesson_plan_pdf'); ?>">View</a> / <a href="<?php the_field('lesson_plan_pdf'); ?>" download="<?php the_field('lesson_plan_pdf_title'); ?>">Download</a>
+							</p>
+						</div>
+					<?php endif; ?>
+					<?php if( get_field('vocabulary_pdf') ): ?>
+						<div class="col-sm-2 col-xs-6">
+							<h5 class="text-center">Vocabulary</h5>
+							<h6 class="text-center">
+								<a href="<?php the_field('vocabulary_pdf'); ?>" download="<?php the_field('vocabulary_pdf_title'); ?>"><i class="fa fa-file-text-o fa-2x"></i></a>
+							</h6>
+							<p class="font-size-ex-small text-center">
+								<a href="<?php the_field('vocabulary_pdf'); ?>">View</a> / <a href="<?php the_field('vocabulary_pdf'); ?>" download="<?php the_field('vocabulary_pdf_title'); ?>">Download</a>
+							</p>
+						</div>
+					<?php endif; ?>
+				</div>
 			</div>
-		</div>
+		<?php endif; ?>
 
 			
 				

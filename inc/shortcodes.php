@@ -124,53 +124,63 @@ function pbt_responsive_iframe_shortcode( $atts ) {
 add_shortcode( 'embed_iframe', 'pbt_responsive_iframe_shortcode' );
 
 /**
- * Adds a shortcode for displaying custom post types - like learning objects
+ * Adds a shortcode for displaying custom post types or outside links
  *
  * @param  array  $attr    Shortcode attributes
  * @return string          Shortcode output
  */
-function pbt_lo_shortcode( $atts ) {
+function pbt_link_shortcode( $atts ) {
     extract( shortcode_atts(
         array(
             'slug'              => '',
-            'src'               => '',
-            'icon'              => 'graduation-cap',
-            'title'             => 'Activity',
+            'href'               => '',
+            'title'             => '',
+            'icon'              => '',
             'float'             => 'left',
+            'copy'              => '',
+            'btn_copy'          => 'Link'
         ), $atts )
     );
 
-    $embed = '';
+    $link = '';
 
     if ( ! empty($slug) ):
 
         $args = array(
             'name'        => $slug,
-            'post_type'   => 'learning_object',
-            'post_status' => 'publish',
-            'numberposts' => 1
+            'post_type'   => array('post', 'story', 'blog_post', 'page', 'ed_story', 'ed_chapter', 'learning_object',),
+            'post_status' => 'published',
+            'posts_per_page' => 1
         );
         $posts = get_posts($args);
         
         if( $posts ) :
             $post_id = $posts[0]->ID;
-            $embed .= '<div class="info-box pull-' . $float . '">';
-            $embed .= '<h3><a href="' . get_post_permalink($post_id) . '"><i class="fa fa-lg fa-' . $icon . '"></i> ' . $posts[0]->post_title . '</a></h3>';
-            $embed .= '</div>';
+            $link .= '<div style="margin: 10px 20px; max-width: 250px;" class="info-box pull-' . $float . '">';
+            $link .= '<h4 class="text-center"><a href="' . get_post_permalink($post_id) . '"><i class="fa fa-lg fa-' . $icon . '"></i> ' . $posts[0]->post_title . '</a></h4>';
+            $link .= '<p class="font-size-ex-small">' . $copy . '</p>';
+            $link .= '<a href="' . get_post_permalink($post_id) . '" class="btn btn-primary btn-ghost btn-sm btn-block btn-sm-max-width">';
+            $link .= '<h5 class="font-size-ex-small">' . $btn_copy . '</h5>';
+            $link .= '</a>';
+            $link .= '</div>';
         endif;
 
-    elseif ( ! empty($src) ):
+    elseif ( ! empty($href) ):
 
-        $embed .= '<div class="info-box pull-' . $float . '">';
-        $embed .= '<h3><a target="_blank" href="' . $src . '"><i class="fa fa-lg fa-' . $icon . '"></i> ' . $title . '</a></h3>';
-        $embed .= '</div>';
+        $link .= '<div style="margin: 10px 20px; max-width: 250px;" class="info-box pull-' . $float . '">';
+        $link .= '<h4 class="text-center"><a href="' . $href . '"><i class="fa fa-lg fa-' . $icon . '"></i> ' . $title . '</a></h4>';
+        $link .= '<p class="font-size-ex-small">' . $copy . '</p>';
+        $link .= '<a target="_blank" href="' . $href . '" class="btn btn-primary btn-ghost btn-sm btn-block btn-sm-max-width">';
+        $link .= '<h5 class="font-size-ex-small">' . $btn_copy . ' <i class="fa fa-link"></i></h5>';
+        $link .= '</a>';
+        $link .= '</div>';
 
     endif;
 
-    return $embed;
+    return $link;
 
 }
-add_shortcode( 'learning', 'pbt_lo_shortcode' );
+add_shortcode( 'link', 'pbt_link_shortcode' );
 
 
 

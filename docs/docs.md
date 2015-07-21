@@ -4,6 +4,13 @@ The PBT site is built on the [Wordpress](https://wordpress.org/) CMS. There is p
 
 Wordpress allows us to post, update, edit, and publish online content. The Wordpress Content Management System provides an interface around which to do this.
 
+* [Images](#images)
+* [Shortcodes](#shortcodes)
+* [Video](#video)
+* [Responsive iFrames](#responsive-iframes)
+* [Links](#links)
+* [Gallery](#gallery)
+
 #Images
 Images are uploaded through Wordpress media browser. These images are searchable and sortable and include captioning, alt text, and resizes. There is no need to upload the same image multiple times and there is no reason to drastically resize images for upload.
 
@@ -20,6 +27,19 @@ For example: An image originally sized 2000x1200 will get resized and cropped to
 
 #####Credits:
 Photo credits are generally located at the top of a post (for web stories) or bottom of a post (for blogs). When there is more than one photographer/videographer, credits for specific photos should be in parentheses, name only. If we’re crediting someone outside of PBT, use name, organization format. Ex: (Michael Forsberg) Ex. (Chris Helzer, TNC)
+
+#Shortcodes
+Shortcodes help to create macros to be used in a post's content. Read more about shortcodes on the [WordPress Docs](https://codex.wordpress.org/Shortcode)
+
+The basic shortcode format is as follow:
+
+[shortcodetitle key="value"]
+
+The title is unique for each shortcode. Key value pairs are specified to be used as attributes in the shortcode.
+
+**Mind the quotes!!**
+
+See PBT shortcodes code [here](https://github.com/plattebasintimelapse/pbt-wp-theme/blob/master/inc/shortcodes.php).
 
 #Video
 Videos are hosted on other services like Vimeo. Upload video prior to creating post in CMS.
@@ -53,7 +73,7 @@ Timelapse from Vimeo formatted aside:
 
 #Responsive iFrames
 
-Responsive iframes are externally added pages that provide opportunity for more interactive contented embedded straight into the CMS. This shortcode utilizes NPR's Pym.js.
+Responsive iframes are externally added pages that provide opportunity for more interactive content embedded straight into the CMS. This shortcode utilizes NPR's Pym.js.
 
 ####Embedding
 The base line embed code is
@@ -75,6 +95,38 @@ An aside module of newspaper clipppings:
 Or a featured interactive chart:
 
 [embed_iframe id="lincoln-water" src="http://projects.plattebasintimelapse.com/assets/static/pages/lincoln-water/"]
+
+#Links
+
+Embed sidebar links in any post. You can link to internal PBT content or external pages. It wraps it in a nicely looking panel thingy.
+
+####Embedding
+The base line embed code is
+
+[link slug="" copy=""]
+
+#####Options:
+* **slug=""** 		*Ex. slug="into-the-current"*, must be a valid slug from a piece of content on the PBT CMS OR
+* **href=""** 		*Ex. href="http://www.google.com/", It must be a complete URL
+* **title=""**		*(optional) If using an external link*
+* **icon=""**		*(optional) A font name from the font awesome library
+* **float=""**		*(optional) Default is left
+* **copy=""**		*(optional) Copy to appear in the sidebar
+* **btn_copy=""**	*(optional) Copy to appear in the buttton
+
+######Examples:
+
+A link to the about page:
+
+[link slug="about" icon="gear" btn_copy="Go to About Page" copy="Read some cool stuff about our project. You can put whatever you want in here. Just has to be some text, yah?"]
+
+A link to a learning object:
+
+[link slug="some-cool-activity" icon="pencil-square-o" btn_copy="Do Activity" copy="In this activity, you're going to do some cool stuff. Get excited!"]
+
+Link to an external thing:
+
+[link href="http://www.plattebasintimelapse.com" title="Visit Our Homepage" btn_copy="GO!"]
 
 #Gallery
 A Gallery allows you to upload multiple images together, to be viewed in a Lightbox.
