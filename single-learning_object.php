@@ -62,6 +62,13 @@ get_header();
 									</div>
 								<?php endif; ?>
 
+								<?php if( get_field('next_gen_standards') ): ?>
+									<div class="col-sm-6 col-md-12">
+										<h4>Next Generation Standards:</h4>
+										<?php the_field('next_gen_standards'); ?>
+									</div>
+								<?php endif; ?>
+
 								<?php
 									$postid = get_the_ID();
 									$sep = ', ';

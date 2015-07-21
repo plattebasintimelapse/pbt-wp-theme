@@ -133,6 +133,7 @@ function pbt_lo_shortcode( $atts ) {
     extract( shortcode_atts(
         array(
             'slug'              => '',
+            'src'               => '',
             'icon'              => 'graduation-cap',
             'activity'          => 'Activity',
             'float'             => 'left',
