@@ -19,9 +19,11 @@
 	<title> <?php wp_title( '| PBT', true, 'right' ); ?> </title>
 
 	<link rel="stylesheet" href="<?php bloginfo( 'stylesheet_url' ); ?>">
+	<!-- All other includes are in the inc/theme_setup.php file -->
 
 	<?php wp_head(); ?>
 
 </head>
 
+	<!-- Main Header and Navigation -->
 	<?php get_template_part( 'templates/header-main' ); ?>

@@ -45,16 +45,16 @@ get_header();
 
 				<div id="post-<?php the_ID(); ?>" <?php post_class('row row-some-padding'); ?>>
 					<div class="col-sm-6 hidden-xs">
-						<a href="<?php the_permalink() ?>"><?php the_post_thumbnail( 'pbt-post-thumbnail' );  ?></a>
+						<a href="<?php the_permalink() ?>"><?php the_post_thumbnail( );  ?></a>
 					</div>
 					
 					<div class="col-sm-6">
-						<a class="link-color-dark" href="<?php the_permalink() ?>">
-							<h3> <?php the_title(); ?> </h3>
-						</a>
+						<h3> 
+							<a class="link-color-dark" href="<?php the_permalink() ?>"><?php the_title(); ?></a>
+						</h3>
 						
 						<?php the_excerpt(); ?>
-						<a class="btn btn-primary btn-ghost btn-lg btn-block btn-sm-max-width" role="button" href="<?php the_permalink() ?>"><h5>Enter</h5></a>
+						<a class="btn btn-primary btn-ghost btn-lg btn-block btn-sm-max-width" role="button" href="<?php the_permalink() ?>"><h5>Learn More</h5></a>
 					</div>
 				</div>
 
@@ -62,16 +62,16 @@ get_header();
 
 				<div id="post-<?php the_ID(); ?>" <?php post_class('row row-some-padding'); ?>>
 					<div class="col-sm-6 text-right">
-						<a class="link-color-dark" href="<?php the_permalink() ?>">
-							<h3> <?php the_title(); ?> </h3>
-						</a>
+						<h3> 
+							<a class="link-color-dark" href="<?php the_permalink() ?>"><?php the_title(); ?></a>
+						</h3>
 						
 						<?php the_excerpt(); ?>
-						<a class="btn btn-primary btn-ghost btn-lg btn-block btn-sm-max-width" role="button" href="<?php the_permalink() ?>"><h5>Enter</h5></a>
+						<a class="btn btn-primary btn-ghost btn-lg btn-block btn-sm-max-width" role="button" href="<?php the_permalink() ?>"><h5>Learn More</h5></a>
 					</div>
 
 					<div class="col-sm-6 hidden-xs">
-						<a href="<?php the_permalink() ?>"><?php the_post_thumbnail( 'pbt-post-thumbnail' );  ?></a>
+						<a href="<?php the_permalink() ?>"><?php the_post_thumbnail( );  ?></a>
 					</div>
 				</div>
 

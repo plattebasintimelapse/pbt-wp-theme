@@ -1,6 +1,11 @@
 <?php
 /**
  * The template for displaying the front page.
+ *
+ * The home page basically has two <section>s: the hero and main.
+ * Hero is video or image fall back.
+ * Main is a collection of sub-sections that link to important content on our site: featured story, all stories
+ * blog posts, special series (Voices of the Platte), and education. These sections are pulled from pages.
  */
 
 get_header();
@@ -12,6 +17,8 @@ get_header();
 	$learn_page_title 	= 'Learn'; 	// Title of Voices of the Platte Page used to populate the blog post section on the home page.
 
 	?>
+
+	<!-- Hero Section -->
 
 	<section class="featured hero-image">
 		<div class="container-fluid">
@@ -35,28 +42,23 @@ get_header();
 				<h2><?php bloginfo( 'description' ); ?></h2>
 				<a id="intro-arrow" style="opacity: 0;" class="btn btn-default btn-sm btn-no-border btn-block btn-xs-max-width" href="#main"><i class="fa fa-angle-down fa-3x"></i></a>
 			</div>
-
-			<!-- <div class="featured-meta-box" id="spinning-loader">
-				<i class="fa fa-spinner fa-spin fa-3x"></i>
-			</div> -->
 		</div>
 	</section>
 
-	<section class="main" role="main">
-		<a name="main"></a>
+	<!-- Main Section -->
 
+	<section class="main" role="main">
+
+		<a name="main"></a>
 		<div class="container container-padding">
 			<div class="row">
 				<div class="col-md-12">
 					<?php dynamic_sidebar( 'pbt-home-main' ); ?>
 				</div>
-
-				<!-- <div class="col-xs-10 col-xs-offset-1 col-md-6 col-md-offset-0">
-					<div id="map-small" style="height: 400px; width: 100%;"></div>
-					<a href="#map" class="btn btn-primary btn-ghost btn-sm btn-block btn-max-width" role="button"><h5>Explore the Platte Basin</h5></a>
-				</div> -->
 			</div>
 		</div>
+
+		<!-- Featured Story Sub-Section -->
 
 		<div class="container-fluid container-fluid-no-padding container-padding story-post-feature">
 			<?php
@@ -101,6 +103,8 @@ get_header();
 			?>
 		</div>
 
+		<!-- Story Feed Sub-Section -->
+
 		<div class="container container-padding story-post-feed">
 			<div class="row">
 
@@ -137,11 +141,15 @@ get_header();
 
 		</div>
 
+		<!-- Map Sub-Section -->
+
 		<a name="map"></a>
 		<div class="container-fluid container-fluid-no-padding container-padding">
 			<div id="map"></div>
 			<div class="timelapse-content"></div>
 		</div>
+
+		<!-- Call to Action for Images Sub-Section -->
 
 		<div class="container container-little-padding-top">
 			<?php dynamic_sidebar( 'pbt-home-map' ); ?>
@@ -151,6 +159,8 @@ get_header();
 				</div>
 			</div>
 		</div>
+
+		<!-- Voices of the Platte Sub-Section -->
 
 		<?php $votp_page = get_page_by_title( $votp_page_title );
 
@@ -182,9 +192,11 @@ get_header();
 
 			</div>
 
-		<?php endif;
+		<?php endif; ?>
 
-		$learn_page = get_page_by_title( $learn_page_title );
+		<!-- Learn Sub-Section -->
+
+		<?php $learn_page = get_page_by_title( $learn_page_title );
 
 		if ( $learn_page->post_status == 'publish' ) : ?>
 
@@ -213,9 +225,11 @@ get_header();
 
 			</div>
 
-		<?php endif;
+		<?php endif; ?>
 
-		$blog_page = get_page_by_title( $blog_page_title );
+		<!-- Blog Feed Sub-Section -->
+
+		<?php $blog_page = get_page_by_title( $blog_page_title );
 
 		if ( $blog_page->post_status == 'publish' ): ?>
 

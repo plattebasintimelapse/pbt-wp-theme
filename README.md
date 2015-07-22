@@ -1,4 +1,11 @@
 # Platte Basin Timelapse
+
+
+**The theme in this state is no longer used, including its deploy method and build tools.**
+
+When Steven moved on from PBT, he passed off the theme via FTP to the rest of the team. Files are now edited live on Flywheel and this deployment strategey abandoned and disabled. Be sure to work on most up-to-date theme files.
+
+---
 #### Wordpress Theme
 
 By Steven Speicher

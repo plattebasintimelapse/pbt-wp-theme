@@ -108,7 +108,7 @@ The base line embed code is
 #####Options:
 * **slug=""** 		*Ex. slug="into-the-current"*, must be a valid slug from a piece of content on the PBT CMS OR
 * **href=""** 		*Ex. href="http://www.google.com/", It must be a complete URL
-* **title=""**		*(optional) If using an external link*
+* **title=""**		*(optional) If using an external link or want to override post title for PBT content piece*
 * **icon=""**		*(optional) A font name from the font awesome library
 * **float=""**		*(optional) Default is left
 * **copy=""**		*(optional) Copy to appear in the sidebar

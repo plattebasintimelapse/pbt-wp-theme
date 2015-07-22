@@ -157,7 +157,10 @@ function pbt_link_shortcode( $atts ) {
         if( $posts ) :
             $post_id = $posts[0]->ID;
             $link .= '<div style="margin: 10px 20px; max-width: 250px;" class="info-box pull-' . $float . '">';
-            $link .= '<h4 class="text-center"><a href="' . get_post_permalink($post_id) . '"><i class="fa fa-lg fa-' . $icon . '"></i> ' . $posts[0]->post_title . '</a></h4>';
+            $link .= '<h4 class="text-center"><a href="' . get_post_permalink($post_id) . '">';
+            $link .= ( ! empty($icon) ) ? '<i class="fa fa-lg fa-' . $icon . '"></i> ' : '';
+            $link .= ( ! empty($title) ) ? $title : $posts[0]->post_title;
+            $link .= '</a></h4>';
             $link .= '<p class="font-size-ex-small">' . $copy . '</p>';
             $link .= '<a href="' . get_post_permalink($post_id) . '" class="btn btn-primary btn-ghost btn-sm btn-block btn-sm-max-width">';
             $link .= '<h5 class="font-size-ex-small">' . $btn_copy . '</h5>';

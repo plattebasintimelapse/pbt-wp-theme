@@ -1,6 +1,6 @@
 <?php
 /**
- * The template for displaying a single story.
+ * The template for displaying a single post.
  */
 
 get_header();
