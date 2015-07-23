@@ -32,13 +32,13 @@ get_header();
 
 			<div class="container">
 
-				<?php if ( comments_open() && !is_preview() ) { // Check if comments are allowed per post ?>
+				<?php if ( comments_open() && !is_preview() ) : // Check if comments are allowed per post ?>
 				
 					<div class="row row-padding">
 						<button class="btn btn-primary btn-ghost btn-sm btn-block btn-sm-max-width toggle-plus-minus" type="button" data-toggle="collapse" href="#comments-<?php the_ID(); ?>" aria-expanded="false" aria-controls="comments-<?php the_ID(); ?>"><h6><i class="fa fa-plus"></i> Comments</h6></button>
 					</div>
 
-				<?php } ?>
+				<?php endif; ?>
 
 				<div class="post-meta-bylines font-size-small">
 					<?php pbt_secondary_bylines(); ?>
@@ -46,10 +46,10 @@ get_header();
 
 				<div class="post-meta font-size-small">
 					<?php
-						if ( pbt_has_categories($post) ) {
+						if ( pbt_has_categories($post) ) :
 							echo '<i class="fa fa-tag"></i>';
 							pbt_the_badged_categories($post);
-						}
+						endif;
 						echo '<span class="post-date font-size-small pull-right"><em>Posted on ' . get_the_date( 'F j, Y' ) . '</em></span>';
 					?>
 				</div>
@@ -58,17 +58,17 @@ get_header();
 					<?php edit_post_link('Edit This Post', '<button class="btn btn-primary btn-ghost btn-sm btn-block btn-sm-max-width" type="button"><h6>', '</h6></button>'); ?>
 				</div>
 
-				<?php if ( comments_open() && !is_preview() ) { // Check if comments are allowed per post ?>
+				<?php if ( comments_open() && !is_preview() ) : // Check if comments are allowed per post ?>
 					
 					<div class="collapse" id="comments-<?php the_ID(); ?>">
 						<div class="row row-padding">
 							<div class="col-xs-12">
-							<?php comments_template(); ?>
+								<?php comments_template(); ?>
 							</div>
 						</div>
 					</div>
 
-				<?php } ?>
+				<?php endif; ?>
 			</div>
 
 		</article>

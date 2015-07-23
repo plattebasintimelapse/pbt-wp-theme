@@ -13,7 +13,7 @@ get_header(); ?>
 		} else {
 			$post_thumbnail_url = get_header_image();
 		}
-
+		// Get the current author so we can display their stuff
 		$curauth = (isset($_GET['author_name'])) ? get_user_by('slug', $author_name) : get_userdata(intval($author));
 	?>
 
@@ -72,6 +72,7 @@ get_header(); ?>
 
 					$authors = []; // An array for all authors associated with this post
 
+					// Since each story may have multipe authors (photography, video by, etc), I have to check for each field to display on the page
 					array_push($authors, get_the_author_meta('ID') );
 					array_push($authors, get_field('second_user')['ID'] );
 					array_push($authors, get_field('third_user')['ID'] );

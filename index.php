@@ -1,6 +1,7 @@
 <?php
 /**
  * The main template file.
+ * This file is only used for fallbacks. Home.php is the main page. If that is deleted, this gets used.
  */
 
 get_header(); ?>

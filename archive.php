@@ -1,6 +1,7 @@
 <?php
 /**
  * The template for displaying Archive pages.
+ * Used for cateogry pages, tags pages, date pages, etc.
  */
 
 get_header();

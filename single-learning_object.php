@@ -21,98 +21,73 @@ get_header();
 					<div class="info-box aside-info-box affix-top-offset no-affix-sm no-affix-xs" data-spy="affix" data-offset-top="440" data-offset-bottom="20">
 						<div class="row">
 
-								<?php if( get_field('time_to_complete') ): ?>
-									<div class="col-sm-6 col-md-12">
-										<h4>Time:</h4>
-										<p><?php the_field('time_to_complete'); ?></p>
-									</div>
-								<?php endif; ?>
+							<?php if( get_field('time_to_complete') ): ?>
+								<div class="col-sm-6 col-md-12">
+									<h4>Time:</h4>
+									<p><?php the_field('time_to_complete'); ?></p>
+								</div>
+							<?php endif; ?>
 
-								<?php if( get_field('materials') ): ?>
-									<div class="col-sm-6 col-md-12">
-										<h4>Materials:</h4>
-										<p><?php the_field('materials'); ?></p>
-									</div>
-								<?php endif; ?>
+							<?php if( get_field('materials') ): ?>
+								<div class="col-sm-6 col-md-12">
+									<h4>Materials:</h4>
+									<p><?php the_field('materials'); ?></p>
+								</div>
+							<?php endif; ?>
 
-								<?php if( get_field('grade_level') ): ?>
-									<div class="col-sm-6 col-md-12">
-										<h4>Grade Level:</h4>
-										<p><?php the_field('grade_level'); ?></p>
-									</div>
-								<?php endif; ?>
+							<?php if( get_field('grade_level') ): ?>
+								<div class="col-sm-6 col-md-12">
+									<h4>Grade Level:</h4>
+									<p><?php the_field('grade_level'); ?></p>
+								</div>
+							<?php endif; ?>
 
-								<?php if( get_field('content_area') ): ?>
-									<div class="col-sm-6 col-md-12">
-										<h4>Content Area:</h4>
-										<p><?php the_field('content_area'); ?></p>
-									</div>
-								<?php endif; ?>
+							<?php if( get_field('content_area') ): ?>
+								<div class="col-sm-6 col-md-12">
+									<h4>Content Area:</h4>
+									<p><?php the_field('content_area'); ?></p>
+								</div>
+							<?php endif; ?>
 
-								<?php
-									$postid = get_the_ID();
-									$sep = ', ';
-									$standards = '';
-									$state_standards = '';
+							<?php
+								$postid = get_the_ID();
+								$sep = ', ';
+								$standards = '';
+								$state_standards = '';
 
-									if ( is_object_in_term( $post->ID , 'next_gen_standard' ) ) : //check to see if post has basin category ?>
+							if ( is_object_in_term( $post->ID , 'next_gen_standard' ) ) : //check to see if post has basin category ?>
 
-										<div class="col-sm-6 col-md-12">
-											<h4>Next Generation Science Standards:</h4>
+								<div class="col-sm-6 col-md-12">
+									<h4>Next Generation Science Standards:</h4>
 
-										<?php $terms = get_the_terms( $post->ID , 'next_gen_standard' );
+								<?php $terms = get_the_terms( $post->ID , 'next_gen_standard' );
 
-										foreach ( $terms as $term ) {
-											$standards .=  $term->name . $sep;
-										}
+								foreach ( $terms as $term ) {
+									$standards .=  $term->name . $sep;
+								}
 
-										echo trim($standards, $sep); ?>
+								echo trim($standards, $sep); ?>
 
-										</div>
-									<?php 
-									endif;
+								</div>
+							<?php endif;
 
-									if ( is_object_in_term( $post->ID , 'state_standard' ) ) : //check to see if post has basin category ?>
+							if ( is_object_in_term( $post->ID , 'state_standard' ) ) : //check to see if post has basin category ?>
 
-										<div class="col-sm-6 col-md-12">
-											<h4>Nebraska State Standards:</h4>
+								<div class="col-sm-6 col-md-12">
+									<h4>Nebraska State Standards:</h4>
 
-										<?php $terms = get_the_terms( $post->ID , 'state_standard' );
+								<?php $terms = get_the_terms( $post->ID , 'state_standard' );
 
-										foreach ( $terms as $term ) {
-											$state_standards .=  $term->name . $sep;
-										}
+								foreach ( $terms as $term ) {
+									$state_standards .=  $term->name . $sep;
+								}
 
-										echo trim($state_standards, $sep); ?>
+								echo trim($state_standards, $sep); ?>
 
-										</div>
-									<?php endif; ?>
+								</div>
+							<?php endif; ?>
 
-							<div class="col-xs-12 col-v-some-padding">
-								<?php
-									$lessons = get_posts(array(
-										'post_type' => 'lesson',
-										'meta_query' => array(
-											array(
-												'key' => 'learning_objects_list',
-												'value' => '"' . get_the_ID() . '"',
-												'compare' => 'LIKE',
-											)
-										)
-									));
-									if( $lessons ):
-										foreach( $lessons as $lesson ): ?>
-											<p class="no-margins text-center font-size-ex-small">
-												<a class="link-clor-dark" href="<?php echo get_permalink( $lesson->ID ); ?>">
-													<i class="fa fa-arrow-left"></i> Return to <?php echo get_the_title( $lesson->ID ); ?>
-												</a>
-											</p>
-										<?php endforeach;
-									endif;
-								?>
-							</div>
 						</div>
-
 					</div>
 				</aside>
 
@@ -135,4 +110,4 @@ get_header();
 
 	</article>
 
-<?php get_footer('minimal'); ?>
+<?php get_footer(); ?>

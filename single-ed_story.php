@@ -1,6 +1,6 @@
 <?php
 /**
- * The template for displaying a curriculum page.
+ * The template for displaying a education story page.
  */
 
 get_header();
@@ -29,6 +29,7 @@ get_header();
 
 	<article id="post-<?php the_ID(); ?>" <?php post_class('main main-content education'); ?> role="main">
 
+		<!-- Only show this bar if there is a lesson plan or vocab PDF -->
 		<?php if( get_field('lesson_plan_pdf') or get_field('vocabulary_pdf') ): ?>
 
 			<div class="container-fluid info-box under-hero-image color-special">
@@ -44,6 +45,7 @@ get_header();
 							</p>
 						</div>
 					<?php endif; ?>
+
 					<?php if( get_field('vocabulary_pdf') ): ?>
 						<div class="col-sm-2 col-xs-6">
 							<h5 class="text-center">Vocabulary</h5>
@@ -62,6 +64,7 @@ get_header();
 			
 				
 		<?php 
+		// Get all the chapters associated with this education story, then display them.
 		$list = get_field('chapter_list');
 	
 		if( $list ): ?>
@@ -73,7 +76,8 @@ get_header();
 					$i = 0;
 					foreach( $list as $post ):
 						setup_postdata($post);
-						$i++;		
+						$i++;
+						// Have to send these variables into the loop for display and logic
 						set_query_var( 'post_id', $post->ID );
 						set_query_var( 'i', $i ); ?>
 

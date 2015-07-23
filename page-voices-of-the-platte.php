@@ -53,13 +53,9 @@ get_header();
 				
 						<div class="post-meta-box post-meta-box-lg">
 				
-							<?php if ( get_post_type() === 'post' ) { ?>
-				
-								<h5 class="post-category font-size-small">
-									<?php pbt_the_categories($post, ' | ' ); ?>
-								</h5>
-				
-							<?php } ?>
+							<h5 class="post-category font-size-small">
+								<?php pbt_the_categories($post, ' | ' ); ?>
+							</h5>
 				
 							<a href="<?php the_permalink() ?>">
 								<h1 class="post-title">

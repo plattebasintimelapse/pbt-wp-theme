@@ -2,12 +2,12 @@
 /**
  * The template for the stories page.
  * Description: This is the template that displays all stories curently published.
- * It excludes the post featured on the story page.
+ * It excludes the post featured on the story page and stories in the series Voices of the Platte.
  */
 
 get_header();
 
-$featuredPostID; // Used to exclude post from main FEED
+$exclude_terms = array( 'voices-of-the-platte', ) // Exclude the stories that have these terms
 
 ?>
 
@@ -67,7 +67,7 @@ $featuredPostID; // Used to exclude post from main FEED
 					array(
 						'taxonomy' => 'series',
 						'field'    => 'slug',
-						'terms'    => 'voices-of-the-platte',
+						'terms'    => $exclude_terms,
 						'operator'	=> 'NOT IN',
 					),
 				),
