@@ -63,6 +63,14 @@ $featuredPostID; // Used to exclude post from main FEED
 			$story_page_query_args = array(
 				'post_type' => 'post',
 				'post__not_in' => array( $featuredPostID, ),
+				'tax_query' => array(
+					array(
+						'taxonomy' => 'series',
+						'field'    => 'slug',
+						'terms'    => 'voices-of-the-platte',
+						'operator'	=> 'NOT IN',
+					),
+				),
 				'orderby' => 'date',
 				'order'   => 'DESC',
 				'posts_per_page' => 10,

@@ -21,15 +21,12 @@ get_header();
 					<div class="info-box aside-info-box affix-top-offset no-affix-sm no-affix-xs" data-spy="affix" data-offset-top="440" data-offset-bottom="20">
 						<div class="row">
 
-								<div class="col-sm-6 col-md-12">
-									<h4>Time:</h4>
-									<p><?php the_field('time_to_complete'); ?></p>
-								</div>
-
-								<div class="col-sm-6 col-md-12">
-									<h4>Grade Level:</h4>
-									<p><?php the_field('grade_level'); ?></p>
-								</div>
+								<?php if( get_field('time_to_complete') ): ?>
+									<div class="col-sm-6 col-md-12">
+										<h4>Time:</h4>
+										<p><?php the_field('time_to_complete'); ?></p>
+									</div>
+								<?php endif; ?>
 
 								<?php if( get_field('materials') ): ?>
 									<div class="col-sm-6 col-md-12">
@@ -38,24 +35,17 @@ get_header();
 									</div>
 								<?php endif; ?>
 
-								<?php if( get_field('key_ideas') ): ?>
+								<?php if( get_field('grade_level') ): ?>
 									<div class="col-sm-6 col-md-12">
-										<h4>Key Ideas:</h4>
-										<p><?php the_field('key_ideas'); ?></p>
+										<h4>Grade Level:</h4>
+										<p><?php the_field('grade_level'); ?></p>
 									</div>
 								<?php endif; ?>
 
-								<?php if( get_field('notes_links') ): ?>
+								<?php if( get_field('content_area') ): ?>
 									<div class="col-sm-6 col-md-12">
-										<h4>Links:</h4>
-										<?php the_field('notes_links'); ?>
-									</div>
-								<?php endif; ?>
-
-								<?php if( get_field('next_gen_standards') ): ?>
-									<div class="col-sm-6 col-md-12">
-										<h4>Next Generation Standards:</h4>
-										<?php the_field('next_gen_standards'); ?>
+										<h4>Content Area:</h4>
+										<p><?php the_field('content_area'); ?></p>
 									</div>
 								<?php endif; ?>
 
@@ -63,13 +53,14 @@ get_header();
 									$postid = get_the_ID();
 									$sep = ', ';
 									$standards = '';
+									$state_standards = '';
 
-									if ( is_object_in_term( $post->ID , 'education_standard' ) ) { //check to see if post has basin category ?>
+									if ( is_object_in_term( $post->ID , 'next_gen_standard' ) ) : //check to see if post has basin category ?>
 
 										<div class="col-sm-6 col-md-12">
-											<h4>Nebraska Standards:</h4>
+											<h4>Next Generation Science Standards:</h4>
 
-										<?php $terms = get_the_terms( $post->ID , 'education_standard' );
+										<?php $terms = get_the_terms( $post->ID , 'next_gen_standard' );
 
 										foreach ( $terms as $term ) {
 											$standards .=  $term->name . $sep;
@@ -78,12 +69,24 @@ get_header();
 										echo trim($standards, $sep); ?>
 
 										</div>
-									<?php } ?>
+									<?php 
+									endif;
 
-								<div class="col-sm-6 col-md-12">
-									<h4>Next Gen Standards:</h4>
-									<p>A Link Here</p>
-								</div>
+									if ( is_object_in_term( $post->ID , 'state_standard' ) ) : //check to see if post has basin category ?>
+
+										<div class="col-sm-6 col-md-12">
+											<h4>Nebraska State Standards:</h4>
+
+										<?php $terms = get_the_terms( $post->ID , 'state_standard' );
+
+										foreach ( $terms as $term ) {
+											$state_standards .=  $term->name . $sep;
+										}
+
+										echo trim($state_standards, $sep); ?>
+
+										</div>
+									<?php endif; ?>
 
 							<div class="col-xs-12 col-v-some-padding">
 								<?php

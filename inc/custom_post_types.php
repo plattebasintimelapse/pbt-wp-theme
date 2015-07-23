@@ -349,17 +349,17 @@ add_action('init', 'pbt_ed_learning_object_post_type');
  */
 function pbt_ed_learning_object_taxonomies() {
     $labels = array(
-        'name'              => _x( 'Education Standards', 'taxonomy general name' ),
-        'singular_name'     => _x( 'Education Standard', 'taxonomy singular name' ),
-        'search_items'      => __( 'Search Education Standards' ),
-        'all_items'         => __( 'All Education Standards' ),
-        'parent_item'       => __( 'Parent Education Standard' ),
-        'parent_item_colon' => __( 'Parent Education Standard:' ),
-        'edit_item'         => __( 'Edit Education Standard' ),
-        'update_item'       => __( 'Update Education Standard' ),
-        'add_new_item'      => __( 'Add New Education Standard' ),
-        'new_item_name'     => __( 'New Education Standard' ),
-        'menu_name'         => __( 'Education Standards' ),
+        'name'              => _x( 'Next Gen Standards', 'taxonomy general name' ),
+        'singular_name'     => _x( 'Next Gen Standard', 'taxonomy singular name' ),
+        'search_items'      => __( 'Search Next Gen Standards' ),
+        'all_items'         => __( 'All Next Gen Standards' ),
+        'parent_item'       => __( 'Parent Next Gen Standard' ),
+        'parent_item_colon' => __( 'Parent Next Gen Standard:' ),
+        'edit_item'         => __( 'Edit Next Gen Standard' ),
+        'update_item'       => __( 'Update Next Gen Standard' ),
+        'add_new_item'      => __( 'Add New Next Gen Standard' ),
+        'new_item_name'     => __( 'New Next Gen Standard' ),
+        'menu_name'         => __( 'Next Gen Standards' ),
     );
     $args = array(
         'labels' => $labels,
@@ -368,7 +368,29 @@ function pbt_ed_learning_object_taxonomies() {
         'show_admin_column' => true,
         'show_in_nav_menus' => false,
     );
-    register_taxonomy( 'education_standard', 'learning_object', $args );
+    register_taxonomy( 'next_gen_standard', 'learning_object', $args );
+
+    $labels = array(
+        'name'              => _x( 'State Standards', 'taxonomy general name' ),
+        'singular_name'     => _x( 'State Standard', 'taxonomy singular name' ),
+        'search_items'      => __( 'Search State Standards' ),
+        'all_items'         => __( 'All State Standards' ),
+        'parent_item'       => __( 'Parent State Standard' ),
+        'parent_item_colon' => __( 'Parent State Standard:' ),
+        'edit_item'         => __( 'Edit State Standard' ),
+        'update_item'       => __( 'Update State Standard' ),
+        'add_new_item'      => __( 'Add New State Standard' ),
+        'new_item_name'     => __( 'New State Standard' ),
+        'menu_name'         => __( 'State Standards' ),
+    );
+    $args = array(
+        'labels' => $labels,
+        'rewrite'           => array( 'slug' => 'standard'),
+        'hierarchical'      => true,
+        'show_admin_column' => true,
+        'show_in_nav_menus' => false,
+    );
+    register_taxonomy( 'state_standard', 'learning_object', $args );
 }
 add_action( 'init', 'pbt_ed_learning_object_taxonomies', 0 );
 
